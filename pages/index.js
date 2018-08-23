@@ -1,7 +1,7 @@
-const Index = () => (
-    <div>
-        <p>Urman</p>
-    </div>
-);
+import Layout from '../components/Layout.js';
 
-export default Index;
+export default () => (
+    <Layout>
+        <h1>Главная</h1>
+    </Layout>
+);
