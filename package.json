@@ -1,0 +1,8 @@
+{
+  "name": "urman-site",
+  "version": "0.1",
+  "main": "index.js",
+  "repository": "https://github.com/vagmen/urman-site.git",
+  "author": "Akhmetov Vagiz",
+  "license": "MIT"
+}
