@@ -1,15 +1,30 @@
 import Header from './Header';
+import Head from 'next/head';
+import { LocaleProvider } from 'antd';
+import ruRU from 'antd/lib/locale-provider/ru_RU';
 
-const layoutStyle = {
-    margin: 20,
-    padding: 20,
-    border: '1px solid #DDD',
-};
-
-const Layout = (props) => (
-    <div style={layoutStyle}>
+const Layout = ({ title, children }) => (
+    <div>
+        <Head>
+            <title>{title}</title>
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <meta charSet="utf-8" />
+            <link
+                rel="stylesheet"
+                href="//cdnjs.cloudflare.com/ajax/libs/antd/3.2.0/antd.min.css"
+            />
+        </Head>
+        <style jsx global>{`
+            body {
+            }
+        `}</style>
         <Header />
-        {props.children}
+        <LocaleProvider locale={ruRU}>
+            <div>{children}</div>
+        </LocaleProvider>
     </div>
 );
 
