@@ -22,6 +22,7 @@ export default () => (
                 flex-direction: column;
                 align-items: center;
                 position: relative;
+                padding-top: 50px;
             }
             h1 {
                 font-size: 48px;

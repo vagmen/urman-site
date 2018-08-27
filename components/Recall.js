@@ -19,25 +19,30 @@ const Recall = () => (
                 Citrix uses TechValidate to magnify the output of their
                 marketing team.
             </p>
-            <a>Watch the Interview</a>
+            <a>Смотрите интервью</a>
         </div>
         <style jsx>{`
             .recall {
-                min-width: 420px;
+                width: 100%;
                 margin-top: 30px;
             }
             .recall-img {
                 z-index: 0;
-                height: 400px;
+                height: 300px;
+                width: 300px;
                 background: url(https://www.techvalidate.com/assets/corp/index/citrix/citrix-a0402b4ba6c0a0b9bcbd8a4c2fb1a09f.png)
                     100% 100% no-repeat;
-                background-size: cover;
+                background-size: contain;
                 background-position: center center;
+                margin: 0 auto;
             }
             .recall-container {
                 width: 80%;
                 margin: 0 auto;
                 margin-top: 20px;
+                border: 1px solid #d5d5d5;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.95);
             }
             .recall-header {
                 display: flex;
@@ -47,6 +52,7 @@ const Recall = () => (
             }
             .recall-logo {
                 flex: 0 0 100px;
+                height: 40px;
             }
         `}</style>
     </div>
