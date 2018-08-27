@@ -6,24 +6,34 @@ import { escapeComponent } from 'uri-js';
 class Header extends Component {
     constructor() {
         super();
+        this.state = {
+            isScrolled: true,
+        };
 
         if (typeof window !== 'undefined') {
-            console.log('window', typeof window);
+            this.checkScrolled();
             window.addEventListener('scroll', (e) => {
-                let scrolled =
-                    window.pageYOffset || document.documentElement.scrollTop;
-                console.log('scrolled', scrolled);
-                if (scrolled) {
-                }
+                this.checkScrolled();
             });
         }
-        this.state = {
-            isScrolled: false,
-        };
     }
+
+    checkScrolled = () => {
+        const scrolled =
+            window.pageYOffset || document.documentElement.scrollTop;
+        this.setState({
+            isScrolled: !!scrolled,
+        });
+    };
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll');
+    }
+
     render() {
+        const { isScrolled } = this.state;
         return (
-            <div className="header transparent">
+            <div className={`header ${isScrolled ? `` : `transparent`}`}>
                 <div className="header-name">
                     <span className="logo">URMAN</span>
                     <span className="slogan">Комплексные лесные решения</span>
