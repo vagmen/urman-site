@@ -6,14 +6,20 @@ import { escapeComponent } from 'uri-js';
 class Header extends Component {
     constructor() {
         super();
-        // console.log('window', window);
-        // if (typeof window !== 'undefined') {
-        //     window.addEventListener('onscroll', (e) => {
-        //         let scrolled =
-        //             window.pageYOffset || document.documentElement.scrollTop;
-        //         console.log('scrolled', scrolled);
-        //     });
-        // }
+
+        if (typeof window !== 'undefined') {
+            console.log('window', typeof window);
+            window.addEventListener('scroll', (e) => {
+                let scrolled =
+                    window.pageYOffset || document.documentElement.scrollTop;
+                console.log('scrolled', scrolled);
+                if (scrolled) {
+                }
+            });
+        }
+        this.state = {
+            isScrolled: false,
+        };
     }
     render() {
         return (
