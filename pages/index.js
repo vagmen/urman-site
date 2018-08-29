@@ -14,6 +14,24 @@ export default () => (
                 Смотреть краткий обзор
             </Button>
             <Recall />
+            <div className="tour">
+                <div className="tour__item tour__item-green">
+                    <h4>Наши услуги</h4>
+                    <p>Посмотрите, чем мы можем быть вам полезны</p>
+                    <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
+                </div>
+                <div className="tour__item tour__item-blue">
+                    <h4>ИСТОРИИ КЛИЕНТОВ</h4>
+                    <p>Посмотрите, что говорят наши клиенты о нас</p>
+                    <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
+                </div>
+                <div className="tour__item tour__item-orange">
+                    <h4>КЛИЕНТЫ В ЦИФРАХ</h4>
+                    <p>100% наших клиентов находятся в России. Подробнее -></p>
+                    <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
+                </div>
+            </div>
+            <footer>О нас</footer>
         </div>
         <style jsx>{`
             .main-container {
@@ -39,6 +57,42 @@ export default () => (
                 text-align: center;
                 padding: 30px;
             }
+            .tour {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .tour__item {
+                background-image: url('https://www.techvalidate.com/assets/corp/header/bg-overlay-505519f95428cb2cc16945b69604042e.png');
+                background-size: cover;
+                flex: 1 1 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                padding: 30px;
+                cursor: pointer;
+            }
+            .tour__item-green {
+                background-color: #77bc1f;
+                background-position: right;
+            }
+            .tour__item-blue {
+                background-color: #2c2f88;
+                background-position: left;
+            }
+            .tour__item-orange {
+                background-color: #ff8400;
+                background-position: center;
+            }
+            .tour__item h4,
+            .tour__item p {
+                color: white;
+                padding: 0px;
+                text-align: center;
+            }
+            .tour__item img {
+                width: 80%;
         `}</style>
     </Layout>
 );

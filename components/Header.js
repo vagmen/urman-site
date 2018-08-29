@@ -4,8 +4,8 @@ import { Button } from 'antd';
 import { escapeComponent } from 'uri-js';
 
 class Header extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             isScrolled: true,
         };
