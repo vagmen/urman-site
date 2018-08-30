@@ -10,12 +10,12 @@ class Header extends Component {
             isScrolled: true,
         };
 
-        if (typeof window !== 'undefined') {
-            this.checkScrolled();
-            window.addEventListener('scroll', (e) => {
-                this.checkScrolled();
-            });
-        }
+        // if (typeof window !== 'undefined') {
+        //     this.checkScrolled();
+        //     window.addEventListener('scroll', (e) => {
+        //         this.checkScrolled();
+        //     });
+        // }
     }
 
     checkScrolled = () => {
@@ -26,30 +26,43 @@ class Header extends Component {
         });
     };
 
-    componentWillUnmount() {
-        window.removeEventListener('scroll');
-    }
+    // componentWillUnmount() {
+    //     window.removeEventListener('scroll');
+    // }
 
     render() {
         const { isScrolled } = this.state;
         return (
             <div className={`header ${isScrolled ? `` : `transparent`}`}>
-                <div className="header-name">
-                    <span className="logo">URMAN</span>
-                    <span className="slogan">Комплексные лесные решения</span>
-                </div>
+                <Link href="/">
+                    <div className="header-name">
+                        <span className="logo">URMAN</span>
+                        <span className="slogan">
+                            Комплексные лесные решения
+                        </span>
+                    </div>
+                </Link>
                 <div className="menu-trigger">
                     <Button icon="bars">Меню</Button>
                 </div>
                 <div className="menu">
-                    <Link href="/">
-                        <a className="menu-item">Главная</a>
+                    <Link href="/clients">
+                        <a className="menu-item">Клиенты</a>
+                    </Link>
+                    <Link href="/service">
+                        <a className="menu-item">Услуги</a>
+                    </Link>
+                    <Link href="/why-urman">
+                        <a className="menu-item">Почему URMAN</a>
                     </Link>
                     <Link href="/about">
                         <a className="menu-item">О нас</a>
                     </Link>
                     <Link href="/blog">
-                        <a className="menu-item">Блог</a>
+                        <a className="menu-item">Журнал</a>
+                    </Link>
+                    <Link href="/contacts">
+                        <a className="menu-item">Контакты</a>
                     </Link>
                 </div>
                 <style jsx>{`

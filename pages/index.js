@@ -31,7 +31,6 @@ export default () => (
                     <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
                 </div>
             </div>
-            <footer>О нас</footer>
         </div>
         <style jsx>{`
             .main-container {
@@ -60,6 +59,7 @@ export default () => (
             .tour {
                 display: flex;
                 flex-wrap: wrap;
+                margin-top: 30px;
             }
             .tour__item {
                 background-image: url('https://www.techvalidate.com/assets/corp/header/bg-overlay-505519f95428cb2cc16945b69604042e.png');
@@ -93,6 +93,12 @@ export default () => (
             }
             .tour__item img {
                 width: 80%;
+            }
+            @media screen and (min-width: 1024px) {
+                .tour__item {
+                    flex: 1 1 33%;
+                }
+            }
         `}</style>
     </Layout>
 );
