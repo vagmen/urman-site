@@ -8,7 +8,8 @@
     "scripts": {
         "dev": "node server.js",
         "build": "next build",
-        "start": "next start"
+        "start": "next start -p $PORT",
+        "heroku-postbuild": "next build"
     },
     "dependencies": {
         "antd": "^3.8.3",
