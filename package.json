@@ -4,6 +4,10 @@
     "repository": "https://github.com/vagmen/urman-site.git",
     "author": "Akhmetov Vagiz",
     "license": "MIT",
+    "version": "1.0.0",
+    "engines": {
+        "node": "10.4.1"
+    },
     "scripts": {
         "dev": "node server.js",
         "build": "next build",
