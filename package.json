@@ -9,7 +9,8 @@
         "dev": "node server.js",
         "build": "next build",
         "start": "next start -p $PORT",
-        "heroku-postbuild": "next build"
+        "heroku-postbuild": "npm run build",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
         "antd": "^3.8.3",
