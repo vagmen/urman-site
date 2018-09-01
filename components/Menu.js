@@ -5,7 +5,7 @@ import { Button, Icon } from 'antd';
 const menuData = [
     {
         title: 'Клиенты',
-        icon: 'idcard',
+        icon: 'team',
         src: '/clients',
     },
     {
@@ -15,7 +15,7 @@ const menuData = [
     },
     {
         title: 'О нас',
-        icon: 'team',
+        icon: 'idcard',
         src: '/about',
     },
     {
