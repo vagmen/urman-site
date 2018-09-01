@@ -1,1 +1,0 @@
-module.exports=__NEXT_REGISTER_PAGE("/about",function(){return{page:webpackJsonp([5],{533:function(e,t,n){e.exports=n(534)},534:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var u=n(0),a=n.n(u),r=n(87);t.default=function(){return a.a.createElement(r.a,null,a.a.createElement("h1",null,"Мы такие-то такие-то"))}}},[533]).default}});
