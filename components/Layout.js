@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { LocaleProvider } from 'antd';
 import ruRU from 'antd/lib/locale-provider/ru_RU';
 import Header from './Header';
+import Menu from './Menu';
 import Footer from './Footer';
 
 const Layout = ({ title, children }) => (
@@ -23,6 +24,7 @@ const Layout = ({ title, children }) => (
             }
         `}</style>
         <Header />
+        <Menu />
         <LocaleProvider locale={ruRU}>
             <div>{children}</div>
         </LocaleProvider>

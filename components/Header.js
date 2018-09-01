@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { Button } from 'antd';
-import { escapeComponent } from 'uri-js';
 
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isScrolled: true,
+            isScrolled: false,
         };
-
-        // if (typeof window !== 'undefined') {
-        //     this.checkScrolled();
-        //     window.addEventListener('scroll', (e) => {
-        //         this.checkScrolled();
-        //     });
-        // }
     }
 
     checkScrolled = () => {
@@ -25,10 +17,6 @@ class Header extends Component {
             isScrolled: !!scrolled,
         });
     };
-
-    // componentWillUnmount() {
-    //     window.removeEventListener('scroll');
-    // }
 
     render() {
         const { isScrolled } = this.state;
@@ -72,7 +60,6 @@ class Header extends Component {
                         color: black;
                         align-items: center;
                         padding: 0 20px;
-                        position: fixed;
                         top: 0;
                         z-index: 1;
                         width: 100%;
