@@ -10,18 +10,6 @@
         "npm": "6.1.0",
         "yarn": "1.7.0"
     },
-    "babel": {
-        "presets": [
-            [
-                "next/babel",
-                {
-                    "styled-jsx": {
-                        "optimizeForSpeed": true
-                    }
-                }
-            ]
-        ]
-    },
     "scripts": {
         "dev": "node server.js",
         "build": "next build",
