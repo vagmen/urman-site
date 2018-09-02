@@ -1,4 +1,5 @@
 import { Button } from 'antd';
+import Link from 'next/link';
 import Layout from '../components/Layout.js';
 import Recall from '../components/Recall.js';
 
@@ -15,16 +16,20 @@ export default () => (
             </Button>
             <Recall />
             <div className="tour">
-                <div className="tour__item tour__item-green">
-                    <h4>Наши услуги</h4>
-                    <p>Посмотрите, чем мы можем быть вам полезны</p>
-                    <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
-                </div>
-                <div className="tour__item tour__item-blue">
-                    <h4>ИСТОРИИ КЛИЕНТОВ</h4>
-                    <p>Посмотрите, что говорят наши клиенты о нас</p>
-                    <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
-                </div>
+                <Link href={`/services`}>
+                    <div className="tour__item tour__item-green">
+                        <h4>Наши услуги</h4>
+                        <p>Посмотрите, чем мы можем быть вам полезны</p>
+                        <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
+                    </div>
+                </Link>
+                <Link href={`/clients`}>
+                    <div className="tour__item tour__item-blue">
+                        <h4>ИСТОРИИ КЛИЕНТОВ</h4>
+                        <p>Посмотрите, что говорят наши клиенты о нас</p>
+                        <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
+                    </div>
+                </Link>
                 <div className="tour__item tour__item-orange">
                     <h4>КЛИЕНТЫ В ЦИФРАХ</h4>
                     <p>100% наших клиентов находятся в России. Подробнее -></p>

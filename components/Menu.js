@@ -11,7 +11,7 @@ const menuData = [
     {
         title: 'Услуги',
         icon: 'key',
-        src: '/service',
+        src: '/services',
     },
     {
         title: 'О нас',

@@ -135,6 +135,9 @@ class Footer extends Component {
                         color: #2c2f88;
                     }
                     @media screen and (min-width: 1024px) {
+                        footer{
+                            padding-bottom: 64px;
+                        }
                         .column{
                             flex: 1 1 33%
                         }

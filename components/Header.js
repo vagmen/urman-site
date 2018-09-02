@@ -30,7 +30,18 @@ class Header extends Component {
                         </span>
                     </div>
                 </Link>
-                <div className="menu-trigger">
+                <div className="start-proj">
+                    <span className="start-proj__phone">
+                        +7 347 <strong>298-34-86</strong>
+                    </span>
+                    <span className="start-proj__button start-proj__button-text">
+                        Начать проект
+                    </span>
+                    <span className="start-proj__button start-proj__button-icon">
+                        +
+                    </span>
+                </div>
+                {/* <div className="menu-trigger">
                     <Button icon="bars">Меню</Button>
                 </div>
                 <div className="menu">
@@ -52,7 +63,7 @@ class Header extends Component {
                     <Link href="/contacts">
                         <a className="menu-item">Контакты</a>
                     </Link>
-                </div>
+                </div> */}
                 <style jsx>{`
                     .header {
                         display: flex;
@@ -81,6 +92,36 @@ class Header extends Component {
                         cursor: pointer;
                         height: 32px;
                     }
+                    .start-proj {
+                    }
+                    .start-proj__phone {
+                        display: none;
+                    }
+                    .start-proj__button {
+                        margin-left: 20px;
+                        color: #fff;
+                        padding: 10px 14px;
+                        border-radius: 20px;
+                        cursor: pointer;
+                        transition-duration: 0.4s;
+                        transition-timing-function: ease;
+                        transition-property: background-color, color, opacity;
+                        font-weight: 700;
+                        background: #f06060;
+                    }
+                    .start-proj__button:hover {
+                        background: rgba(240, 96, 96, 0.5);
+                    }
+
+                    .start-proj__button-text {
+                        display: none;
+                    }
+                    .start-proj__button-icon {
+                        background-image: url(../images/icons/tree.svg);
+                        width: 30px;
+                        height: 30px;
+                    }
+
                     .menu-trigger {
                         display: flex;
                     }
@@ -96,7 +137,19 @@ class Header extends Component {
                     .menu-item:hover {
                         background: rgba(0, 0, 0, 0.05);
                     }
+                    @media screen and (min-width: 500px) {
+                        .start-proj__button-icon {
+                            display: none;
+                        }
+                        .start-proj__button-text {
+                            display: inline;
+                        }
+                    }
                     @media screen and (min-width: 750px) {
+                        .start-proj__phone {
+                            display: inline;
+                        }
+
                         .menu-trigger {
                             display: none;
                         }
