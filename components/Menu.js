@@ -55,7 +55,7 @@ class Menu extends Component {
                         color: black;
                         align-items: center;
                         bottom: 0;
-                        z-index: 1;
+                        z-index: 100;
                         width: 100%;
                         background-color: #1e1435;
                         position: fixed;

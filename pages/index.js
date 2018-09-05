@@ -2,6 +2,7 @@ import { Button } from 'antd';
 import Link from 'next/link';
 import Layout from '../components/Layout.js';
 import Recall from '../components/Recall.js';
+import StartProject from '../components/StartProject.js';
 
 export default () => (
     <Layout title="URMAN">
@@ -35,6 +36,7 @@ export default () => (
                     <p>100% наших клиентов находятся в России. Подробнее -></p>
                     <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
                 </div>
+                <StartProject />
             </div>
         </div>
         <style jsx>{`
