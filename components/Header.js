@@ -3,25 +3,9 @@ import Link from 'next/link';
 import { Button } from 'antd';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isScrolled: false,
-        };
-    }
-
-    checkScrolled = () => {
-        const scrolled =
-            window.pageYOffset || document.documentElement.scrollTop;
-        this.setState({
-            isScrolled: !!scrolled,
-        });
-    };
-
     render() {
-        const { isScrolled } = this.state;
         return (
-            <div className={`header ${isScrolled ? `` : `transparent`}`}>
+            <div className={`header ${false ? `` : `transparent`}`}>
                 <Link href="/">
                     <div className="header-name">
                         <span className="logo">URMAN</span>
@@ -41,29 +25,6 @@ class Header extends Component {
                         +
                     </span>
                 </div>
-                {/* <div className="menu-trigger">
-                    <Button icon="bars">Меню</Button>
-                </div>
-                <div className="menu">
-                    <Link href="/clients">
-                        <a className="menu-item">Клиенты</a>
-                    </Link>
-                    <Link href="/service">
-                        <a className="menu-item">Услуги</a>
-                    </Link>
-                    <Link href="/why-urman">
-                        <a className="menu-item">Почему URMAN</a>
-                    </Link>
-                    <Link href="/about">
-                        <a className="menu-item">О нас</a>
-                    </Link>
-                    <Link href="/blog">
-                        <a className="menu-item">Журнал</a>
-                    </Link>
-                    <Link href="/contacts">
-                        <a className="menu-item">Контакты</a>
-                    </Link>
-                </div> */}
                 <style jsx>{`
                     .header {
                         display: flex;
@@ -121,22 +82,6 @@ class Header extends Component {
                         width: 30px;
                         height: 30px;
                     }
-
-                    .menu-trigger {
-                        display: flex;
-                    }
-                    .menu {
-                        display: none;
-                    }
-                    .menu-item {
-                        color: #444;
-                        font-size: 15px;
-                        padding: 4px 6px;
-                        border-radius: 3px;
-                    }
-                    .menu-item:hover {
-                        background: rgba(0, 0, 0, 0.05);
-                    }
                     @media screen and (min-width: 500px) {
                         .start-proj__button-icon {
                             display: none;
@@ -148,13 +93,6 @@ class Header extends Component {
                     @media screen and (min-width: 750px) {
                         .start-proj__phone {
                             display: inline;
-                        }
-
-                        .menu-trigger {
-                            display: none;
-                        }
-                        .menu {
-                            display: flex;
                         }
                     }
                 `}</style>
