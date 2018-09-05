@@ -19,10 +19,6 @@ const Layout = ({ title, children }) => (
                 href="//cdnjs.cloudflare.com/ajax/libs/antd/3.2.0/antd.min.css"
             />
         </Head>
-        <style jsx global>{`
-            body {
-            }
-        `}</style>
         <Header />
         <Menu />
         <LocaleProvider locale={ruRU}>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import { Button } from 'antd';
 
 class Header extends Component {
     render() {
