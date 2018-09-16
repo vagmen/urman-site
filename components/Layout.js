@@ -5,7 +5,7 @@ import Header from './Header';
 import Menu from './Menu';
 import Footer from './Footer';
 
-const Layout = ({ title, children }) => (
+const Layout = ({ title, menuItem, children }) => (
     <div>
         <Head>
             <title>{title}</title>
@@ -20,7 +20,7 @@ const Layout = ({ title, children }) => (
             />
         </Head>
         <Header />
-        <Menu />
+        <Menu menuItem={menuItem} />
         <LocaleProvider locale={ruRU}>
             <div>{children}</div>
         </LocaleProvider>

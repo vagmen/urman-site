@@ -2,3 +2,5 @@
 .next
 yarn-error.log
 .vscode
+*.lock
+yarn.lock

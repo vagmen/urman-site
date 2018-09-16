@@ -4,7 +4,7 @@ import Link from 'next/link';
 class Header extends Component {
     render() {
         return (
-            <div className={`header ${false ? `` : `transparent`}`}>
+            <div className={`header ${true ? `` : `transparent`}`}>
                 <Link href="/">
                     <div className="header-name">
                         <span className="logo">URMAN</span>
@@ -24,18 +24,34 @@ class Header extends Component {
                         +
                     </span>
                 </div>
+                <style jsx global>{`
+                    body {
+                        font-size: 18px;
+                    }
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    li {
+                        list-style: none;
+                    }
+                `}</style>
                 <style jsx>{`
                     .header {
                         display: flex;
                         justify-content: space-between;
-                        color: black;
+                        color: white;
                         align-items: center;
                         padding: 0 20px;
                         top: 0;
                         z-index: 1;
                         width: 100%;
-                        background-color: white;
-                        border-bottom: 1px solid #d5d5d5;
+                        background: rgba(0, 0, 0, 0.5);
+                        height: 80px;
+                        position: sticky;
+                        top: 0;
+                        z-index: 100;
                     }
                     .header.transparent {
                         background-color: transparent;
@@ -75,6 +91,7 @@ class Header extends Component {
 
                     .start-proj__button-text {
                         display: none;
+                        font-size: 16px;
                     }
                     .start-proj__button-icon {
                         background-image: url(../images/icons/tree.svg);

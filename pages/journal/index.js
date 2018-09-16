@@ -2,15 +2,17 @@ import Layout from '../../components/Layout';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 
+const menuItem = 'journal';
+
 const Index = (props) => (
-    <Layout>
+    <Layout title="Журнал" menuItem={menuItem}>
         <h1>Forest</h1>
         <ul>
             {props.shows.map(({ show }) => (
                 <li key={show.id}>
                     <Link
-                        as={`/blog/p/${show.id}`}
-                        href={`/blog/post?id=${show.id}`}
+                        as={`/journal/p/${show.id}`}
+                        href={`/journal/post?id=${show.id}`}
                     >
                         <a>{show.name}</a>
                     </Link>

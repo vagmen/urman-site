@@ -1,13 +1,15 @@
 import Layout from '../../components/Layout';
 
+const menuItem = 'contacts';
+
 const Index = () => (
-    <Layout>
+    <Layout title="Контакты" menuItem={menuItem}>
         <div className="contacts">
             <div className="contacts__section address">
                 <h1>proekt@urman.su</h1>
-                <p>105005, Москва, ул. Бауманская, 7</p>
-                <p>БЦ Central Yard, офис 215</p>
                 <p>+7 (347) 298-34-86</p>
+                <p>450047, Уфа, ул. Ленина 63</p>
+                <p>(Напротив министерства лесного хозяйства РБ)</p>
                 <a>На карте</a>
             </div>
             <div className="contacts__section requisites">

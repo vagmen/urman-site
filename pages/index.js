@@ -39,6 +39,7 @@ export default () => (
                 <StartProject />
             </div>
         </div>
+
         <style jsx>{`
             .main-container {
                 background: url(https://www.techvalidate.com/assets/corp/header/home-bg-8ab16c51b18c37209e40ccd812f83fc6.png);

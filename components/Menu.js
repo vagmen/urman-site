@@ -6,27 +6,27 @@ const menuData = [
     {
         title: 'Клиенты',
         icon: 'team',
-        src: '/clients',
+        src: 'clients',
     },
     {
         title: 'Услуги',
         icon: 'key',
-        src: '/services',
+        src: 'services',
     },
     {
         title: 'О нас',
         icon: 'idcard',
-        src: '/about',
+        src: 'about',
     },
     {
         title: 'Журнал',
         icon: 'book',
-        src: '/blog',
+        src: 'journal',
     },
     {
         title: 'Контакты',
         icon: 'phone',
-        src: '/contacts',
+        src: 'contacts',
     },
 ];
 
@@ -35,8 +35,14 @@ class Menu extends Component {
         return (
             <ul className="menu">
                 {menuData.map((item, index) => (
-                    <Link key={index} href={item.src}>
-                        <li className="menu-item">
+                    <Link key={index} href={`/${item.src}`}>
+                        <li
+                            className={`menu-item ${
+                                this.props.menuItem === item.src
+                                    ? `menu-item_active`
+                                    : ``
+                            }`}
+                        >
                             <Icon
                                 className="icon"
                                 type={item.icon}
@@ -83,6 +89,10 @@ class Menu extends Component {
                         padding-top: 5px;
                     }
                     .menu-item:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                    .menu-item_active {
+                        background: rgba(255, 255, 255, 0.2);
                     }
                     @media screen and (min-width: 750px) {
                         .menu-trigger {
