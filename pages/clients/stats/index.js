@@ -14,10 +14,6 @@ const Index = () => (
         >
             <h1>Статистика</h1>
         </WithSubMenu>
-        <style jsx>{`
-            .content {
-            }
-        `}</style>
     </Layout>
 );
 
