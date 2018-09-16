@@ -105,6 +105,11 @@ class Menu extends Component {
                             display: block;
                         }
                     }
+                    @media screen and (min-width: 1024px) {
+                        .menu-item a {
+                            font-size: 14px;
+                        }
+                    }
                 `}</style>
             </ul>
         );

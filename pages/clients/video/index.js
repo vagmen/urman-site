@@ -8,7 +8,7 @@ const imgSrc =
     'http://www.zabor-setka.ru/bitrix/templates/defoult/components/bitrix/catalog.section/video_main/images/video-play.jpg';
 
 const Index = () => (
-    <Layout title={menuData[menuItem][subMenuItem]}>
+    <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
         <WithSubMenu
             subMenuItems={menuData[menuItem]}
             subMenuItem={subMenuItem}

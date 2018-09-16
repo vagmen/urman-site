@@ -6,7 +6,7 @@ const menuItem = 'clients';
 const subMenuItem = 'review';
 
 const Index = () => (
-    <Layout title={menuData[menuItem][subMenuItem]}>
+    <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
         <WithSubMenu
             subMenuItems={menuData[menuItem]}
             subMenuItem={subMenuItem}
