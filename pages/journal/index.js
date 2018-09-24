@@ -1,44 +1,28 @@
-import Layout from '../../components/Layout';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+import Layout from '../../components/Layout';
+import WithSubMenu from '../../components/WithSubMenu';
 
 const menuItem = 'journal';
 
-const Index = (props) => (
+const Index = ({ subMenuItems }) => (
     <Layout title="Журнал" menuItem={menuItem}>
-        <h1>Forest</h1>
-        <ul>
-            {props.shows.map(({ show }) => (
-                <li key={show.id}>
-                    <Link
-                        as={`/journal/p/${show.id}`}
-                        href={`/journal/post?id=${show.id}`}
-                    >
-                        <a>{show.name}</a>
-                    </Link>
-                </li>
-            ))}
-        </ul>
+        <WithSubMenu subMenuItems={subMenuItems} menuItem={menuItem}>
+            <h1>Журнал – URMAN</h1>
+            {/* <ul>
+                {props.shows.map(({ show }) => (
+                    <li key={show.id}>
+                        <Link
+                            as={`/journal/${show.id}`}
+                            href={`/journal/post?id=${show.id}`}
+                        >
+                            <a>{show.name}</a>
+                        </Link>
+                    </li>
+                ))}
+            </ul> */}
+        </WithSubMenu>
         <style jsx>{`
-            h1,
-            a {
-                font-family: 'Arial';
-            }
-
-            ul {
-                padding: 0;
-            }
-
-            li {
-                list-style: none;
-                margin: 5px 0;
-            }
-
-            a {
-                text-decoration: none;
-                color: blue;
-            }
-
             a:hover {
                 opacity: 0.6;
             }
@@ -49,12 +33,12 @@ const Index = (props) => (
 Index.getInitialProps = async function() {
     const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     const data = await res.json();
+    const subMenuItems = {};
 
-    console.log(`Show data fetched. Count: ${data.length}`);
-    console.log('data', data);
+    data.forEach((item) => (subMenuItems[item.id] = item.name));
 
     return {
-        shows: data,
+        subMenuItems: subMenuItems,
     };
 };
 

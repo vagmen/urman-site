@@ -1,16 +1,35 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-const WithSubMenu = ({ subMenuItems, subMenuItem, menuItem, children }) => (
+const WithSubMenu = ({
+    subMenuItems,
+    subMenuItem,
+    menuItem,
+    withAs,
+    children,
+}) => (
     <div className="with-sub-menu">
         <ul className="sub-menu">
-            {Object.keys(subMenuItems).map((item, index) => (
-                <Link href={`/${menuItem}/${item}`} key={index}>
-                    <a className={subMenuItem == item ? 'active' : ''}>
-                        {subMenuItems[item]}
-                    </a>
-                </Link>
-            ))}
+            {Object.keys(subMenuItems).map(
+                (item, index) =>
+                    withAs ? (
+                        <Link
+                            as={`/${menuItem}/${item}`}
+                            href={`/${menuItem}/page?id=${subMenuItem}`}
+                            key={index}
+                        >
+                            <a className={subMenuItem == item ? 'active' : ''}>
+                                {subMenuItems[item]}
+                            </a>
+                        </Link>
+                    ) : (
+                        <Link href={`/${menuItem}/${item}`} key={index}>
+                            <a className={subMenuItem == item ? 'active' : ''}>
+                                {subMenuItems[item]}
+                            </a>
+                        </Link>
+                    )
+            )}
         </ul>
         <div className="content">{children}</div>
         <style jsx>{`
@@ -44,11 +63,13 @@ const WithSubMenu = ({ subMenuItems, subMenuItem, menuItem, children }) => (
             .content {
                 flex: 1 1 100%;
                 padding: 0 20px;
+                display: flex;
+                flex-wrap: wrap;
             }
-            @media screen and (min-width: 1024px) {
+            @media (min-width: 1024px) {
                 .with-sub-menu {
                     flex-wrap: nowrap;
-                    margin: 30px;
+                    padding: 30px;
                     justify-content: center;
                     align-items: flex-start;
                 }

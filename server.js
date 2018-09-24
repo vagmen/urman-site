@@ -9,8 +9,14 @@ app.prepare()
     .then(() => {
         const server = express();
 
-        server.get('/journal/p/:id', (req, res) => {
-            const actualPage = '/journal/post';
+        server.get('/journal/:id', (req, res) => {
+            const actualPage = '/journal/page';
+            const queryParams = { id: req.params.id };
+            app.render(req, res, actualPage, queryParams);
+        });
+
+        server.get('/services/:id', (req, res) => {
+            const actualPage = '/services/page';
             const queryParams = { id: req.params.id };
             app.render(req, res, actualPage, queryParams);
         });
