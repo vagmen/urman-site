@@ -50,10 +50,14 @@ const Index = () => (
                 <div className="feedback">
                     {initialData.map((item, index) => (
                         <div className="card" key={index}>
-                            <h3>{item.header}</h3>
-                            <p>{item.text}</p>
-                            <h4>{item.author}</h4>
-                            <span>{item.company}</span>
+                            <div className="card__text">
+                                <h3>{item.header}</h3>
+                                <p>{item.text}</p>
+                            </div>
+                            <div className="card__author">
+                                <h4>{item.author}</h4>
+                                <span>{item.company}</span>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -67,6 +71,7 @@ const Index = () => (
                 display: flex;
                 flex-wrap: wrap;
                 margin: 0 -10px;
+                align-items: flex-start;
             }
             h1 {
                 flex: 1 1 100%;
@@ -77,16 +82,22 @@ const Index = () => (
             }
             .card {
                 background: #fff;
-                padding: 20px;
                 width: 100%;
                 margin: 10px;
             }
+            .card__text {
+                padding: 20px;
+            }
+            .card__author {
+                padding: 20px;
+                border-top: solid 1px rgba(0, 0, 0, 0.3);
+            }
             @media (min-width: 750px) {
                 .card {
-                    width: calc(50% - 20px);
+                    width: calc(100% / 2 - 20px);
                 }
             }
-            @media (min-width: 1600px) {
+            @media (min-width: 1400px) {
                 .card {
                     width: calc(100% / 3 - 20px);
                 }

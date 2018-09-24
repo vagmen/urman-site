@@ -4,9 +4,7 @@ import menuData from '../../../constants/menuData';
 
 const menuItem = 'clients';
 const subMenuItem = 'video';
-const imgSrc =
-    'http://www.zabor-setka.ru/bitrix/templates/defoult/components/bitrix/catalog.section/video_main/images/video-play.jpg';
-
+const imgSrc = '/static/video.png';
 const Index = () => (
     <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
         <WithSubMenu

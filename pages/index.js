@@ -21,20 +21,20 @@ export default () => (
                     <div className="tour__item tour__item-green">
                         <h4>Наши услуги</h4>
                         <p>Посмотрите, чем мы можем быть вам полезны</p>
-                        <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
+                        <img src="/static/video.png" />
                     </div>
                 </Link>
                 <Link href={`/clients`}>
                     <div className="tour__item tour__item-blue">
                         <h4>ИСТОРИИ КЛИЕНТОВ</h4>
                         <p>Посмотрите, что говорят наши клиенты о нас</p>
-                        <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
+                        <img src="/static/video.png" />
                     </div>
                 </Link>
                 <div className="tour__item tour__item-orange">
                     <h4>КЛИЕНТЫ В ЦИФРАХ</h4>
                     <p>100% наших клиентов находятся в России. Подробнее -></p>
-                    <img src="https://www.techvalidate.com/assets/corp/index/product-tour-3c2e4f48b59e125cf1c4f1caf1495507.jpg" />
+                    <img src="/static/video.png" />
                 </div>
                 <StartProject />
             </div>
@@ -42,7 +42,7 @@ export default () => (
 
         <style jsx>{`
             .main-container {
-                background: url(https://www.techvalidate.com/assets/corp/header/home-bg-8ab16c51b18c37209e40ccd812f83fc6.png);
+                background: url('/static/home-bg.png');
                 display: flex;
                 flex-direction: column;
                 align-items: center;

@@ -94,7 +94,9 @@ class Header extends Component {
                         font-size: 16px;
                     }
                     .start-proj__button-icon {
-                        background-image: url(../images/icons/tree.svg);
+                         {
+                            /* background-image: url(static/icons/tree.svg); */
+                        }
                         width: 30px;
                         height: 30px;
                     }

@@ -62,7 +62,7 @@ const WithSubMenu = ({
             }
             .content {
                 flex: 1 1 100%;
-                padding: 0 20px;
+                padding: 20px;
                 display: flex;
                 flex-wrap: wrap;
             }

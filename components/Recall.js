@@ -1,3 +1,5 @@
+// import Img from '/static/home-img.png';
+
 const Recall = () => (
     <div className="recall">
         <div className="recall-img" />
@@ -30,8 +32,9 @@ const Recall = () => (
                 z-index: 0;
                 height: 300px;
                 width: 300px;
-                background: url(https://www.techvalidate.com/assets/corp/index/citrix/citrix-a0402b4ba6c0a0b9bcbd8a4c2fb1a09f.png)
-                    100% 100% no-repeat;
+
+                background: url('/static/home-img.png') 100% 100% no-repeat;
+
                 background-size: contain;
                 background-position: center center;
                 margin: 0 auto;
