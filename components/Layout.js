@@ -1,12 +1,14 @@
+import { Fragment } from 'react';
 import Head from 'next/head';
 import { LocaleProvider } from 'antd';
 import ruRU from 'antd/lib/locale-provider/ru_RU';
 import Header from './Header';
 import Menu from './Menu';
 import Footer from './Footer';
+import StartProject from './StartProject';
 
 const Layout = ({ title, menuItem, children }) => (
-    <div>
+    <Fragment>
         <Head>
             <title>{title}</title>
             <meta
@@ -22,10 +24,18 @@ const Layout = ({ title, menuItem, children }) => (
         <Header />
         <Menu menuItem={menuItem} />
         <LocaleProvider locale={ruRU}>
-            <div>{children}</div>
+            <div className="page-content">{children}</div>
         </LocaleProvider>
-        <Footer />
-    </div>
+        <StartProject />
+        {/* <Footer /> */}
+        <style jsx>{`
+            .page-content {
+                padding: 20px;
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+        `}</style>
+    </Fragment>
 );
 
 export default Layout;

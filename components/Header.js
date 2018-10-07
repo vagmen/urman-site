@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
+import { Icon } from 'antd';
 
 class Header extends Component {
     render() {
@@ -17,11 +18,13 @@ class Header extends Component {
                     <span className="start-proj__phone">
                         +7 347 <strong>298-34-86</strong>
                     </span>
-                    <span className="start-proj__button start-proj__button-text">
+                    {/* <span className="start-proj__button start-proj__button-text"> */}
+                    <button className="start-proj__button start-proj__button-text">
                         Начать проект
-                    </span>
+                    </button>
+                    {/* </span> */}
                     <span className="start-proj__button start-proj__button-icon">
-                        +
+                        <Icon type="plus" />
                     </span>
                 </div>
                 <style jsx global>{`
@@ -35,6 +38,13 @@ class Header extends Component {
 
                     li {
                         list-style: none;
+                    }
+                    button {
+                        border: none;
+                    }
+                    .centered {
+                        display: flex;
+                        justify-content: center;
                     }
                 `}</style>
                 <style jsx>{`
@@ -52,6 +62,7 @@ class Header extends Component {
                         position: sticky;
                         top: 0;
                         z-index: 100;
+                        box-sizing: border-box;
                     }
                     .header.transparent {
                         background-color: transparent;
@@ -79,14 +90,15 @@ class Header extends Component {
                         padding: 10px 14px;
                         border-radius: 20px;
                         cursor: pointer;
-                        transition-duration: 0.4s;
+                        transition-duration: 1s;
                         transition-timing-function: ease;
                         transition-property: background-color, color, opacity;
                         font-weight: 700;
                         background: #f06060;
                     }
                     .start-proj__button:hover {
-                        background: rgba(240, 96, 96, 0.5);
+                        background: #fff;
+                        color: #f06060;
                     }
 
                     .start-proj__button-text {

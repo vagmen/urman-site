@@ -101,7 +101,7 @@ class StartProjectForm extends Component {
                             </Checkbox>
                         )}
                     </FormItem>
-                    <FormItem>
+                    <FormItem className="centered">
                         <Button type="primary" htmlType="submit">
                             Отправить
                         </Button>
@@ -109,7 +109,7 @@ class StartProjectForm extends Component {
                 </Form>
                 <style jsx>{`
                     .start-project-section {
-                        padding: 50px 20px 20px;
+                        padding: 50px 20px;
                         width: 100%;
                         max-width: 750px;
                         margin: 0 auto;

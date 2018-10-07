@@ -69,7 +69,9 @@ const WithSubMenu = ({
             @media (min-width: 1024px) {
                 .with-sub-menu {
                     flex-wrap: nowrap;
-                    padding: 30px;
+                     {
+                        /* padding: 30px; */
+                    }
                     justify-content: center;
                     align-items: flex-start;
                 }
@@ -83,7 +85,9 @@ const WithSubMenu = ({
                     text-align: left;
                 }
                 .content {
-                    flex: 0 1 950px;
+                     {
+                        /* flex: 0 1 950px; */
+                    }
                     padding: 0;
                 }
             }
