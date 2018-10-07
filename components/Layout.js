@@ -18,21 +18,24 @@ const Layout = ({ title, menuItem, children }) => (
             <meta charSet="utf-8" />
             <link
                 rel="stylesheet"
-                href="//cdnjs.cloudflare.com/ajax/libs/antd/3.2.0/antd.min.css"
+                href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css"
             />
         </Head>
         <Header />
-        <Menu menuItem={menuItem} />
         <LocaleProvider locale={ruRU}>
-            <div className="page-content">{children}</div>
+            <Fragment>
+                <Menu menuItem={menuItem} />
+                <div className="page-content">{children}</div>
+                <StartProject />
+            </Fragment>
         </LocaleProvider>
-        <StartProject />
         {/* <Footer /> */}
         <style jsx>{`
             .page-content {
                 padding: 20px;
                 max-width: 1400px;
                 margin: 0 auto;
+                background: #eee;
             }
         `}</style>
     </Fragment>

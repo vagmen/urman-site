@@ -46,6 +46,38 @@ class Header extends Component {
                         display: flex;
                         justify-content: center;
                     }
+                    .grid {
+                        display: flex;
+                         {
+                            /* background: blue; */
+                        }
+                        flex-wrap: wrap;
+                        margin: 0 -15px;
+                    }
+                    .grid__item {
+                        margin: 15px;
+                         {
+                            /* padding: 10px; */
+                        }
+                        width: 100%;
+                        background: #fff;
+                        transition: all 0.4s;
+                        cursor: pointer;
+                    }
+                    .grid__item:hover {
+                        transform: translate(0, -20px);
+                        box-shadow: 0 20px 35px 4px rgba(0, 0, 0, 0.3);
+                    }
+                    @media screen and (min-width: 750px) {
+                        .grid__item {
+                            width: calc(50% - 30px);
+                        }
+                    }
+                    @media screen and (min-width: 1200px) {
+                        .grid__item {
+                            width: calc(100% / 3 - 30px);
+                        }
+                    }
                 `}</style>
                 <style jsx>{`
                     .header {

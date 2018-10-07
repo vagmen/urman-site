@@ -19,4 +19,62 @@ const menuData = {
         plan: 'Лесной план',
     },
 };
+export const servicesData = [
+    {
+        name: 'Проектная документация лесного участка',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'documentation',
+    },
+    {
+        name: 'Земельный кадастровый учет',
+        img: 'https://pp.userapi.com/c849028/v849028114/2ecdb/xhoIZASBdhg.jpg',
+        id: 'cadastre',
+    },
+    {
+        name: 'Проект освоения лесов',
+        img: 'https://pp.userapi.com/c845016/v845016103/87392/mS1aRUbXJ5Y.jpg',
+        id: 'project',
+    },
+    {
+        name: 'Лесные отчеты',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'reports',
+    },
+    {
+        name: 'Лесопатологическое обследование',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'pathology',
+    },
+    {
+        name: 'Лесная экспертиза',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'examination',
+    },
+    {
+        name: 'Таксация лесных участков',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'taxation',
+    },
+    {
+        name: 'Полное оформление',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'registration',
+    },
+    {
+        name: 'Оформление договора водопользования',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'water',
+    },
+    {
+        name: 'Лесохозяйственный регламент',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'regulation',
+    },
+    {
+        name: 'Лесной план',
+        img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
+        id: 'plan',
+    },
+];
+
 export default menuData;
