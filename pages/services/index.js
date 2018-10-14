@@ -11,33 +11,29 @@ const menuItem = 'services';
 
 const Index = ({ subMenuItems }) => (
     <Layout title="Услуги" menuItem={menuItem}>
-        <div className="services__wrapper">
-            <div className="page-content">
-                <div className="services">
-                    <h1>Услуги</h1>
-                    <h4>Посмотрите, чем мы можем быть вам полезны</h4>
-                    <div className="grid">
-                        {subMenuItems.map((item) => (
-                            <section className="grid__item" key={item.id}>
-                                <Link
-                                    as={`/journal/${item.id}`}
-                                    href={`/journal/post?id=${item.id}`}
-                                >
-                                    <Fragment>
-                                        <div className="img-wrapper">
-                                            <img src={item.img} />
-                                        </div>
-                                        <article>
-                                            <header>
-                                                <h3>{item.name}</h3>
-                                            </header>
-                                        </article>
-                                    </Fragment>
-                                </Link>
-                            </section>
-                        ))}
-                    </div>
-                </div>
+        <div className="services">
+            <h1>Услуги</h1>
+            <h4>Посмотрите, чем мы можем быть вам полезны</h4>
+            <div className="grid">
+                {subMenuItems.map((item) => (
+                    <section className="grid__item" key={item.id}>
+                        <Link
+                            as={`/journal/${item.id}`}
+                            href={`/journal/post?id=${item.id}`}
+                        >
+                            <Fragment>
+                                <div className="img-wrapper">
+                                    <img src={item.img} />
+                                </div>
+                                <article>
+                                    <header>
+                                        <h3>{item.name}</h3>
+                                    </header>
+                                </article>
+                            </Fragment>
+                        </Link>
+                    </section>
+                ))}
             </div>
         </div>
         <style jsx>{`

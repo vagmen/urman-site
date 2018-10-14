@@ -53,11 +53,13 @@ class Header extends Component {
                     }
                     a:hover {
                     }
+                    .react-icons {
+                        vertical-align: middle;
+                    }
                     .page-content {
                         max-width: 1200px;
-                        margin: 0 auto;
                         padding-top: 100px;
-                        overflow-x: hidden;
+                        margin: 0 20px;
                     }
                     .centered {
                         display: flex;
@@ -65,34 +67,37 @@ class Header extends Component {
                     }
                     .grid {
                         display: flex;
-                         {
-                            /* background: blue; */
-                        }
                         flex-wrap: wrap;
                         margin: 0 -15px;
                     }
                     .grid__item {
                         margin: 15px;
-                         {
-                            /* padding: 10px; */
-                        }
                         width: 100%;
                         background: #fff;
                         transition: all 0.4s;
                         cursor: pointer;
                     }
                     .grid__item:hover {
-                        transform: translate(0, -20px);
-                        box-shadow: 0 20px 35px 4px rgba(0, 0, 0, 0.3);
+                        box-shadow: 0px 0px 35px 4px rgba(0, 0, 0, 0.3);
                     }
                     @media screen and (min-width: 750px) {
                         .grid__item {
                             width: calc(50% - 30px);
                         }
+                        .grid__item:hover {
+                            transform: translate(0, -20px);
+                            box-shadow: 0 10px 35px 4px rgba(0, 0, 0, 0.3);
+                        }
+                        .page-content {
+                            overflow-x: hidden;
+                        }
                     }
                     @media screen and (min-width: 1200px) {
                         .grid__item {
                             width: calc(100% / 3 - 30px);
+                        }
+                        .page-content {
+                            margin: 0 auto;
                         }
                     }
                 `}</style>
