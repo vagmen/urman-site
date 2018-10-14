@@ -50,8 +50,6 @@ export default () => (
                 padding-top: 50px;
             }
             h1 {
-                font-size: 48px;
-                line-height: 48px;
                 color: #2c2f88;
                 text-align: center;
                 padding: 30px 30px 0;

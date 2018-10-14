@@ -9,9 +9,7 @@ class Header extends Component {
                 <Link href="/">
                     <div className="header-name">
                         <span className="logo">URMAN</span>
-                        <span className="slogan">
-                            Комплексные лесные решения
-                        </span>
+                        <span className="slogan">ЛЕСНЫЕ РЕШЕНИЯ</span>
                     </div>
                 </Link>
                 <div className="start-proj">
@@ -30,6 +28,8 @@ class Header extends Component {
                 <style jsx global>{`
                     body {
                         font-size: 18px;
+                        background: #eee;
+                        font-family: Geneva, Arial, Helvetica, sans-serif;
                     }
                     ul {
                         margin: 0;
@@ -41,6 +41,23 @@ class Header extends Component {
                     }
                     button {
                         border: none;
+                    }
+                    h1 {
+                        font-size: 48px;
+                        font-weight: 500;
+                        line-height: 48px;
+                    }
+                    a {
+                        color: inherit;
+                        text-decoration: underline;
+                    }
+                    a:hover {
+                    }
+                    .page-content {
+                        max-width: 1200px;
+                        margin: 0 auto;
+                        padding-top: 100px;
+                        overflow-x: hidden;
                     }
                     .centered {
                         display: flex;
@@ -91,7 +108,7 @@ class Header extends Component {
                         width: 100%;
                         background: rgba(0, 0, 0, 0.5);
                         height: 80px;
-                        position: sticky;
+                        position: fixed;
                         top: 0;
                         z-index: 100;
                         box-sizing: border-box;
@@ -103,13 +120,18 @@ class Header extends Component {
                     .header-name {
                         display: flex;
                         flex-direction: column;
+                        cursor: pointer;
                     }
                     .logo {
                         font-size: 32px;
-                        letter-spacing: 3px;
+                        letter-spacing: 4px;
                         font-family: Geneva, Arial, Helvetica, sans-serif;
-                        cursor: pointer;
                         height: 32px;
+                    }
+                    .slogan {
+                        font-size: 10px;
+                        padding: 10px 0;
+                        letter-spacing: 2.8px;
                     }
                     .start-proj {
                     }

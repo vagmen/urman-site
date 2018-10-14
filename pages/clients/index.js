@@ -6,21 +6,28 @@ const menuItem = 'clients';
 
 const Index = () => (
     <Layout title="Клиенты" menuItem={menuItem}>
-        <WithSubMenu subMenuItems={menuData[menuItem]} menuItem={menuItem}>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-        </WithSubMenu>
+        <div className="about__wrapper">
+            <div className="page-content">
+                <WithSubMenu
+                    subMenuItems={menuData[menuItem]}
+                    menuItem={menuItem}
+                >
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                </WithSubMenu>
+            </div>
+        </div>
     </Layout>
 );
 

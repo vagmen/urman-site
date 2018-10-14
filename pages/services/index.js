@@ -11,34 +11,40 @@ const menuItem = 'services';
 
 const Index = ({ subMenuItems }) => (
     <Layout title="Услуги" menuItem={menuItem}>
-        <div className="journal">
-            <h1>Услуги</h1>
-            <h4>Посмотрите, чем мы можем быть вам полезны</h4>
-            <div className="grid">
-                {subMenuItems.map((item) => (
-                    <section className="grid__item" key={item.id}>
-                        <Link
-                            as={`/journal/${item.id}`}
-                            href={`/journal/post?id=${item.id}`}
-                        >
-                            <Fragment>
-                                <div className="img-wrapper">
-                                    <img src={item.img} />
-                                </div>
-                                <article>
-                                    <header>
-                                        <h3>{item.name}</h3>
-                                    </header>
-                                </article>
-                            </Fragment>
-                        </Link>
-                    </section>
-                ))}
+        <div className="services__wrapper">
+            <div className="page-content">
+                <div className="services">
+                    <h1>Услуги</h1>
+                    <h4>Посмотрите, чем мы можем быть вам полезны</h4>
+                    <div className="grid">
+                        {subMenuItems.map((item) => (
+                            <section className="grid__item" key={item.id}>
+                                <Link
+                                    as={`/journal/${item.id}`}
+                                    href={`/journal/post?id=${item.id}`}
+                                >
+                                    <Fragment>
+                                        <div className="img-wrapper">
+                                            <img src={item.img} />
+                                        </div>
+                                        <article>
+                                            <header>
+                                                <h3>{item.name}</h3>
+                                            </header>
+                                        </article>
+                                    </Fragment>
+                                </Link>
+                            </section>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
         <style jsx>{`
-            .journal {
+            .services__wrapper {
                 background: #eee;
+            }
+            .services {
             }
             .img-wrapper {
                 width: 100%;
@@ -48,7 +54,7 @@ const Index = ({ subMenuItems }) => (
                 overflow: hidden;
                 position: relative;
             }
-            .journal img {
+            .services img {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -82,8 +88,6 @@ const Index = ({ subMenuItems }) => (
 Index.getInitialProps = async function() {
     const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     const data = await res.json();
-    console.log('sd', servicesData);
-
     return {
         subMenuItems: servicesData,
     };

@@ -25,17 +25,23 @@ const Layout = ({ title, menuItem, children }) => (
         <LocaleProvider locale={ruRU}>
             <Fragment>
                 <Menu menuItem={menuItem} />
-                <div className="page-content">{children}</div>
+                {children}
                 <StartProject />
             </Fragment>
         </LocaleProvider>
         {/* <Footer /> */}
         <style jsx>{`
             .page-content {
-                padding: 20px;
-                max-width: 1400px;
-                margin: 0 auto;
-                background: #eee;
+                 {
+                    /* padding: 20px; */
+                }
+                 {
+                    /* max-width: 1400px;
+                margin: 0 auto; */
+                }
+                 {
+                    /* background: #eee; */
+                }
             }
         `}</style>
     </Fragment>
