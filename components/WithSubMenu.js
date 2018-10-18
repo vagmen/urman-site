@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from "next/head";
+import Link from "next/link";
 
 const WithSubMenu = ({
     subMenuItems,
     subMenuItem,
     menuItem,
     withAs,
-    children,
+    children
 }) => (
     <div className="with-sub-menu">
         <ul className="sub-menu">
@@ -18,13 +18,13 @@ const WithSubMenu = ({
                             href={`/${menuItem}/page?id=${subMenuItem}`}
                             key={index}
                         >
-                            <a className={subMenuItem == item ? 'active' : ''}>
+                            <a className={subMenuItem == item ? "active" : ""}>
                                 {subMenuItems[item]}
                             </a>
                         </Link>
                     ) : (
                         <Link href={`/${menuItem}/${item}`} key={index}>
-                            <a className={subMenuItem == item ? 'active' : ''}>
+                            <a className={subMenuItem == item ? "active" : ""}>
                                 {subMenuItems[item]}
                             </a>
                         </Link>
@@ -53,6 +53,7 @@ const WithSubMenu = ({
                 flex: 1 1 100%;
                 cursor: pointer;
                 font-size: 18px;
+                text-decoration: none;
             }
             .sub-menu a:hover {
                 background: rgba(255, 255, 255, 0.2);
@@ -79,7 +80,6 @@ const WithSubMenu = ({
                     flex: 0 0 250px;
                     margin-right: 20px;
                     position: sticky;
-                    top: 110px;
                 }
                 .sub-menu a {
                     text-align: left;

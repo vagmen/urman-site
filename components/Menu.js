@@ -1,33 +1,33 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Button, Icon } from 'antd';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Button, Icon } from "antd";
 
 const menuData = [
     {
-        title: 'Клиенты',
-        icon: 'team',
-        src: 'clients',
+        title: "Клиенты",
+        icon: "team",
+        src: "clients"
     },
     {
-        title: 'Услуги',
-        icon: 'key',
-        src: 'services',
+        title: "Услуги",
+        icon: "key",
+        src: "services"
     },
     {
-        title: 'О нас',
-        icon: 'idcard',
-        src: 'about',
+        title: "О нас",
+        icon: "idcard",
+        src: "about"
     },
     {
-        title: 'Журнал',
-        icon: 'book',
-        src: 'journal',
+        title: "Журнал",
+        icon: "book",
+        src: "journal"
     },
     {
-        title: 'Контакты',
-        icon: 'phone',
-        src: 'contacts',
-    },
+        title: "Контакты",
+        icon: "phone",
+        src: "contacts"
+    }
 ];
 
 class Menu extends Component {
@@ -46,7 +46,7 @@ class Menu extends Component {
                             <Icon
                                 className="icon"
                                 type={item.icon}
-                                style={{ color: '#bbb', fontSize: 25 }}
+                                style={{ color: "#bbb", fontSize: 25 }}
                             />
                             <a>{item.title}</a>
                         </li>
@@ -88,6 +88,7 @@ class Menu extends Component {
                         display: none;
                         font-size: 10px;
                         padding-top: 5px;
+                        text-decoration: none;
                     }
                     .menu-item:hover {
                         background: rgba(255, 255, 255, 0.1);

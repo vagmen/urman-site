@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Button, Icon, Form, Input, Checkbox } from 'antd';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Button, Icon, Form, Input, Checkbox } from "antd";
 const FormItem = Form.Item;
 const { TextArea } = Input;
 
 class StartProjectForm extends Component {
-    handleSubmit = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                console.log("Received values of form: ", values);
             }
         });
     };
@@ -23,19 +23,19 @@ class StartProjectForm extends Component {
                 <p>Оставьте заявку, чтобы узнать, сможем ли мы Вам помочь.</p>
                 <Form onSubmit={this.handleSubmit}>
                     <FormItem label="Представьтесь, пожалуйста">
-                        {getFieldDecorator('userName', {
+                        {getFieldDecorator("userName", {
                             rules: [
                                 {
                                     required: true,
-                                    message: 'Введите, пожалуйста, свое имя!',
-                                },
-                            ],
+                                    message: "Введите, пожалуйста, свое имя!"
+                                }
+                            ]
                         })(
                             <Input
                                 prefix={
                                     <Icon
                                         type="user"
-                                        style={{ color: 'rgba(0,0,0,.25)' }}
+                                        style={{ color: "rgba(0,0,0,.25)" }}
                                     />
                                 }
                                 placeholder="Ваше имя..."
@@ -44,20 +44,20 @@ class StartProjectForm extends Component {
                         )}
                     </FormItem>
                     <FormItem label="Как с вами связаться?">
-                        {getFieldDecorator('phone', {
+                        {getFieldDecorator("phone", {
                             rules: [
                                 {
                                     required: true,
                                     message:
-                                        'Введите, пожалуйста, номер вашего телефона!',
-                                },
-                            ],
+                                        "Введите, пожалуйста, номер вашего телефона!"
+                                }
+                            ]
                         })(
                             <Input
                                 prefix={
                                     <Icon
                                         type="phone"
-                                        style={{ color: 'rgba(0,0,0,.25)' }}
+                                        style={{ color: "rgba(0,0,0,.25)" }}
                                     />
                                 }
                                 placeholder="Введите телефон"
@@ -66,12 +66,12 @@ class StartProjectForm extends Component {
                         )}
                     </FormItem>
                     <FormItem>
-                        {getFieldDecorator('email')(
+                        {getFieldDecorator("email")(
                             <Input
                                 prefix={
                                     <Icon
                                         type="mail"
-                                        style={{ color: 'rgba(0,0,0,.25)' }}
+                                        style={{ color: "rgba(0,0,0,.25)" }}
                                     />
                                 }
                                 placeholder="Или E-mail"
@@ -80,7 +80,7 @@ class StartProjectForm extends Component {
                         )}
                     </FormItem>
                     <FormItem label="Расскажите немного о вашей задаче:">
-                        {getFieldDecorator('about-project')(
+                        {getFieldDecorator("about-project")(
                             <TextArea
                                 size="large"
                                 autosize={{ minRows: 2, maxRows: 6 }}
@@ -88,13 +88,13 @@ class StartProjectForm extends Component {
                         )}
                     </FormItem>
                     <FormItem>
-                        {getFieldDecorator('checkbox', {
+                        {getFieldDecorator("checkbox", {
                             rules: [
                                 {
                                     required: true,
-                                    message: 'Требуется ваше согласие',
-                                },
-                            ],
+                                    message: "Требуется ваше согласие"
+                                }
+                            ]
                         })(
                             <Checkbox>
                                 Согласен на обработку персональных данных
@@ -109,7 +109,7 @@ class StartProjectForm extends Component {
                 </Form>
                 <style jsx>{`
                     .start-project-section {
-                        padding: 50px 20px;
+                        padding: 100px 20px;
                         width: 100%;
                         max-width: 750px;
                         margin: 0 auto;

@@ -1,6 +1,6 @@
-import { withRouter } from 'next/router';
-import Layout from '../../components/Layout.js';
-import fetch from 'isomorphic-unfetch';
+import { withRouter } from "next/router";
+import Layout from "../../components/Layout.js";
+import fetch from "isomorphic-unfetch";
 
 // const Content = withRouter((props) => (
 //     <div>
@@ -9,11 +9,15 @@ import fetch from 'isomorphic-unfetch';
 //     </div>
 // ));
 
-const Page = (props) => (
+const Page = props => (
     <Layout>
-        <h1>{props.show.name}</h1>
-        <p>{props.show.summary.replace(/<[/]?p>/g, '')}</p>
-        <img src={props.show.image.medium} />
+        <div className="page-background">
+            <div className="page-content">
+                <h1>{props.show.name}</h1>
+                <p>{props.show.summary.replace(/<[/]?p>/g, "")}</p>
+                <img src={props.show.image.medium} />
+            </div>
+        </div>
     </Layout>
 );
 

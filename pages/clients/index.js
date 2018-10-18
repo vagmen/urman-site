@@ -1,26 +1,33 @@
-import Layout from '../../components/Layout';
-import WithSubMenu from '../../components/WithSubMenu';
-import menuData from '../../constants/menuData';
+import Layout from "../../components/Layout";
+import WithSubMenu from "../../components/WithSubMenu";
+import menuData from "../../constants/menuData";
 
-const menuItem = 'clients';
+const menuItem = "clients";
 
 const Index = () => (
     <Layout title="Клиенты" menuItem={menuItem}>
-        <WithSubMenu subMenuItems={menuData[menuItem]} menuItem={menuItem}>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-            <h1>Клиенты</h1>
-        </WithSubMenu>
+        <div className="page-background">
+            <div className="page-content">
+                <WithSubMenu
+                    subMenuItems={menuData[menuItem]}
+                    menuItem={menuItem}
+                >
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                    <h1>Клиенты</h1>
+                </WithSubMenu>
+            </div>
+        </div>
     </Layout>
 );
 

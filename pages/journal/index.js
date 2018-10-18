@@ -1,45 +1,50 @@
-import { Fragment } from 'react';
-import Link from 'next/link';
-import fetch from 'isomorphic-unfetch';
-import moment from 'moment';
-import Layout from '../../components/Layout';
-import WithSubMenu from '../../components/WithSubMenu';
+import { Fragment } from "react";
+import Link from "next/link";
+import fetch from "isomorphic-unfetch";
+import moment from "moment";
+import Layout from "../../components/Layout";
+import WithSubMenu from "../../components/WithSubMenu";
 
-const menuItem = 'journal';
+const menuItem = "journal";
 
 const Index = ({ subMenuItems }) => (
     <Layout title="Журнал" menuItem={menuItem}>
-        <div className="journal">
-            <h1>Журнал – URMAN</h1>
-            <h4>Про лес и не только</h4>
-            <div className="grid">
-                {subMenuItems.map(({ show }) => (
-                    <section className="grid__item" key={show.id}>
-                        <Link
-                            as={`/journal/${show.id}`}
-                            href={`/journal/post?id=${show.id}`}
-                        >
-                            <Fragment>
-                                <div className="img-wrapper">
-                                    <img src={show.image.original} />
-                                </div>
-                                <article>
-                                    <time>
-                                        {moment().format('D MMMM YYYY')}
-                                    </time>
-                                    <header>
-                                        <h3>{show.name}</h3>
-                                    </header>
-                                    <p>
-                                        Почему нужно разрабатывать ПОЛ уже
-                                        сейчас и почему он у Вас не пройдет
-                                        государственную экспертизу.
-                                    </p>
-                                </article>
-                            </Fragment>
-                        </Link>
-                    </section>
-                ))}
+        <div className="page-background">
+            <div className="page-content">
+                <div className="journal">
+                    <h1>Журнал – URMAN</h1>
+                    <h4>Про лес и не только</h4>
+                    <div className="grid">
+                        {subMenuItems.map(({ show }) => (
+                            <section className="grid__item" key={show.id}>
+                                <Link
+                                    as={`/journal/${show.id}`}
+                                    href={`/journal/post?id=${show.id}`}
+                                >
+                                    <Fragment>
+                                        <div className="img-wrapper">
+                                            <img src={show.image.original} />
+                                        </div>
+                                        <article>
+                                            <time>
+                                                {moment().format("D MMMM YYYY")}
+                                            </time>
+                                            <header>
+                                                <h3>{show.name}</h3>
+                                            </header>
+                                            <p>
+                                                Почему нужно разрабатывать ПОЛ
+                                                уже сейчас и почему он у Вас не
+                                                пройдет государственную
+                                                экспертизу.
+                                            </p>
+                                        </article>
+                                    </Fragment>
+                                </Link>
+                            </section>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
         <style jsx>{`
@@ -88,10 +93,10 @@ const Index = ({ subMenuItems }) => (
 );
 
 Index.getInitialProps = async function() {
-    const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
+    const res = await fetch("https://api.tvmaze.com/search/shows?q=forest");
     const data = await res.json();
     return {
-        subMenuItems: data,
+        subMenuItems: data
     };
 };
 

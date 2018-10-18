@@ -1,39 +1,43 @@
-import { Fragment } from 'react';
-import Link from 'next/link';
-import moment from 'moment';
-import fetch from 'isomorphic-unfetch';
+import { Fragment } from "react";
+import Link from "next/link";
+import moment from "moment";
+import fetch from "isomorphic-unfetch";
 
-import Layout from '../../components/Layout';
-import WithSubMenu from '../../components/WithSubMenu';
-import { servicesData } from '../../constants/menuData';
+import Layout from "../../components/Layout";
+import WithSubMenu from "../../components/WithSubMenu";
+import { servicesData } from "../../constants/menuData";
 
-const menuItem = 'services';
+const menuItem = "services";
 
 const Index = ({ subMenuItems }) => (
     <Layout title="Услуги" menuItem={menuItem}>
-        <div className="services">
-            <h1>Услуги</h1>
-            <h4>Посмотрите, чем мы можем быть вам полезны</h4>
-            <div className="grid">
-                {subMenuItems.map((item) => (
-                    <section className="grid__item" key={item.id}>
-                        <Link
-                            as={`/journal/${item.id}`}
-                            href={`/journal/post?id=${item.id}`}
-                        >
-                            <Fragment>
-                                <div className="img-wrapper">
-                                    <img src={item.img} />
-                                </div>
-                                <article>
-                                    <header>
-                                        <h3>{item.name}</h3>
-                                    </header>
-                                </article>
-                            </Fragment>
-                        </Link>
-                    </section>
-                ))}
+        <div className="page-background">
+            <div className="page-content">
+                <div className="services">
+                    <h1>Услуги</h1>
+                    <h4>Посмотрите, чем мы можем быть вам полезны</h4>
+                    <div className="grid">
+                        {subMenuItems.map(item => (
+                            <section className="grid__item" key={item.id}>
+                                <Link
+                                    as={`/journal/${item.id}`}
+                                    href={`/journal/post?id=${item.id}`}
+                                >
+                                    <Fragment>
+                                        <div className="img-wrapper">
+                                            <img src={item.img} />
+                                        </div>
+                                        <article>
+                                            <header>
+                                                <h3>{item.name}</h3>
+                                            </header>
+                                        </article>
+                                    </Fragment>
+                                </Link>
+                            </section>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
         <style jsx>{`
@@ -82,10 +86,10 @@ const Index = ({ subMenuItems }) => (
 );
 
 Index.getInitialProps = async function() {
-    const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
+    const res = await fetch("https://api.tvmaze.com/search/shows?q=forest");
     const data = await res.json();
     return {
-        subMenuItems: servicesData,
+        subMenuItems: servicesData
     };
 };
 
