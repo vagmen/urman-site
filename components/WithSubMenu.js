@@ -79,7 +79,7 @@ const WithSubMenu = ({
                     flex: 0 0 250px;
                     margin-right: 20px;
                     position: sticky;
-                    top: 20px;
+                    top: 0px;
                 }
                 .sub-menu a {
                     text-align: left;
