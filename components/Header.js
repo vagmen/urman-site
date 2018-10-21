@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { Icon } from 'antd';
+import './node_modules/video-react/dist/video-react.css';
 
 class Header extends Component {
     render() {
