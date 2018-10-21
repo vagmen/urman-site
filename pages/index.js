@@ -19,7 +19,7 @@ export default () => (
             <div className="tour">
                 <Link href={`/services`}>
                     <div className="tour__item tour__item-green">
-                        <h4>Наши услуги</h4>
+                        <h4>НАШИ УСЛУГИ</h4>
                         <p>Посмотрите, чем мы можем быть вам полезны</p>
                         <img src="/static/video.png" />
                     </div>
@@ -52,7 +52,7 @@ export default () => (
             h1 {
                 color: #2c2f88;
                 text-align: center;
-                padding: 30px 30px 0;
+                padding: 100px 100px 50px;
                 font-weight: 200;
             }
             h4 {
@@ -60,7 +60,7 @@ export default () => (
                 font-weight: 300;
                 color: #666;
                 text-align: center;
-                padding: 30px;
+                padding: 50px;
             }
             .tour {
                 display: flex;
