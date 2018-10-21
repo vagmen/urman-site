@@ -1,5 +1,6 @@
 import Layout from '../../../components/Layout';
 import WithSubMenu from '../../../components/WithSubMenu';
+import FeedbackCard from '../../../components/FeedbackCard';
 import menuData from '../../../constants/menuData';
 
 const menuItem = 'clients';
@@ -49,21 +50,12 @@ const Index = () => (
                         menuItem={menuItem}
                     >
                         <h1>Отзывы</h1>
+                        <h4>
+                            То, что наши клиенты говорят о нас своими словами
+                        </h4>
                         <div className="grid-with-menu">
                             {initialData.map((item, index) => (
-                                <div
-                                    className="feedback__item grid__item"
-                                    key={index}
-                                >
-                                    <div className="card__text">
-                                        <h3>{item.header}</h3>
-                                        <p>{item.text}</p>
-                                    </div>
-                                    <div className="card__author">
-                                        <h4>{item.author}</h4>
-                                        <span>{item.company}</span>
-                                    </div>
-                                </div>
+                                <FeedbackCard feedbackData={item} key={index} />
                             ))}
                         </div>
                     </WithSubMenu>
@@ -71,33 +63,12 @@ const Index = () => (
             </div>
         </div>
         <style jsx>{`
-            .feedback-wraper {
-                 {
-                    /* background: #f1f4f5; */
-                }
-            }
-            .feedback {
-                display: flex;
-                flex-wrap: wrap;
-                margin: 0 -10px;
-                align-items: flex-start;
-            }
             h1 {
                 flex: 1 1 100%;
             }
             h3,
             h4 {
                 color: #424242;
-            }
-            .feedback__item {
-                background: #fff;
-            }
-            .card__text {
-                padding: 20px;
-            }
-            .card__author {
-                padding: 20px;
-                border-top: solid 1px rgba(0, 0, 0, 0.2);
             }
         `}</style>
     </Layout>
