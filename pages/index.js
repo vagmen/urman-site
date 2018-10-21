@@ -1,8 +1,8 @@
-import { Button } from "antd";
-import Link from "next/link";
-import Layout from "../components/Layout.js";
-import Recall from "../components/Recall.js";
-import StartProject from "../components/StartProject.js";
+import { Button } from 'antd';
+import Link from 'next/link';
+import Layout from '../components/Layout.js';
+import Recall from '../components/Recall.js';
+import StartProject from '../components/StartProject.js';
 
 export default () => (
     <Layout title="URMAN">
@@ -42,7 +42,7 @@ export default () => (
 
         <style jsx>{`
             .main-container {
-                background: url("/static/home-bg.png");
+                background: url('/static/home-bg.png');
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -68,7 +68,7 @@ export default () => (
                 margin-top: 30px;
             }
             .tour__item {
-                background-image: url("https://www.techvalidate.com/assets/corp/header/bg-overlay-505519f95428cb2cc16945b69604042e.png");
+                background-image: url('https://www.techvalidate.com/assets/corp/header/bg-overlay-505519f95428cb2cc16945b69604042e.png');
                 background-size: cover;
                 flex: 1 1 100%;
                 display: flex;
@@ -100,7 +100,7 @@ export default () => (
             .tour__item img {
                 width: 80%;
             }
-            @media screen and (min-width: 1024px) {
+            @media screen and (min-width: 960px) {
                 .tour__item {
                     flex: 1 1 33%;
                 }

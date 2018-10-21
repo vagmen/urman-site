@@ -1,13 +1,13 @@
-import { Fragment } from "react";
-import Link from "next/link";
-import moment from "moment";
-import fetch from "isomorphic-unfetch";
+import { Fragment } from 'react';
+import Link from 'next/link';
+import moment from 'moment';
+import fetch from 'isomorphic-unfetch';
 
-import Layout from "../../components/Layout";
-import WithSubMenu from "../../components/WithSubMenu";
-import { servicesData } from "../../constants/menuData";
+import Layout from '../../components/Layout';
+import WithSubMenu from '../../components/WithSubMenu';
+import { servicesData } from '../../constants/menuData';
 
-const menuItem = "services";
+const menuItem = 'services';
 
 const Index = ({ subMenuItems }) => (
     <Layout title="Услуги" menuItem={menuItem}>
@@ -17,8 +17,11 @@ const Index = ({ subMenuItems }) => (
                     <h1>Услуги</h1>
                     <h4>Посмотрите, чем мы можем быть вам полезны</h4>
                     <div className="grid">
-                        {subMenuItems.map(item => (
-                            <section className="grid__item" key={item.id}>
+                        {subMenuItems.map((item) => (
+                            <section
+                                className="grid__item clickable-block service"
+                                key={item.id}
+                            >
                                 <Link
                                     as={`/journal/${item.id}`}
                                     href={`/journal/post?id=${item.id}`}
@@ -45,6 +48,9 @@ const Index = ({ subMenuItems }) => (
                 background: #eee;
             }
             .services {
+            }
+            .service {
+                background: #fff;
             }
             .img-wrapper {
                 width: 100%;
@@ -86,10 +92,10 @@ const Index = ({ subMenuItems }) => (
 );
 
 Index.getInitialProps = async function() {
-    const res = await fetch("https://api.tvmaze.com/search/shows?q=forest");
+    const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     const data = await res.json();
     return {
-        subMenuItems: servicesData
+        subMenuItems: servicesData,
     };
 };
 

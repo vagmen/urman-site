@@ -56,48 +56,70 @@ class Header extends Component {
                     .react-icons {
                         vertical-align: middle;
                     }
+                    .page-background {
+                        display: flex;
+                        justify-content: center;
+                    }
                     .page-content {
-                        max-width: 1200px;
+                        flex: 1;
+                        max-width: 1600px;
                         padding-top: 100px;
-                        margin: 0 20px;
+                        margin: 0 30px;
                     }
                     .centered {
                         display: flex;
                         justify-content: center;
                     }
-                    .grid {
-                        display: flex;
-                        flex-wrap: wrap;
-                        margin: 0 -15px;
+                    .grid,
+                    .grid-with-menu {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        grid-gap: 30px;
                     }
                     .grid__item {
-                        margin: 15px;
-                        width: 100%;
-                        background: #fff;
-                        transition: all 0.4s;
+                        transition: all 0.3s;
+                    }
+                    .clickable-block {
                         cursor: pointer;
                     }
-                    .grid__item:hover {
+                    .clickable-block:hover {
                         box-shadow: 0px 0px 35px 4px rgba(0, 0, 0, 0.3);
                     }
-                    @media screen and (min-width: 750px) {
-                        .grid__item {
-                            width: calc(50% - 30px);
+                    @media screen and (min-width: 640px) {
+                        .grid,
+                        .grid-with-menu {
+                            grid-template-columns: 1fr 1fr;
                         }
-                        .grid__item:hover {
-                            transform: translate(0, -20px);
+                        .clickable-block:hover {
+                            transform: translate(0, -10px);
                             box-shadow: 0 10px 35px 4px rgba(0, 0, 0, 0.3);
                         }
                         .page-content {
                             overflow-x: hidden;
                         }
                     }
-                    @media screen and (min-width: 1200px) {
-                        .grid__item {
-                            width: calc(100% / 3 - 30px);
+                    @media screen and (min-width: 960px) {
+                        .grid {
+                            grid-template-columns: 1fr 1fr 1fr;
                         }
-                        .page-content {
-                            margin: 0 auto;
+                        .grid-with-menu {
+                            grid-template-columns: 1fr 1fr;
+                        }
+                    }
+                    @media screen and (min-width: 1200px) {
+                        .grid {
+                            grid-template-columns: 1fr 1fr 1fr 1fr;
+                        }
+                        .grid-with-menu {
+                            grid-template-columns: 1fr 1fr 1fr;
+                        }
+                    }
+                    @media screen and (min-width: 1600px) {
+                        .grid {
+                            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                        }
+                        .grid-with-menu {
+                            grid-template-columns: 1fr 1fr 1fr 1fr;
                         }
                     }
                 `}</style>
@@ -149,7 +171,7 @@ class Header extends Component {
                         padding: 10px 14px;
                         border-radius: 20px;
                         cursor: pointer;
-                        transition-duration: 1s;
+                        transition-duration: 0.3s;
                         transition-timing-function: ease;
                         transition-property: background-color, color, opacity;
                         font-weight: 700;
@@ -171,7 +193,7 @@ class Header extends Component {
                         width: 30px;
                         height: 30px;
                     }
-                    @media screen and (min-width: 500px) {
+                    @media screen and (min-width: 640px) {
                         .start-proj__button-icon {
                             display: none;
                         }
@@ -179,7 +201,7 @@ class Header extends Component {
                             display: inline;
                         }
                     }
-                    @media screen and (min-width: 750px) {
+                    @media screen and (min-width: 960px) {
                         .start-proj__phone {
                             display: inline;
                         }

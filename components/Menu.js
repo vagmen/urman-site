@@ -1,33 +1,33 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import { Button, Icon } from "antd";
+import React, { Component } from 'react';
+import Link from 'next/link';
+import { Button, Icon } from 'antd';
 
 const menuData = [
     {
-        title: "Клиенты",
-        icon: "team",
-        src: "clients"
+        title: 'Клиенты',
+        icon: 'team',
+        src: 'clients',
     },
     {
-        title: "Услуги",
-        icon: "key",
-        src: "services"
+        title: 'Услуги',
+        icon: 'key',
+        src: 'services',
     },
     {
-        title: "О нас",
-        icon: "idcard",
-        src: "about"
+        title: 'О нас',
+        icon: 'idcard',
+        src: 'about',
     },
     {
-        title: "Журнал",
-        icon: "book",
-        src: "journal"
+        title: 'Журнал',
+        icon: 'book',
+        src: 'journal',
     },
     {
-        title: "Контакты",
-        icon: "phone",
-        src: "contacts"
-    }
+        title: 'Контакты',
+        icon: 'phone',
+        src: 'contacts',
+    },
 ];
 
 class Menu extends Component {
@@ -46,7 +46,7 @@ class Menu extends Component {
                             <Icon
                                 className="icon"
                                 type={item.icon}
-                                style={{ color: "#bbb", fontSize: 25 }}
+                                style={{ color: '#bbb', fontSize: 25 }}
                             />
                             <a>{item.title}</a>
                         </li>
@@ -96,7 +96,7 @@ class Menu extends Component {
                     .menu-item_active {
                         background: rgba(255, 255, 255, 0.2);
                     }
-                    @media screen and (min-width: 750px) {
+                    @media screen and (min-width: 640px) {
                         .menu-trigger {
                             display: none;
                         }
@@ -107,7 +107,7 @@ class Menu extends Component {
                             display: block;
                         }
                     }
-                    @media screen and (min-width: 1024px) {
+                    @media screen and (min-width: 960px) {
                         .menu-item a {
                             font-size: 14px;
                         }

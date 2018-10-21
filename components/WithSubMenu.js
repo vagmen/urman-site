@@ -1,12 +1,12 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head';
+import Link from 'next/link';
 
 const WithSubMenu = ({
     subMenuItems,
     subMenuItem,
     menuItem,
     withAs,
-    children
+    children,
 }) => (
     <div className="with-sub-menu">
         <ul className="sub-menu">
@@ -18,13 +18,13 @@ const WithSubMenu = ({
                             href={`/${menuItem}/page?id=${subMenuItem}`}
                             key={index}
                         >
-                            <a className={subMenuItem == item ? "active" : ""}>
+                            <a className={subMenuItem == item ? 'active' : ''}>
                                 {subMenuItems[item]}
                             </a>
                         </Link>
                     ) : (
                         <Link href={`/${menuItem}/${item}`} key={index}>
-                            <a className={subMenuItem == item ? "active" : ""}>
+                            <a className={subMenuItem == item ? 'active' : ''}>
                                 {subMenuItems[item]}
                             </a>
                         </Link>
@@ -64,15 +64,14 @@ const WithSubMenu = ({
             .content {
                 flex: 1 1 100%;
                 padding: 20px;
-                display: flex;
-                flex-wrap: wrap;
+                 {
+                    /* display: flex;
+                flex-wrap: wrap; */
+                }
             }
-            @media (min-width: 1024px) {
+            @media (min-width: 960px) {
                 .with-sub-menu {
                     flex-wrap: nowrap;
-                     {
-                        /* padding: 30px; */
-                    }
                     justify-content: center;
                     align-items: flex-start;
                 }
@@ -80,14 +79,12 @@ const WithSubMenu = ({
                     flex: 0 0 250px;
                     margin-right: 20px;
                     position: sticky;
+                    top: 20px;
                 }
                 .sub-menu a {
                     text-align: left;
                 }
                 .content {
-                     {
-                        /* flex: 0 1 950px; */
-                    }
                     padding: 0;
                 }
             }

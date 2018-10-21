@@ -134,7 +134,7 @@ class Footer extends Component {
                         font-size: 16px;
                         color: #2c2f88;
                     }
-                    @media screen and (min-width: 1024px) {
+                    @media screen and (min-width: 960px) {
                         footer{
                             padding-bottom: 64px;
                         }

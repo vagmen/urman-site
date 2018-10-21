@@ -1,9 +1,9 @@
-import Layout from "../../components/Layout";
-import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import Layout from '../../components/Layout';
+import { FaVk, FaSkype, FaInstagram } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 
-const menuItem = "contacts";
-const background = "#333";
+const menuItem = 'contacts';
+const background = '#333';
 
 const Index = () => (
     <Layout title="Контакты" menuItem={menuItem}>
@@ -160,7 +160,7 @@ const Index = () => (
             .social {
                 background: rgba(211, 158, 99, 0.8);
             }
-            @media screen and (min-width: 750px) {
+            @media screen and (min-width: 640px) {
                 .contacts__info {
                     display: block;
                     width: calc(50% - 40px);
@@ -175,12 +175,7 @@ const Index = () => (
                     width: 100%;
                 }
             }
-            @media screen and (min-width: 1024px) {
-                 {
-                    /* .contacts__sections {
-                    width: calc(50% - 30px);
-                } */
-                }
+            @media screen and (min-width: 960px) {
                 .section {
                     padding: 15px;
                 }
