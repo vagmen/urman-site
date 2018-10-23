@@ -1,4 +1,5 @@
 import { Button } from 'antd';
+import YouTubePlayer from 'react-player/lib/players/YouTube';
 import ReactPlayer from 'react-player';
 import Layout from '../../components/Layout';
 import WithSubMenu from '../../components/WithSubMenu';
@@ -48,9 +49,10 @@ const Index = () => (
                             сотни компаний полагаются на URMAN.
                         </h4>
                         <div className="player-wrapper">
-                            <ReactPlayer
+                            <YouTubePlayer
+                                url="https://www.youtube.com/embed/gpzuVt_mkKs"
+                                controls
                                 className="react-player"
-                                url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
                                 width="100%"
                                 height="100%"
                             />

@@ -1,4 +1,5 @@
 import ReactPlayer from 'react-player';
+import YouTubePlayer from 'react-player/lib/players/YouTube';
 import Layout from '../../../components/Layout';
 import WithSubMenu from '../../../components/WithSubMenu';
 import menuData from '../../../constants/menuData';
@@ -23,9 +24,10 @@ const Index = () => (
                     <div className="video-list grid-with-menu">
                         <div className="video-list__item grid__item">
                             <div className="player-wrapper">
-                                <ReactPlayer
+                                <YouTubePlayer
+                                    url="https://www.youtube.com/embed/gpzuVt_mkKs"
+                                    controls
                                     className="react-player"
-                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
                                     width="100%"
                                     height="100%"
                                 />
@@ -33,9 +35,10 @@ const Index = () => (
                         </div>
                         <div className="video-list__item grid__item">
                             <div className="player-wrapper">
-                                <ReactPlayer
+                                <YouTubePlayer
+                                    url="https://www.youtube.com/embed/gpzuVt_mkKs"
+                                    controls
                                     className="react-player"
-                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
                                     width="100%"
                                     height="100%"
                                 />
@@ -43,53 +46,23 @@ const Index = () => (
                         </div>
                         <div className="video-list__item grid__item">
                             <div className="player-wrapper">
-                                <ReactPlayer
+                                <YouTubePlayer
+                                    url="https://www.youtube.com/embed/gpzuVt_mkKs"
+                                    controls
                                     className="react-player"
-                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
                                     width="100%"
                                     height="100%"
                                 />
                             </div>
                         </div>
-                        <div className="video-list__item grid__item">
-                            <div className="player-wrapper">
-                                <ReactPlayer
-                                    className="react-player"
-                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </div>
-                        <div className="video-list__item grid__item">
-                            <div className="player-wrapper">
-                                <ReactPlayer
-                                    className="react-player"
-                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </div>
-                        <div className="video-list__item grid__item">
-                            <div className="player-wrapper">
-                                <ReactPlayer
-                                    className="react-player"
-                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </div>
-                        <div className="video-list__item grid__item">
-                            <div className="player-wrapper">
-                                <ReactPlayer
-                                    className="react-player"
-                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
+                        <div className="player-wrapper">
+                            <YouTubePlayer
+                                url="https://www.youtube.com/embed/gpzuVt_mkKs"
+                                controls
+                                className="react-player"
+                                width="100%"
+                                height="100%"
+                            />
                         </div>
                     </div>
                 </WithSubMenu>
