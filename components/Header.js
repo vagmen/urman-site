@@ -65,6 +65,7 @@ class Header extends Component {
                         max-width: 1600px;
                         padding-top: 100px;
                         margin: 0 30px;
+                        overflow: hidden;
                     }
                     .centered {
                         display: flex;
@@ -102,9 +103,6 @@ class Header extends Component {
                         .clickable-block:hover {
                             transform: translate(0, -10px);
                             box-shadow: 0 10px 35px 4px rgba(0, 0, 0, 0.3);
-                        }
-                        .page-content {
-                            overflow-x: hidden;
                         }
                     }
                     @media screen and (min-width: 960px) {
@@ -196,9 +194,6 @@ class Header extends Component {
                         font-size: 16px;
                     }
                     .start-proj__button-icon {
-                         {
-                            /* background-image: url(static/icons/tree.svg); */
-                        }
                         width: 30px;
                         height: 30px;
                     }

@@ -27,9 +27,7 @@ const Index = ({ subMenuItems }) => (
                                     href={`/journal/post?id=${item.id}`}
                                 >
                                     <Fragment>
-                                        <div className="img-wrapper">
-                                            <img src={item.img} />
-                                        </div>
+                                        <img src={item.img} />
                                         <article>
                                             <header>
                                                 <h3>{item.name}</h3>
@@ -52,19 +50,10 @@ const Index = ({ subMenuItems }) => (
             .service {
                 background: #fff;
             }
-            .img-wrapper {
-                width: 100%;
-
-                height: 300px;
-
-                overflow: hidden;
-                position: relative;
-            }
             .services img {
-                position: absolute;
-                top: 0;
-                left: 0;
                 width: 100%;
+                height: 200px;
+                object-fit: cover;
             }
 
             h1,

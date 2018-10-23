@@ -48,12 +48,13 @@ const WithSubMenu = ({
             }
             .sub-menu a {
                 color: #fff;
-                padding: 5px 20px;
+                padding: 10px 20px;
                 margin: 0px;
                 flex: 1 1 100%;
                 cursor: pointer;
                 font-size: 18px;
                 text-decoration: none;
+                transition: all 0.4s;
             }
             .sub-menu a:hover {
                 background: rgba(255, 255, 255, 0.2);

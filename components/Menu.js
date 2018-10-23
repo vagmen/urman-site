@@ -75,7 +75,7 @@ class Menu extends Component {
                         flex-direction: column;
                         padding: 10px;
                         cursor: pointer;
-                        transition: all 1s;
+                        transition: all 0.4s;
                     }
                     .menu-item .icon {
                     }

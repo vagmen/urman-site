@@ -21,7 +21,7 @@ const Index = () => (
                         особенности и задачи и как их решили.
                     </p>
                     <div className="video-list grid-with-menu">
-                        <div className="video-list__item grid__item clickable-block">
+                        <div className="video-list__item grid__item">
                             <div className="player-wrapper">
                                 <ReactPlayer
                                     className="react-player"
@@ -31,7 +31,7 @@ const Index = () => (
                                 />
                             </div>
                         </div>
-                        <div className="video-list__item grid__item clickable-block">
+                        <div className="video-list__item grid__item">
                             <div className="player-wrapper">
                                 <ReactPlayer
                                     className="react-player"
@@ -41,7 +41,7 @@ const Index = () => (
                                 />
                             </div>
                         </div>
-                        <div className="video-list__item grid__item clickable-block">
+                        <div className="video-list__item grid__item">
                             <div className="player-wrapper">
                                 <ReactPlayer
                                     className="react-player"
@@ -51,7 +51,7 @@ const Index = () => (
                                 />
                             </div>
                         </div>
-                        <div className="video-list__item grid__item clickable-block">
+                        <div className="video-list__item grid__item">
                             <div className="player-wrapper">
                                 <ReactPlayer
                                     className="react-player"
@@ -61,7 +61,7 @@ const Index = () => (
                                 />
                             </div>
                         </div>
-                        <div className="video-list__item grid__item clickable-block">
+                        <div className="video-list__item grid__item">
                             <div className="player-wrapper">
                                 <ReactPlayer
                                     className="react-player"
@@ -71,7 +71,7 @@ const Index = () => (
                                 />
                             </div>
                         </div>
-                        <div className="video-list__item grid__item clickable-block">
+                        <div className="video-list__item grid__item">
                             <div className="player-wrapper">
                                 <ReactPlayer
                                     className="react-player"
@@ -81,7 +81,7 @@ const Index = () => (
                                 />
                             </div>
                         </div>
-                        <div className="video-list__item grid__item clickable-block">
+                        <div className="video-list__item grid__item">
                             <div className="player-wrapper">
                                 <ReactPlayer
                                     className="react-player"
