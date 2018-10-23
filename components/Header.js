@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { Icon } from 'antd';
-import './node_modules/video-react/dist/video-react.css';
 
 class Header extends Component {
     render() {
@@ -85,6 +84,15 @@ class Header extends Component {
                     }
                     .clickable-block:hover {
                         box-shadow: 0px 0px 35px 4px rgba(0, 0, 0, 0.3);
+                    }
+                    .player-wrapper {
+                        position: relative;
+                        padding-top: 56.25%;
+                    }
+                    .react-player {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
                     }
                     @media screen and (min-width: 640px) {
                         .grid,

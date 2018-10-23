@@ -21,10 +21,6 @@ const Layout = ({ title, menuItem, children }) => (
                 rel="stylesheet"
                 href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css"
             />
-            <link
-                rel="stylesheet"
-                href="https://video-react.github.io/assets/video-react.css"
-            />
         </Head>
         <Header />
         <LocaleProvider locale={ruRU}>

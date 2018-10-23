@@ -1,7 +1,7 @@
+import ReactPlayer from 'react-player';
 import Layout from '../../../components/Layout';
 import WithSubMenu from '../../../components/WithSubMenu';
 import menuData from '../../../constants/menuData';
-import { Player, BigPlayButton } from 'video-react';
 
 const menuItem = 'clients';
 const subMenuItem = 'video';
@@ -22,58 +22,74 @@ const Index = () => (
                     </p>
                     <div className="video-list grid-with-menu">
                         <div className="video-list__item grid__item clickable-block">
-                            <Player
-                                playsInline
-                                poster="http://lamcdn.net/lookatme.ru/post_image-image/zFesszST-MN14B3AAcKBBg-article.jpg"
-                                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                            >
-                                <BigPlayButton position="center" />
-                            </Player>
+                            <div className="player-wrapper">
+                                <ReactPlayer
+                                    className="react-player"
+                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
                         </div>
                         <div className="video-list__item grid__item clickable-block">
-                            <Player
-                                playsInline
-                                poster="http://lamcdn.net/lookatme.ru/post_image-image/zFesszST-MN14B3AAcKBBg-article.jpg"
-                                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                            >
-                                <BigPlayButton position="center" />
-                            </Player>
+                            <div className="player-wrapper">
+                                <ReactPlayer
+                                    className="react-player"
+                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
                         </div>
                         <div className="video-list__item grid__item clickable-block">
-                            <Player
-                                playsInline
-                                poster="http://lamcdn.net/lookatme.ru/post_image-image/zFesszST-MN14B3AAcKBBg-article.jpg"
-                                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                            >
-                                <BigPlayButton position="center" />
-                            </Player>
+                            <div className="player-wrapper">
+                                <ReactPlayer
+                                    className="react-player"
+                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
                         </div>
                         <div className="video-list__item grid__item clickable-block">
-                            <Player
-                                playsInline
-                                poster="http://lamcdn.net/lookatme.ru/post_image-image/zFesszST-MN14B3AAcKBBg-article.jpg"
-                                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                            >
-                                <BigPlayButton position="center" />
-                            </Player>
+                            <div className="player-wrapper">
+                                <ReactPlayer
+                                    className="react-player"
+                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
                         </div>
                         <div className="video-list__item grid__item clickable-block">
-                            <Player
-                                playsInline
-                                poster="http://lamcdn.net/lookatme.ru/post_image-image/zFesszST-MN14B3AAcKBBg-article.jpg"
-                                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                            >
-                                <BigPlayButton position="center" />
-                            </Player>
+                            <div className="player-wrapper">
+                                <ReactPlayer
+                                    className="react-player"
+                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
                         </div>
                         <div className="video-list__item grid__item clickable-block">
-                            <Player
-                                playsInline
-                                poster="http://lamcdn.net/lookatme.ru/post_image-image/zFesszST-MN14B3AAcKBBg-article.jpg"
-                                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                            >
-                                <BigPlayButton position="center" />
-                            </Player>
+                            <div className="player-wrapper">
+                                <ReactPlayer
+                                    className="react-player"
+                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
+                        </div>
+                        <div className="video-list__item grid__item clickable-block">
+                            <div className="player-wrapper">
+                                <ReactPlayer
+                                    className="react-player"
+                                    url="https://www.youtube.com/watch?v=gpzuVt_mkKs"
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
                         </div>
                     </div>
                 </WithSubMenu>
