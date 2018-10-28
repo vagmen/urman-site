@@ -36,6 +36,8 @@ const WithSubMenu = ({
             .with-sub-menu {
                 display: flex;
                 flex-wrap: wrap;
+                position: static;
+                overflow-y: auto;
             }
             .sub-menu {
                 flex: 1 1 100%;
@@ -65,6 +67,7 @@ const WithSubMenu = ({
             .content {
                 flex: 1 1 100%;
                 padding: 20px;
+                overflow: hidden;
                  {
                     /* display: flex;
                 flex-wrap: wrap; */
@@ -75,6 +78,7 @@ const WithSubMenu = ({
                     flex-wrap: nowrap;
                     justify-content: center;
                     align-items: flex-start;
+                    position: static;
                 }
                 .sub-menu {
                     flex: 0 0 250px;
