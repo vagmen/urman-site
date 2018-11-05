@@ -112,23 +112,26 @@ class Header extends Component {
                         display: flex;
                         justify-content: center;
                         margin-bottom: 1em;
+                        flex-wrap: wrap;
                     }
                     .input-with-button input {
                         border: none;
-                        border-top-left-radius: 20px;
-                        border-bottom-left-radius: 20px;
+                        border-top-left-radius: 24px;
+                        border-top-right-radius: 24px;
                         padding: 10px;
+                        flex: 100%;
                     }
                     .input-with-button button {
                         color: #fff;
                         padding: 10px 14px;
-                        border-top-right-radius: 20px;
-                        border-bottom-right-radius: 20px;
+                        border-bottom-left-radius: 24px;
+                        border-bottom-right-radius: 24px;
                         cursor: pointer;
                         transition-duration: 0.3s;
                         transition-timing-function: ease;
                         transition-property: background-color, color, opacity;
                         background: #f06060;
+                        flex: 100%;
                     }
                     .input-with-button button:hover {
                         background: #fff;
@@ -142,6 +145,18 @@ class Header extends Component {
                         .clickable-block:hover {
                             transform: translate(0, -10px);
                             box-shadow: 0 10px 35px 4px rgba(0, 0, 0, 0.3);
+                        }
+                        .input-with-button input {
+                            flex: 0 0 auto;
+                            border-top-left-radius: 24px;
+                            border-bottom-left-radius: 24px;
+                            border-top-right-radius: 0px;
+                        }
+                        .input-with-button button {
+                            flex: 0 0 auto;
+                            border-top-right-radius: 24px;
+                            border-bottom-right-radius: 24px;
+                            border-bottom-left-radius: 0px;
                         }
                     }
                     @media screen and (min-width: 960px) {
