@@ -162,6 +162,9 @@ const Index = ({ postData }) => (
             </div>
         </div>
         <style jsx>{`
+            .pol {
+                position: relative;
+            }
             img {
                 width: 100%;
             }
