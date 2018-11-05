@@ -17,27 +17,18 @@ class Header extends Component {
                         +7 347 <strong>298-34-86</strong>
                     </span>
                     {/* <span className="start-proj__button start-proj__button-text"> */}
-                    <button className="start-proj__button start-proj__button-text">
-                        Начать проект
-                    </button>
+                    <button className="start-proj__button start-proj__button-text">Начать проект</button>
                     {/* </span> */}
                     <span className="start-proj__button start-proj__button-icon">
                         <Icon type="plus" />
                     </span>
                 </div>
                 <style jsx global>{`
+                    @import url('https://fonts.googleapis.com/css?family=Rubik');
                     body {
                         font-size: 18px;
                         background: #eee;
-                        font-family: Geneva, Arial, Helvetica, sans-serif;
-                    }
-                    ul {
-                        margin: 0;
-                        padding: 0;
-                    }
-
-                    li {
-                        list-style: none;
+                        font-family: Rubik, Helvetica, sans-serif;
                     }
                     button {
                         border: none;
@@ -94,6 +85,54 @@ class Header extends Component {
                         position: absolute;
                         top: 0;
                         left: 0;
+                    }
+                    .post {
+                        color: rgba(0, 0, 0, 0.7);
+                        max-width: 1000px;
+                        margin: 0 auto;
+                    }
+                    .post h1,
+                    .post h2,
+                    .post h3,
+                    .post h4,
+                    .post h5,
+                    .post h6 {
+                        color: rgba(0, 0, 0, 0.7);
+                    }
+
+                    .post h1 {
+                        font-size: 50px;
+                        text-align: center;
+                        padding: 50px 0;
+                    }
+                    .post h3 {
+                        font-size: 30px;
+                    }
+                    .input-with-button {
+                        display: flex;
+                        justify-content: center;
+                        margin-bottom: 1em;
+                    }
+                    .input-with-button input {
+                        border: none;
+                        border-top-left-radius: 20px;
+                        border-bottom-left-radius: 20px;
+                        padding: 10px;
+                    }
+                    .input-with-button button {
+                        color: #fff;
+                        padding: 10px 14px;
+                        border-top-right-radius: 20px;
+                        border-bottom-right-radius: 20px;
+                        cursor: pointer;
+                        transition-duration: 0.3s;
+                        transition-timing-function: ease;
+                        transition-property: background-color, color, opacity;
+                        background: #f06060;
+                    }
+                    .input-with-button button:hover {
+                        background: #fff;
+                        color: #f06060;
                     }
                     @media screen and (min-width: 640px) {
                         .grid,

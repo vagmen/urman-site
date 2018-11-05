@@ -16,9 +16,9 @@ app.prepare()
         });
 
         server.get('/services/:id', (req, res) => {
-            const actualPage = '/services/page';
+            const actualPage = '/services/' + req.params.id;
             const queryParams = { id: req.params.id };
-            app.render(req, res, actualPage, queryParams);
+            app.render(req, res, actualPage);
         });
 
         server.get('*', (req, res) => {

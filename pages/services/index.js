@@ -17,23 +17,20 @@ const Index = ({ subMenuItems }) => (
                     <h1>Услуги</h1>
                     <h4>Посмотрите, чем мы можем быть вам полезны</h4>
                     <div className="grid">
-                        {subMenuItems.map((item) => (
-                            <section
-                                className="grid__item clickable-block service"
-                                key={item.id}
-                            >
+                        {servicesData.map((item) => (
+                            <section className="grid__item clickable-block service" key={item.id}>
                                 <Link
-                                    as={`/journal/${item.id}`}
-                                    href={`/journal/post?id=${item.id}`}
+                                    // as={`/journal/${item.id}`}
+                                    href={`/services/${item.id}`}
                                 >
-                                    <Fragment>
+                                    <a>
                                         <img src={item.img} />
                                         <article>
                                             <header>
                                                 <h3>{item.name}</h3>
                                             </header>
                                         </article>
-                                    </Fragment>
+                                    </a>
                                 </Link>
                             </section>
                         ))}
@@ -84,7 +81,7 @@ Index.getInitialProps = async function() {
     const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     const data = await res.json();
     return {
-        subMenuItems: servicesData,
+        servicesData: servicesData,
     };
 };
 
