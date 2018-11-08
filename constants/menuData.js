@@ -1,9 +1,9 @@
 const menuData = {
     clients: {
-        video: 'Видео клиентов',
+        // video: 'Видео клиентов',
         feedback: 'Отзывы',
         stats: 'Ститистика и показатели',
-        geography: 'География проектов',
+        // geography: 'География проектов',
     },
     services: {
         documentation: 'Проектная документация лесного участка',

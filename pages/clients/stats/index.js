@@ -9,11 +9,7 @@ const Index = () => (
     <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
         <div className="page-background">
             <div className="page-content">
-                <WithSubMenu
-                    subMenuItems={menuData[menuItem]}
-                    subMenuItem={subMenuItem}
-                    menuItem={menuItem}
-                >
+                <WithSubMenu subMenuItems={menuData[menuItem]} subMenuItem={subMenuItem} menuItem={menuItem}>
                     <h1>Статистика</h1>
                     <div className="stat-list grid-with-menu">
                         <div className="stat-list__item grid__item">
@@ -35,11 +31,9 @@ const Index = () => (
                             <p>Успешный опыт работы в</p>
                             <p className="number">10</p>
                             <p>
-                                регионах: Московская область, Калужская область,
-                                Тверская область, Марий Эл, Татарстан,
-                                Башкортостан, Челябинская область, Мурманская
-                                область, Ямало-Ненецкий АО, Кемеровская область,
-                                Красноярский край, Иркутская область
+                                регионах: Московская область, Калужская область, Тверская область, Марий Эл, Татарстан,
+                                Башкортостан, Челябинская область, Мурманская область, Ямало-Ненецкий АО, Кемеровская
+                                область, Красноярский край, Иркутская область
                             </p>
                         </div>
                     </div>
@@ -51,7 +45,9 @@ const Index = () => (
                 align-items: flex-start;
             }
             .stat-list__item {
-                background: #fff;
+                 {
+                    /* background: #fff; */
+                }
                 padding: 30px;
                 text-align: center;
                 transition: all 0.3s;
@@ -64,6 +60,7 @@ const Index = () => (
                 line-height: 120px;
                 margin: 0;
                 color: #563e8e;
+                color: #667636;
             }
         `}</style>
     </Layout>
