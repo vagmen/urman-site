@@ -1,53 +1,16 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Button, Icon } from 'antd';
-
-const menuData = [
-    {
-        title: 'Клиенты',
-        icon: 'team',
-        src: 'clients',
-    },
-    {
-        title: 'Услуги',
-        icon: 'key',
-        src: 'services',
-    },
-    {
-        title: 'О нас',
-        icon: 'idcard',
-        src: 'about',
-    },
-    {
-        title: 'Журнал',
-        icon: 'book',
-        src: 'journal',
-    },
-    {
-        title: 'Контакты',
-        icon: 'phone',
-        src: 'contacts',
-    },
-];
+import React, { Component } from "react";
+import Link from "next/link";
+import { Button, Icon } from "antd";
+import { mainMenu } from "../constants/mainMenu";
 
 class Menu extends Component {
     render() {
         return (
             <ul className="menu">
-                {menuData.map((item, index) => (
+                {mainMenu.map((item, index) => (
                     <Link key={index} href={`/${item.src}`}>
-                        <li
-                            className={`menu-item ${
-                                this.props.menuItem === item.src
-                                    ? `menu-item_active`
-                                    : ``
-                            }`}
-                        >
-                            <Icon
-                                className="icon"
-                                type={item.icon}
-                                style={{ color: '#bbb', fontSize: 25 }}
-                            />
+                        <li className={`menu-item ${this.props.menuItem === item.src ? `menu-item_active` : ``}`}>
+                            <Icon className="icon" type={item.icon} style={{ color: "#bbb", fontSize: 25 }} />
                             <a>{item.title}</a>
                         </li>
                     </Link>
@@ -63,7 +26,10 @@ class Menu extends Component {
                         bottom: 0;
                         z-index: 100;
                         width: 100%;
-                        background-color: #1e1435;
+                         {
+                            /* background-color: #1e1435; */
+                        }
+                        background-color: #3a431b;
                         position: fixed;
                     }
                     .menu-item {
@@ -73,7 +39,7 @@ class Menu extends Component {
                         justify-content: center;
                         flex-wrap: wrap;
                         flex-direction: column;
-                        padding: 10px;
+                        padding: 20px 10px;
                         cursor: pointer;
                         transition: all 0.4s;
                     }
@@ -96,7 +62,7 @@ class Menu extends Component {
                     .menu-item_active {
                         background: rgba(255, 255, 255, 0.2);
                     }
-                    @media screen and (min-width: 640px) {
+                    @media (min-width: 640px) {
                         .menu-trigger {
                             display: none;
                         }
@@ -105,9 +71,10 @@ class Menu extends Component {
                         }
                         .menu-item a {
                             display: block;
+                            font-size: 12px;
                         }
                     }
-                    @media screen and (min-width: 960px) {
+                    @media (min-width: 960px) {
                         .menu-item a {
                             font-size: 14px;
                         }

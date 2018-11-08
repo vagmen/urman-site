@@ -1,13 +1,13 @@
-import { Fragment } from 'react';
-import Link from 'next/link';
-import moment from 'moment';
-import fetch from 'isomorphic-unfetch';
+import { Fragment } from "react";
+import Link from "next/link";
+import moment from "moment";
+import fetch from "isomorphic-unfetch";
 
-import Layout from '../../components/Layout';
-import WithSubMenu from '../../components/WithSubMenu';
-import { servicesData } from '../../constants/menuData';
+import Layout from "../../components/Layout";
+import WithSubMenu from "../../components/WithSubMenu";
+import { servicesData } from "../../constants/menuData";
 
-const menuItem = 'services';
+const menuItem = "services";
 
 const Index = ({ subMenuItems }) => (
     <Layout title="Услуги" menuItem={menuItem}>
@@ -17,7 +17,7 @@ const Index = ({ subMenuItems }) => (
                     <h1>Услуги</h1>
                     <h4>Посмотрите, чем мы можем быть вам полезны</h4>
                     <div className="grid">
-                        {servicesData.map((item) => (
+                        {servicesData.map(item => (
                             <section className="grid__item clickable-block service" key={item.id}>
                                 <Link
                                     // as={`/journal/${item.id}`}
@@ -55,7 +55,7 @@ const Index = ({ subMenuItems }) => (
 
             h1,
             h4 {
-                color: #1e1435;
+                color: #3a431b;
             }
 
             article {
@@ -78,10 +78,10 @@ const Index = ({ subMenuItems }) => (
 );
 
 Index.getInitialProps = async function() {
-    const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
+    const res = await fetch("https://api.tvmaze.com/search/shows?q=forest");
     const data = await res.json();
     return {
-        servicesData: servicesData,
+        servicesData: servicesData
     };
 };
 
