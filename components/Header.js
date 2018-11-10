@@ -34,7 +34,7 @@ class Header extends Component {
                         border: none;
                     }
                     h1 {
-                        font-size: 48px;
+                        font-size: 40px;
                         font-weight: 500;
                         line-height: 48px;
                     }
@@ -101,7 +101,9 @@ class Header extends Component {
                     }
 
                     .post h1 {
-                        font-size: 50px;
+                         {
+                            /* font-size: 50px; */
+                        }
                         text-align: center;
                         padding: 50px 0;
                     }
@@ -138,6 +140,9 @@ class Header extends Component {
                         color: #f06060;
                     }
                     @media screen and (min-width: 640px) {
+                        .h1 {
+                            font-size: 50px;
+                        }
                         .grid,
                         .grid-with-menu {
                             grid-template-columns: 1fr 1fr;

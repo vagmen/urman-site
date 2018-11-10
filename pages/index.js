@@ -53,15 +53,15 @@ export default () => (
                 color: #2c2f88;
                 color: #3a431b;
                 text-align: center;
-                padding: 100px 100px 50px;
+                padding: 70px 50px 30px;
                 font-weight: 200;
             }
             h4 {
-                font-size: 24px;
+                font-size: 20px;
                 font-weight: 300;
                 color: #666;
                 text-align: center;
-                padding: 50px;
+                padding: 30px;
             }
             .tour {
                 display: flex;
@@ -101,7 +101,17 @@ export default () => (
             .tour__item img {
                 width: 80%;
             }
-            @media screen and (min-width: 960px) {
+
+            @media (min-width: 640px) {
+                h1 {
+                    font-size: 50px;
+                    padding: 100px 70px 30px;
+                }
+                h4 {
+                    font-size: 24px;
+                    padding: 50px;
+                }
+            @media (min-width: 960px) {
                 .tour__item {
                     flex: 1 1 33%;
                 }
