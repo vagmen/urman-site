@@ -50,9 +50,11 @@ const FeedbackCard = ({ feedbackData }) => (
                 background: rgba(102, 118, 54, 0.6);
             }
             .cover p {
-                font-size: 22px;
-                padding: 20px;
+                font-size: 20px;
+                padding: 10px;
                 text-align: center;
+                line-height: 28px;
+                margin: 0;
             }
             .card__text,
             .card__img {
