@@ -8,19 +8,15 @@ const Recall = () => (
                 <div className="recall-header-text">
                     <h4>Lee Rubin & Keri Robinson</h4>
                     <h5>
-                        Senior Manager of Global Reference Programs and Customer
-                        Reference Marketing Manager, Citrix
+                        Senior Manager of Global Reference Programs and Customer Reference Marketing Manager, Citrix
                     </h5>
                 </div>
-                <img
+                {/* <img
                     className="recall-logo"
                     src="https://www.techvalidate.com/assets/corp/customers/logos/citrix-bd945466b8c623e5fab67c2855f0a8a7.png"
-                />
+                /> */}
             </div>
-            <p>
-                Citrix uses TechValidate to magnify the output of their
-                marketing team.
-            </p>
+            <p>Citrix uses TechValidate to magnify the output of their marketing team.</p>
             <a>Смотрите интервью</a>
         </div>
         <style jsx>{`

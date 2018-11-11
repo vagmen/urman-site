@@ -69,8 +69,6 @@ export default () => (
                 margin-top: 30px;
             }
             .tour__item {
-                background-image: url('https://www.techvalidate.com/assets/corp/header/bg-overlay-505519f95428cb2cc16945b69604042e.png');
-                background-size: cover;
                 flex: 1 1 100%;
                 display: flex;
                 flex-direction: column;
