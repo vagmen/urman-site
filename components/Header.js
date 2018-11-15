@@ -62,6 +62,9 @@ class Header extends Component {
                         display: flex;
                         justify-content: center;
                     }
+                    .centered-elem {
+                        margin: 0 auto;
+                    }
                     .grid,
                     .grid-with-menu {
                         display: grid;
