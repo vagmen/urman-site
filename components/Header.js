@@ -7,18 +7,19 @@ class Header extends Component {
         return (
             <div className={`header ${true ? `` : `transparent`}`}>
                 <Link href="/">
-                    <div className="header-name">
-                        <span className="logo">URMAN</span>
-                        <span className="slogan">ЛЕСНЫЕ РЕШЕНИЯ</span>
+                    <div className="header-container">
+                        <img src="../static/images/logo-w.png" alt="Логотип" className="logogo" />
+                        <div className="header-name">
+                            <span className="logo">URMAN</span>
+                            <span className="slogan">ЛЕСНЫЕ РЕШЕНИЯ</span>
+                        </div>
                     </div>
                 </Link>
                 <div className="start-proj">
                     <span className="start-proj__phone">
                         +7 347 <strong>298-34-86</strong>
                     </span>
-                    {/* <span className="start-proj__button start-proj__button-text"> */}
                     <button className="start-proj__button start-proj__button-text">Начать проект</button>
-                    {/* </span> */}
                     <span className="start-proj__button start-proj__button-icon">
                         <Icon type="plus" />
                     </span>
@@ -212,6 +213,16 @@ class Header extends Component {
                     .header.transparent {
                         background-color: transparent;
                         border-bottom-color: transparent;
+                    }
+                    .header-container {
+                        display: flex;
+                        align-items: center;
+                    }
+                    .logogo {
+                        height: 56px;
+                        width: 56px;
+                        object-fit: cover;
+                        margin-right: 10px;
                     }
                     .header-name {
                         display: flex;

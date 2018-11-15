@@ -17,7 +17,7 @@ export default () => (
                 </h4>
                 <div className="centered">
                     <Button type="primary" size="large">
-                        Смотреть краткий обзор? или заменить текст?
+                        Смотреть краткий обзор??
                     </Button>
                 </div>
             </section>
@@ -73,21 +73,21 @@ export default () => (
                 color: #2c2f88;
                 color: #3a431b;
                 text-align: center;
-                padding: 70px 50px 0px;
+                padding: 60px 40px 0px;
                 font-weight: 200;
                 margin: 0;
             }
             h4 {
-                font-size: 20px;
+                font-size: 18px;
                 font-weight: 300;
                 color: #666;
                 text-align: center;
-                padding: 30px;
+                padding: 20px;
             }
             .tour {
                 display: flex;
                 flex-wrap: wrap;
-                margin-top: 30px;
+                margin-top: 100px;
             }
             .tour__item {
                 background-image: url('https://www.techvalidate.com/assets/corp/header/bg-overlay-505519f95428cb2cc16945b69604042e.png');

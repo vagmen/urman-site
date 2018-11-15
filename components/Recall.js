@@ -44,7 +44,7 @@ const Recall = ({ feedbackData }) => (
                 margin-top: 20px;
                 border: 1px solid #d5d5d5;
                 padding: 20px;
-                background: rgba(255, 255, 255, 0.95);
+                background: rgba(255, 255, 255, 1);
                 border-radius: 10px;
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             }
