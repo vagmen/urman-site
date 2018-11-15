@@ -1,9 +1,9 @@
-import Layout from '../../components/Layout';
-import { FaVk, FaSkype, FaInstagram } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
+import Layout from "../../components/Layout";
+import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
-const menuItem = 'contacts';
-const background = '#333';
+const menuItem = "contacts";
+const background = "#333";
 
 const Index = () => (
     <Layout title="Контакты" menuItem={menuItem}>
@@ -34,7 +34,8 @@ const Index = () => (
                             <h2>Москва</h2>
                             <p>143441, Московская область, 72км МКАД, строение 23</p>
                             <p>(Напротив Комитета лесного хозяйства МО)</p>
-                            <p>+7 495 215-22-19?</p>
+                            <p>+7(903)968-34-86</p>
+                            <p>+7(495)968-34-86</p>
                             <a>На карте</a>
                         </div>
                         <div className="section address">

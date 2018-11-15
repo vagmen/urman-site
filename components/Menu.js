@@ -69,6 +69,9 @@ class Menu extends Component {
                         .menu {
                             display: flex;
                         }
+                        .menu-item {
+                            padding: 10px;
+                        }
                         .menu-item a {
                             display: block;
                             font-size: 12px;
