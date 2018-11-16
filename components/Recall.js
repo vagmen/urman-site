@@ -31,9 +31,7 @@ const Recall = ({ feedbackData }) => (
                 z-index: 0;
                 height: 300px;
                 width: 300px;
-
-                background: url('/static/home-img.png') 100% 100% no-repeat;
-
+                background: url("/static/home-img.png") 100% 100% no-repeat;
                 background-size: contain;
                 background-position: center center;
                 margin: 0 auto;
@@ -41,7 +39,7 @@ const Recall = ({ feedbackData }) => (
             .recall-container {
                 width: 80%;
                 margin: 0 auto;
-                margin-top: 20px;
+                margin-top: -50px;
                 border: 1px solid #d5d5d5;
                 padding: 20px;
                 background: rgba(255, 255, 255, 1);
@@ -60,10 +58,7 @@ const Recall = ({ feedbackData }) => (
             }
             @media (min-width: 960px) {
                 .recall {
-                    margin-top: 50px;
-                }
-                .recall-container {
-                    margin-top: -50px;
+                    margin-top: 300px;
                 }
             }
         `}</style>

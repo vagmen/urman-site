@@ -1,9 +1,9 @@
-import { Button } from 'antd';
-import Link from 'next/link';
-import Layout from '../components/Layout.js';
-import Recall from '../components/Recall.js';
-import StartProject from '../components/StartProject.js';
-import feedback from '../constants/feedback';
+import { Button } from "antd";
+import Link from "next/link";
+import Layout from "../components/Layout.js";
+import Recall from "../components/Recall.js";
+import StartProject from "../components/StartProject.js";
+import feedback from "../constants/feedback";
 
 export default () => (
     <Layout title="URMAN">
@@ -59,12 +59,15 @@ export default () => (
             .background-image{
                 background-image: url('/static/images/logo.png');
                 position: absolute;
-                top: 50px;
                 height: 100%;
                 width: 100%;
-                left: 0;
+                top: 70px;
+                left: 0%;
                 z-index: -1;
-                filter: blur(4px) opacity(30%);
+                filter: blur(2px) opacity(20%);
+                background-repeat: no-repeat;
+                background-position: center top;
+                background-size: 100%;
             }
             .section{
                 flex: 1 1 100%;
@@ -133,19 +136,48 @@ export default () => (
                     padding: 50px;
                 }
             @media (min-width: 960px) {
+                .background-image{
+                    background-size: 80%;
+                    top: 30px;
+                }
                 .slogan{
-                    flex: 0 0 50%;
+                    flex: 1 0 0;
                 }
                 .feedback{
-                    flex: 0 0 50%;
+                    flex: 0 0 500px;
                 }
                 h1, h4{
                     text-align: left;
+                }
+                h1 {
+                    font-size: 50px;
+                    padding: 150px 50px 50px;
+                }
+                h4 {
+                    font-size: 24px;
+                    padding: 50px;
+                }
+                .tour {
+                    margin-top: 100px;
                 }
                 .tour__item {
                     flex: 1 1 33%;
                 }
             }
+            @media (min-width: 1200px) {
+                .background-image{
+                    background-size: 60%;
+                    top: 0;
+                }
+                h1 {
+                    font-size: 50px;
+                    padding: 200px 50px 50px;
+                }
+                h4 {
+                    font-size: 24px;
+                    padding: 50px;
+                }
+                 }
         `}</style>
     </Layout>
 );
