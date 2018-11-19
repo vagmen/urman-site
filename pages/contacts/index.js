@@ -10,93 +10,84 @@ const Index = () => (
         <div className="page-background">
             <div className="page-content">
                 <div className="contacts">
-                    <div className="contacts__info">
+                    <div className="info">
                         <h1>Контактная информация и реквизиты</h1>
-                        <p>Мы за открытую коммуникацию!</p>
+                        <p>У нас команда проверенных, грамотных и опытных штатных сотрудников.</p>
                         <p>
-                            В нашей команде — проверенные, грамотные и опытные штатные сотрудники. Мы против мутных
-                            личностей, выдающих себя за фрилансеров, рекомендующих других фрилансеров, студентов и
-                            «преподавателей».
+                            <strong>Мы за открытую коммуникацию</strong>
                         </p>
                         <p>
-                            В Сибириксе всё общение с потенциальными клиентами строится только через официальные каналы:
-                            телефоны, опубликованные на сайте, скайп sibirix и корпоративную почту сотрудников
-                            sibirix.ru.
+                            Мы против «мутных» личностей, выполняющих «шабашки» которые не отвечают за результат и
+                            сроки.
                         </p>
-                        <p>
-                            Мы не отвечаем на заявки на фриланс-биржах, но всегда готовы к общению по телефону или
-                            скайпу. Мы работаем только официально, по договору, с оплатой на расчетный счет. И мы
-                            категорически против откатов.
-                        </p>
+                        <p>Пишите и звоните нам, будем рады!</p>
                     </div>
-                    <div className="contacts__sections">
-                        <div className="section address">
-                            <h2>Москва</h2>
-                            <p>143441, Московская область, 72км МКАД, строение 23</p>
-                            <p>(Напротив Комитета лесного хозяйства МО)</p>
-                            <p>+7(903)968-34-86</p>
-                            <p>+7(495)968-34-86</p>
-                            <a>На карте</a>
+                    <div className="address moscow">
+                        <h2>Москва</h2>
+                        <p>143441, Московская область, 72км МКАД, строение 23</p>
+                        <p>(Соседнее здание с Комитетом лесного хозяйства МО)</p>
+                        <p>+7 (903) 968-34-86</p>
+                        <p>+7 (495) 968-34-86</p>
+                        <a>На карте</a>
+                    </div>
+                    <div className="address ufa">
+                        <h2>Уфа</h2>
+                        <p>450047, Уфа, ул. Ленина 63</p>
+                        <p>(Напротив министерства лесного хозяйства РБ)</p>
+                        <p>+7 (347) 298-34-86</p>
+                        <a>На карте</a>
+                    </div>
+                    <div className="social">
+                        <div>
+                            <a href="mailto:proekt@urman.su">
+                                <p>
+                                    <span>
+                                        <MdEmail />
+                                    </span>
+                                    proekt@urman.su
+                                </p>
+                            </a>
                         </div>
-                        <div className="section address">
-                            <h2>Уфа</h2>
-                            <p>450047, Уфа, ул. Ленина 63</p>
-                            <p>(Напротив министерства лесного хозяйства РБ)</p>
-                            <p>+7 (347) 298-34-86</p>
-                            <a>На карте</a>
+                        <div>
+                            <a href="skype:vagmen?chat">
+                                <p>
+                                    <span>
+                                        <FaSkype />
+                                    </span>
+                                    urman_su
+                                </p>
+                            </a>
                         </div>
-                        <div className="section social">
-                            <div>
-                                <a href="mailto:proekt@urman.su">
-                                    <p>
-                                        <span>
-                                            <MdEmail />
-                                        </span>
-                                        proekt@urman.su
-                                    </p>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="skype:vagmen?chat">
-                                    <p>
-                                        <span>
-                                            <FaSkype />
-                                        </span>
-                                        urman_su
-                                    </p>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="https://vk.com/urman_su" target="_blank">
-                                    <p>
-                                        <span>
-                                            <FaVk />
-                                        </span>
-                                        vk.com/urman_su
-                                    </p>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="https://vk.com/urman_su" target="_blank">
-                                    <p>
-                                        <span>
-                                            <FaInstagram />
-                                        </span>
-                                        urman.su
-                                    </p>
-                                </a>
-                            </div>
+                        <div>
+                            <a href="https://vk.com/urman_su" target="_blank">
+                                <p>
+                                    <span>
+                                        <FaVk />
+                                    </span>
+                                    vk.com/urman_su
+                                </p>
+                            </a>
                         </div>
-                        <div className="section requisites">
-                            <h3>Реквизиты</h3>
-                            <p>ООО "Гринландия"</p>
-                            <p>ИНН 0274146925</p>
-                            <p>КПП 027401001</p>
-                            <p>р/сч 40702810210000046562</p>
-                            <p>АО «Тинькофф Банк»</p>
-                            <p>к/сч 30101810145250000974</p>
-                            <p>БИК 044525974</p>
+                        <div>
+                            <a href="https://www.instagram.com/urman.su" target="_blank">
+                                <p>
+                                    <span>
+                                        <FaInstagram />
+                                    </span>
+                                    urman.su
+                                </p>
+                            </a>
                         </div>
+                    </div>
+                    <div className="requisites">
+                        <h3>Реквизиты</h3>
+                        <p>ООО "Гринландия"</p>
+                        <p>ИНН 0274146925</p>
+                        <p>КПП 027401001</p>
+                        <p>р/сч 40702810210000046562</p>
+                        <p>АО «Тинькофф Банк»</p>
+                        <p>к/сч 30101810145250000974</p>
+                        <p>БИК 044525974</p>
                     </div>
                 </div>
             </div>
@@ -105,66 +96,61 @@ const Index = () => (
             h1,
             h2,
             h3,
-            p {
+            p,
+            a {
                 color: #fff;
             }
             a span {
-                font-size: 35px;
+                font-size: 30px;
                 padding-right: 10px;
             }
             .page-background {
                 background: #333333;
             }
             .contacts {
-                display: flex;
-                flex-wrap: wrap;
-                margin: 0 -20px;
-                align-items: flex-start;
-                overflow-x: hidden;
+                display: grid;
+                grid-template-areas:
+                    "i"
+                    "m"
+                    "u"
+                    "s"
+                    "r";
+                margin-bottom: 1rem;
+                grid-gap: 2rem;
             }
-            .contacts__info {
-                padding: 20px;
-                display: none;
+            .info {
+                grid-area: i;
             }
-            .contacts__sections {
-                flex: 1;
-                display: flex;
-                flex-wrap: wrap;
-                margin: 0 -20px;
-                align-items: flex-start;
+            .address moscow {
+                grid-area: m;
             }
-            .section {
-                padding: 20px;
-                color: #fff;
-                width: 100%;
-                margin: 0 20px;
-            }
-            .address {
-                 {
-                    /* background: #515151; */
-                }
+            .address ufa {
+                grid-area: u;
             }
             .social {
+                grid-area: s;
                 background: rgba(211, 158, 99, 0.8);
+                padding: 1rem;
             }
-            @media screen and (min-width: 640px) {
-                .contacts__info {
-                    display: block;
-                    width: calc(50% - 40px);
-                    margin: 0 20px;
-                }
-                .contacts__sections {
-                    width: calc(50% - 40px);
-                    margin: 0 20px;
-                }
-                .section {
-                    margin: 0 0 20px;
-                    width: 100%;
+            .requisites {
+                grid-area: r;
+            }
+            @media (min-width: 640px) {
+                .contacts {
+                    margin: 50px 0;
+                    grid-template-areas:
+                        "i i"
+                        "m u"
+                        "r s";
                 }
             }
-            @media screen and (min-width: 960px) {
-                .section {
-                    padding: 15px;
+            @media (min-width: 960px) {
+                .contacts {
+                    margin: 100px 0;
+                    grid-template-areas:
+                        "i m u"
+                        "i . ."
+                        "i r s";
                 }
             }
         `}</style>

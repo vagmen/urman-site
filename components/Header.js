@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Icon } from 'antd';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Icon } from "antd";
 
 class Header extends Component {
     render() {
@@ -25,7 +25,20 @@ class Header extends Component {
                     </span>
                 </div>
                 <style jsx global>{`
-                    @import url('https://fonts.googleapis.com/css?family=Rubik');
+                    @import url("https://fonts.googleapis.com/css?family=Rubik");
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        color: inherit;
+                        font-size: 1em;
+                        line-height: inherit;
+                        margin: 0;
+                        padding: 0;
+                        vertical-align: baseline;
+                    }
                     body {
                         font-size: 18px;
                         background: #eee;
@@ -35,9 +48,38 @@ class Header extends Component {
                         border: none;
                     }
                     h1 {
-                        font-size: 40px;
-                        font-weight: 500;
-                        line-height: 48px;
+                        font-size: 3rem;
+                        line-height: 3rem;
+                        margin-bottom: 2rem;
+                    }
+                    h2 {
+                        font-size: 1.83rem;
+                        line-height: 1.83rem;
+                        margin-bottom: 1.83rem;
+                    }
+                    h3 {
+                        font-size: 1.66rem;
+                        line-height: 1.66rem;
+                        margin-top: 0.5rem;
+                        margin-bottom: 1.33rem;
+                    }
+                    h4 {
+                        font-size: 1.5rem;
+                        line-height: 1.5rem;
+                        margin-bottom: 1.5rem;
+                    }
+                    h5 {
+                        font-size: 1.33rem;
+                        line-height: 1.33rem;
+                        margin-bottom: 1.33rem;
+                    }
+                    h6 {
+                        font-size: 1.17rem;
+                        line-height: 1.17rem;
+                        margin-bottom: 1.17rem;
+                    }
+                    p {
+                        margin-bottom: 0.5rem;
                     }
                     a {
                         color: inherit;
