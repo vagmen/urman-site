@@ -24,6 +24,13 @@ export default () => (
             <section className="section feedback">
                 <Recall feedbackData={feedback[0]} />
             </section>
+            <section className="section logos">
+                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
+                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
+                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
+                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
+                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
+            </section>
             <section className="section tour">
                 <Link href={`/services`}>
                     <div className="tour__item tour__item-green">
@@ -44,17 +51,17 @@ export default () => (
                     <p>100% наших клиентов находятся в России. Подробнее -></p>
                     <img src="/static/video.png" />
                 </div>
-                {/* <StartProject /> */}
             </section>
         </div>
 
         <style jsx>{`
             .main-container {
-                display: flex;
-                align-items: center;
-                position: relative;
-                padding-top: 50px;
-                flex-wrap: wrap;
+                display: grid;
+                grid-auto-rows:  auto;
+                grid-gap: 50px;
+                grid-template-areas: 's'
+                'f'
+                't';
             }
             .background-image{
                 background-image: url('/static/images/logo.png');
@@ -69,23 +76,41 @@ export default () => (
                 background-position: center top;
                 background-size: 100%;
             }
-            .section{
-                flex: 1 1 100%;
+            .slogan{
+                grid-area: s;
+                padding: 100px 20px 0;
+            }
+            .feedback{
+                grid-area: f;
+            }
+            .tour{
+                grid-area: t;
+            }
+            .logos{
+                grid-area: l;
+                align-items: center;
+                background: rgba(255,255,255,0.5);
+                padding: 0 50px;
+                justify-content: center;
+                display: none;
+                border-top: 1px solid #d5d5d5;
+                border-bottom: 1px solid #d5d5d5;
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            }
+            .logos img{
+                flex: 0 1 200px;
+                width: 0px;
+                padding: 30px;
             }
             h1 {
-                color: #2c2f88;
                 color: #3a431b;
                 text-align: center;
-                padding: 60px 40px 0px;
-                font-weight: 200;
-                margin: 0;
+                font-weight: 300;
             }
             h4 {
-                font-size: 18px;
                 font-weight: 300;
                 color: #666;
                 text-align: center;
-                padding: 20px;
             }
             .tour {
                 display: flex;
@@ -125,57 +150,65 @@ export default () => (
             }
 
             @media (min-width: 640px) {
-                h1 {
-                    font-size: 50px;
-                    padding: 100px 50px 30px;
+                .slogan{
+                    padding: 200px 100px 0;
                 }
-                h4 {
-                    font-size: 24px;
-                    padding: 50px;
-                }
+              
             @media (min-width: 960px) {
+                .main-container {
+                    grid-template-columns: repeat(8, 1fr);
+                    grid-template-areas:    '. s s s f f f f'
+                                            'l l l l l l l l'
+                                            't t t t t t t t ';
+                }
                 .background-image{
                     background-size: 80%;
                     top: 30px;
                 }
                 .slogan{
-                    flex: 1 0 0;
+                    padding: 200px 0 0;
                 }
-                .feedback{
-                    flex: 0 0 500px;
+                .logos{
+                    display: flex;
+                    margin-top: 50px;
                 }
                 h1, h4{
                     text-align: left;
                 }
-                h1 {
-                    font-size: 50px;
-                    padding: 150px 50px 50px;
-                }
-                h4 {
-                    font-size: 24px;
-                    padding: 50px;
+                h1{
+                    font-size: 3rem;
                 }
                 .tour {
-                    margin-top: 100px;
+                    margin-top: 50px;
                 }
                 .tour__item {
                     flex: 1 1 33%;
                 }
             }
             @media (min-width: 1200px) {
+                .main-container {
+                    grid-template-columns: repeat(9, 1fr);
+                    grid-template-areas:    '. s s s . f f f f'
+                                            'l l l l l l l l l'
+                                            't t t t t t t t t';
+                }
                 .background-image{
                     background-size: 60%;
                     top: 0;
                 }
-                h1 {
-                    font-size: 50px;
-                    padding: 200px 50px 50px;
+            }
+            @media (min-width: 1600px) {
+                .main-container {
+                    grid-template-columns: repeat(11, 1fr);
+                    grid-template-areas:    '. . s s s . f f f f .'
+                                            'l l l l l l l l l l l'
+                                            't t t t t t t t t t t';
                 }
-                h4 {
-                    font-size: 24px;
-                    padding: 50px;
+                .background-image{
+                    background-size: 60%;
+                    top: 0;
                 }
-                 }
+            }
         `}</style>
     </Layout>
 );
