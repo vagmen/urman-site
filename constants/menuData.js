@@ -1,6 +1,6 @@
 const menuData = {
     clients: {
-        // video: 'Видео клиентов',
+        video: 'Видео клиентов',
         feedback: 'Отзывы',
         stats: 'Ститистика и показатели',
         // geography: 'География проектов',

@@ -59,7 +59,6 @@ const Index = () => (
                 font-size: 120px;
                 line-height: 120px;
                 margin: 0;
-                color: #563e8e;
                 color: #667636;
             }
         `}</style>

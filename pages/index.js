@@ -4,6 +4,7 @@ import Layout from '../components/Layout.js';
 import Recall from '../components/Recall.js';
 import StartProject from '../components/StartProject.js';
 import feedback from '../constants/feedback';
+import { mainColorLight, mainColorMid } from '../constants/colors';
 
 export default () => (
     <Layout title="URMAN">
@@ -33,24 +34,27 @@ export default () => (
             </section>
             <section className="section tour">
                 <Link href={`/services`}>
-                    <div className="tour__item tour__item-green">
-                        <h4>НАШИ УСЛУГИ</h4>
+                    <div className="tour__item">
+                        <h3>НАШИ УСЛУГИ</h3>
                         <p>Посмотрите, чем мы можем быть вам полезны</p>
-                        <img src="/static/video.png" />
+                        <img src="/static/images/tour/pol.png" />
                     </div>
                 </Link>
-                <Link href={`/clients`}>
-                    <div className="tour__item tour__item-blue">
-                        <h4>ИСТОРИИ КЛИЕНТОВ</h4>
+                <Link href={`/clients/stats`}>
+                    <div className="tour__item tour__item-ligth">
+                        <h3>ЦИФРЫ</h3>
+                        <p>Нами разработано и согласовано</p>
+                        <p className="number">173</p>
+                        <p>проекта освоения лесов</p>
+                    </div>
+                </Link>
+                <Link href={`/clients/video`}>
+                    <div className="tour__item">
+                        <h3>ИСТОРИИ КЛИЕНТОВ</h3>
                         <p>Посмотрите, что говорят наши клиенты о нас</p>
-                        <img src="/static/video.png" />
+                        <img src="/static/images/tour/feedback.png" />
                     </div>
                 </Link>
-                <div className="tour__item tour__item-orange">
-                    <h4>КЛИЕНТЫ В ЦИФРАХ</h4>
-                    <p>100% наших клиентов находятся в России. Подробнее -></p>
-                    <img src="/static/video.png" />
-                </div>
             </section>
         </div>
 
@@ -116,38 +120,29 @@ export default () => (
             .tour {
                 display: flex;
                 flex-wrap: wrap;
-                margin-top: 100px;
             }
             .tour__item {
                 flex: 1 1 100%;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
                 align-items: center;
                 color: white;
-                padding: 30px;
+                padding: 40px;
                 cursor: pointer;
-            }
-            .tour__item-green {
-                background-color: #77bc1f;
-                background-position: right;
-            }
-            .tour__item-blue {
-                background-color: #2c2f88;
-                background-position: left;
-            }
-            .tour__item-orange {
-                background-color: #ff8400;
-                background-position: center;
-            }
-            .tour__item h4,
-            .tour__item p {
-                color: white;
-                padding: 0px;
+                background-color: ${mainColorMid};
                 text-align: center;
             }
+            .tour__item-ligth {
+                background-color: ${mainColorLight};
+                background-position: left;
+                color: #393b3d;
+            }
             .tour__item img {
-                width: 80%;
+                width: 100%;
+            }
+            .tour__item .number {
+                font-size: 8rem;
             }
 
             @media (min-width: 640px) {
@@ -168,7 +163,7 @@ export default () => (
 
             @media (min-width: 960px) {
                 .main-container {
-                    grid-template-rows: 100px auto auto auto 100px;
+                    grid-template-rows: 100px auto auto auto 0px;
                     grid-template-columns: repeat(8, 1fr);
                     grid-template-areas:
                         '. . . . . . . .'
@@ -201,7 +196,7 @@ export default () => (
             }
             @media (min-width: 1200px) {
                 .main-container {
-                    grid-template-rows: 100px auto auto auto 100px;
+                    grid-template-rows: 100px auto auto auto 0px;
                     grid-template-columns: repeat(9, 1fr);
                     grid-template-areas:
                         '. . . . . . . . .'
@@ -220,7 +215,7 @@ export default () => (
             }
             @media (min-width: 1366px) {
                 .main-container {
-                    grid-template-rows: 50px auto auto auto 50px;
+                    grid-template-rows: 50px auto auto auto 0px;
                     grid-template-columns: repeat(9, 1fr);
                     grid-template-areas:
                         '. . . . . . . . .'
@@ -232,7 +227,7 @@ export default () => (
             }
             @media (min-width: 1600px) {
                 .main-container {
-                    grid-template-rows: 100px auto auto auto 100px;
+                    grid-template-rows: 100px auto auto auto 0px;
                     grid-template-columns: repeat(11, 1fr);
                     grid-template-areas:
                         '. . . . . . . . . . .'

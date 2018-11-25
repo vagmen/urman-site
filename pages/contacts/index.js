@@ -1,9 +1,9 @@
-import Layout from "../../components/Layout";
-import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import Layout from '../../components/Layout';
+import { FaVk, FaSkype, FaInstagram } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 
-const menuItem = "contacts";
-const background = "#333";
+const menuItem = 'contacts';
+const background = '#333';
 
 const Index = () => (
     <Layout title="Контакты" menuItem={menuItem}>
@@ -110,11 +110,11 @@ const Index = () => (
             .contacts {
                 display: grid;
                 grid-template-areas:
-                    "i"
-                    "m"
-                    "u"
-                    "s"
-                    "r";
+                    'i'
+                    'm'
+                    'u'
+                    's'
+                    'r';
                 margin-bottom: 1rem;
                 grid-gap: 2rem;
             }
@@ -137,20 +137,18 @@ const Index = () => (
             }
             @media (min-width: 640px) {
                 .contacts {
-                    margin: 50px 0;
                     grid-template-areas:
-                        "i i"
-                        "m u"
-                        "r s";
+                        'i i'
+                        'm u'
+                        'r s';
                 }
             }
             @media (min-width: 960px) {
                 .contacts {
-                    margin: 100px 0;
                     grid-template-areas:
-                        "i m u"
-                        "i . ."
-                        "i r s";
+                        'i m u'
+                        'i . .'
+                        'i r s';
                 }
             }
         `}</style>

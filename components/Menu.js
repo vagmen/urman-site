@@ -10,7 +10,7 @@ class Menu extends Component {
                 {mainMenu.map((item, index) => (
                     <Link key={index} href={`/${item.src}`}>
                         <li className={`menu-item ${this.props.menuItem === item.src ? `menu-item_active` : ``}`}>
-                            <Icon className="icon" type={item.icon} style={{ color: '#bbb', fontSize: 25 }} />
+                            <Icon className="icon" type={item.icon} style={{ color: '#eee', fontSize: 25 }} />
                             <a>{item.title}</a>
                         </li>
                     </Link>
@@ -40,12 +40,10 @@ class Menu extends Component {
                         cursor: pointer;
                         transition: all 0.4s;
                     }
-                    .menu-item .icon {
-                    }
                     .menu-item a {
                         text-align: center;
                         text-transform: uppercase;
-                        color: #bbb;
+                        color: #eee;
                         font-weight: 100;
                         white-space: nowrap;
                         display: none;

@@ -11,58 +11,20 @@ const Index = () => (
     <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
         <div className="page-background">
             <div className="page-content">
-                <WithSubMenu
-                    subMenuItems={menuData[menuItem]}
-                    subMenuItem={subMenuItem}
-                    menuItem={menuItem}
-                >
+                <WithSubMenu subMenuItems={menuData[menuItem]} subMenuItem={subMenuItem} menuItem={menuItem}>
                     <h1>Видео клиентов</h1>
-                    <p>
-                        Клиенты описывают опыт работы с нами, какие были
-                        особенности и задачи и как их решили.
-                    </p>
+                    <p>Клиенты описывают опыт работы с нами, какие были особенности и задачи и как их решили.</p>
                     <div className="video-list grid-with-menu">
                         <div className="video-list__item grid__item">
                             <div className="player-wrapper">
                                 <YouTubePlayer
-                                    url="https://www.youtube.com/embed/gpzuVt_mkKs"
+                                    url="https://www.youtube.com/watch?v=OxeGSvSuAeM"
                                     controls
                                     className="react-player"
                                     width="100%"
                                     height="100%"
                                 />
                             </div>
-                        </div>
-                        <div className="video-list__item grid__item">
-                            <div className="player-wrapper">
-                                <YouTubePlayer
-                                    url="https://www.youtube.com/embed/gpzuVt_mkKs"
-                                    controls
-                                    className="react-player"
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </div>
-                        <div className="video-list__item grid__item">
-                            <div className="player-wrapper">
-                                <YouTubePlayer
-                                    url="https://www.youtube.com/embed/gpzuVt_mkKs"
-                                    controls
-                                    className="react-player"
-                                    width="100%"
-                                    height="100%"
-                                />
-                            </div>
-                        </div>
-                        <div className="player-wrapper">
-                            <YouTubePlayer
-                                url="https://www.youtube.com/embed/gpzuVt_mkKs"
-                                controls
-                                className="react-player"
-                                width="100%"
-                                height="100%"
-                            />
                         </div>
                     </div>
                 </WithSubMenu>
