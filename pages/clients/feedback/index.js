@@ -2,7 +2,7 @@ import Layout from '../../../components/Layout';
 import WithSubMenu from '../../../components/WithSubMenu';
 import FeedbackCard from '../../../components/FeedbackCard';
 import menuData from '../../../constants/menuData';
-import feedback from '../../../constants/feedback';
+import { feedback } from '../../../constants/feedback';
 
 const menuItem = 'clients';
 const subMenuItem = 'feedback';

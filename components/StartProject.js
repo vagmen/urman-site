@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import { Button, Icon, Form, Input, Checkbox } from 'antd';
+import { Button, Icon, Form, Input, Checkbox, message } from 'antd';
+
 const FormItem = Form.Item;
 const { TextArea } = Input;
 
@@ -10,8 +11,21 @@ class StartProjectForm extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                this.sendFeedbackInfo(values);
             }
         });
+    };
+
+    sendFeedbackInfo = async (savedData) => {
+        const res = await fetch('https://helpforest.azurewebsites.net/SendFeedbackInfo', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(savedData),
+        });
+        const data = await res.json();
+        if (data) message.success('Мы отправили письмо с вложенной формой на вашу почту');
     };
 
     render() {
@@ -22,8 +36,8 @@ class StartProjectForm extends Component {
                 <h3>ЕСТЬ ВОПРОСЫ ИЛИ ЗАДАЧИ?</h3>
                 <p>Оставьте заявку, чтобы узнать, сможем ли мы Вам помочь.</p>
                 <Form onSubmit={this.handleSubmit}>
-                    <FormItem label="Представьтесь, пожалуйста">
-                        {getFieldDecorator('userName', {
+                    <FormItem>
+                        {getFieldDecorator('name', {
                             rules: [
                                 {
                                     required: true,
@@ -38,7 +52,7 @@ class StartProjectForm extends Component {
                             />
                         )}
                     </FormItem>
-                    <FormItem label="Как с вами связаться?">
+                    <FormItem>
                         {getFieldDecorator('phone', {
                             rules: [
                                 {
@@ -49,7 +63,7 @@ class StartProjectForm extends Component {
                         })(
                             <Input
                                 prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                placeholder="Введите телефон"
+                                placeholder="Номер телефона"
                                 size="large"
                             />
                         )}
@@ -58,14 +72,18 @@ class StartProjectForm extends Component {
                         {getFieldDecorator('email')(
                             <Input
                                 prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                placeholder="Или E-mail"
+                                placeholder="E-mail"
                                 size="large"
                             />
                         )}
                     </FormItem>
-                    <FormItem label="Расскажите немного о вашей задаче:">
-                        {getFieldDecorator('about-project')(
-                            <TextArea size="large" autosize={{ minRows: 2, maxRows: 6 }} />
+                    <FormItem>
+                        {getFieldDecorator('information')(
+                            <TextArea
+                                size="large"
+                                autosize={{ minRows: 2, maxRows: 6 }}
+                                placeholder="Расскажите немного о вашей задаче"
+                            />
                         )}
                     </FormItem>
                     <FormItem>
@@ -88,7 +106,7 @@ class StartProjectForm extends Component {
                     .start-project-section {
                         padding: 100px 20px 50px;
                         width: 100%;
-                        max-width: 750px;
+                        max-width: 500px;
                         margin: 0 auto;
                     }
                 `}</style>

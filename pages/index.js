@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Layout from '../components/Layout.js';
 import Recall from '../components/Recall.js';
 import StartProject from '../components/StartProject.js';
-import feedback from '../constants/feedback';
+import { feedbackVideo } from '../constants/feedback';
 import { mainColorLight, mainColorMid } from '../constants/colors';
 
 export default () => (
@@ -23,7 +23,7 @@ export default () => (
                 </div>
             </section>
             <section className="section feedback">
-                <Recall feedbackData={feedback[6]} />
+                <Recall feedbackData={feedbackVideo[0]} />
             </section>
             <section className="section logos">
                 <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
@@ -147,7 +147,7 @@ export default () => (
 
             @media (min-width: 640px) {
                 .main-container {
-                    grid-auto-rows: 100px auto auto auto 50px;
+                    grid-auto-rows: 100px auto auto auto auto 50px;
                     grid-template-areas:
                         '.'
                         's'

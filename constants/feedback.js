@@ -1,4 +1,14 @@
-const feedback = [
+export const feedbackVideo = [
+    {
+        id: 1,
+        author: 'Артур Дамирович Гизатуллин',
+        company: `Управление дорожного хозяйства РБ`,
+        header:
+            '"ООО "Гринландия" зарекомендовало себя как порядочную добросовестную организацию с качественным выполнением работ"',
+        img: '../static/images/feedback/10.png',
+    },
+];
+export const feedback = [
     {
         id: 10,
         author: 'Жуков А.М.',
@@ -148,5 +158,3 @@ const feedback = [
         img: '../static/images/feedback/9.png',
     },
 ];
-
-export default feedback;
