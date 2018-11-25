@@ -218,6 +218,18 @@ export default () => (
                     padding: 0;
                 }
             }
+            @media (min-width: 1366px) {
+                .main-container {
+                    grid-template-rows: 50px auto auto auto 50px;
+                    grid-template-columns: repeat(9, 1fr);
+                    grid-template-areas:
+                        '. . . . . . . . .'
+                        '. s s s . f f f f'
+                        'l l l l l l l l l'
+                        't t t t t t t t t'
+                        '. . . . . . . . .';
+                }
+            }
             @media (min-width: 1600px) {
                 .main-container {
                     grid-template-rows: 100px auto auto auto 100px;

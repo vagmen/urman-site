@@ -37,6 +37,11 @@ const Recall = ({ feedbackData }) => (
                     width: 400px;
                 }
             }
+            @media (min-width: 1366px) {
+                .recall-container {
+                    margin-top: -150px;
+                }
+            }
         `}</style>
     </div>
 );

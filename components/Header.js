@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import { Icon } from "antd";
+import React, { Component } from 'react';
+import Link from 'next/link';
+import { Icon } from 'antd';
 
 class Header extends Component {
     render() {
@@ -16,16 +16,13 @@ class Header extends Component {
                     </div>
                 </Link>
                 <div className="start-proj">
-                    <span className="start-proj__phone">
-                        +7 347 <strong>298-34-86</strong>
-                    </span>
-                    <button className="start-proj__button start-proj__button-text">Начать проект</button>
+                    <button className="start-proj__button start-proj__button-text">Рассчитать стоимость</button>
                     <span className="start-proj__button start-proj__button-icon">
                         <Icon type="plus" />
                     </span>
                 </div>
                 <style jsx global>{`
-                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
+                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
                     h1,
                     h2,
                     h3,
