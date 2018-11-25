@@ -1,28 +1,28 @@
-import { Component } from "react";
-import fetch from "isomorphic-unfetch";
-import { message } from "antd";
+import { Component } from 'react';
+import fetch from 'isomorphic-unfetch';
+import { message } from 'antd';
 
-import Layout from "../../../components/Layout";
+import Layout from '../../../components/Layout';
 
-const menuItem = "services";
+const menuItem = 'services';
 
 class Index extends Component {
     state = {
-        email: ""
+        email: '',
     };
     sendServiceDocTemplate = async () => {
-        const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
-            method: "post",
+        const res = await fetch('https://helpforest.azurewebsites.net/SendServiceDocTemplate', {
+            method: 'post',
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: "pol"
-            })
+                ServiceCode: 'pol',
+            }),
         });
         const data = await res.json();
-        if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
+        if (data) message.success('Мы отправили письмо с вложенной формой на вашу почту');
     };
 
     render() {
@@ -35,10 +35,8 @@ class Index extends Component {
                         <div className="post">
                             <header>
                                 <h1>{postData.title}</h1>
-                            </header>
-                            <p>
                                 <img src="../../../static/forest.jpg" alt=" " />
-                            </p>
+                            </header>
                             <h3>Что это такое? Кому это нужно? </h3>
                             <p>
                                 Поздравляем, Вы получили лесной участок в пользование или в аренду, но чтобы начать
@@ -74,6 +72,17 @@ class Index extends Component {
                                 правоустанавливающих документов.
                             </p>
                             <h3>Как выглядит?</h3>
+                            <div className="img-container">
+                                <div className="img-item">
+                                    <img src="../../../static/images/services/pol1.jpg" alt="" />
+                                </div>
+                                <div className="img-item">
+                                    <img src="../../../static/images/services/pol2.jpg" alt="" />
+                                </div>
+                                <div className="img-item">
+                                    <img src="../../../static/images/services/pol3.jpg" alt="" />
+                                </div>
+                            </div>
                             <h3>Как получить форму?</h3>
                             <p>
                                 Если вы хотите самостоятельно подготовить проект освоения лесов, можем вам отправить
@@ -85,7 +94,7 @@ class Index extends Component {
                                     name="email"
                                     placeholder="Ваша почта"
                                     value={email}
-                                    onChange={e => this.setState({ email: e.target.value })}
+                                    onChange={(e) => this.setState({ email: e.target.value })}
                                 />
                                 <button onClick={this.sendServiceDocTemplate}>Получить форму</button>
                             </div>
@@ -194,7 +203,19 @@ class Index extends Component {
                     </div>
                 </div>
                 <style jsx>{`
-                    img {
+                    header img {
+                        width: 100%;
+                    }
+                    .img-container {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    }
+                    .img-item {
+                        flex: 0 1 300px;
+                        padding: 10px;
+                    }
+                    .img-item img {
                         width: 100%;
                     }
                 `}</style>
@@ -208,7 +229,7 @@ Index.getInitialProps = async function() {
     // const data = await res.json();
 
     return {
-        postData: { title: "Проект освоения лесов (ПОЛ)" }
+        postData: { title: 'Проект освоения лесов (ПОЛ)' },
     };
 };
 

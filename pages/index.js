@@ -22,7 +22,7 @@ export default () => (
                 </div>
             </section>
             <section className="section feedback">
-                <Recall feedbackData={feedback[0]} />
+                <Recall feedbackData={feedback[6]} />
             </section>
             <section className="section logos">
                 <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
