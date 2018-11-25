@@ -1,9 +1,9 @@
-import { Button } from "antd";
-import Link from "next/link";
-import Layout from "../components/Layout.js";
-import Recall from "../components/Recall.js";
-import StartProject from "../components/StartProject.js";
-import feedback from "../constants/feedback";
+import { Button } from 'antd';
+import Link from 'next/link';
+import Layout from '../components/Layout.js';
+import Recall from '../components/Recall.js';
+import StartProject from '../components/StartProject.js';
+import feedback from '../constants/feedback';
 
 export default () => (
     <Layout title="URMAN">
@@ -26,10 +26,10 @@ export default () => (
             </section>
             <section className="section logos">
                 <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
-                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
-                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
-                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
-                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
+                <img src="../static/images/logos/rzd.png" alt="Логотип Газпром" />
+                <img src="../static/images/logos/novatek.svg" alt="Логотип Газпром" />
+                <img src="../static/images/logos/rgo.jpg" alt="Логотип Газпром" />
+                <img src="../static/images/logos/bashneft.jpg" alt="Логотип Газпром" />
             </section>
             <section className="section tour">
                 <Link href={`/services`}>
@@ -57,13 +57,15 @@ export default () => (
         <style jsx>{`
             .main-container {
                 display: grid;
-                grid-auto-rows:  auto;
+                grid-auto-rows: 50px auto auto auto 50px;
                 grid-gap: 50px;
-                grid-template-areas: 's'
-                'f'
-                't';
+                grid-template-areas:
+                    '.'
+                    's'
+                    'f'
+                    't';
             }
-            .background-image{
+            .background-image {
                 background-image: url('/static/images/logo.png');
                 position: absolute;
                 height: 100%;
@@ -76,20 +78,19 @@ export default () => (
                 background-position: center top;
                 background-size: 100%;
             }
-            .slogan{
+            .slogan {
                 grid-area: s;
-                padding: 100px 20px 0;
             }
-            .feedback{
+            .feedback {
                 grid-area: f;
             }
-            .tour{
+            .tour {
                 grid-area: t;
             }
-            .logos{
+            .logos {
                 grid-area: l;
                 align-items: center;
-                background: rgba(255,255,255,0.5);
+                background: rgba(255, 255, 255, 1);
                 padding: 0 50px;
                 justify-content: center;
                 display: none;
@@ -97,10 +98,10 @@ export default () => (
                 border-bottom: 1px solid #d5d5d5;
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             }
-            .logos img{
+            .logos img {
                 flex: 0 1 200px;
                 width: 0px;
-                padding: 30px;
+                padding: 20px 30px;
             }
             h1 {
                 color: #3a431b;
@@ -150,32 +151,45 @@ export default () => (
             }
 
             @media (min-width: 640px) {
-                .slogan{
-                    padding: 200px 100px 0;
+                .main-container {
+                    grid-auto-rows: 100px auto auto auto 50px;
+                    grid-template-areas:
+                        '.'
+                        's'
+                        'f'
+                        'l'
+                        't'
+                        '.';
                 }
-              
+                .logos {
+                    display: flex;
+                }
+            }
+
             @media (min-width: 960px) {
                 .main-container {
+                    grid-template-rows: 100px auto auto auto 100px;
                     grid-template-columns: repeat(8, 1fr);
-                    grid-template-areas:    '. s s s f f f f'
-                                            'l l l l l l l l'
-                                            't t t t t t t t ';
+                    grid-template-areas:
+                        '. . . . . . . .'
+                        '. s s s f f f f'
+                        'l l l l l l l l'
+                        't t t t t t t t'
+                        '. . . . . . . .';
                 }
-                .background-image{
+                .background-image {
                     background-size: 80%;
                     top: 30px;
                 }
-                .slogan{
-                    padding: 200px 0 0;
+                .slogan {
+                    padding: 0;
                 }
-                .logos{
-                    display: flex;
-                    margin-top: 50px;
-                }
-                h1, h4{
+
+                h1,
+                h4 {
                     text-align: left;
                 }
-                h1{
+                h1 {
                     font-size: 3rem;
                 }
                 .tour {
@@ -187,24 +201,35 @@ export default () => (
             }
             @media (min-width: 1200px) {
                 .main-container {
+                    grid-template-rows: 100px auto auto auto 100px;
                     grid-template-columns: repeat(9, 1fr);
-                    grid-template-areas:    '. s s s . f f f f'
-                                            'l l l l l l l l l'
-                                            't t t t t t t t t';
+                    grid-template-areas:
+                        '. . . . . . . . .'
+                        '. s s s . f f f f'
+                        'l l l l l l l l l'
+                        't t t t t t t t t'
+                        '. . . . . . . . .';
                 }
-                .background-image{
+                .background-image {
                     background-size: 60%;
                     top: 0;
+                }
+                .slogan {
+                    padding: 0;
                 }
             }
             @media (min-width: 1600px) {
                 .main-container {
+                    grid-template-rows: 100px auto auto auto 100px;
                     grid-template-columns: repeat(11, 1fr);
-                    grid-template-areas:    '. . s s s . f f f f .'
-                                            'l l l l l l l l l l l'
-                                            't t t t t t t t t t t';
+                    grid-template-areas:
+                        '. . . . . . . . . . .'
+                        '. . s s s . f f f f .'
+                        'l l l l l l l l l l l'
+                        't t t t t t t t t t t'
+                        '. . . . . . . . . . .';
                 }
-                .background-image{
+                .background-image {
                     background-size: 60%;
                     top: 0;
                 }

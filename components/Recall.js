@@ -17,7 +17,7 @@ const Recall = ({ feedbackData }) => (
             .recall-img {
                 z-index: 0;
                 height: 300px;
-                background: url("/static/home-img.png") 100% 100% no-repeat;
+                background: url('/static/home-img.png') 100% 100% no-repeat;
                 background-size: contain;
                 background-position: center center;
                 margin: 0 auto;
@@ -32,9 +32,6 @@ const Recall = ({ feedbackData }) => (
                 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             }
             @media (min-width: 960px) {
-                .recall {
-                    margin-top: 200px;
-                }
                 .recall-img {
                     height: 400px;
                     width: 400px;
