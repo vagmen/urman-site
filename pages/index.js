@@ -16,11 +16,6 @@ export default () => (
                     Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного
                     участка
                 </h4>
-                <div className="centered">
-                    <Button type="primary" size="large">
-                        Смотреть краткий обзор??
-                    </Button>
-                </div>
             </section>
             <section className="section feedback">
                 <Recall feedbackData={feedbackVideo[0]} />

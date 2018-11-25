@@ -242,7 +242,7 @@ class Header extends Component {
                         top: 0;
                         z-index: 1;
                         width: 100%;
-                        background: rgba(0, 0, 0, 0.5);
+                        background: rgba(58, 76, 27, 0.7);
                         height: 80px;
                         position: fixed;
                         top: 0;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import { Button, Icon } from 'antd';
 import { mainMenu } from '../constants/mainMenu';
+import { grey } from '../constants/colors';
 
 class Menu extends Component {
     render() {
@@ -26,7 +27,7 @@ class Menu extends Component {
                         bottom: 0;
                         z-index: 100;
                         width: 100%;
-                        background-color: #3a431b;
+                        background-color: ${grey};
                         position: fixed;
                     }
                     .menu-item {
