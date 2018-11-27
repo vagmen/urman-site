@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import { Icon } from "antd";
+import React, { Component } from 'react';
+import Link from 'next/link';
+import { Icon } from 'antd';
 
-import { mainColorLightBgr } from "../constants/colors";
+import { mainColorLightBgr } from '../constants/colors';
+import { postWidth, pageWidth } from '../constants/settings';
 
 class Header extends Component {
     render() {
@@ -24,7 +25,7 @@ class Header extends Component {
                     </span>
                 </div>
                 <style jsx global>{`
-                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
+                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
                     h1,
                     h2,
                     h3,
@@ -95,7 +96,7 @@ class Header extends Component {
                     }
                     .page-content {
                         flex: 1;
-                        max-width: 1600px;
+                        max-width: ${pageWidth};
                         padding-top: 100px;
                         margin: 0 30px;
                         overflow: hidden;
@@ -133,7 +134,7 @@ class Header extends Component {
                     }
                     .post {
                         color: rgba(0, 0, 0, 0.7);
-                        max-width: 900px;
+                        max-width: ${postWidth};
                         margin: 0 auto;
                     }
                     .post h1,

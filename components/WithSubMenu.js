@@ -1,34 +1,19 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-const WithSubMenu = ({
-    subMenuItems,
-    subMenuItem,
-    menuItem,
-    withAs,
-    children,
-}) => (
+const WithSubMenu = ({ subMenuItems, subMenuItem, menuItem, withAs, children }) => (
     <div className="with-sub-menu">
         <ul className="sub-menu">
-            {Object.keys(subMenuItems).map(
-                (item, index) =>
-                    withAs ? (
-                        <Link
-                            as={`/${menuItem}/${item}`}
-                            href={`/${menuItem}/page?id=${subMenuItem}`}
-                            key={index}
-                        >
-                            <a className={subMenuItem == item ? 'active' : ''}>
-                                {subMenuItems[item]}
-                            </a>
-                        </Link>
-                    ) : (
-                        <Link href={`/${menuItem}/${item}`} key={index}>
-                            <a className={subMenuItem == item ? 'active' : ''}>
-                                {subMenuItems[item]}
-                            </a>
-                        </Link>
-                    )
+            {Object.keys(subMenuItems).map((item, index) =>
+                withAs ? (
+                    <Link as={`/${menuItem}/${item}`} href={`/${menuItem}/page?id=${subMenuItem}`} key={index}>
+                        <a className={subMenuItem == item ? 'active' : ''}>{subMenuItems[item]}</a>
+                    </Link>
+                ) : (
+                    <Link href={`/${menuItem}/${item}`} key={index}>
+                        <a className={subMenuItem == item ? 'active' : ''}>{subMenuItems[item]}</a>
+                    </Link>
+                )
             )}
         </ul>
         <div className="content">{children}</div>

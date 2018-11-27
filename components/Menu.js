@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import { Button, Icon } from 'antd';
-import { mainMenu } from '../constants/mainMenu';
+import { mainMenu } from '../constants/menuData';
 import { grey } from '../constants/colors';
 
 class Menu extends Component {
