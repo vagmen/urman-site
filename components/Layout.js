@@ -15,7 +15,7 @@ const Layout = ({ title, menuItem, children }) => (
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta charSet="utf-8" />
             <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
-            <meta name="google-site-verification" content="q9j1x33suDN0UKqQQ-k2pa9pMUHrbR3weXe3eDY6mUQ" />
+            <meta name="google-site-verification" content="13s4tTPGhfJIZYmOa_q1xPyiypySCl1Z8wJIzwjTV5w" />
         </Head>
         <Header />
         <LocaleProvider locale={ruRU}>
