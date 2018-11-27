@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Icon } from 'antd';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Icon } from "antd";
+
+import { mainColorLightBgr } from "../constants/colors";
 
 class Header extends Component {
     render() {
@@ -22,7 +24,7 @@ class Header extends Component {
                     </span>
                 </div>
                 <style jsx global>{`
-                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
+                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     h1,
                     h2,
                     h3,
@@ -38,7 +40,7 @@ class Header extends Component {
                     }
                     body {
                         font-size: 16px;
-                        background: #eee;
+                        background: ${mainColorLightBgr};
                         font-family: Rubik, Helvetica, sans-serif;
                     }
                     button {
@@ -131,7 +133,7 @@ class Header extends Component {
                     }
                     .post {
                         color: rgba(0, 0, 0, 0.7);
-                        max-width: 1000px;
+                        max-width: 900px;
                         margin: 0 auto;
                     }
                     .post h1,
@@ -140,15 +142,16 @@ class Header extends Component {
                     .post h4,
                     .post h5,
                     .post h6 {
-                        color: rgba(0, 0, 0, 0.7);
-                    }
-
-                    .post h1 {
                         text-align: center;
-                        padding: 50px 0;
                     }
-                    .post h3 {
-                        font-size: 30px;
+                    .post p {
+                        margin-bottom: 2rem;
+                        font-weight: 100;
+                        text-align: center;
+                    }
+                    .post-img {
+                        width: 100%;
+                        margin-bottom: 2rem;
                     }
                     .input-with-button {
                         display: flex;
@@ -203,6 +206,19 @@ class Header extends Component {
                             border-bottom-right-radius: 24px;
                             border-bottom-left-radius: 0px;
                         }
+                        .post {
+                            margin-top: 20px;
+                        }
+                        .post h2,
+                        .post h3,
+                        .post h4,
+                        .post h5,
+                        .post h6 {
+                            text-align: left;
+                        }
+                        .post p {
+                            text-align: left;
+                        }
                     }
                     @media (min-width: 960px) {
                         body {
@@ -213,6 +229,9 @@ class Header extends Component {
                         }
                         .grid-with-menu {
                             grid-template-columns: 1fr 1fr;
+                        }
+                        .post {
+                            margin-top: 50px;
                         }
                     }
                     @media (min-width: 1200px) {
