@@ -2,7 +2,7 @@ import Layout from "../../components/Layout";
 import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-import { grey } from "../../constants/colors";
+import { mainColorMid, greyDark } from "../../constants/colors";
 
 const menuItem = "contacts";
 
@@ -106,7 +106,7 @@ const Index = () => (
                 padding-right: 10px;
             }
             .page-background {
-                background: ${grey};
+                background: ${greyDark};
             }
             .contacts {
                 display: grid;
@@ -130,7 +130,7 @@ const Index = () => (
             }
             .social {
                 grid-area: s;
-                background: rgba(211, 158, 99, 0.8);
+                background: ${mainColorMid};
                 padding: 1rem;
             }
             .requisites {

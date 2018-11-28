@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Button, Icon } from 'antd';
-import { mainMenu } from '../constants/menuData';
-import { grey } from '../constants/colors';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Button, Icon } from "antd";
+import { mainMenu } from "../constants/menuData";
+import { grey } from "../constants/colors";
 
 class Menu extends Component {
     render() {
@@ -11,7 +11,7 @@ class Menu extends Component {
                 {mainMenu.map((item, index) => (
                     <Link key={index} href={`/${item.src}`}>
                         <li className={`menu-item ${this.props.menuItem === item.src ? `menu-item_active` : ``}`}>
-                            <Icon className="icon" type={item.icon} style={{ color: '#eee', fontSize: 25 }} />
+                            <Icon className="icon" type={item.icon} style={{ color: "#eee", fontSize: 25 }} />
                             <a>{item.title}</a>
                         </li>
                     </Link>
@@ -22,7 +22,6 @@ class Menu extends Component {
                         padding: 0;
                         display: flex;
                         justify-content: space-between;
-                        color: black;
                         align-items: center;
                         bottom: 0;
                         z-index: 100;
@@ -44,7 +43,7 @@ class Menu extends Component {
                     .menu-item a {
                         text-align: center;
                         text-transform: uppercase;
-                        color: #eee;
+                        color: #fff;
                         font-weight: 100;
                         white-space: nowrap;
                         display: none;
@@ -86,7 +85,7 @@ class Menu extends Component {
                         }
                         .menu-item a {
                             font-size: 14px;
-                            color: #eee;
+                            color: #fff;
                         }
                     }
                 `}</style>

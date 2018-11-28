@@ -1,11 +1,11 @@
-import { Button } from 'antd';
-import Link from 'next/link';
-import Layout from '../components/Layout.js';
-import Recall from '../components/Recall.js';
-import StartProject from '../components/StartProject.js';
-import { feedbackVideo } from '../constants/feedback';
-import { mainColorLight, mainColorMid } from '../constants/colors';
-import { Fragment } from 'react';
+import { Button } from "antd";
+import Link from "next/link";
+import Layout from "../components/Layout.js";
+import Recall from "../components/Recall.js";
+import StartProject from "../components/StartProject.js";
+import { feedbackVideo } from "../constants/feedback";
+import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey } from "../constants/colors";
+import { Fragment } from "react";
 
 export default () => (
     <Layout title="URMAN">
@@ -60,13 +60,13 @@ export default () => (
                 grid-auto-rows: 50px auto auto auto 50px;
                 grid-gap: 50px;
                 grid-template-areas:
-                    '.'
-                    's'
-                    'f'
-                    't';
+                    "."
+                    "s"
+                    "f"
+                    "t";
             }
             .background-image {
-                background-image: url('/static/images/logo.png');
+                background-image: url("/static/images/logo.png");
                 position: absolute;
                 height: 100%;
                 width: 100%;
@@ -104,13 +104,13 @@ export default () => (
                 padding: 20px 30px;
             }
             h1 {
-                color: #3a431b;
+                color: ${mainColorDark};
                 text-align: center;
                 font-weight: 300;
             }
             h4 {
                 font-weight: 300;
-                color: #666;
+                color: ${grey};
                 text-align: center;
             }
             .tour {
@@ -132,7 +132,7 @@ export default () => (
             .tour__item-ligth {
                 background-color: ${mainColorLight};
                 background-position: left;
-                color: #393b3d;
+                color: ${greyDark};
             }
             .tour__item img {
                 width: 100%;
@@ -145,12 +145,12 @@ export default () => (
                 .main-container {
                     grid-auto-rows: 100px auto auto auto auto 50px;
                     grid-template-areas:
-                        '.'
-                        's'
-                        'f'
-                        'l'
-                        't'
-                        '.';
+                        "."
+                        "s"
+                        "f"
+                        "l"
+                        "t"
+                        ".";
                 }
                 .logos {
                     display: flex;
@@ -162,11 +162,11 @@ export default () => (
                     grid-template-rows: 100px auto auto auto 0px;
                     grid-template-columns: repeat(8, 1fr);
                     grid-template-areas:
-                        '. . . . . . . .'
-                        '. s s s f f f f'
-                        'l l l l l l l l'
-                        't t t t t t t t'
-                        '. . . . . . . .';
+                        ". . . . . . . ."
+                        ". s s s f f f f"
+                        "l l l l l l l l"
+                        "t t t t t t t t"
+                        ". . . . . . . .";
                 }
                 .background-image {
                     background-size: 80%;
@@ -195,12 +195,12 @@ export default () => (
                     grid-template-rows: 100px 50px auto auto auto 0px;
                     grid-template-columns: repeat(9, 1fr);
                     grid-template-areas:
-                        '. . . . . . . . .'
-                        '. . . . . f f f f'
-                        '. s s s . f f f f'
-                        'l l l l l l l l l'
-                        't t t t t t t t t'
-                        '. . . . . . . . .';
+                        ". . . . . . . . ."
+                        ". . . . . f f f f"
+                        ". s s s . f f f f"
+                        "l l l l l l l l l"
+                        "t t t t t t t t t"
+                        ". . . . . . . . .";
                 }
                 .background-image {
                     background-size: 60%;
@@ -212,12 +212,12 @@ export default () => (
                     grid-template-rows: 50px 50px auto auto auto 0px;
                     grid-template-columns: repeat(9, 1fr);
                     grid-template-areas:
-                        '. . . . . . . . .'
-                        '. . . . . f f f f'
-                        '. s s s . f f f f'
-                        'l l l l l l l l l'
-                        't t t t t t t t t'
-                        '. . . . . . . . .';
+                        ". . . . . . . . ."
+                        ". . . . . f f f f"
+                        ". s s s . f f f f"
+                        "l l l l l l l l l"
+                        "t t t t t t t t t"
+                        ". . . . . . . . .";
                 }
             }
             @media (min-width: 1600px) {
@@ -225,12 +225,12 @@ export default () => (
                     grid-template-rows: 100px 50px auto auto auto 0px;
                     grid-template-columns: repeat(11, 1fr);
                     grid-template-areas:
-                        '. . . . . . . . . . .'
-                        '. . . . . . f f f f .'
-                        '. . s s s . f f f f .'
-                        'l l l l l l l l l l l'
-                        't t t t t t t t t t t'
-                        '. . . . . . . . . . .';
+                        ". . . . . . . . . . ."
+                        ". . . . . . f f f f ."
+                        ". . s s s . f f f f ."
+                        "l l l l l l l l l l l"
+                        "t t t t t t t t t t t"
+                        ". . . . . . . . . . .";
                 }
                 .background-image {
                     background-size: 60%;

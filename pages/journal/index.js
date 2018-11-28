@@ -41,16 +41,9 @@ const Index = ({ subMenuItems }) => (
             </div>
         </div>
         <style jsx>{`
-            .journal__wrapper {
-                background: #eee;
-            }
-            .journal {
-            }
             .img-wrapper {
                 width: 100%;
-
                 height: 250px;
-
                 overflow: hidden;
                 position: relative;
             }
@@ -60,12 +53,6 @@ const Index = ({ subMenuItems }) => (
                 left: 0;
                 max-width: 100%;
             }
-
-            h1,
-            h4 {
-                color: #3a431b;
-            }
-
             article {
                 padding: 10px 20px;
                 color: #564e67;

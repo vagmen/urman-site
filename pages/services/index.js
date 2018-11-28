@@ -1,15 +1,11 @@
-import { Fragment } from "react";
 import Link from "next/link";
-import moment from "moment";
-import fetch from "isomorphic-unfetch";
-
 import Layout from "../../components/Layout";
-import WithSubMenu from "../../components/WithSubMenu";
 import { servicesData } from "../../constants/menuData";
+import { mainColorMid, mainColorDark } from "../../constants/colors";
 
 const menuItem = "services";
 
-const Index = ({ subMenuItems }) => (
+const Index = () => (
     <Layout title="Услуги" menuItem={menuItem}>
         <div className="page-background">
             <div className="page-content">
@@ -23,9 +19,7 @@ const Index = ({ subMenuItems }) => (
                                     <a>
                                         <img src={item.img} />
                                         <article>
-                                            <header>
-                                                <h3>{item.name}</h3>
-                                            </header>
+                                            <h3>{item.name}</h3>
                                         </article>
                                     </a>
                                 </Link>
@@ -36,48 +30,24 @@ const Index = ({ subMenuItems }) => (
             </div>
         </div>
         <style jsx>{`
-            .services__wrapper {
-                background: #eee;
-            }
-            .service {
-                background: #fff;
-            }
             .services img {
                 width: 100%;
                 height: 200px;
                 object-fit: cover;
             }
-
-            h1,
-            h4 {
-                color: #3a431b;
-            }
-
             article {
-                padding: 10px 20px;
-                color: #564e67;
-                font-weight: 300;
-            }
-            time {
-                margin-bottom: 20px;
-                font-size: 16px;
+                padding: 20px;
             }
             h3 {
-                font-size: 22px;
                 font-weight: 300;
-                color: #564e67;
-                margin: 10px 0px;
+                margin: 0px;
+                color: ${mainColorDark};
+            }
+            .service:hover {
+                color: ${mainColorMid};
             }
         `}</style>
     </Layout>
 );
-
-Index.getInitialProps = async function() {
-    const res = await fetch("https://api.tvmaze.com/search/shows?q=forest");
-    const data = await res.json();
-    return {
-        servicesData: servicesData
-    };
-};
 
 export default Index;
