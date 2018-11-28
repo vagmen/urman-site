@@ -19,10 +19,7 @@ const Index = ({ subMenuItems }) => (
                     <div className="grid">
                         {servicesData.map(item => (
                             <section className="grid__item clickable-block service" key={item.id}>
-                                <Link
-                                    // as={`/journal/${item.id}`}
-                                    href={`/services/${item.id}`}
-                                >
+                                <Link href={`/services/${item.id}`}>
                                     <a>
                                         <img src={item.img} />
                                         <article>
@@ -41,8 +38,6 @@ const Index = ({ subMenuItems }) => (
         <style jsx>{`
             .services__wrapper {
                 background: #eee;
-            }
-            .services {
             }
             .service {
                 background: #fff;

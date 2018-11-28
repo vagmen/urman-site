@@ -1,9 +1,10 @@
-import Layout from '../../components/Layout';
-import { FaVk, FaSkype, FaInstagram } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
+import Layout from "../../components/Layout";
+import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
-const menuItem = 'contacts';
-const background = '#333';
+import { grey } from "../../constants/colors";
+
+const menuItem = "contacts";
 
 const Index = () => (
     <Layout title="Контакты" menuItem={menuItem}>
@@ -105,18 +106,18 @@ const Index = () => (
                 padding-right: 10px;
             }
             .page-background {
-                background: #333333;
+                background: ${grey};
             }
             .contacts {
                 display: grid;
                 grid-template-areas:
-                    'i'
-                    'm'
-                    'u'
-                    's'
-                    'r';
+                    "i"
+                    "m"
+                    "u"
+                    "s"
+                    "r";
                 margin-bottom: 1rem;
-                grid-gap: 2rem;
+                grid-gap: 3rem;
             }
             .info {
                 grid-area: i;
@@ -138,17 +139,19 @@ const Index = () => (
             @media (min-width: 640px) {
                 .contacts {
                     grid-template-areas:
-                        'i i'
-                        'm u'
-                        'r s';
+                        "i i"
+                        "m u"
+                        "r s";
+                    margin: 20px 0;
                 }
             }
             @media (min-width: 960px) {
                 .contacts {
                     grid-template-areas:
-                        'i m u'
-                        'i . .'
-                        'i r s';
+                        "i m u"
+                        "i . ."
+                        "i r s";
+                    margin: 50px 0;
                 }
             }
         `}</style>

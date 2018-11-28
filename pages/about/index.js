@@ -61,11 +61,7 @@ const Index = () => (
                         src="../../static/images/about/about9.jpg"
                         alt="Сотрудники в процессе работы"
                     />
-                    <img
-                        className="post-img"
-                        src="../../static/images/about/about10.jpg"
-                        alt="Сотрудники в процессе работы"
-                    />
+                    <img className="post-img" src="../../static/images/about/about10.jpg" alt="Московский офис" />
                     <img
                         className="post-img"
                         src="../../static/images/about/about8.jpg"
