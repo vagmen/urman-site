@@ -90,7 +90,7 @@ export default () => (
             .logos {
                 grid-area: l;
                 align-items: center;
-                background: rgba(255, 255, 255, 1);
+                background: rgba(255, 255, 255, 0.9);
                 padding: 0 50px;
                 justify-content: center;
                 display: none;
