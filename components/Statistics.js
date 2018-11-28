@@ -34,14 +34,14 @@ const Statistics = () => (
             <div className="before-number">
                 <p>Выполнено работ на</p>
             </div>
-            <p className="number">11</p>
+            <p className="number">127</p>
             <p>Га</p>
         </div>
         <div className="stat-list__item grid__item">
             <div className="before-number">
                 <p>Нашим коллективом посажено</p>
             </div>
-            <p className="number">11</p>
+            <p className="number">745</p>
             <p>деревьев</p>
         </div>
         <style jsx>{`
