@@ -1,14 +1,14 @@
-import { Button } from 'antd';
-import YouTubePlayer from 'react-player/lib/players/YouTube';
-import ReactPlayer from 'react-player';
-import Layout from '../../components/Layout';
-import WithSubMenu from '../../components/WithSubMenu';
-import FeedbackCard from '../../components/FeedbackCard';
-import { menuData } from '../../constants/menuData';
-import { feedback } from '../../constants/feedback';
-import Link from 'next/link';
+import YouTubePlayer from "react-player/lib/players/YouTube";
+import ReactPlayer from "react-player";
+import Layout from "../../components/Layout";
+import WithSubMenu from "../../components/WithSubMenu";
+import FeedbackCard from "../../components/FeedbackCard";
+import { menuData } from "../../constants/menuData";
+import { feedback } from "../../constants/feedback";
+import Link from "next/link";
+import Button from "../../components/ui/Button";
 
-const menuItem = 'clients';
+const menuItem = "clients";
 
 const Index = () => (
     <Layout title="Клиенты" menuItem={menuItem}>
@@ -29,21 +29,21 @@ const Index = () => (
                         </div>
                         <div className="button-section">
                             <Link href="/clients/video">
-                                <Button type="primary" className="button">
-                                    Больше видео
-                                </Button>
+                                <a href="">
+                                    <Button name="Больше видео" />
+                                </a>
                             </Link>
                         </div>
                         <div className="grid-with-menu">
-                            {feedback.slice(0, 3).map((item) => (
+                            {feedback.slice(0, 3).map(item => (
                                 <FeedbackCard feedbackData={item} key={item.id} />
                             ))}
                         </div>
                         <div className="button-section">
                             <Link href="/clients/feedback">
-                                <Button type="primary" className="button">
-                                    Больше отзывов
-                                </Button>
+                                <a href="">
+                                    <Button name="Больше отзывов" />
+                                </a>
                             </Link>
                         </div>
                     </div>

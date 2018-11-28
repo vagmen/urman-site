@@ -1,8 +1,9 @@
-import Layout from '../../components/Layout';
-import Statistics from '../../components/Statistics';
-import { Button } from 'antd';
+import Layout from "../../components/Layout";
+import Statistics from "../../components/Statistics";
+import Link from "next/link";
+import { Button } from "antd";
 
-const menuItem = 'about';
+const menuItem = "about";
 
 const Index = () => (
     <Layout title="О нас" menuItem={menuItem}>
@@ -36,7 +37,15 @@ const Index = () => (
                         начиная от разработки проектов освоения лесов и заканчивая разработкой лесных планов субъектов
                         РФ.
                     </p>
-                    <p>Сейчас у нас функционирует 2 офиса (в Москве и в Уфе). Проектный отдел находится в Уфе.</p>
+                    <p>
+                        Сейчас у нас функционирует{" "}
+                        <Link href="/contacts">
+                            <a className="post-a" href="">
+                                2 офиса (в Москве и в Уфе)
+                            </a>
+                        </Link>
+                        . Проектный отдел находится в Уфе.
+                    </p>
                     <img
                         className="post-img"
                         src="../../static/images/about/about1.jpg"

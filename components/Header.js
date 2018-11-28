@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Link from "next/link";
 import { Icon } from "antd";
 
-import { mainColorLightBgr } from "../constants/colors";
+import { mainColorLightBgr, mainColorLight } from "../constants/colors";
 import { postWidth, pageWidth } from "../constants/settings";
 
 class Header extends Component {
@@ -154,6 +154,15 @@ class Header extends Component {
                         margin-bottom: 2rem;
                         font-weight: 100;
                         text-align: center;
+                    }
+                    .post-a {
+                        color: inherit;
+                        text-decoration: none;
+                        border-bottom: 3.5px solid ${mainColorLight};
+                    }
+                    .post-a:hover {
+                        color: inherit;
+                        background: ${mainColorLight};
                     }
                     .post-img {
                         width: 100%;
