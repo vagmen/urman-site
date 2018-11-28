@@ -27,9 +27,6 @@ const FeedbackCard = ({ feedbackData }) => (
             img:hover {
             }
             .cover {
-                 {
-                    /* background: #667636; */
-                }
                 background: rgba(102, 118, 54, 0);
                 height: 100%;
                 width: 100%;

@@ -2,7 +2,7 @@ import ReactPlayer from 'react-player';
 import YouTubePlayer from 'react-player/lib/players/YouTube';
 import Layout from '../../../components/Layout';
 import WithSubMenu from '../../../components/WithSubMenu';
-import menuData from '../../../constants/menuData';
+import { menuData } from '../../../constants/menuData';
 
 const menuItem = 'clients';
 const subMenuItem = 'video';

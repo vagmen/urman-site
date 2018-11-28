@@ -1,7 +1,8 @@
-import Layout from "../../components/Layout";
-import { Button } from "antd";
+import Layout from '../../components/Layout';
+import Statistics from '../../components/Statistics';
+import { Button } from 'antd';
 
-const menuItem = "about";
+const menuItem = 'about';
 
 const Index = () => (
     <Layout title="О нас" menuItem={menuItem}>
@@ -68,6 +69,7 @@ const Index = () => (
                         alt="Сотрудники в процессе работы"
                     />
                     <p>Да пребудет с Вами URMAN.</p>
+                    <Statistics />
                 </div>
             </div>
         </div>

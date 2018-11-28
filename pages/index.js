@@ -5,6 +5,7 @@ import Recall from '../components/Recall.js';
 import StartProject from '../components/StartProject.js';
 import { feedbackVideo } from '../constants/feedback';
 import { mainColorLight, mainColorMid } from '../constants/colors';
+import { Fragment } from 'react';
 
 export default () => (
     <Layout title="URMAN">
@@ -22,10 +23,10 @@ export default () => (
             </section>
             <section className="section logos">
                 <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
-                <img src="../static/images/logos/rzd.png" alt="Логотип Газпром" />
-                <img src="../static/images/logos/novatek.svg" alt="Логотип Газпром" />
-                <img src="../static/images/logos/rgo.jpg" alt="Логотип Газпром" />
-                <img src="../static/images/logos/bashneft.jpg" alt="Логотип Газпром" />
+                <img src="../static/images/logos/rzd.png" alt="Логотип РЖД" />
+                <img src="../static/images/logos/novatek.svg" alt="Логотип НОВАТЭК" />
+                <img src="../static/images/logos/rgo.jpg" alt="Логотип Русского Географического Общества" />
+                <img src="../static/images/logos/bashneft.jpg" alt="Логотип Башнефть" />
             </section>
             <section className="section tour">
                 <Link href={`/services`}>
@@ -191,10 +192,11 @@ export default () => (
             }
             @media (min-width: 1200px) {
                 .main-container {
-                    grid-template-rows: 100px auto auto auto 0px;
+                    grid-template-rows: 100px 50px auto auto auto 0px;
                     grid-template-columns: repeat(9, 1fr);
                     grid-template-areas:
                         '. . . . . . . . .'
+                        '. . . . . f f f f'
                         '. s s s . f f f f'
                         'l l l l l l l l l'
                         't t t t t t t t t'
@@ -204,16 +206,14 @@ export default () => (
                     background-size: 60%;
                     top: 0;
                 }
-                .slogan {
-                    padding: 0;
-                }
             }
             @media (min-width: 1366px) {
                 .main-container {
-                    grid-template-rows: 50px auto auto auto 0px;
+                    grid-template-rows: 50px 50px auto auto auto 0px;
                     grid-template-columns: repeat(9, 1fr);
                     grid-template-areas:
                         '. . . . . . . . .'
+                        '. . . . . f f f f'
                         '. s s s . f f f f'
                         'l l l l l l l l l'
                         't t t t t t t t t'
@@ -222,10 +222,11 @@ export default () => (
             }
             @media (min-width: 1600px) {
                 .main-container {
-                    grid-template-rows: 100px auto auto auto 0px;
+                    grid-template-rows: 100px 50px auto auto auto 0px;
                     grid-template-columns: repeat(11, 1fr);
                     grid-template-areas:
                         '. . . . . . . . . . .'
+                        '. . . . . . f f f f .'
                         '. . s s s . f f f f .'
                         'l l l l l l l l l l l'
                         't t t t t t t t t t t'
