@@ -57,8 +57,8 @@ export default () => (
         <style jsx>{`
             .main-container {
                 display: grid;
-                grid-auto-rows: 50px auto auto auto 50px;
-                grid-gap: 50px;
+                grid-auto-rows: 70px auto minmax(500px, auto) auto;
+                grid-gap: 20px;
                 grid-template-areas:
                     "."
                     "s"
@@ -96,10 +96,10 @@ export default () => (
                 display: none;
                 border-top: 1px solid #d5d5d5;
                 border-bottom: 1px solid #d5d5d5;
-                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                z-index: 1;
             }
             .logos img {
-                flex: 0 1 200px;
+                flex: 0 1 150px;
                 width: 0px;
                 padding: 20px 30px;
             }
@@ -143,14 +143,13 @@ export default () => (
 
             @media (min-width: 640px) {
                 .main-container {
-                    grid-auto-rows: 100px auto auto auto auto 50px;
+                    grid-auto-rows: 100px auto minmax(500px, auto) auto auto;
                     grid-template-areas:
                         "."
                         "s"
                         "f"
                         "l"
-                        "t"
-                        ".";
+                        "t";
                 }
                 .logos {
                     display: flex;
@@ -159,14 +158,23 @@ export default () => (
 
             @media (min-width: 960px) {
                 .main-container {
-                    grid-template-rows: 100px auto auto auto 0px;
-                    grid-template-columns: repeat(8, 1fr);
+                    padding-top: 100px;
+                    grid-template-rows: 50px minmax(380px, auto) 100px 0 auto 0px;
+                    grid-template-columns: 0 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0;
                     grid-template-areas:
-                        ". . . . . . . ."
-                        ". s s s f f f f"
-                        "l l l l l l l l"
-                        "t t t t t t t t"
-                        ". . . . . . . .";
+                        ". s s s s f f f f f ."
+                        ". s s s s f f f f f ."
+                        ". . . . . f f f f f ."
+                        ". . . . . f f f f f ."
+                        "t t t t t t t t t t ."
+                        ". . . . . . . . . . .";
+                    grid-gap: 50px;
+                }
+                .logos {
+                    grid-column-start: 1;
+                    grid-column-end: 12;
+                    grid-row-start: 3;
+                    grid-row-end: 4;
                 }
                 .background-image {
                     background-size: 80%;
@@ -192,15 +200,14 @@ export default () => (
             }
             @media (min-width: 1200px) {
                 .main-container {
-                    grid-template-rows: 100px 50px auto auto auto 0px;
-                    grid-template-columns: repeat(9, 1fr);
+                    grid-template-rows: 50px minmax(550px, auto) 100px 0 auto 0px;
                     grid-template-areas:
-                        ". . . . . . . . ."
-                        ". . . . . f f f f"
-                        ". s s s . f f f f"
-                        "l l l l l l l l l"
-                        "t t t t t t t t t"
-                        ". . . . . . . . .";
+                        ". . . . . f f f f f ."
+                        ". s s s s f f f f f ."
+                        ". . . . . f f f f f ."
+                        ". . . . . f f f f f ."
+                        "t t t t t t t t t t ."
+                        ". . . . . . . . . . .";
                 }
                 .background-image {
                     background-size: 60%;
@@ -209,32 +216,24 @@ export default () => (
             }
             @media (min-width: 1366px) {
                 .main-container {
-                    grid-template-rows: 50px 50px auto auto auto 0px;
-                    grid-template-columns: repeat(9, 1fr);
-                    grid-template-areas:
-                        ". . . . . . . . ."
-                        ". . . . . f f f f"
-                        ". s s s . f f f f"
-                        "l l l l l l l l l"
-                        "t t t t t t t t t"
-                        ". . . . . . . . .";
+                    padding-top: 80px;
+                    grid-template-rows: 50px minmax(400px, auto) 100px 0px auto 0px;
                 }
             }
             @media (min-width: 1600px) {
                 .main-container {
-                    grid-template-rows: 100px 50px auto auto auto 0px;
-                    grid-template-columns: repeat(11, 1fr);
-                    grid-template-areas:
-                        ". . . . . . . . . . ."
-                        ". . . . . . f f f f ."
-                        ". . s s s . f f f f ."
-                        "l l l l l l l l l l l"
-                        "t t t t t t t t t t t"
-                        ". . . . . . . . . . .";
+                    padding-top: 100px;
+                    grid-template-rows: 50px minmax(500px, auto) 100px 50px auto 0px;
                 }
                 .background-image {
                     background-size: 60%;
                     top: 0;
+                }
+            }
+            @media (min-width: 1920px) {
+                .main-container {
+                    padding-top: 100px;
+                    grid-template-rows: 50px minmax(650px, auto) 100px 0px auto 0px;
                 }
             }
         `}</style>

@@ -1,50 +1,54 @@
-// import Img from '/static/home-img.png';
+import Link from "next/link";
+import Button from "../components/ui/Button";
 
 const Recall = ({ feedbackData }) => (
     <div className="recall">
-        <div className="recall-img" />
-        <div className="recall-container">
+        <div className="recall__text">
             <div className="recall__author">
                 <span>{feedbackData.company}</span>
                 <h4>{feedbackData.author}</h4>
             </div>
             <p>{feedbackData.header}</p>
+            <Link href="/clients/video">
+                <a href="">
+                    <Button name="Смотрите интервью" className="full-width" />
+                </a>
+            </Link>
         </div>
         <style jsx>{`
             .recall {
                 width: 100%;
-            }
-            .recall-img {
-                z-index: 0;
-                height: 300px;
-                background: url('/static/images/clients/udhrb.png') 100% 100% no-repeat;
+                height: 100%;
+                background: url("/static/images/clients/udhrb.png") 100% 100% no-repeat;
                 background-size: contain;
                 background-position: center center;
-                margin: 0 auto;
+                position: relative;
             }
-            .recall-container {
-                margin: 0 30px;
-                margin-top: -50px;
-                border: 1px solid #d5d5d5;
+            .recall__text {
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
                 padding: 20px;
-                background: #fff;
-                border-radius: 10px;
-                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                width: 90%;
+                font-size: 0.95rem;
+                transform: translate(-50%);
             }
             @media (min-width: 960px) {
-                .recall-img {
-                    height: 400px;
-                    width: 400px;
+                .recall__text {
+                    bottom: 200px;
+                    width: 60%;
+                    transform: none;
+                    right: 0;
+                    left: inherit;
                 }
             }
             @media (min-width: 1366px) {
-                .recall-container {
-                    margin-top: -150px;
-                }
             }
             @media (min-width: 1600px) {
-                .recall-container {
-                    margin-top: -100px;
+                .recall__text {
+                    bottom: 250px;
                 }
             }
             @media (min-width: 1920px) {
@@ -52,8 +56,8 @@ const Recall = ({ feedbackData }) => (
                     height: 500px;
                     width: 500px;
                 }
-                .recall-container {
-                    margin-top: -50px;
+                .recall__text {
+                    bottom: 200px;
                 }
             }
         `}</style>

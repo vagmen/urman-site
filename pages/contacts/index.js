@@ -149,7 +149,6 @@ const Index = () => (
                 .contacts {
                     grid-template-areas:
                         "i m u"
-                        "i . ."
                         "i r s";
                     margin: 50px 0;
                 }

@@ -110,6 +110,9 @@ class Header extends Component {
                     .centered-elem {
                         margin: 0 auto;
                     }
+                    .full-width {
+                        width: 100%;
+                    }
                     .grid,
                     .grid-with-menu {
                         display: grid;
