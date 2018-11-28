@@ -1,5 +1,4 @@
 import YouTubePlayer from "react-player/lib/players/YouTube";
-import ReactPlayer from "react-player";
 import Layout from "../../components/Layout";
 import WithSubMenu from "../../components/WithSubMenu";
 import FeedbackCard from "../../components/FeedbackCard";

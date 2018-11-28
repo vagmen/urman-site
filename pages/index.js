@@ -1,11 +1,8 @@
-import { Button } from "antd";
 import Link from "next/link";
 import Layout from "../components/Layout.js";
 import Recall from "../components/Recall.js";
-import StartProject from "../components/StartProject.js";
 import { feedbackVideo } from "../constants/feedback";
 import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey } from "../constants/colors";
-import { Fragment } from "react";
 
 export default () => (
     <Layout title="URMAN">

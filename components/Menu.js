@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { Button, Icon } from "antd";
+import { Icon } from "antd";
 import { mainMenu } from "../constants/menuData";
 import { grey } from "../constants/colors";
 

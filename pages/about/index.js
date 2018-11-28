@@ -1,7 +1,6 @@
 import Layout from "../../components/Layout";
 import Statistics from "../../components/Statistics";
 import Link from "next/link";
-import { Button } from "antd";
 
 const menuItem = "about";
 
