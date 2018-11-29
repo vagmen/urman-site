@@ -1,63 +1,63 @@
 export const mainMenu = [
     {
-        title: 'Клиенты',
-        icon: 'team',
-        src: 'clients',
+        title: "Клиенты",
+        icon: "team",
+        src: "clients"
     },
     {
-        title: 'Услуги',
-        icon: 'key',
-        src: 'services',
+        title: "Услуги",
+        icon: "key",
+        src: "services"
     },
     {
-        title: 'О нас',
-        icon: 'idcard',
-        src: 'about',
+        title: "О нас",
+        icon: "idcard",
+        src: "about"
     },
     {
-        title: 'Журнал',
-        icon: 'book',
-        src: 'journal',
+        title: "Журнал",
+        icon: "book",
+        src: "journal"
     },
     {
-        title: 'Контакты',
-        icon: 'phone',
-        src: 'contacts',
-    },
+        title: "Контакты",
+        icon: "phone",
+        src: "contacts"
+    }
 ];
 
 export const menuData = {
     clients: {
-        video: 'Видео клиентов',
-        feedback: 'Отзывы',
-        stats: 'Ститистика и показатели',
+        video: "Видео клиентов",
+        feedback: "Отзывы",
+        stats: "Статистика и показатели"
         // geography: 'География проектов',
     },
     services: {
-        pol: 'Проект освоения лесов',
-        pdlu: 'Проектная документация лесного участка',
-        cadastre: 'Земельный кадастровый учет',
-        reports: 'Лесные отчеты',
-        pathology: 'Лесопатологическое обследование',
-        examination: 'Лесная экспертиза',
-        taxation: 'Таксация лесных участков',
-        registration: 'Полное оформление',
-        water: 'Оформление договора водопользования',
-        regulation: 'Лесохозяйственный регламент',
-        plan: 'Лесной план',
-    },
+        pol: "Проект освоения лесов",
+        pdlu: "Проектная документация лесного участка",
+        cadastre: "Земельный кадастровый учет",
+        reports: "Лесные отчеты",
+        pathology: "Лесопатологическое обследование",
+        examination: "Лесная экспертиза",
+        taxation: "Таксация лесных участков",
+        registration: "Полное оформление",
+        water: "Оформление договора водопользования",
+        regulation: "Лесохозяйственный регламент",
+        plan: "Лесной план"
+    }
 };
 export const servicesData = [
     {
-        name: 'Проект освоения лесов',
-        img: '../../static/forest.jpg',
-        id: 'pol',
+        name: "Проект освоения лесов",
+        img: "../../static/forest.jpg",
+        id: "pol"
     },
     {
-        name: 'Проектная документация лесного участка',
-        img: '../../static/forest2.jpg',
-        id: 'pdlu',
-    },
+        name: "Проектная документация лесного участка",
+        img: "../../static/forest2.jpg",
+        id: "pdlu"
+    }
     // {
     //     name: 'Земельный кадастровый учет',
     //     img: 'https://pp.userapi.com/c849028/v849028114/2ecdb/xhoIZASBdhg.jpg',

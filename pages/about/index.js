@@ -82,9 +82,10 @@ const Index = () => (
             </div>
         </div>
         <style jsx>{`
-            .about__wrapper {
-            }
-            .about {
+            .page-background:before {
+                background: url("../../static/images/background.webp");
+                background-size: 30%;
+                filter: opacity(20%);
             }
         `}</style>
     </Layout>

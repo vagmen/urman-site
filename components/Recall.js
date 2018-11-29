@@ -37,18 +37,23 @@ const Recall = ({ feedbackData }) => (
             }
             @media (min-width: 960px) {
                 .recall__text {
-                    bottom: 200px;
+                    bottom: 130px;
                     width: 60%;
                     transform: none;
                     right: 0;
                     left: inherit;
                 }
             }
+            @media (min-width: 1200px) {
+                .recall__text {
+                    bottom: 140px;
+                }
+            }
             @media (min-width: 1366px) {
             }
             @media (min-width: 1600px) {
                 .recall__text {
-                    bottom: 250px;
+                    bottom: 150px;
                 }
             }
             @media (min-width: 1920px) {

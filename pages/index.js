@@ -19,11 +19,15 @@ export default () => (
                 <Recall feedbackData={feedbackVideo[0]} />
             </section>
             <section className="section logos">
-                <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
-                <img src="../static/images/logos/rzd.png" alt="Логотип РЖД" />
-                <img src="../static/images/logos/novatek.svg" alt="Логотип НОВАТЭК" />
-                <img src="../static/images/logos/rgo.png" alt="Логотип Русского Географического Общества" />
-                <img src="../static/images/logos/bashneft.jpg" alt="Логотип Башнефть" />
+                <Link href={`/clients/feedback`}>
+                    <div className="logos_container">
+                        <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
+                        <img src="../static/images/logos/rzd.png" alt="Логотип РЖД" />
+                        <img src="../static/images/logos/novatek.svg" alt="Логотип НОВАТЭК" />
+                        <img src="../static/images/logos/rgo.png" alt="Логотип Русского Географического Общества" />
+                        <img src="../static/images/logos/bashneft.jpg" alt="Логотип Башнефть" />
+                    </div>
+                </Link>
             </section>
             <section className="section tour">
                 <Link href={`/services`}>
@@ -65,15 +69,18 @@ export default () => (
             .background-image {
                 background-image: url("/static/images/logo.png");
                 position: absolute;
-                height: 100%;
-                width: 100%;
+                min-height: 100vh;
                 top: 70px;
-                left: 0%;
-                z-index: -1;
-                filter: blur(2px) opacity(20%);
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                filter: blur(1px) opacity(15%);
                 background-repeat: no-repeat;
                 background-position: center top;
-                background-size: 100%;
+                background-size: contain;
+                transition: 1s;
+                transform: translateZ(-10px);
+                z-index: -1;
             }
             .slogan {
                 grid-area: s;
@@ -86,19 +93,25 @@ export default () => (
             }
             .logos {
                 grid-area: l;
-                align-items: center;
                 background: rgba(255, 255, 255, 0.9);
-                padding: 0 50px;
-                justify-content: center;
                 display: none;
                 border-top: 1px solid #d5d5d5;
                 border-bottom: 1px solid #d5d5d5;
                 z-index: 1;
             }
-            .logos img {
+            .logos_container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 50px;
+                width: 100%;
+                height: 100%;
+            }
+            .logos_container img {
                 flex: 0 1 150px;
                 width: 0px;
                 padding: 20px 30px;
+                cursor: pointer;
             }
             h1 {
                 color: ${mainColorDark};
@@ -113,6 +126,7 @@ export default () => (
             .tour {
                 display: flex;
                 flex-wrap: wrap;
+                z-index: 1;
             }
             .tour__item {
                 flex: 1 1 100%;
@@ -156,16 +170,14 @@ export default () => (
             @media (min-width: 960px) {
                 .main-container {
                     padding-top: 100px;
-                    grid-template-rows: 50px minmax(380px, auto) 100px 0 auto 0px;
+                    grid-template-rows: 50px minmax(380px, auto) 100px auto;
                     grid-template-columns: 0 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0;
                     grid-template-areas:
                         ". s s s s f f f f f ."
                         ". s s s s f f f f f ."
                         ". . . . . f f f f f ."
-                        ". . . . . f f f f f ."
-                        "t t t t t t t t t t ."
-                        ". . . . . . . . . . .";
-                    grid-gap: 50px;
+                        "t t t t t t t t t t t";
+                    grid-gap: 30px;
                 }
                 .logos {
                     grid-column-start: 1;
@@ -174,7 +186,9 @@ export default () => (
                     grid-row-end: 4;
                 }
                 .background-image {
-                    background-size: 80%;
+                     {
+                        /* background-size: 80%; */
+                    }
                     top: 30px;
                 }
                 .slogan {
@@ -189,7 +203,7 @@ export default () => (
                     font-size: 3rem;
                 }
                 .tour {
-                    margin-top: 50px;
+                    margin-top: -30px;
                 }
                 .tour__item {
                     flex: 1 1 33%;
@@ -197,40 +211,56 @@ export default () => (
             }
             @media (min-width: 1200px) {
                 .main-container {
-                    grid-template-rows: 50px minmax(550px, auto) 100px 0 auto 0px;
+                    grid-template-rows: 50px minmax(550px, auto) auto auto;
                     grid-template-areas:
                         ". . . . . f f f f f ."
                         ". s s s s f f f f f ."
                         ". . . . . f f f f f ."
-                        ". . . . . f f f f f ."
-                        "t t t t t t t t t t ."
-                        ". . . . . . . . . . .";
+                        "t t t t t t t t t t t";
+                    grid-gap: 40px;
                 }
                 .background-image {
-                    background-size: 60%;
+                     {
+                        /* background-size: 60%; */
+                    }
                     top: 0;
+                }
+                .tour {
+                    margin-top: -40px;
                 }
             }
             @media (min-width: 1366px) {
                 .main-container {
                     padding-top: 80px;
-                    grid-template-rows: 50px minmax(400px, auto) 100px 0px auto 0px;
+                    grid-template-rows: 50px minmax(450px, auto) auto auto;
                 }
             }
             @media (min-width: 1600px) {
                 .main-container {
                     padding-top: 100px;
-                    grid-template-rows: 50px minmax(500px, auto) 100px 50px auto 0px;
+                    grid-template-rows: 50px minmax(500px, auto) auto auto;
+                    grid-gap: 50px;
                 }
                 .background-image {
-                    background-size: 60%;
+                     {
+                        /* background-size: 60%; */
+                    }
                     top: 0;
+                }
+                .tour {
+                    margin-top: -50px;
+                }
+                .logos_container img {
+                    flex: 0 1 160px;
                 }
             }
             @media (min-width: 1920px) {
                 .main-container {
                     padding-top: 100px;
-                    grid-template-rows: 50px minmax(650px, auto) 100px 0px auto 0px;
+                    grid-template-rows: 100px minmax(600px, auto) auto auto;
+                }
+                .logos_container img {
+                    flex: 0 1 170px;
                 }
             }
         `}</style>
