@@ -1,8 +1,8 @@
-import Layout from "../../components/Layout";
-import Statistics from "../../components/Statistics";
-import Link from "next/link";
+import Layout from '../../components/Layout';
+import Statistics from '../../components/Statistics';
+import Link from 'next/link';
 
-const menuItem = "about";
+const menuItem = 'about';
 
 const Index = () => (
     <Layout title="О нас" menuItem={menuItem}>
@@ -33,11 +33,16 @@ const Index = () => (
                     <p>
                         Мы не «распыляемся» на другие ниши. С каждым днём наращиваем экспертность в своём направлении.
                         Это позволяет сплочённой команде из 15 человек решать поставленные задачи по всей России —
-                        начиная от разработки проектов освоения лесов и заканчивая разработкой лесных планов субъектов
-                        РФ.
+                        начиная от разработки{' '}
+                        <Link href="/services/pol">
+                            <a className="post-a" href="">
+                                проектов освоения лесов
+                            </a>
+                        </Link>{' '}
+                        и заканчивая разработкой лесных планов субъектов РФ.
                     </p>
                     <p>
-                        Сейчас у нас функционирует{" "}
+                        Сейчас у нас функционирует{' '}
                         <Link href="/contacts">
                             <a className="post-a" href="">
                                 2 офиса (в Москве и в Уфе)
@@ -83,7 +88,7 @@ const Index = () => (
         </div>
         <style jsx>{`
             .page-background:before {
-                background: url("../../static/images/background.webp");
+                background: url('../../static/images/background.webp');
                 background-size: 30%;
                 filter: opacity(20%);
             }
