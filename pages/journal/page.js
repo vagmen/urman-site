@@ -18,6 +18,13 @@ const Page = props => (
                 <img src={props.show.image.medium} />
             </div>
         </div>
+        <style jsx>{`
+            .page-background:before {
+                background: url("../../static/images/background.webp");
+                background-size: 30%;
+                filter: opacity(20%);
+            }
+        `}</style>
     </Layout>
 );
 

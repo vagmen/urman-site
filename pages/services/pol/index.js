@@ -1,28 +1,27 @@
-import { Component } from 'react';
-import fetch from 'isomorphic-unfetch';
-import { message } from 'antd';
+import { Component } from "react";
+import fetch from "isomorphic-unfetch";
+import { message } from "antd";
+import Layout from "../../../components/Layout";
 
-import Layout from '../../../components/Layout';
-
-const menuItem = 'services';
+const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: '',
+        email: ""
     };
     sendServiceDocTemplate = async () => {
-        const res = await fetch('https://helpforest.azurewebsites.net/SendServiceDocTemplate', {
-            method: 'post',
+        const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
+            method: "post",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: 'pol',
-            }),
+                ServiceCode: "pol"
+            })
         });
         const data = await res.json();
-        if (data) message.success('Мы отправили письмо с вложенной формой на вашу почту');
+        if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
     };
 
     render() {
@@ -94,7 +93,7 @@ class Index extends Component {
                                     name="email"
                                     placeholder="Ваша почта"
                                     value={email}
-                                    onChange={(e) => this.setState({ email: e.target.value })}
+                                    onChange={e => this.setState({ email: e.target.value })}
                                 />
                                 <button onClick={this.sendServiceDocTemplate}>Получить форму</button>
                             </div>
@@ -218,6 +217,11 @@ class Index extends Component {
                     .img-item img {
                         width: 100%;
                     }
+                    .page-background:before {
+                        background: url("../../static/images/background.webp");
+                        background-size: 30%;
+                        filter: opacity(20%);
+                    }
                 `}</style>
             </Layout>
         );
@@ -229,7 +233,7 @@ Index.getInitialProps = async function() {
     // const data = await res.json();
 
     return {
-        postData: { title: 'Проект освоения лесов (ПОЛ)' },
+        postData: { title: "Проект освоения лесов (ПОЛ)" }
     };
 };
 
