@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
 import { Icon } from "antd";
+import { animateScroll as scroll } from "react-scroll";
 
 import { mainColorLightBgr, mainColorLight } from "../constants/colors";
 import { postWidth, pageWidth } from "../constants/settings";
@@ -19,10 +20,12 @@ class Header extends Component {
                     </div>
                 </Link>
                 <div className="start-proj">
-                    <button className="start-proj__button start-proj__button-text">Рассчитать стоимость</button>
-                    <span className="start-proj__button start-proj__button-icon">
+                    <button className="start-proj__button for-desktop" onClick={() => scroll.scrollToBottom()}>
+                        Рассчитать стоимость
+                    </button>
+                    <button className="start-proj__button for-mobile" onClick={() => scroll.scrollToBottom()}>
                         <Icon type="plus" />
-                    </span>
+                    </button>
                 </div>
                 <style jsx global>{`
                     @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
@@ -207,6 +210,12 @@ class Header extends Component {
                         background: #fff;
                         color: #f06060;
                     }
+                    .for-desktop {
+                        display: none;
+                    }
+                    .for-mobile {
+                        display: block;
+                    }
                     @media (min-width: 640px) {
                         body {
                             font-size: 18px;
@@ -265,6 +274,12 @@ class Header extends Component {
                         }
                         .grid-with-menu {
                             grid-template-columns: 1fr 1fr 1fr;
+                        }
+                        .for-desktop {
+                            display: block;
+                        }
+                        .for-mobile {
+                            display: none;
                         }
                     }
                     @media (min-width: 1600px) {
@@ -343,28 +358,6 @@ class Header extends Component {
                     .start-proj__button:hover {
                         background: #fff;
                         color: #f06060;
-                    }
-
-                    .start-proj__button-text {
-                        display: none;
-                        font-size: 16px;
-                    }
-                    .start-proj__button-icon {
-                        width: 30px;
-                        height: 30px;
-                    }
-                    @media screen and (min-width: 640px) {
-                        .start-proj__button-icon {
-                            display: none;
-                        }
-                        .start-proj__button-text {
-                            display: inline;
-                        }
-                    }
-                    @media screen and (min-width: 960px) {
-                        .start-proj__phone {
-                            display: inline;
-                        }
                     }
                 `}</style>
             </div>
