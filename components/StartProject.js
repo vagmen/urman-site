@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Form, Input, Checkbox, message } from "antd";
 import Button from "../components/ui/Button";
+import Link from "next/link";
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -86,16 +87,15 @@ class StartProjectForm extends Component {
                             />
                         )}
                     </FormItem>
-                    <FormItem>
-                        {getFieldDecorator("checkbox", {
-                            rules: [
-                                {
-                                    required: true,
-                                    message: "Требуется ваше согласие"
-                                }
-                            ]
-                        })(<Checkbox>Согласен на обработку персональных данных</Checkbox>)}
-                    </FormItem>
+                    <p>
+                        Нажимая на кнопку ОТПРАВИТЬ, я даю{" "}
+                        <Link href="/agreement">
+                            <a className="post-a" href="">
+                                согласие
+                            </a>
+                        </Link>{" "}
+                        на обработку персональных данных
+                    </p>
                     <div className="centered">
                         <Button name="Отправить" html="submit">
                             Отправить
