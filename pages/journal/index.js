@@ -1,13 +1,14 @@
-import { Fragment } from "react";
-import Link from "next/link";
-import fetch from "isomorphic-unfetch";
-import moment from "moment";
-import Layout from "../../components/Layout";
-import WithSubMenu from "../../components/WithSubMenu";
+import { Fragment } from 'react';
+import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
+import moment from 'moment';
+import Layout from '../../components/Layout';
+import WithSubMenu from '../../components/WithSubMenu';
+import { journalData } from '../../constants/journalData';
 
-const menuItem = "journal";
+const menuItem = 'journal';
 
-const Index = ({ subMenuItems }) => (
+const Index = ({ journalItems }) => (
     <Layout title="Журнал" menuItem={menuItem}>
         <div className="page-background">
             <div className="page-content">
@@ -15,24 +16,26 @@ const Index = ({ subMenuItems }) => (
                     <h1>Журнал – URMAN</h1>
                     <h4>Про лес и не только</h4>
                     <div className="grid">
-                        {subMenuItems.map(({ show }) => (
-                            <section className="grid__item clickable-block" key={show.id}>
-                                <Link as={`/journal/${show.id}`} href={`/journal/post?id=${show.id}`}>
-                                    <Fragment>
-                                        <div className="img-wrapper">
-                                            <img src={show.image.original} />
-                                        </div>
-                                        <article>
-                                            <time>{moment().format("D MMMM YYYY")}</time>
-                                            <header>
-                                                <h3>{show.name}</h3>
-                                            </header>
-                                            <p>
-                                                Почему нужно разрабатывать ПОЛ уже сейчас и почему он у Вас не пройдет
-                                                государственную экспертизу.
-                                            </p>
-                                        </article>
-                                    </Fragment>
+                        {journalItems.map((item) => (
+                            <section className="grid__item clickable-block" key={item.id}>
+                                <Link as={`/journal/${item.id}`} href={`/journal/post?id=${item.id}`}>
+                                    <a href="">
+                                        <Fragment>
+                                            <div className="img-wrapper">
+                                                <img src={item.img} />
+                                            </div>
+                                            <article>
+                                                <time>{moment().format('D MMMM YYYY')}</time>
+                                                <header>
+                                                    <h3>{item.title}</h3>
+                                                </header>
+                                                <p>
+                                                    Почему нужно разрабатывать ПОЛ уже сейчас и почему он у Вас не
+                                                    пройдет государственную экспертизу.
+                                                </p>
+                                            </article>
+                                        </Fragment>
+                                    </a>
                                 </Link>
                             </section>
                         ))}
@@ -73,10 +76,10 @@ const Index = ({ subMenuItems }) => (
 );
 
 Index.getInitialProps = async function() {
-    const res = await fetch("https://api.tvmaze.com/search/shows?q=forest");
-    const data = await res.json();
+    // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
+    // const data = await res.json();
     return {
-        subMenuItems: data
+        journalItems: journalData,
     };
 };
 
