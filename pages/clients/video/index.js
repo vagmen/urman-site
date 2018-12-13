@@ -1,12 +1,10 @@
-import ReactPlayer from 'react-player';
-import YouTubePlayer from 'react-player/lib/players/YouTube';
-import Layout from '../../../components/Layout';
-import WithSubMenu from '../../../components/WithSubMenu';
-import { menuData } from '../../../constants/menuData';
+import YouTubePlayer from "react-player/lib/players/YouTube";
+import Layout from "../../../components/Layout";
+import WithSubMenu from "../../../components/WithSubMenu";
+import { menuData } from "../../../constants/menuData";
 
-const menuItem = 'clients';
-const subMenuItem = 'video';
-const imgSrc = '/static/video.png';
+const menuItem = "clients";
+const subMenuItem = "video";
 const Index = () => (
     <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
         <div className="page-background">
@@ -19,6 +17,17 @@ const Index = () => (
                             <div className="player-wrapper">
                                 <YouTubePlayer
                                     url="https://www.youtube.com/watch?v=OxeGSvSuAeM"
+                                    controls
+                                    className="react-player"
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
+                        </div>
+                        <div className="video-list__item grid__item">
+                            <div className="player-wrapper">
+                                <YouTubePlayer
+                                    url="https://www.youtube.com/watch?v=vqm1TaoqJns"
                                     controls
                                     className="react-player"
                                     width="100%"
