@@ -5,6 +5,7 @@ import moment from 'moment';
 import Layout from '../../components/Layout';
 import WithSubMenu from '../../components/WithSubMenu';
 import { journalData } from '../../constants/journalData';
+import { mainColorLight } from '../../constants/colors';
 
 const menuItem = 'journal';
 
@@ -27,12 +28,12 @@ const Index = ({ journalItems }) => (
                                             <article>
                                                 <time>{moment().format('D MMMM YYYY')}</time>
                                                 <header>
-                                                    <h3>{item.title}</h3>
+                                                    <h4>{item.title}</h4>
                                                 </header>
-                                                <p>
+                                                {/* <p>
                                                     Почему нужно разрабатывать ПОЛ уже сейчас и почему он у Вас не
                                                     пройдет государственную экспертизу.
-                                                </p>
+                                                </p> */}
                                             </article>
                                         </Fragment>
                                     </a>
@@ -46,30 +47,28 @@ const Index = ({ journalItems }) => (
         <style jsx>{`
             .img-wrapper {
                 width: 100%;
-                height: 250px;
+                height: 200px;
                 overflow: hidden;
                 position: relative;
+            }
+            .journal {
+                padding-bottom: 20px;
             }
             .journal img {
                 position: absolute;
                 top: 0;
                 left: 0;
-                max-width: 100%;
+                width: 100%;
             }
             article {
                 padding: 10px 20px;
-                color: #564e67;
-                font-weight: 300;
             }
             time {
                 margin-bottom: 20px;
                 font-size: 16px;
             }
-            h3 {
-                font-size: 22px;
-                font-weight: 300;
-                color: #564e67;
-                margin: 10px 0px;
+            .page-background {
+                background: #eee;
             }
         `}</style>
     </Layout>

@@ -10,7 +10,7 @@ app.prepare()
         const server = express();
 
         server.get('/journal/:id', (req, res) => {
-            const actualPage = '/journal/page';
+            const actualPage = '/journal/post';
             const queryParams = { id: req.params.id };
             app.render(req, res, actualPage, queryParams);
         });

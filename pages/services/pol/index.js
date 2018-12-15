@@ -29,7 +29,7 @@ class Index extends Component {
         const { postData } = this.props;
         return (
             <Layout title={postData.title}>
-                <div className="page-background">
+                <div className="template-background">
                     <div className="page-content">
                         <div className="post">
                             <header>
@@ -216,11 +216,6 @@ class Index extends Component {
                     }
                     .img-item img {
                         width: 100%;
-                    }
-                    .page-background:before {
-                        background: url('../../static/images/background.webp');
-                        background-size: 30%;
-                        filter: opacity(20%);
                     }
                 `}</style>
             </Layout>

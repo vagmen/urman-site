@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import { Icon } from "antd";
-import { animateScroll as scroll } from "react-scroll";
+import React, { Component } from 'react';
+import Link from 'next/link';
+import { Icon } from 'antd';
+import { animateScroll as scroll } from 'react-scroll';
 
-import { mainColorLightBgr, mainColorLight } from "../constants/colors";
-import { postWidth, pageWidth } from "../constants/settings";
+import { mainColorLightBgr, mainColorLight } from '../constants/colors';
+import { postWidth, pageWidth } from '../constants/settings';
 
 class Header extends Component {
     render() {
@@ -28,7 +28,7 @@ class Header extends Component {
                     </button>
                 </div>
                 <style jsx global>{`
-                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
+                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
                     h1,
                     h2,
                     h3,
@@ -86,26 +86,33 @@ class Header extends Component {
                     }
                     a {
                         color: inherit;
-                        text-decoration: underline;
+                        text-decoration: none;
+                         {
+                            /* text-decoration: underline; */
+                        }
                     }
                     a:hover {
                     }
                     .react-icons {
                         vertical-align: middle;
                     }
-                    .page-background {
+                    .page-background,
+                    .template-background {
                         display: flex;
                         justify-content: center;
                         position: relative;
                     }
-                    .page-background:before {
-                        content: "";
+                    .template-background:before {
+                        content: '';
                         position: absolute;
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
                         z-index: -1;
+                        background: url('../../static/images/background.webp');
+                        background-size: 30%;
+                        filter: opacity(20%);
                     }
                     .page-content {
                         flex: 1;
@@ -134,6 +141,14 @@ class Header extends Component {
                     }
                     .grid__item {
                         transition: all 0.3s;
+                        background: #fff;
+                    }
+                    .grid__item h3,
+                    .grid__item h4,
+                    .grid__item p,
+                    .grid__item time {
+                        color: #3a431b;
+                        font-weight: 200;
                     }
                     .clickable-block {
                         cursor: pointer;
@@ -167,6 +182,9 @@ class Header extends Component {
                         margin-bottom: 2rem;
                         font-weight: 100;
                         text-align: center;
+                    }
+                    .post li {
+                        font-weight: 100;
                     }
                     .post-a {
                         color: inherit;

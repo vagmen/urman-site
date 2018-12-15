@@ -1,32 +1,32 @@
-import React, { Component } from "react";
-import { Icon, Form, Input, Checkbox, message } from "antd";
-import Button from "../components/ui/Button";
-import Link from "next/link";
+import React, { Component } from 'react';
+import { Icon, Form, Input, Checkbox, message } from 'antd';
+import Link from 'next/link';
+import Button from '../components/ui/Button';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
 
 class StartProjectForm extends Component {
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log("Received values of form: ", values);
+                console.log('Received values of form: ', values);
                 this.sendFeedbackInfo(values);
             }
         });
     };
 
-    sendFeedbackInfo = async savedData => {
-        const res = await fetch("https://helpforest.azurewebsites.net/SendFeedbackInfo", {
-            method: "post",
+    sendFeedbackInfo = async (savedData) => {
+        const res = await fetch('https://helpforest.azurewebsites.net/SendFeedbackInfo', {
+            method: 'post',
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(savedData)
+            body: JSON.stringify(savedData),
         });
         const data = await res.json();
-        if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
+        if (data) message.success('Мы отправили письмо с вложенной формой на вашу почту');
     };
 
     render() {
@@ -38,48 +38,48 @@ class StartProjectForm extends Component {
                 <p>Оставьте заявку, чтобы узнать, сможем ли мы Вам помочь.</p>
                 <Form onSubmit={this.handleSubmit}>
                     <FormItem>
-                        {getFieldDecorator("name", {
+                        {getFieldDecorator('name', {
                             rules: [
                                 {
                                     required: true,
-                                    message: "Введите, пожалуйста, свое имя!"
-                                }
-                            ]
+                                    message: 'Введите, пожалуйста, свое имя!',
+                                },
+                            ],
                         })(
                             <Input
-                                prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
+                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 placeholder="Ваше имя..."
                                 size="large"
                             />
                         )}
                     </FormItem>
                     <FormItem>
-                        {getFieldDecorator("phone", {
+                        {getFieldDecorator('phone', {
                             rules: [
                                 {
                                     required: true,
-                                    message: "Введите, пожалуйста, номер вашего телефона!"
-                                }
-                            ]
+                                    message: 'Введите, пожалуйста, номер вашего телефона!',
+                                },
+                            ],
                         })(
                             <Input
-                                prefix={<Icon type="phone" style={{ color: "rgba(0,0,0,.25)" }} />}
+                                prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 placeholder="Номер телефона"
                                 size="large"
                             />
                         )}
                     </FormItem>
                     <FormItem>
-                        {getFieldDecorator("email")(
+                        {getFieldDecorator('email')(
                             <Input
-                                prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
+                                prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 placeholder="E-mail"
                                 size="large"
                             />
                         )}
                     </FormItem>
                     <FormItem>
-                        {getFieldDecorator("information")(
+                        {getFieldDecorator('information')(
                             <TextArea
                                 size="large"
                                 autosize={{ minRows: 2, maxRows: 6 }}
@@ -88,12 +88,12 @@ class StartProjectForm extends Component {
                         )}
                     </FormItem>
                     <p>
-                        Нажимая на кнопку ОТПРАВИТЬ, я даю{" "}
+                        Нажимая на кнопку ОТПРАВИТЬ, я даю{' '}
                         <Link href="/agreement">
                             <a className="post-a" href="">
                                 согласие
                             </a>
-                        </Link>{" "}
+                        </Link>{' '}
                         на обработку персональных данных
                     </p>
                     <div className="centered">

@@ -6,7 +6,7 @@ const menuItem = 'about';
 
 const Index = () => (
     <Layout title="О нас" menuItem={menuItem}>
-        <div className="page-background">
+        <div className="template-background">
             <div className="page-content">
                 <div className="post about">
                     <h1>URMAN — это команда экспертов в лесной сфере для Вас и Вашего бизнеса.</h1>
@@ -86,13 +86,6 @@ const Index = () => (
                 </div>
             </div>
         </div>
-        <style jsx>{`
-            .page-background:before {
-                background: url('../../static/images/background.webp');
-                background-size: 30%;
-                filter: opacity(20%);
-            }
-        `}</style>
     </Layout>
 );
 

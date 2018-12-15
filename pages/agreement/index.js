@@ -1,12 +1,12 @@
-import Link from "next/link";
-import Layout from "../../components/Layout";
-import Button from "../../components/ui/Button";
+import Link from 'next/link';
+import Layout from '../../components/Layout';
+import Button from '../../components/ui/Button';
 
-const menuItem = "agreement";
+const menuItem = 'agreement';
 
 const Index = () => (
     <Layout title="Соглашение" menuItem={menuItem}>
-        <div className="page-background">
+        <div className="template-background">
             <div className="page-content">
                 <div className="post agreement">
                     <h1>Соглашение на обработку персональных данных.</h1>
@@ -41,13 +41,6 @@ const Index = () => (
                 </div>
             </div>
         </div>
-        <style jsx>{`
-            .page-background:before {
-                background: url("../../static/images/background.webp");
-                background-size: 30%;
-                filter: opacity(20%);
-            }
-        `}</style>
     </Layout>
 );
 
