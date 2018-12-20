@@ -8,11 +8,11 @@ const menuItem = "clients";
 const subMenuItem = "feedback";
 
 const Index = () => (
-    <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
+    <Layout subMenuItem={subMenuItem} menuItem={menuItem}>
         <div className="page-background">
             <div className="page-content">
                 <div className="feedback-wraper">
-                    <WithSubMenu subMenuItems={menuData[menuItem]} subMenuItem={subMenuItem} menuItem={menuItem}>
+                    <WithSubMenu subMenuItem={subMenuItem} menuItem={menuItem}>
                         <h1>Отзывы</h1>
                         <h4>То, что наши клиенты говорят о нас своими словами</h4>
                         <div className="grid-with-menu">

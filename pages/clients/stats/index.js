@@ -1,16 +1,16 @@
-import Layout from '../../../components/Layout';
-import Statistics from '../../../components/Statistics';
-import WithSubMenu from '../../../components/WithSubMenu';
-import { menuData } from '../../../constants/menuData';
+import Layout from "../../../components/Layout";
+import Statistics from "../../../components/Statistics";
+import WithSubMenu from "../../../components/WithSubMenu";
+import { menuData } from "../../../constants/menuData";
 
-const menuItem = 'clients';
-const subMenuItem = 'stats';
+const menuItem = "clients";
+const subMenuItem = "stats";
 
 const Index = () => (
-    <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
+    <Layout subMenuItem={subMenuItem} menuItem={menuItem}>
         <div className="page-background">
             <div className="page-content">
-                <WithSubMenu subMenuItems={menuData[menuItem]} subMenuItem={subMenuItem} menuItem={menuItem}>
+                <WithSubMenu subMenuItem={subMenuItem} menuItem={menuItem}>
                     <h1>Статистика</h1>
                     <Statistics />
                 </WithSubMenu>

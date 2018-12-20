@@ -6,16 +6,25 @@ import { grey } from "../constants/colors";
 
 class Menu extends Component {
     render() {
+        console.log("this.props.menuItem", this.props.menuItem);
+        console.log("mainMenu", mainMenu);
         return (
             <ul className="menu">
-                {mainMenu.map((item, index) => (
-                    <Link key={index} href={`/${item.src}`}>
-                        <li className={`menu-item ${this.props.menuItem === item.src ? `menu-item_active` : ``}`}>
-                            <Icon className="icon" type={item.icon} style={{ color: "#eee", fontSize: 25 }} />
-                            <a>{item.title}</a>
-                        </li>
-                    </Link>
-                ))}
+                {mainMenu.map(
+                    (item, index) =>
+                        item.isMainMenu && (
+                            <Link key={index} href={`/${item.src}`}>
+                                <li
+                                    className={`menu-item ${
+                                        this.props.menuItem === item.src ? `menu-item_active` : ``
+                                    }`}
+                                >
+                                    <Icon className="icon" type={item.icon} style={{ color: "#eee", fontSize: 25 }} />
+                                    <a>{item.title}</a>
+                                </li>
+                            </Link>
+                        )
+                )}
                 <style jsx>{`
                     .menu {
                         margin: 0;

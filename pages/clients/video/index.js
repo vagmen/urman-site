@@ -6,10 +6,10 @@ import { menuData } from "../../../constants/menuData";
 const menuItem = "clients";
 const subMenuItem = "video";
 const Index = () => (
-    <Layout title={menuData[menuItem][subMenuItem]} menuItem={menuItem}>
+    <Layout subMenuItem={subMenuItem} menuItem={menuItem}>
         <div className="page-background">
             <div className="page-content">
-                <WithSubMenu subMenuItems={menuData[menuItem]} subMenuItem={subMenuItem} menuItem={menuItem}>
+                <WithSubMenu subMenuItem={subMenuItem} menuItem={menuItem}>
                     <h1>Видео клиентов</h1>
                     <p>Клиенты описывают опыт работы с нами, какие были особенности и задачи и как их решили.</p>
                     <div className="video-list grid-with-menu">

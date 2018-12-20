@@ -1,11 +1,9 @@
-import Link from 'next/link';
-import Layout from '../../components/Layout';
-import Button from '../../components/ui/Button';
-
-const menuItem = 'agreement';
+import Link from "next/link";
+import Layout from "../../components/Layout";
+import Button from "../../components/ui/Button";
 
 const Index = () => (
-    <Layout title="Соглашение" menuItem={menuItem}>
+    <Layout menuItem="agreement">
         <div className="template-background">
             <div className="page-content">
                 <div className="post agreement">

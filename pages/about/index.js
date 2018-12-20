@@ -1,11 +1,9 @@
-import Layout from '../../components/Layout';
-import Statistics from '../../components/Statistics';
-import Link from 'next/link';
-
-const menuItem = 'about';
+import Link from "next/link";
+import Layout from "../../components/Layout";
+import Statistics from "../../components/Statistics";
 
 const Index = () => (
-    <Layout title="О нас" menuItem={menuItem}>
+    <Layout menuItem="about">
         <div className="template-background">
             <div className="page-content">
                 <div className="post about">
@@ -33,16 +31,16 @@ const Index = () => (
                     <p>
                         Мы не «распыляемся» на другие ниши. С каждым днём наращиваем экспертность в своём направлении.
                         Это позволяет сплочённой команде из 15 человек решать поставленные задачи по всей России —
-                        начиная от разработки{' '}
+                        начиная от разработки{" "}
                         <Link href="/services/pol">
                             <a className="post-a" href="">
                                 проектов освоения лесов
                             </a>
-                        </Link>{' '}
+                        </Link>{" "}
                         и заканчивая разработкой лесных планов субъектов РФ.
                     </p>
                     <p>
-                        Сейчас у нас функционирует{' '}
+                        Сейчас у нас функционирует{" "}
                         <Link href="/contacts">
                             <a className="post-a" href="">
                                 2 офиса (в Москве и в Уфе)

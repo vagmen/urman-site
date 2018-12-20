@@ -1,34 +1,34 @@
-import { Component } from 'react';
-import fetch from 'isomorphic-unfetch';
-import { message } from 'antd';
-import Layout from '../../../components/Layout';
+import { Component } from "react";
+import fetch from "isomorphic-unfetch";
+import { message } from "antd";
+import Layout from "../../../components/Layout";
 
-const menuItem = 'services';
+const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: '',
+        email: ""
     };
     sendServiceDocTemplate = async () => {
-        const res = await fetch('https://helpforest.azurewebsites.net/SendServiceDocTemplate', {
-            method: 'post',
+        const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
+            method: "post",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: 'pol',
-            }),
+                ServiceCode: "pol"
+            })
         });
         const data = await res.json();
-        if (data) message.success('Мы отправили письмо с вложенной формой на вашу почту');
+        if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
     };
 
     render() {
         const { email } = this.state;
         const { postData } = this.props;
         return (
-            <Layout title={postData.title}>
+            <Layout postData={postData}>
                 <div className="template-background">
                     <div className="page-content">
                         <div className="post">
@@ -93,7 +93,7 @@ class Index extends Component {
                                     name="email"
                                     placeholder="Ваша почта"
                                     value={email}
-                                    onChange={(e) => this.setState({ email: e.target.value })}
+                                    onChange={e => this.setState({ email: e.target.value })}
                                 />
                                 <button onClick={this.sendServiceDocTemplate}>Получить форму</button>
                             </div>
@@ -228,7 +228,11 @@ Index.getInitialProps = async function() {
     // const data = await res.json();
 
     return {
-        postData: { title: 'Проект освоения лесов (ПОЛ)' },
+        postData: {
+            title: "Проект освоения лесов (ПОЛ)",
+            description:
+                "Если хотите взять лесной участок в пользование или поставить на кадастровый учет лесной участок которым уже пользуетесь, то Вам необходимо будет разработать и согласовать проектную документацию лесного участка."
+        }
     };
 };
 

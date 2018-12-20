@@ -1,19 +1,18 @@
+import Link from "next/link";
 import YouTubePlayer from "react-player/lib/players/YouTube";
 import Layout from "../../components/Layout";
 import WithSubMenu from "../../components/WithSubMenu";
 import FeedbackCard from "../../components/FeedbackCard";
-import { menuData } from "../../constants/menuData";
 import { feedback } from "../../constants/feedback";
-import Link from "next/link";
 import Button from "../../components/ui/Button";
 
 const menuItem = "clients";
 
 const Index = () => (
-    <Layout title="Клиенты" menuItem={menuItem}>
+    <Layout menuItem={menuItem}>
         <div className="page-background">
             <div className="page-content">
-                <WithSubMenu subMenuItems={menuData[menuItem]} menuItem={menuItem}>
+                <WithSubMenu menuItem={menuItem}>
                     <div className="">
                         <h1>Клиенты</h1>
                         <h4>От глобальных лидеров до быстрорастущих стартапов, сотни компаний полагаются на URMAN.</h4>

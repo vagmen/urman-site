@@ -2,27 +2,65 @@ export const mainMenu = [
     {
         title: "Клиенты",
         icon: "team",
-        src: "clients"
+        src: "clients",
+        description: "От глобальных лидеров до быстрорастущих стартапов, сотни компаний полагаются на URMAN.",
+        isMainMenu: true,
+        children: [
+            {
+                title: "Видео клиентов",
+                src: "video",
+                description: "Видео клиентов"
+            },
+            {
+                title: "Отзывы",
+                src: "feedback",
+                description: "Отзывы"
+            },
+            {
+                title: "Статистика и показатели",
+                src: "stats",
+                description: "Статистика и показатели"
+            }
+        ]
     },
     {
         title: "Услуги",
         icon: "key",
-        src: "services"
+        src: "services",
+        description:
+            "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка",
+        isMainMenu: true
     },
     {
         title: "О нас",
         icon: "idcard",
-        src: "about"
+        src: "about",
+        description:
+            "Мы сплоченная команда из 15 человек. Решаем поставленные задачи по всей России — начиная от разработки проектов освоения лесов и заканчивая разработкой лесных планов субъектов РФ.",
+        isMainMenu: true
     },
     {
         title: "Журнал",
         icon: "book",
-        src: "journal"
+        src: "journal",
+        description: "Про лес и не только",
+        isMainMenu: true
     },
     {
         title: "Контакты",
         icon: "phone",
-        src: "contacts"
+        src: "contacts",
+        description:
+            "У нас команда проверенных, грамотных и опытных штатных сотрудников. Мы за открытую коммуникацию. Пишите и звоните нам, будем рады!",
+        isMainMenu: true
+    },
+    {
+        title: "Соглашение",
+        icon: "phone",
+        src: "agreement",
+        description:
+            "У нас команда проверенных, грамотных и опытных штатных сотрудников. Мы за открытую коммуникацию. Пишите и звоните нам, будем рады!",
+        isMainMenu: false
     }
 ];
 

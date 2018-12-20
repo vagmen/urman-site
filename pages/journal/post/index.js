@@ -1,7 +1,7 @@
-import { withRouter } from 'next/router';
-import fetch from 'isomorphic-unfetch';
-import Link from 'next/link';
-import Layout from '../../../components/Layout.js';
+import { withRouter } from "next/router";
+import fetch from "isomorphic-unfetch";
+import Link from "next/link";
+import Layout from "../../../components/Layout.js";
 
 // const Content = withRouter((props) => (
 //     <div>
@@ -10,8 +10,8 @@ import Layout from '../../../components/Layout.js';
 //     </div>
 // ));
 
-const Index = (props) => (
-    <Layout>
+const Index = ({ postData }) => (
+    <Layout postData={postData}>
         <div className="template-background">
             <div className="page-content">
                 <div className="post">
@@ -30,12 +30,12 @@ const Index = (props) => (
                         нового лесного проекта прошедшего государственную экспертизу. Что сулит проблемы и штрафы.
                     </p>
                     <p>
-                        <strong>Хорошая</strong> в том, что мы готовы для Вас сделать новый{' '}
+                        <strong>Хорошая</strong> в том, что мы готовы для Вас сделать новый{" "}
                         <Link href="/services/pol">
                             <a className="post-a" href="">
                                 Проект освоения лесов
                             </a>
-                        </Link>{' '}
+                        </Link>{" "}
                         .
                     </p>
                     <p>
@@ -51,11 +51,11 @@ const Index = (props) => (
                     </p>
                     <h3>Почему нужно заново разрабатывать Проект освоения лесов?</h3>
                     <p>
-                        Согласно{' '}
+                        Согласно{" "}
                         <a className="post-a" href="">
                             п.30 Приказа № 69 от 29 февраля 2012 года "Об утверждении состава проекта освоения лесов и
                             порядка его разработки"
-                        </a>{' '}
+                        </a>{" "}
                         Проекты освоения лесов составляются на срок действия договора аренды по видам пользования:
                     </p>
                     <ul>
@@ -87,7 +87,7 @@ const Index = (props) => (
                     <p>
                         Если Вы делали Проект освоения лесов 10 лет назад, многое в Ваших планах могло поменяться. Это
                         отличная возможность откорректировать Проект с Вашим новым видением. Но если Вы делали Проект
-                        пару лет назад, то в любом случае придется переделывать ПОЛ. В этом случае стоит попросить{' '}
+                        пару лет назад, то в любом случае придется переделывать ПОЛ. В этом случае стоит попросить{" "}
                         <strong>скидку</strong> у разработчика .
                     </p>
                     <p>
@@ -101,13 +101,14 @@ const Index = (props) => (
         </div>
     </Layout>
 );
-
-// Page.getInitialProps = async function(context) {
-//     const { id } = context.query;
-//     const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
-//     const show = await res.json();
-
-//     return { show };
-// };
+Index.getInitialProps = async function() {
+    return {
+        postData: {
+            title: "У вашего Проекта освоения лесов вышел срок годности",
+            description:
+                "Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу."
+        }
+    };
+};
 
 export default Index;

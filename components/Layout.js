@@ -3,22 +3,28 @@ import Head from "next/head";
 import { LocaleProvider } from "antd";
 import ruRU from "antd/lib/locale-provider/ru_RU";
 import { IconContext } from "react-icons";
+import { YMInitializer } from "react-yandex-metrika";
 import Header from "./Header";
 import Menu from "./Menu";
-import Footer from "./Footer";
 import StartProject from "./StartProject";
-import { YMInitializer } from "react-yandex-metrika";
+import { mainMenu } from "../constants/menuData";
 
-const Layout = ({ title, menuItem, children }) => (
+const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
+
+const Layout = ({ postData, menuItem, children }) => (
     <Fragment>
         <Head>
-            <title>{title}</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta charSet="utf-8" />
             <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
+            <link rel="icon" type="image/x-icon" href="/static/images/logo.ico" />
+            <meta charSet="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="google-site-verification" content="DTZ5X6H4xmsBhZUVAeNA0iqkBxXuf6pwWPzqXC3LhOY" />
             <meta name="yandex-verification" content="6d5ccb923e12ca16" />
-            <link rel="icon" type="image/x-icon" href="/static/images/logo.ico" />
+            <meta
+                name="description"
+                content={postData ? postData.description : menuItemData(menuItem).description || ""}
+            />
+            <title>{postData ? postData.title : menuItemData(menuItem).title}</title>
             {/* <meta name="google-site-verification" content="13s4tTPGhfJIZYmOa_q1xPyiypySCl1Z8wJIzwjTV5w" /> */}
         </Head>
         <Header />
@@ -32,7 +38,6 @@ const Layout = ({ title, menuItem, children }) => (
                 </Fragment>
             </IconContext.Provider>
         </LocaleProvider>
-        {/* <Footer /> */}
     </Fragment>
 );
 

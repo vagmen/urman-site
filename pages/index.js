@@ -3,9 +3,14 @@ import Layout from "../components/Layout.js";
 import Recall from "../components/Recall.js";
 import { feedbackVideo } from "../constants/feedback";
 import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey } from "../constants/colors";
+const postData = {
+    title: "URMAN - Лесные решения",
+    description:
+        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка."
+};
 
 export default () => (
-    <Layout title="URMAN">
+    <Layout postData={postData}>
         <div className="main-container">
             <div className="background-image" />
             <section className="section slogan">

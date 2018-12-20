@@ -1,20 +1,27 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import Link from "next/link";
+import { mainMenu } from "../constants/menuData";
 
-const WithSubMenu = ({ subMenuItems, subMenuItem, menuItem, withAs, children }) => (
+const subMenuItems = menuItem => mainMenu.find(item => item.src === menuItem);
+
+const WithSubMenu = ({ subMenuItem, menuItem, children }) => (
     <div className="with-sub-menu">
         <ul className="sub-menu">
-            {Object.keys(subMenuItems).map((item, index) =>
+            {subMenuItems(menuItem).children.map(item => (
+                <Link href={`/${menuItem}/${item.src}`} key={item.src}>
+                    <a className={subMenuItem == item.src ? "active" : ""}>{item.title}</a>
+                </Link>
+            ))}
+            {/* {Object.keys(subMenuItems).map((item, index) =>
                 withAs ? (
                     <Link as={`/${menuItem}/${item}`} href={`/${menuItem}/page?id=${subMenuItem}`} key={index}>
-                        <a className={subMenuItem == item ? 'active' : ''}>{subMenuItems[item]}</a>
+                        <a className={subMenuItem == item ? "active" : ""}>{subMenuItems[item]}</a>
                     </Link>
                 ) : (
                     <Link href={`/${menuItem}/${item}`} key={index}>
-                        <a className={subMenuItem == item ? 'active' : ''}>{subMenuItems[item]}</a>
+                        <a className={subMenuItem == item ? "active" : ""}>{subMenuItems[item]}</a>
                     </Link>
                 )
-            )}
+            )} */}
         </ul>
         <div className="content">{children}</div>
         <style jsx>{`

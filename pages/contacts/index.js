@@ -1,13 +1,10 @@
-import Layout from "../../components/Layout";
 import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-
+import Layout from "../../components/Layout";
 import { mainColorMid, greyDark } from "../../constants/colors";
 
-const menuItem = "contacts";
-
 const Index = () => (
-    <Layout title="Контакты" menuItem={menuItem}>
+    <Layout menuItem="contacts">
         <div className="page-background">
             <div className="page-content">
                 <div className="contacts">

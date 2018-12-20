@@ -3,10 +3,8 @@ import Layout from "../../components/Layout";
 import { servicesData } from "../../constants/menuData";
 import { mainColorMid, mainColorDark } from "../../constants/colors";
 
-const menuItem = "services";
-
 const Index = () => (
-    <Layout title="Услуги" menuItem={menuItem}>
+    <Layout menuItem="services">
         <div className="page-background">
             <div className="page-content">
                 <div className="services">
