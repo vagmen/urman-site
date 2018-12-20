@@ -8,6 +8,9 @@
     "scripts": {
         "dev": "node server.js",
         "build": "next build",
+        "export": "next export",
+        "deploy": "next build && next export",
+        "start1": "next",
         "start": "next start -p $PORT",
         "heroku-postbuild": "npm run build",
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,6 +31,7 @@
     },
     "devDependencies": {
         "babel-plugin-import": "^1.9.1",
-        "cross-env": "^5.2.0"
+        "cross-env": "^5.2.0",
+        "sw-precache-webpack-plugin": "^0.11.5"
     }
 }

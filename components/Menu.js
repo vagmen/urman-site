@@ -6,8 +6,6 @@ import { grey } from "../constants/colors";
 
 class Menu extends Component {
     render() {
-        console.log("this.props.menuItem", this.props.menuItem);
-        console.log("mainMenu", mainMenu);
         return (
             <ul className="menu">
                 {mainMenu.map(

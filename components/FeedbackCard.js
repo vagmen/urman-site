@@ -1,7 +1,7 @@
 const FeedbackCard = ({ feedbackData }) => (
     <div className="feedback__item grid__item">
         <div className="card__img">
-            <img src={feedbackData.img} />
+            <img src={feedbackData.img} alt={feedbackData.alt} />
             <div className="cover">
                 <p>{feedbackData.header}</p>
             </div>

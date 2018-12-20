@@ -18,7 +18,7 @@ const Index = ({ journalItems }) => (
                                     <a href="">
                                         <Fragment>
                                             <div className="img-wrapper">
-                                                <img src={item.img} />
+                                                <img src={item.img} alt={item.title} />
                                             </div>
                                             <article>
                                                 <time>{moment().format("D MMMM YYYY")}</time>

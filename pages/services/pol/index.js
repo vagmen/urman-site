@@ -34,7 +34,11 @@ class Index extends Component {
                         <div className="post">
                             <header>
                                 <h1>{postData.title}</h1>
-                                <img src="../../../static/forest.jpg" className="post-img" alt=" " />
+                                <img
+                                    src="../../../static/forest.jpg"
+                                    className="post-img"
+                                    alt="Проект освоения лесов"
+                                />
                             </header>
                             <h3>Что это такое? Кому это нужно? </h3>
                             <p>
@@ -73,13 +77,22 @@ class Index extends Component {
                             <h3>Как выглядит?</h3>
                             <div className="img-container">
                                 <div className="img-item">
-                                    <img src="../../../static/images/services/pol1.jpg" alt="" />
+                                    <img
+                                        src="../../../static/images/services/pol1.jpg"
+                                        alt="Фрагмент проекта освоения лесов"
+                                    />
                                 </div>
                                 <div className="img-item">
-                                    <img src="../../../static/images/services/pol2.jpg" alt="" />
+                                    <img
+                                        src="../../../static/images/services/pol2.jpg"
+                                        alt="Фрагмент проекта освоения лесов"
+                                    />
                                 </div>
                                 <div className="img-item">
-                                    <img src="../../../static/images/services/pol3.jpg" alt="" />
+                                    <img
+                                        src="../../../static/images/services/pol3.jpg"
+                                        alt="Фрагмент проекта освоения лесов"
+                                    />
                                 </div>
                             </div>
                             <h3>Как получить форму?</h3>

@@ -33,7 +33,12 @@ class Index extends Component {
                         <div className="post">
                             <header>
                                 <h1>{postData.title}</h1>
-                                <img src="../../../static/forest2.jpg" className="post-img" alt=" " />
+                                <img
+                                    src="../../../static/forest2.jpg"
+                                    className="post-img"
+                                    alt=" "
+                                    alt={postData.title}
+                                />
                             </header>
                             <h3>Что это такое? Кому это нужно? </h3>
                             <p>
@@ -59,10 +64,16 @@ class Index extends Component {
                             <h3>Как выглядит?</h3>
                             <div className="img-container">
                                 <div className="img-item">
-                                    <img src="../../../static/images/services/pdlu1.jpg" alt="" />
+                                    <img
+                                        src="../../../static/images/services/pdlu1.jpg"
+                                        alt="Фрагмент проектной документации лесного участка"
+                                    />
                                 </div>
                                 <div className="img-item">
-                                    <img src="../../../static/images/services/pdlu2.jpg" alt="" />
+                                    <img
+                                        src="../../../static/images/services/pdlu2.jpg"
+                                        alt="Фрагмент проектной документации лесного участка"
+                                    />
                                 </div>
                             </div>
                             <h3>Как получить форму?</h3>

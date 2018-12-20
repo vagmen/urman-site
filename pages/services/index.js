@@ -15,7 +15,7 @@ const Index = () => (
                             <section className="grid__item clickable-block service" key={item.id}>
                                 <Link href={`/services/${item.id}`}>
                                     <a>
-                                        <img src={item.img} />
+                                        <img src={item.img} alt={item.name} />
                                         <article>
                                             <h3>{item.name}</h3>
                                         </article>

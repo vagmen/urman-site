@@ -16,15 +16,16 @@ const Layout = ({ postData, menuItem, children }) => (
         <Head>
             <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
             <link rel="icon" type="image/x-icon" href="/static/images/logo.ico" />
+            <link rel="manifest" href="/static/manifest.json" />
             <meta charSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="google-site-verification" content="DTZ5X6H4xmsBhZUVAeNA0iqkBxXuf6pwWPzqXC3LhOY" />
             <meta name="yandex-verification" content="6d5ccb923e12ca16" />
+            <meta name="title" content={postData ? postData.title : menuItemData(menuItem).title || "URMAN"} />
             <meta
                 name="description"
                 content={postData ? postData.description : menuItemData(menuItem).description || ""}
             />
-            <title>{postData ? postData.title : menuItemData(menuItem).title}</title>
             {/* <meta name="google-site-verification" content="13s4tTPGhfJIZYmOa_q1xPyiypySCl1Z8wJIzwjTV5w" /> */}
         </Head>
         <Header />

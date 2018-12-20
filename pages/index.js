@@ -39,7 +39,7 @@ export default () => (
                     <div className="tour__item">
                         <h3>НАШИ УСЛУГИ</h3>
                         <p>Посмотрите, чем мы можем быть вам полезны</p>
-                        <img src="/static/images/tour/pol.png" />
+                        <img src="/static/images/tour/pol.png" alt="Пример проекта освоения лесов" />
                     </div>
                 </Link>
                 <Link href={`/clients/stats`}>
@@ -54,7 +54,7 @@ export default () => (
                     <div className="tour__item">
                         <h3>ИСТОРИИ КЛИЕНТОВ</h3>
                         <p>Посмотрите, что говорят наши клиенты о нас</p>
-                        <img src="/static/images/tour/feedback.png" />
+                        <img src="/static/images/tour/feedback.png" alt="Видео отзывы наших клиентов" />
                     </div>
                 </Link>
             </section>

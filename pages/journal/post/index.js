@@ -17,7 +17,11 @@ const Index = ({ postData }) => (
                 <div className="post">
                     <header>
                         <h1>У вашего Проекта освоения лесов вышел срок годности</h1>
-                        <img src="../../../static/forest.jpg" className="post-img" alt=" " />
+                        <img
+                            src="../../../static/forest.jpg"
+                            className="post-img"
+                            alt="У вашего Проекта освоения лесов вышел срок годности"
+                        />
                     </header>
                     <h3>
                         Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас
