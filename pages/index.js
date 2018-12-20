@@ -23,9 +23,9 @@ export default () => (
                     <div className="logos_container">
                         <img src="../static/images/logos/gazprom.svg" alt="Логотип Газпром" />
                         <img src="../static/images/logos/rzd.png" alt="Логотип РЖД" />
+                        <img src="../static/images/logos/bashneft.jpg" alt="Логотип Башнефть" />
                         <img src="../static/images/logos/novatek.svg" alt="Логотип НОВАТЭК" />
                         <img src="../static/images/logos/rgo.png" alt="Логотип Русского Географического Общества" />
-                        <img src="../static/images/logos/bashneft.jpg" alt="Логотип Башнефть" />
                     </div>
                 </Link>
             </section>
