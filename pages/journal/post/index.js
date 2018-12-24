@@ -1,7 +1,7 @@
-import { withRouter } from 'next/router';
-import fetch from 'isomorphic-unfetch';
-import Link from 'next/link';
-import Layout from '../../../components/Layout.js';
+import { withRouter } from "next/router";
+import fetch from "isomorphic-unfetch";
+import Link from "next/link";
+import Layout from "../../../components/Layout.js";
 
 // const Content = withRouter((props) => (
 //     <div>
@@ -14,7 +14,7 @@ const Index = ({ postData }) => (
     <Layout postData={postData}>
         <div className="template-background">
             <div className="page-content">
-                {/* <div className="post">
+                <div className="post">
                     <header>
                         <h1>У вашего Проекта освоения лесов вышел срок годности</h1>
                         <img
@@ -100,7 +100,7 @@ const Index = ({ postData }) => (
                         страны, что позволяет нам с каждым прошедшим экспертизу ПОЛ, улучшать качество наших Проектов,
                         увереннее давать гарантии результата и предлагать наиболее интересные цены на рынке.
                     </p>
-                </div> */}
+                </div>
             </div>
         </div>
     </Layout>
@@ -108,26 +108,26 @@ const Index = ({ postData }) => (
 Index.getInitialProps = async function() {
     return {
         postData: {
-            title: 'У вашего Проекта освоения лесов вышел срок годности',
+            title: "У вашего Проекта освоения лесов вышел срок годности",
             description:
-                'Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу.',
+                "Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу.",
             post: [
                 {
-                    teg: 'header',
+                    teg: "header",
                     props: null,
-                    content: [],
+                    content: []
                 },
                 {
-                    teg: 'h3',
+                    teg: "h3",
                     content:
-                        ' Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу.',
+                        " Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу."
                 },
                 {
-                    teg: 'p',
-                    content: 'У нас для Вас 2 новости: одна плохая, другая хорошая.',
-                },
-            ],
-        },
+                    teg: "p",
+                    content: "У нас для Вас 2 новости: одна плохая, другая хорошая."
+                }
+            ]
+        }
     };
 };
 
