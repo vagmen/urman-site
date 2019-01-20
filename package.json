@@ -10,14 +10,13 @@
         "build": "next build",
         "export": "next export",
         "deploy": "next build && next export",
-        "start1": "next",
-        "start": "next start -p $PORT",
-        "heroku-postbuild": "npm run build",
+        "start": "NODE_ENV=production node server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
         "antd": "^3.10.0",
         "express": "^4.16.3",
+        "interweave": "^10.0.0",
         "isomorphic-unfetch": "^3.0.0",
         "moment": "^2.22.2",
         "next": "^7.0.0",
