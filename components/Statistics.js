@@ -53,6 +53,7 @@ const Statistics = () => (
                 position: relative;
                 display: flex;
                 flex-wrap: wrap;
+                background: transparent;
             }
             .stat-list__item:hover {
                 transform: scale(1.1);
@@ -74,6 +75,8 @@ const Statistics = () => (
             .before-number p {
                 padding: 0;
                 text-transform: uppercase;
+                text-align: center;
+                margin-bottom: 0.5rem;
             }
             .number {
                 font-size: 8rem;

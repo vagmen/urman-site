@@ -1,25 +1,37 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Icon } from 'antd';
-import { animateScroll as scroll } from 'react-scroll';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Icon } from "antd";
+import { animateScroll as scroll } from "react-scroll";
 
-import { mainColorLightBgr, mainColorLight } from '../constants/colors';
-import { postWidth, pageWidth } from '../constants/settings';
+import { mainColorLightBgr, mainColorLight } from "../constants/colors";
+import { postWidth, pageWidth } from "../constants/settings";
 
 class Header extends Component {
+    state = {
+        headerBackgroundOpacity: 0.6
+    };
+
     componentDidMount() {
         (function(d, w, c) {
-            w.ChatraID = 'hLheMeHthiyMAqPQD';
-            var s = d.createElement('script');
+            w.ChatraID = "hLheMeHthiyMAqPQD";
+            var s = d.createElement("script");
             w[c] =
                 w[c] ||
                 function() {
                     (w[c].q = w[c].q || []).push(arguments);
                 };
             s.async = true;
-            s.src = 'https://call.chatra.io/chatra.js';
+            s.src = "https://call.chatra.io/chatra.js";
             if (d.head) d.head.appendChild(s);
-        })(document, window, 'Chatra');
+        })(document, window, "Chatra");
+
+        // Прозрачность шапки при скролле
+        this.myInterval = setInterval(() => {
+            this.setState({ headerBackgroundOpacity: window && window.pageYOffset > 100 ? 0.9 : 0.6 });
+        }, 1000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.myInterval);
     }
 
     render() {
@@ -43,7 +55,7 @@ class Header extends Component {
                     </button> */}
                 </div>
                 <style jsx global>{`
-                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
+                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     h1,
                     h2,
                     h3,
@@ -118,14 +130,14 @@ class Header extends Component {
                         position: relative;
                     }
                     .template-background:before {
-                        content: '';
+                        content: "";
                         position: absolute;
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
                         z-index: -1;
-                        background: url('../../static/images/background.webp');
+                        background: url("../../static/images/background.webp");
                         background-size: 30%;
                         filter: opacity(20%);
                     }
@@ -159,8 +171,9 @@ class Header extends Component {
                         background: #fff;
                     }
                     .grid__item h3,
-                    .grid__item h4,
-                    .grid__item p,
+                    .grid__item h4 {
+                        /* .grid__item p, */
+                    }
                     .grid__item time {
                         color: #3a431b;
                         font-weight: 200;
@@ -249,6 +262,10 @@ class Header extends Component {
                     .for-mobile {
                         display: block;
                     }
+                    // подвинуть кнопку чатры, чтобы не заслонять мобильное меню
+                    .chatra--side-bottom {
+                        bottom: 80px !important;
+                    }
                     @media (min-width: 640px) {
                         body {
                             font-size: 18px;
@@ -300,6 +317,10 @@ class Header extends Component {
                         .post {
                             margin-top: 50px;
                         }
+                        // подвинуть кнопку чатры, чтобы не заслонять мобильное меню
+                        .chatra--side-bottom {
+                            bottom: 20px !important;
+                        }
                     }
                     @media (min-width: 1200px) {
                         .grid {
@@ -334,7 +355,8 @@ class Header extends Component {
                         top: 0;
                         z-index: 1;
                         width: 100%;
-                        background: rgba(58, 76, 27, 0.7);
+                        background: rgba(58, 76, 27, ${this.state.headerBackgroundOpacity});
+                        transition: all 1s;
                         height: 80px;
                         position: fixed;
                         top: 0;

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Icon } from 'antd';
-import { mainMenu } from '../constants/menuData';
-import { grey } from '../constants/colors';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Icon } from "antd";
+import { mainMenu } from "../constants/menuData";
+import { grey } from "../constants/colors";
 
 class Menu extends Component {
     render() {
@@ -17,8 +17,8 @@ class Menu extends Component {
                                         this.props.menuItem === item.src ? `menu-item_active` : ``
                                     }`}
                                 >
-                                    <Icon className="icon" type={item.icon} style={{ color: '#eee', fontSize: 25 }} />
-                                    <a>{item.title}</a>
+                                    <Icon className="icon" type={item.icon} style={{ color: "#eee", fontSize: 25 }} />
+                                    <a>{item.name}</a>
                                 </li>
                             </Link>
                         )

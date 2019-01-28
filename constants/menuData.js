@@ -1,6 +1,7 @@
 export const mainMenu = [
     {
-        title: "Клиенты",
+        name: "Клиенты",
+        title: "Клиенты | URMAN - Лесные решения",
         icon: "team",
         src: "clients",
         description: "От глобальных лидеров до быстрорастущих стартапов, сотни компаний полагаются на URMAN.",
@@ -24,7 +25,8 @@ export const mainMenu = [
         ]
     },
     {
-        title: "Услуги",
+        name: "Услуги",
+        title: "Услуги | URMAN - Лесные решения",
         icon: "key",
         src: "services",
         description:
@@ -32,7 +34,8 @@ export const mainMenu = [
         isMainMenu: true
     },
     {
-        title: "О нас",
+        name: "О нас",
+        title: "О нас | URMAN - Лесные решения",
         icon: "idcard",
         src: "about",
         description:
@@ -40,14 +43,16 @@ export const mainMenu = [
         isMainMenu: true
     },
     {
-        title: "Журнал",
+        name: "Журнал",
+        title: "Журнал | URMAN - Лесные решения",
         icon: "book",
         src: "journal",
         description: "Про лес и не только",
         isMainMenu: true
     },
     {
-        title: "Контакты",
+        name: "Контакты",
+        title: "Контакты | URMAN - Лесные решения",
         icon: "phone",
         src: "contacts",
         description:
@@ -55,6 +60,7 @@ export const mainMenu = [
         isMainMenu: true
     },
     {
+        name: "Соглашение",
         title: "Соглашение",
         icon: "phone",
         src: "agreement",
