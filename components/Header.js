@@ -1,29 +1,29 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import { Icon } from "antd";
-import { animateScroll as scroll } from "react-scroll";
+import React, { Component } from 'react';
+import Link from 'next/link';
+import { Icon } from 'antd';
+import { animateScroll as scroll } from 'react-scroll';
 
-import { mainColorLightBgr, mainColorLight } from "../constants/colors";
-import { postWidth, pageWidth } from "../constants/settings";
+import { mainColorLightBgr, mainColorLight } from '../constants/colors';
+import { postWidth, pageWidth } from '../constants/settings';
 
 class Header extends Component {
     state = {
-        headerBackgroundOpacity: 0.6
+        headerBackgroundOpacity: 0.6,
     };
 
     componentDidMount() {
         (function(d, w, c) {
-            w.ChatraID = "hLheMeHthiyMAqPQD";
-            var s = d.createElement("script");
+            w.ChatraID = 'DKFod4oh55xDx6Q29';
+            var s = d.createElement('script');
             w[c] =
                 w[c] ||
                 function() {
                     (w[c].q = w[c].q || []).push(arguments);
                 };
             s.async = true;
-            s.src = "https://call.chatra.io/chatra.js";
+            s.src = 'https://call.chatra.io/chatra.js';
             if (d.head) d.head.appendChild(s);
-        })(document, window, "Chatra");
+        })(document, window, 'Chatra');
 
         // Прозрачность шапки при скролле
         this.myInterval = setInterval(() => {
@@ -55,7 +55,7 @@ class Header extends Component {
                     </button> */}
                 </div>
                 <style jsx global>{`
-                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
+                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
                     h1,
                     h2,
                     h3,
@@ -130,14 +130,14 @@ class Header extends Component {
                         position: relative;
                     }
                     .template-background:before {
-                        content: "";
+                        content: '';
                         position: absolute;
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
                         z-index: -1;
-                        background: url("../../static/images/background.webp");
+                        background: url('../../static/images/background.webp');
                         background-size: 30%;
                         filter: opacity(20%);
                     }
