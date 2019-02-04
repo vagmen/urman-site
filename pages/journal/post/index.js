@@ -1,29 +1,25 @@
-import { withRouter } from "next/router";
-import fetch from "isomorphic-unfetch";
-import Link from "next/link";
-import Layout from "../../../components/Layout.js";
-import { Interweave } from "interweave";
+import { withRouter } from 'next/router';
+import fetch from 'isomorphic-unfetch';
+import Link from 'next/link';
+import Layout from '../../../components/Layout.js';
+import { createElement } from 'react';
 
-// const Content = withRouter((props) => (
-//     <div>
-//         <h1>{props.router.query.title}</h1>
-//         <p>Текст статьи</p>
-//     </div>
-// ));
-
-const htmlParser = post => {
-    const postStr = post.map(item => `<${item.teg}>${item.content}</${item.teg}>`);
-    return `<div className="post">${postStr}</div>`;
-};
+const htmlParser = (postArray) =>
+    postArray.map((item, index) => {
+        let content = item.content;
+        if (Array.isArray(item.content)) {
+            content = htmlParser(item.content);
+        }
+        return createElement(item.tag, { key: index }, content);
+    });
 
 const Index = ({ postData }) => (
     <Layout postData={postData}>
         <div className="template-background">
             <div className="page-content">
-                {/* <Interweave content={htmlParser(postData.post)} /> */}
-                {/* {htmlParser(postData.post)} */}
-
                 <div className="post">
+                    {/* {htmlParser(postData.post)} */}
+
                     <header>
                         <h1>У вашего Проекта освоения лесов вышел срок годности</h1>
                         <img
@@ -43,12 +39,12 @@ const Index = ({ postData }) => (
                         нового лесного проекта прошедшего государственную экспертизу. Что сулит проблемы и штрафы.
                     </p>
                     <p>
-                        <strong>Хорошая</strong> в том, что мы готовы для Вас сделать новый{" "}
+                        <strong>Хорошая</strong> в том, что мы готовы для Вас сделать новый{' '}
                         <Link href="/services/pol">
                             <a className="post-a" href="">
                                 Проект освоения лесов
                             </a>
-                        </Link>{" "}
+                        </Link>{' '}
                         .
                     </p>
                     <p>
@@ -64,11 +60,11 @@ const Index = ({ postData }) => (
                     </p>
                     <h3>Почему нужно заново разрабатывать Проект освоения лесов?</h3>
                     <p>
-                        Согласно{" "}
+                        Согласно{' '}
                         <a className="post-a" href="">
                             п.30 Приказа № 69 от 29 февраля 2012 года "Об утверждении состава проекта освоения лесов и
                             порядка его разработки"
-                        </a>{" "}
+                        </a>{' '}
                         Проекты освоения лесов составляются на срок действия договора аренды по видам пользования:
                     </p>
                     <ul>
@@ -100,7 +96,7 @@ const Index = ({ postData }) => (
                     <p>
                         Если Вы делали Проект освоения лесов 10 лет назад, многое в Ваших планах могло поменяться. Это
                         отличная возможность откорректировать Проект с Вашим новым видением. Но если Вы делали Проект
-                        пару лет назад, то в любом случае придется переделывать ПОЛ. В этом случае стоит попросить{" "}
+                        пару лет назад, то в любом случае придется переделывать ПОЛ. В этом случае стоит попросить{' '}
                         <strong>скидку</strong> у разработчика .
                     </p>
                     <p>
@@ -117,26 +113,32 @@ const Index = ({ postData }) => (
 Index.getInitialProps = async function() {
     return {
         postData: {
-            title: "У вашего Проекта освоения лесов вышел срок годности",
+            title: 'У вашего Проекта освоения лесов вышел срок годности',
             description:
-                "Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу.",
+                'Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу.',
             post: [
                 {
-                    teg: "header",
+                    tag: 'header',
                     props: null,
-                    content: []
+                    content: [
+                        {
+                            tag: 'h1',
+                            props: null,
+                            content: 'У вашего Проекта освоения лесов вышел срок годности',
+                        },
+                    ],
                 },
                 {
-                    teg: "h3",
+                    tag: 'h3',
                     content:
-                        " Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу."
+                        ' Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу.',
                 },
                 {
-                    teg: "p",
-                    content: "У нас для Вас 2 новости: одна плохая, другая хорошая."
-                }
-            ]
-        }
+                    tag: 'p',
+                    content: 'У нас для Вас 2 новости: одна плохая, другая хорошая.',
+                },
+            ],
+        },
     };
 };
 
