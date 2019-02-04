@@ -10,7 +10,7 @@ const Index = ({ journalItems }) => (
             <div className="page-content">
                 <div className="journal">
                     <h1>Журнал – URMAN</h1>
-                    <h4>Про лес и не только</h4>
+                    <p>Про лес и не только</p>
                     <div className="grid">
                         {journalItems.map(item => (
                             <section className="grid__item clickable-block" key={item.id}>

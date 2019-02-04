@@ -14,7 +14,7 @@ const Index = () => (
                 <div className="feedback-wraper">
                     <WithSubMenu subMenuItem={subMenuItem} menuItem={menuItem}>
                         <h1>Отзывы</h1>
-                        <h4>То, что наши клиенты говорят о нас своими словами</h4>
+                        <p>То, что наши клиенты говорят о нас своими словами</p>
                         <div className="grid-with-menu">
                             {feedback.map(item => (
                                 <FeedbackCard feedbackData={item} key={item.id} />

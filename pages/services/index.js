@@ -9,7 +9,7 @@ const Index = () => (
             <div className="page-content">
                 <div className="services">
                     <h1>Услуги</h1>
-                    <h4>Посмотрите, чем мы можем быть вам полезны</h4>
+                    <p>Посмотрите, чем мы можем быть вам полезны</p>
                     <div className="grid">
                         {servicesData.map(item => (
                             <section className="grid__item clickable-block service" key={item.id}>

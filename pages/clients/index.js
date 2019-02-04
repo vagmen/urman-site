@@ -15,7 +15,7 @@ const Index = () => (
                 <WithSubMenu menuItem={menuItem}>
                     <div className="">
                         <h1>Клиенты</h1>
-                        <h4>От глобальных лидеров до быстрорастущих стартапов, сотни компаний полагаются на URMAN.</h4>
+                        <p>От глобальных лидеров до быстрорастущих стартапов, сотни компаний полагаются на URMAN.</p>
                         <div className="player-wrapper">
                             <YouTubePlayer
                                 url="https://www.youtube.com/watch?v=OxeGSvSuAeM"

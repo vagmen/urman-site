@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Icon } from 'antd';
-import { animateScroll as scroll } from 'react-scroll';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Icon } from "antd";
+import { animateScroll as scroll } from "react-scroll";
 
-import { mainColorLightBgr, mainColorLight } from '../constants/colors';
-import { postWidth, pageWidth } from '../constants/settings';
+import { mainColorLightBgr, mainColorLight } from "../constants/colors";
+import { postWidth, pageWidth } from "../constants/settings";
 
 class Header extends Component {
     state = {
-        headerBackgroundOpacity: 0.6,
+        headerBackgroundOpacity: 0.6
     };
 
     componentDidMount() {
         (function(d, w, c) {
-            w.ChatraID = 'DKFod4oh55xDx6Q29';
-            var s = d.createElement('script');
+            w.ChatraID = "DKFod4oh55xDx6Q29";
+            var s = d.createElement("script");
             w[c] =
                 w[c] ||
                 function() {
                     (w[c].q = w[c].q || []).push(arguments);
                 };
             s.async = true;
-            s.src = 'https://call.chatra.io/chatra.js';
+            s.src = "https://call.chatra.io/chatra.js";
             if (d.head) d.head.appendChild(s);
-        })(document, window, 'Chatra');
+        })(document, window, "Chatra");
 
         // Прозрачность шапки при скролле
         this.myInterval = setInterval(() => {
@@ -55,7 +55,7 @@ class Header extends Component {
                     </button> */}
                 </div>
                 <style jsx global>{`
-                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
+                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     h1,
                     h2,
                     h3,
@@ -70,7 +70,7 @@ class Header extends Component {
                         vertical-align: baseline;
                     }
                     body {
-                        font-size: 16px;
+                        font-size: 10px;
                         background: ${mainColorLightBgr};
                         font-family: Rubik, Helvetica, sans-serif;
                     }
@@ -78,38 +78,48 @@ class Header extends Component {
                         border: none;
                     }
                     h1 {
-                        font-size: 2.5rem;
-                        line-height: 3rem;
-                        margin-bottom: 2.5rem;
+                        font-size: 2.2rem;
+                        line-height: 2.2rem;
+                        margin-bottom: 1rem;
+                        margin-top: 1.1rem;
                     }
                     h2 {
                         font-size: 2rem;
-                        line-height: 2.5rem;
-                        margin-bottom: 2rem;
+                        line-height: 2rem;
+                        margin-top: 1rem;
+                        margin-bottom: 0.9rem;
                     }
                     h3 {
                         font-size: 1.8rem;
-                        line-height: 2rem;
-                        margin-top: 0.5rem;
-                        margin-bottom: 1.8rem;
+                        line-height: 1.8rem;
+                        margin-top: 0.9rem;
+                        margin-bottom: 0.8rem;
                     }
                     h4 {
-                        font-size: 1.6rem;
-                        line-height: 2rem;
-                        margin-bottom: 1.6rem;
+                        font-size: 1.5rem;
+                        line-height: 1.5rem;
+                        margin-bottom: 0.7rem;
+                        margin-top: 0.75rem;
                     }
                     h5 {
                         font-size: 1.4rem;
-                        line-height: 1.6rem;
-                        margin-bottom: 1.4rem;
+                        line-height: 1.4rem;
+                        margin-bottom: 0.65rem;
+                        margin-top: 0.7rem;
                     }
                     h6 {
-                        font-size: 1.2rem;
-                        line-height: 1.4rem;
-                        margin-bottom: 1.2rem;
-                    }
-                    p {
+                        font-size: 1.3rem;
+                        line-height: 1.3rem;
                         margin-bottom: 0.5rem;
+                        margin-top: 0.65rem;
+                    }
+                    p,
+                    strong {
+                        font-size: 1.2rem;
+                        margin-bottom: 0.6rem;
+                    }
+                    li {
+                        font-size: 1.2rem;
                     }
                     a {
                         color: inherit;
@@ -130,22 +140,22 @@ class Header extends Component {
                         position: relative;
                     }
                     .template-background:before {
-                        content: '';
+                        content: "";
                         position: absolute;
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
                         z-index: -1;
-                        background: url('../../static/images/background.webp');
+                        background: url("../../static/images/background.webp");
                         background-size: 30%;
-                        filter: opacity(20%);
+                        filter: opacity(10%);
                     }
                     .page-content {
                         flex: 1;
                         max-width: ${pageWidth};
                         padding-top: 100px;
-                        margin: 0 30px;
+                        margin: 0 10px;
                          {
                             /* overflow: hidden; */
                         }
@@ -170,10 +180,6 @@ class Header extends Component {
                         transition: all 0.3s;
                         background: #fff;
                     }
-                    .grid__item h3,
-                    .grid__item h4 {
-                        /* .grid__item p, */
-                    }
                     .grid__item time {
                         color: #3a431b;
                         font-weight: 200;
@@ -194,22 +200,29 @@ class Header extends Component {
                         left: 0;
                     }
                     .post {
-                        color: rgba(0, 0, 0, 0.7);
+                        color: #262421;
                         max-width: ${postWidth};
                         margin: 0 auto;
                     }
-                    .post h1,
-                    .post h2,
-                    .post h3,
-                    .post h4,
-                    .post h5,
-                    .post h6 {
+                    .post h1 {
+                        margin-bottom: 2rem;
+                    }
+                    .post > h1,
+                    .post > h2,
+                    .post > h3,
+                    .post > h4,
+                    .post > h5,
+                    .post > h6 {
                         text-align: center;
                     }
                     .post p {
-                        margin-bottom: 2rem;
+                         {
+                            /* margin-bottom: 1rem; */
+                        }
                         font-weight: 100;
-                        text-align: center;
+                         {
+                            /* text-align: center; */
+                        }
                     }
                     .post li {
                         font-weight: 100;
@@ -225,7 +238,7 @@ class Header extends Component {
                     }
                     .post-img {
                         width: 100%;
-                        margin-bottom: 2rem;
+                        margin-bottom: 0.5rem;
                     }
                     .input-with-button {
                         display: flex;
@@ -265,10 +278,11 @@ class Header extends Component {
                     // подвинуть кнопку чатры, чтобы не заслонять мобильное меню
                     .chatra--side-bottom {
                         bottom: 80px !important;
+                        max-height: calc(100% - 100px) !important;
                     }
                     @media (min-width: 640px) {
                         body {
-                            font-size: 18px;
+                            font-size: 12px;
                         }
                         .grid,
                         .grid-with-menu {
@@ -297,16 +311,14 @@ class Header extends Component {
                         .post h3,
                         .post h4,
                         .post h5,
-                        .post h6 {
-                            text-align: left;
-                        }
+                        .post h6,
                         .post p {
                             text-align: left;
                         }
                     }
                     @media (min-width: 960px) {
                         body {
-                            font-size: 20px;
+                            font-size: 14px;
                         }
                         .grid {
                             grid-template-columns: 1fr 1fr 1fr;
@@ -314,8 +326,18 @@ class Header extends Component {
                         .grid-with-menu {
                             grid-template-columns: 1fr 1fr;
                         }
+                        .page-content {
+                            padding-top: 100px;
+                            margin: 0 20px;
+                        }
                         .post {
                             margin-top: 50px;
+                        }
+                        .post h1 {
+                            font-size: 3rem;
+                            line-height: 3rem;
+                            margin-top: 2rem;
+                            margin-bottom: 4rem;
                         }
                         // подвинуть кнопку чатры, чтобы не заслонять мобильное меню
                         .chatra--side-bottom {
@@ -323,6 +345,9 @@ class Header extends Component {
                         }
                     }
                     @media (min-width: 1200px) {
+                        body {
+                            font-size: 16px;
+                        }
                         .grid {
                             grid-template-columns: 1fr 1fr 1fr 1fr;
                         }
@@ -334,6 +359,20 @@ class Header extends Component {
                         }
                         .for-mobile {
                             display: none;
+                        }
+                        .post h1 {
+                            font-size: 4rem;
+                            line-height: 4rem;
+                            margin-top: 2rem;
+                            margin-bottom: 4rem;
+                        }
+                        .post h2 {
+                            font-size: 2.5rem;
+                            line-height: 2.5rem;
+                        }
+                        .post h3 {
+                            font-size: 2.2rem;
+                            line-height: 2.2rem;
                         }
                     }
                     @media (min-width: 1600px) {
