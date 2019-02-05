@@ -79,44 +79,45 @@ class Header extends Component {
                     }
                     h1 {
                         font-size: 2.2rem;
-                        line-height: 2.2rem;
-                        margin-bottom: 1rem;
+                        line-height: 2.5rem;
                         margin-top: 1.1rem;
+                        margin-bottom: 1.3rem;
                     }
                     h2 {
                         font-size: 2rem;
-                        line-height: 2rem;
-                        margin-top: 1rem;
-                        margin-bottom: 0.9rem;
+                        line-height: 2.3rem;
+                        margin-top: 1.3rem;
+                        margin-bottom: 1.2rem;
                     }
                     h3 {
                         font-size: 1.8rem;
-                        line-height: 1.8rem;
-                        margin-top: 0.9rem;
-                        margin-bottom: 0.8rem;
+                        line-height: 2rem;
+                        margin-top: 1.2rem;
+                        margin-bottom: 1.1rem;
                     }
                     h4 {
                         font-size: 1.5rem;
-                        line-height: 1.5rem;
-                        margin-bottom: 0.7rem;
-                        margin-top: 0.75rem;
+                        line-height: 1.7rem;
+                        margin-top: 1.1rem;
+                        margin-bottom: 1rem;
                     }
                     h5 {
                         font-size: 1.4rem;
-                        line-height: 1.4rem;
-                        margin-bottom: 0.65rem;
-                        margin-top: 0.7rem;
+                        line-height: 1.5rem;
+                        margin-top: 1rem;
+                        margin-bottom: 0.9rem;
                     }
                     h6 {
                         font-size: 1.3rem;
-                        line-height: 1.3rem;
-                        margin-bottom: 0.5rem;
-                        margin-top: 0.65rem;
+                        line-height: 1.4rem;
+                        margin-top: 0.9rem;
+                        margin-bottom: 0.8rem;
                     }
                     p,
-                    strong {
+                    strong,
+                    a {
                         font-size: 1.2rem;
-                        margin-bottom: 0.6rem;
+                        margin-bottom: 0.8rem;
                     }
                     li {
                         font-size: 1.2rem;
@@ -124,9 +125,6 @@ class Header extends Component {
                     a {
                         color: inherit;
                         text-decoration: none;
-                         {
-                            /* text-decoration: underline; */
-                        }
                     }
                     a:hover {
                     }
@@ -215,15 +213,7 @@ class Header extends Component {
                     .post > h6 {
                         text-align: center;
                     }
-                    .post p {
-                         {
-                            /* margin-bottom: 1rem; */
-                        }
-                        font-weight: 100;
-                         {
-                            /* text-align: center; */
-                        }
-                    }
+                    .post p,
                     .post li {
                         font-weight: 100;
                     }
@@ -238,7 +228,7 @@ class Header extends Component {
                     }
                     .post-img {
                         width: 100%;
-                        margin-bottom: 0.5rem;
+                        margin-bottom: 0.8rem;
                     }
                     .input-with-button {
                         display: flex;
