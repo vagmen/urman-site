@@ -1,12 +1,12 @@
-import Link from "next/link";
-import Layout from "../components/Layout.js";
-import Recall from "../components/Recall.js";
-import { feedbackVideo } from "../constants/feedback";
-import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey } from "../constants/colors";
+import Link from 'next/link';
+import Layout from '../components/Layout.js';
+import Recall from '../components/Recall.js';
+import { feedbackVideo } from '../constants/feedback';
+import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey } from '../constants/colors';
 const postData = {
-    title: "URMAN - Лесные решения",
+    title: 'URMAN - Лесные решения',
     description:
-        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка."
+        'Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.',
 };
 
 export default () => (
@@ -66,13 +66,13 @@ export default () => (
                 grid-auto-rows: 70px auto minmax(500px, auto) auto;
                 grid-gap: 20px;
                 grid-template-areas:
-                    "."
-                    "s"
-                    "f"
-                    "t";
+                    '.'
+                    's'
+                    'f'
+                    't';
             }
             .background-image {
-                background-image: url("/static/images/logo.png");
+                background-image: url('/static/images/logo.png');
                 position: absolute;
                 min-height: 100vh;
                 top: 70px;
@@ -161,11 +161,11 @@ export default () => (
                 .main-container {
                     grid-auto-rows: 100px auto minmax(500px, auto) auto auto;
                     grid-template-areas:
-                        "."
-                        "s"
-                        "f"
-                        "l"
-                        "t";
+                        '.'
+                        's'
+                        'f'
+                        'l'
+                        't';
                 }
                 .logos {
                     display: flex;
@@ -178,10 +178,10 @@ export default () => (
                     grid-template-rows: 50px minmax(380px, auto) 100px auto;
                     grid-template-columns: 0 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0;
                     grid-template-areas:
-                        ". s s s s f f f f f ."
-                        ". s s s s f f f f f ."
-                        ". . . . . f f f f f ."
-                        "t t t t t t t t t t t";
+                        '. s s s s f f f f f .'
+                        '. s s s s f f f f f .'
+                        '. . . . . f f f f f .'
+                        't t t t t t t t t t t';
                     grid-gap: 30px;
                 }
                 .logos {
@@ -199,13 +199,15 @@ export default () => (
                 .slogan {
                     padding: 0;
                 }
-
-                h1,
+                h1 {
+                    text-align: left;
+                    font-size: 3rem;
+                    line-height: 1.15em;
+                    margin-bottom: 3rem;
+                }
                 h4 {
                     text-align: left;
-                }
-                h1 {
-                    font-size: 3rem;
+                    line-height: 1.2em;
                 }
                 .tour {
                     margin-top: -30px;
@@ -218,10 +220,10 @@ export default () => (
                 .main-container {
                     grid-template-rows: 50px minmax(550px, auto) auto auto;
                     grid-template-areas:
-                        ". . . . . f f f f f ."
-                        ". s s s s f f f f f ."
-                        ". . . . . f f f f f ."
-                        "t t t t t t t t t t t";
+                        '. . . . . f f f f f .'
+                        '. s s s s f f f f f .'
+                        '. . . . . f f f f f .'
+                        't t t t t t t t t t t';
                     grid-gap: 40px;
                 }
                 .background-image {
@@ -247,9 +249,6 @@ export default () => (
                     grid-gap: 50px;
                 }
                 .background-image {
-                     {
-                        /* background-size: 60%; */
-                    }
                     top: 0;
                 }
                 .tour {
@@ -257,6 +256,12 @@ export default () => (
                 }
                 .logos_container img {
                     flex: 0 1 160px;
+                }
+                h1 {
+                    font-size: 4rem;
+                }
+                h4 {
+                    font-size: 2rem;
                 }
             }
             @media (min-width: 1920px) {

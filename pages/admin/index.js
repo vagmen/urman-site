@@ -1,5 +1,5 @@
-import Link from "next/link";
-import AdminLayout from "../../components/AdminLayout";
+import Link from 'next/link';
+import AdminLayout from '../../components/AdminLayout';
 
 const Index = () => (
     // <Layout menuItem="about">
@@ -11,7 +11,7 @@ const Index = () => (
     //         </div>
     //     </div>
     // </Layout>
-    <AdminLayout>URMAN - Лесные решения Добро пожаловать в админку</AdminLayout>
+    <AdminLayout>Добро пожаловать в админку</AdminLayout>
 );
 
 export default Index;

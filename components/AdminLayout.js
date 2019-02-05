@@ -1,26 +1,27 @@
-import { Fragment } from "react";
-import Head from "next/head";
-import Link from "next/link";
-import { LocaleProvider, Layout, Menu, Breadcrumb, Icon } from "antd";
-import ruRU from "antd/lib/locale-provider/ru_RU";
-import { IconContext } from "react-icons";
-import AdminMenu from "./AdminMenu";
-import { mainMenu } from "../constants/menuData";
+import { Fragment } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import { LocaleProvider, Layout, Menu, Breadcrumb, Icon } from 'antd';
+import ruRU from 'antd/lib/locale-provider/ru_RU';
+import { IconContext } from 'react-icons';
+import AdminMenu from './AdminMenu';
+import { mainMenu } from '../constants/menuData';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
+const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
 // const AdminLayout = ({ postData, menuItem, children }) => (
 class AdminLayout extends React.Component {
     state = {
-        collapsed: false
+        collapsed: false,
     };
 
-    onCollapse = collapsed => this.setState({ collapsed });
+    onCollapse = (collapsed) => this.setState({ collapsed });
 
     render() {
         const { postData, menuItem, children } = this.props;
+        const { collapsed } = this.state;
         return (
             <Fragment>
                 <Head>
@@ -32,14 +33,11 @@ class AdminLayout extends React.Component {
                 </Head>
                 {/* <Header /> */}
                 <LocaleProvider locale={ruRU}>
-                    <IconContext.Provider value={{ className: "react-icons" }}>
-                        <Layout style={{ minHeight: "100vh" }}>
-                            <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-                                <div className="logo" />
+                    <IconContext.Provider value={{ className: 'react-icons' }}>
+                        <Layout style={{ minHeight: '100vh' }}>
+                            <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
                                 <div className="logo">
-                                    <Link href="/">
-                                        <h3 />URMAN
-                                    </Link>
+                                    <h3>{`URMAN${collapsed ? '' : ' - Админка'}`}</h3>
                                 </div>
                                 <Menu theme="dark" mode="inline">
                                     <Menu.Item key="1">
@@ -62,13 +60,34 @@ class AdminLayout extends React.Component {
                             </Sider>
                             <Layout>
                                 {/* <Header style={{ background: "#fff", padding: 0 }} /> */}
-                                <Content style={{ margin: "15px" }}>
-                                    <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>{children}</div>
+                                <Content>
+                                    {children}
+                                    {/* <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>{children}</div> */}
                                 </Content>
                             </Layout>
                         </Layout>
                     </IconContext.Provider>
                 </LocaleProvider>
+                <style jsx global>{`
+                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
+                    body {
+                        font-size: 16px;
+                        font-family: Rubik, Helvetica, sans-serif;
+                    }
+                    .admin-top-panel {
+                        padding: 10px;
+                    }
+                    .admin-content {
+                        padding: 0 20px;
+                    }
+                `}</style>
+                <style jsx>{`
+                    .logo h3 {
+                        color: #eee;
+                        padding: 10px;
+                        white-space: nowrap;
+                    }
+                `}</style>
             </Fragment>
         );
     }

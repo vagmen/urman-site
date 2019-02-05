@@ -1,43 +1,36 @@
-import { withRouter } from 'next/router';
-import fetch from 'isomorphic-unfetch';
+import { Table, Button } from 'antd';
 import Link from 'next/link';
-import Layout from '../../../components/Layout.js';
-import { createElement } from 'react';
-
-const htmlParser = (postArray) =>
-    postArray.map((item, index) => {
-        let content = item.content;
-        if (Array.isArray(item.content)) {
-            content = htmlParser(item.content);
-        }
-        switch (item.tag) {
-            case 'string':
-                return content;
-                break;
-            case 'a':
-                return (
-                    <Link key={index} href={item.props.src}>
-                        <a className="post-a" href="">
-                            {item.content}
-                        </a>
-                    </Link>
-                );
-                break;
-            default:
-                return createElement(item.tag, { ...item.props, key: index }, content);
-                break;
-        }
-    });
+import AdminLayout from '../../../../components/AdminLayout';
 
 const Index = ({ postData }) => (
-    <Layout postData={postData}>
-        <div className="template-background">
-            <div className="page-content">
-                <div className="post">{htmlParser(postData.post)}</div>
-            </div>
+    <AdminLayout>
+        <div className="admin-top-panel">
+            <Button icon="delete" type="danger" />
+            {` `}
+            <Button icon="save" />
         </div>
-    </Layout>
+        <div className="admin-content">
+            <input className="admin-h1" placeholder="Придумайте название" />
+            <input className="admin-p" placeholder="Начните прямо сейчас..." />
+        </div>
+        <style jsx>{`
+            .admin-content {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            input {
+                border: none;
+                outline: none;
+                background: none;
+                flex: 1 1 100%;
+            }
+            .admin-h1 {
+                font-size: 40px;
+            }
+        `}</style>
+    </AdminLayout>
 );
+
 Index.getInitialProps = async function() {
     return {
         postData: {
