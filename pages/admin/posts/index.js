@@ -1,6 +1,7 @@
 import { Table, Button } from 'antd';
 import Link from 'next/link';
 import moment from 'moment';
+import fetch from 'isomorphic-unfetch';
 import AdminLayout from '../../../components/AdminLayout';
 
 const dataSource = [
@@ -54,5 +55,20 @@ const Index = () => (
         <Table dataSource={dataSource} columns={columns} />
     </AdminLayout>
 );
+
+Index.getInitialProps = async function() {
+    const res = await fetch('https://helpforest.azurewebsites.net/GetPosts', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    const data = await res.json();
+    console.log('data', data);
+
+    return {
+        // journalItems: journalData,
+    };
+};
 
 export default Index;

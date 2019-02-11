@@ -1,6 +1,74 @@
-import { Table, Button } from 'antd';
+import { Table, Button, Input } from 'antd';
 import Link from 'next/link';
 import AdminLayout from '../../../../components/AdminLayout';
+import { createElement } from 'react';
+const { TextArea } = Input;
+
+const handleClick = (e) => {
+    const el = document.getElementById('id');
+    console.log('e', el);
+    const sel = window.getSelection();
+    var range = document.createRange();
+    // range.setStart(e.target, 3);
+    range.collapse(true);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    console.log('e', e.target);
+    console.log('sel', sel);
+};
+
+const parse = (post) => {
+    console.log();
+    return post.map((item, index) => {
+        let content = item.content;
+        if (Array.isArray(item.content)) {
+            content = parse(item.content);
+        }
+        switch (item.tag) {
+            // case 'string':
+            //     return content;
+            //     break;
+            // case 'a':
+            //     return (
+            //         <Link key={index} href={item.props.src}>
+            //             <a className="post-a" href="">
+            //                 {item.content}
+            //             </a>
+            //         </Link>
+            //     );
+            //     break;
+            case 'h1':
+                return (
+                    <h1
+                        className="post-input admin-post-h1"
+                        placeholder="Придумайте название"
+                        key={index}
+                        value={item.content}
+                        autosize
+                        onClick={handleClick}
+                        id="id"
+                    >
+                        {item.content}
+                    </h1>
+                );
+            case 'h3':
+                return (
+                    <TextArea
+                        className="post-input admin-post-h3"
+                        placeholder="Придумайте подзаголовок"
+                        key={index}
+                        value={item.content}
+                        autosize
+                    />
+                );
+            case 'p':
+                return <TextArea className="post-input admin-post-p" key={index} value={item.content} autosize />;
+            default:
+                return createElement('p', { ...item.props, key: index }, content);
+                break;
+        }
+    });
+};
 
 const Index = ({ postData }) => (
     <AdminLayout>
@@ -9,29 +77,45 @@ const Index = ({ postData }) => (
             {` `}
             <Button icon="save" />
         </div>
-        <div className="admin-content">
-            <input className="admin-h1" placeholder="Придумайте название" />
+        <div className="admin-content post">
+            {parse(postData.post)}
             <input className="admin-p" placeholder="Начните прямо сейчас..." />
+            <Button type="dashed" icon="plus" />
         </div>
-        <style jsx>{`
+        <style jsx global>{`
             .admin-content {
                 display: flex;
                 flex-wrap: wrap;
             }
-            input {
+            .post-input {
                 border: none;
                 outline: none;
                 background: none;
                 flex: 1 1 100%;
             }
-            .admin-h1 {
+            .admin-post-h1 {
                 font-size: 40px;
+            }
+            .admin-post-h3 {
+                font-size: 25px;
             }
         `}</style>
     </AdminLayout>
 );
 
 Index.getInitialProps = async function() {
+    const res = await fetch('https://helpforest.azurewebsites.net/GetPost', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            id: 'bdd5500a-7307-4a99-8601-328d47d12fdf',
+        }),
+    });
+    const data = await res.json();
+    console.log('data', JSON.parse(data.Body));
+
     return {
         postData: {
             title: 'У вашего Проекта освоения лесов вышел срок годности',
