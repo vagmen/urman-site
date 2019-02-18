@@ -23,7 +23,7 @@ const columns = [
         key: 'control',
         render: (text, record) => (
             <span>
-                <Link href="/admin/posts/edit">
+                <Link href={`/admin/posts/edit?id=${record.key}`} as={`/admin/posts/${record.key}`}>
                     <Button icon="edit" />
                 </Link>
                 {` `}
@@ -45,14 +45,14 @@ const columns = [
     },
 ];
 
-const Index = () => (
+const Index = ({ journalItems }) => (
     <AdminLayout>
         <div className="admin-top-panel">
             <Link href="/admin/posts/edit">
                 <Button icon="plus" />
             </Link>
         </div>
-        <Table dataSource={dataSource} columns={columns} />
+        <Table dataSource={journalItems} columns={columns} />
     </AdminLayout>
 );
 
@@ -64,10 +64,11 @@ Index.getInitialProps = async function() {
         },
     });
     const data = await res.json();
-    console.log('data', data);
-
+    const journalItems = data.map((item) => {
+        return { key: item.Id, name: item.Header, date: moment().format(), description: item.Description };
+    });
     return {
-        // journalItems: journalData,
+        journalItems,
     };
 };
 
