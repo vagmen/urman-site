@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Button, Table, message, DatePicker } from "antd";
+import { Button, Table, message, notification, DatePicker } from "antd";
 import moment from "moment";
 import AdminLayout from "../../../components/AdminLayout";
 
@@ -76,7 +76,7 @@ class Index extends React.Component {
             // }
         ],
         memberData: [],
-        dates: [moment().startOf("month"), moment().endOf("month")],
+        dates: [moment().subtract(1, "months"), moment()],
         boardName: ""
     };
     handleSubmit = e => {
@@ -120,7 +120,7 @@ class Index extends React.Component {
     };
 
     memberTableBuilder = result => {
-        const { dates } = this.state;
+        // формируем список сотрудников
         let membersTemp = result.members.map(member => {
             let names = member.fullName.split(" ");
             let name = names[0];
@@ -129,40 +129,23 @@ class Index extends React.Component {
             }
             return { key: member.id, member: name, total: 0 };
         });
-        const readyCards = result.cards
-            .filter(card => card.idList === LIST_ID)
-            .filter(card => {
-                const action = result.actions.find(
-                    act =>
-                        act.data &&
-                        act.data.card &&
-                        card.id === act.data.card.id &&
-                        act.type === "updateCard" &&
-                        act.data.listAfter &&
-                        act.data.listBefore &&
-                        act.data.listAfter.id === LIST_ID &&
-                        act.data.listBefore.id !== LIST_ID
-                );
-                return moment(action.date) > dates[0] && moment(action.date) < dates[1];
-            });
+        // отбираем карточки, которые находятся в статусе "К оплате" и попали туда в определенный период
+        const readyCards = this.getReadyCards({ cards: result.cards, actions: result.actions });
 
         readyCards.forEach((readyCard, index) => {
             const desc = this.parseDesc(readyCard.desc);
             desc.forEach(descItem => {
                 const descItemWords = descItem.split(" ");
-                let number = null;
-                let workType = "";
-                descItemWords.forEach((descItemWord, wordIndex) => {
-                    if (!isNaN(Number(descItemWord))) {
-                        number = descItemWord;
-                        workType = descItemWords[wordIndex - 1];
-                    }
-                });
+                // находим в строке сумму и тип работы
+                const { number, workType } = this.findNumberAndWorkType(descItemWords, readyCard);
+
+                // console.log("number", number, workType);
 
                 let tempMember = "";
-                if (descItemWords[0] === "марат") {
-                    tempMember = membersTemp.find(m => m.member === "Marat");
-                } else if (descItemWords[0] === "юля") {
+                // if (descItemWords[0] === "марат") {
+                //     tempMember = membersTemp.find(m => m.member === "Marat");
+                // } else
+                if (descItemWords[0] === "юля") {
                     tempMember = membersTemp.find(m => m.member === "Юлия");
                 } else {
                     tempMember = membersTemp.find(
@@ -194,6 +177,85 @@ class Index extends React.Component {
         this.setState({ memberData: membersTemp });
     };
 
+    findNumberAndWorkType = (descItemWords, readyCard) => {
+        let type = "main";
+        const numberIndex = descItemWords.findIndex((descItemWord, wordIndex) => {
+            let result = false;
+            if (!isNaN(Number(descItemWord)) && descItemWord.length !== 0) {
+                result = true;
+            } else if (
+                descItemWord.slice(-1) === "р" &&
+                !isNaN(Number(descItemWord.slice(0, -1)) && descItemWord.slice(0, -1).length !== 0)
+            ) {
+                type = "р";
+                result = true;
+            } else if (
+                descItemWord.slice(-2) === "р." &&
+                !isNaN(Number(descItemWord.slice(0, -2)) && descItemWord.slice(0, -2).length !== 0)
+            ) {
+                type = "р.";
+                result = true;
+            }
+            return result;
+        });
+        let number = null;
+        let workType = "";
+        if (numberIndex !== -1) {
+            console.warn("descItemWords[numberIndex - 1]", descItemWords[numberIndex - 1]);
+
+            switch (type) {
+                case "main":
+                    number = Number(descItemWords[numberIndex]);
+                    workType = descItemWords[numberIndex - 1];
+                    break;
+                case "p":
+                    number = Number(descItemWords[numberIndex].slice(0, -1));
+                    workType = descItemWords[numberIndex - 1];
+                    break;
+                case "p.":
+                    number = Number(descItemWords[numberIndex].slice(0, -2));
+                    workType = descItemWords[numberIndex - 1];
+                    break;
+
+                default:
+                    break;
+            }
+        } else {
+            notification.warning({
+                message: "Не найдена сумма!",
+                description: `В карточке ${readyCard.name} не найдена сумма!`
+            });
+        }
+
+        if (number == 0) {
+            notification.warning({
+                message: "Сумма равна 0!",
+                description: `В карточке ${readyCard.name} сумма равна 0!`
+            });
+        }
+        return { number, workType };
+    };
+
+    getReadyCards = ({ cards, actions }) => {
+        const { dates } = this.state;
+        return cards
+            .filter(card => card.idList === LIST_ID)
+            .filter(card => {
+                const action = actions.find(
+                    act =>
+                        act.data &&
+                        act.data.card &&
+                        card.id === act.data.card.id &&
+                        act.type === "updateCard" &&
+                        act.data.listAfter &&
+                        act.data.listBefore &&
+                        act.data.listAfter.id === LIST_ID &&
+                        act.data.listBefore.id !== LIST_ID
+                );
+                return moment(action.date) > dates[0] && moment(action.date) < dates[1];
+            });
+    };
+
     onChange = (dates, dateStrings) => {
         this.setState({
             dates: dates
@@ -208,6 +270,7 @@ class Index extends React.Component {
                     <RangePicker
                         ranges={{
                             Сегодня: [moment(), moment()],
+                            // Месяц: [moment().subtract(1, "months"), moment()]
                             Месяц: [moment().startOf("month"), moment().endOf("month")]
                         }}
                         showTime={{ format: "H:mm" }}
@@ -245,5 +308,18 @@ class Index extends React.Component {
         );
     }
 }
+
+message.config({
+    top: 100,
+    right: 0,
+    duration: 5,
+    maxCount: 5
+});
+
+notification.config({
+    placement: "bottomRight",
+    bottom: 50,
+    duration: 3
+});
 
 export default Index;
