@@ -1,23 +1,23 @@
-import { Fragment } from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import { LocaleProvider, Layout, Menu, Breadcrumb, Icon } from 'antd';
-import ruRU from 'antd/lib/locale-provider/ru_RU';
-import { IconContext } from 'react-icons';
-import AdminMenu from './AdminMenu';
-import { mainMenu } from '../constants/menuData';
+import { Fragment } from "react";
+import Head from "next/head";
+import Link from "next/link";
+import { LocaleProvider, Layout, Menu, Breadcrumb, Icon } from "antd";
+import ruRU from "antd/lib/locale-provider/ru_RU";
+import { IconContext } from "react-icons";
+import AdminMenu from "./AdminMenu";
+import { mainMenu } from "../constants/menuData";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
+const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
 
 // const AdminLayout = ({ postData, menuItem, children }) => (
 class AdminLayout extends React.Component {
     state = {
-        collapsed: false,
+        collapsed: false
     };
 
-    onCollapse = (collapsed) => this.setState({ collapsed });
+    onCollapse = collapsed => this.setState({ collapsed });
 
     render() {
         const { postData, menuItem, children } = this.props;
@@ -33,19 +33,19 @@ class AdminLayout extends React.Component {
                 </Head>
                 {/* <Header /> */}
                 <LocaleProvider locale={ruRU}>
-                    <IconContext.Provider value={{ className: 'react-icons' }}>
-                        <Layout style={{ height: '100vh' }}>
+                    <IconContext.Provider value={{ className: "react-icons" }}>
+                        <Layout style={{ height: "100vh" }}>
                             <Sider
                                 collapsible
                                 collapsed={collapsed}
                                 onCollapse={this.onCollapse}
                                 style={{
-                                    overflow: 'auto',
-                                    height: '100vh',
+                                    overflow: "auto",
+                                    height: "100vh"
                                 }}
                             >
                                 <div className="logo">
-                                    <h3>{`URMAN${collapsed ? '' : ' - Админка'}`}</h3>
+                                    <h3>{`URMAN${collapsed ? "" : " - Админка"}`}</h3>
                                 </div>
                                 <Menu theme="dark" mode="inline">
                                     <Menu.Item key="1">
@@ -77,7 +77,7 @@ class AdminLayout extends React.Component {
                     </IconContext.Provider>
                 </LocaleProvider>
                 <style jsx global>{`
-                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
+                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     body {
                         font-size: 16px;
                         font-family: Rubik, Helvetica, sans-serif;
@@ -99,7 +99,7 @@ class AdminLayout extends React.Component {
                         justify-content: center;
                     }
                     .admin-card {
-                        flex: 1;
+                        flex: 1 1 100%;
                         margin: 8px;
                         box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
                             0px 2px 1px -1px rgba(0, 0, 0, 0.12);

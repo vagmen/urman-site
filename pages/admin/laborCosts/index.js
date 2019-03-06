@@ -61,57 +61,28 @@ const memberColumns = [
 
 class Index extends React.Component {
     state = {
-        json: null,
-        dataSource: [
-            // {
-            //     key: "1",
-            //     cardName: "Mike",
-            //     status: 32,
-            //     member: "10 Downing Street"
-            // },
-            // {
-            //     key: "2",
-            //     cardName: "John",
-            //     status: 42,
-            //     member: "10 Downing Street"
-            // }
-        ],
         memberData: [],
         dates: [moment().subtract(1, "months"), moment()],
-        boardName: ""
+        boardList: []
     };
+
     handleSubmit = e => {
         e.preventDefault();
+        this.setState({ boardList: [] });
         const { files } = document.getElementById("selectFiles");
         const fr = new FileReader();
 
         fr.onload = event => {
             const result = JSON.parse(event.target.result);
-            const { lists } = result;
-            // const dataSource = result.cards.map(card => {
-            //     const listName = lists.filter(list => list.id === card.idList)[0].name;
-            //     const parsedDesc = this.parseDesc(card.desc);
-
-            //     const children =
-            //         parsedDesc &&
-            //         parsedDesc.length !== 0 &&
-            //         parsedDesc.map((child, index) => ({
-            //             key: card.id + index,
-            //             workType: child
-            //         }));
-            //     return { cardName: card.name, key: card.id, listName, workType: this.parseDesc(card.desc), children };
-            // });
-
-            const currentList = lists.find(list => LIST_NAMES.includes(list.name));
-
-            this.setState({ lists, boardName: result.name, listId: currentList.id });
             this.memberTableBuilder(result);
         };
 
-        if (files.item(0)) {
-            fr.readAsText(files.item(0));
-        } else {
-            message.info("Выберите JSON файл");
+        for (let index = 0; index < files.length; index++) {
+            if (files.item(index)) {
+                setTimeout(() => fr.readAsText(files.item(index)), 2000 * index);
+            } else {
+                message.info("Выберите JSON файл");
+            }
         }
     };
 
@@ -124,9 +95,10 @@ class Index extends React.Component {
         return filteredCostsArray;
     };
 
-    memberTableBuilder = result => {
+    memberTableBuilder = boardData => {
+        const currentList = boardData.lists.find(list => LIST_NAMES.includes(list.name));
         // формируем список сотрудников
-        let membersTemp = result.members.map(member => {
+        let membersTemp = boardData.members.map(member => {
             let names = member.fullName.split(" ");
             let name = names[0];
             if (names[1] === "Г.") {
@@ -134,11 +106,16 @@ class Index extends React.Component {
             }
             return { key: member.id, member: name, total: 0 };
         });
-        // отбираем карточки, которые находятся в статусе "К оплате" и попали туда в определенный период
-        const readyCards = this.getReadyCards({ cards: result.cards, actions: result.actions });
+        // отбираем карточки, которые находятся в статусе "На оплату" и попали туда в определенный период
+        const readyCards = this.getReadyCards({
+            cards: boardData.cards,
+            actions: boardData.actions,
+            listId: currentList.id
+        });
 
         readyCards.forEach((readyCard, index) => {
             const desc = this.parseDesc(readyCard.desc);
+
             if (desc.length === 0) {
                 notification.warning({
                     message: "Раздел не найден",
@@ -185,8 +162,11 @@ class Index extends React.Component {
             });
         });
 
-        // const memberData = result.members.map(member => ({ key: member.id, member: member.fullName, total: 0 }));
-        this.setState({ memberData: membersTemp });
+        const _boardList = [
+            ...this.state.boardList,
+            { id: boardData.id, name: boardData.name, memberData: membersTemp }
+        ];
+        this.setState({ boardList: _boardList });
     };
 
     findNumberAndWorkType = (descItemWords, readyCard) => {
@@ -210,6 +190,7 @@ class Index extends React.Component {
             }
             return result;
         });
+
         let number = null;
         let workType = "";
         if (numberIndex !== -1) {
@@ -222,10 +203,10 @@ class Index extends React.Component {
                 case "main":
                     number = Number(descItemWords[numberIndex]);
                     break;
-                case "p":
+                case "р":
                     number = Number(descItemWords[numberIndex].slice(0, -1));
                     break;
-                case "p.":
+                case "р.":
                     number = Number(descItemWords[numberIndex].slice(0, -2));
                     break;
 
@@ -253,8 +234,8 @@ class Index extends React.Component {
         return { number, workType };
     };
 
-    getReadyCards = ({ cards, actions }) => {
-        const { dates, listId } = this.state;
+    getReadyCards = ({ cards, actions, listId }) => {
+        const { dates } = this.state;
         return cards
             .filter(card => card.idList === listId)
             .filter(card => {
@@ -280,7 +261,9 @@ class Index extends React.Component {
     };
 
     render() {
-        const { dataSource, memberData, dates, boardName } = this.state;
+        const { dates, boardList } = this.state;
+        console.log("boardList", boardList);
+
         return (
             <AdminLayout>
                 <div className="admin-top-bar">
@@ -300,23 +283,22 @@ class Index extends React.Component {
                         Сгенерить таблицу
                     </Button>
                 </div>
-                {/* <div className="admin-card">
-                    {dataSource.length !== 0 && <Table dataSource={dataSource} columns={columns} />}
-                </div> */}
                 <div className="admin-content">
-                    {memberData.length !== 0 && (
-                        <div className="admin-card">
-                            <div className="admin-card-header">
-                                <h2>{boardName}</h2>
+                    {boardList &&
+                        boardList.map(board => (
+                            <div className="admin-card" key={board.id}>
+                                <div className="admin-card-header">
+                                    <h2>{board.name}</h2>
+                                </div>
+                                <Table
+                                    pagination={{ pageSize: 20 }}
+                                    dataSource={board.memberData}
+                                    columns={memberColumns}
+                                />
                             </div>
-                            <Table pagination={{ pageSize: 20 }} dataSource={memberData} columns={memberColumns} />
-                        </div>
-                    )}
+                        ))}
                 </div>
                 <style jsx>{`
-                     {
-                        /* .ant-calendar-picker { */
-                    }
                     .admin-top-bar > * {
                         margin-left: 8px;
                     }
