@@ -135,18 +135,19 @@ class Index extends React.Component {
         readyCards.forEach((readyCard, index) => {
             const desc = this.parseDesc(readyCard.desc);
             desc.forEach(descItem => {
-                const descItemWords = descItem.split(" ");
+                // убираем лишние пробелы, делим на слова
+                const descItemWords = descItem
+                    .replace(/\s+/g, " ")
+                    .trim()
+                    .split(" ");
                 // находим в строке сумму и тип работы
                 const { number, workType } = this.findNumberAndWorkType(descItemWords, readyCard);
 
-                // console.log("number", number, workType);
-
                 let tempMember = "";
-                // if (descItemWords[0] === "марат") {
-                //     tempMember = membersTemp.find(m => m.member === "Marat");
-                // } else
                 if (descItemWords[0] === "юля") {
                     tempMember = membersTemp.find(m => m.member === "Юлия");
+                } else if (descItemWords[0] === "ильдар") {
+                    tempMember = membersTemp.find(m => m.member === "Ильдар Г.");
                 } else {
                     tempMember = membersTemp.find(
                         m => `${descItemWords[0]} ${descItemWords[1]}` === m.member.toLowerCase()
@@ -201,24 +202,31 @@ class Index extends React.Component {
         let number = null;
         let workType = "";
         if (numberIndex !== -1) {
-            console.warn("descItemWords[numberIndex - 1]", descItemWords[numberIndex - 1]);
-
+            workType = descItemWords[numberIndex - 1];
             switch (type) {
                 case "main":
                     number = Number(descItemWords[numberIndex]);
-                    workType = descItemWords[numberIndex - 1];
                     break;
                 case "p":
                     number = Number(descItemWords[numberIndex].slice(0, -1));
-                    workType = descItemWords[numberIndex - 1];
                     break;
                 case "p.":
                     number = Number(descItemWords[numberIndex].slice(0, -2));
-                    workType = descItemWords[numberIndex - 1];
                     break;
 
                 default:
                     break;
+            }
+            if (number == 0) {
+                notification.warning({
+                    message: "Сумма равна 0!",
+                    description: `В карточке ${readyCard.name} сумма равна 0!`
+                });
+            } else if (workType == "") {
+                notification.warning({
+                    message: "Тип работы не определен",
+                    description: `В карточке ${readyCard.name} тип работы не определен!`
+                });
             }
         } else {
             notification.warning({
@@ -227,12 +235,6 @@ class Index extends React.Component {
             });
         }
 
-        if (number == 0) {
-            notification.warning({
-                message: "Сумма равна 0!",
-                description: `В карточке ${readyCard.name} сумма равна 0!`
-            });
-        }
         return { number, workType };
     };
 
@@ -309,17 +311,10 @@ class Index extends React.Component {
     }
 }
 
-message.config({
-    top: 100,
-    right: 0,
-    duration: 5,
-    maxCount: 5
-});
-
 notification.config({
     placement: "bottomRight",
     bottom: 50,
-    duration: 3
+    duration: 8
 });
 
 export default Index;
