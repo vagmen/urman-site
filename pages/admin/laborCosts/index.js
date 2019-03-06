@@ -5,7 +5,8 @@ import AdminLayout from "../../../components/AdminLayout";
 
 const RangePicker = DatePicker.RangePicker;
 
-const LIST_ID = "5c74cbe191775b7977a88c28";
+// const LIST_ID = "5c74cbe191775b7977a88c28";
+const LIST_NAMES = ["На оплату"];
 
 const columns = [
     {
@@ -87,21 +88,23 @@ class Index extends React.Component {
         fr.onload = event => {
             const result = JSON.parse(event.target.result);
             const { lists } = result;
-            const dataSource = result.cards.map(card => {
-                const listName = lists.filter(list => list.id === card.idList)[0].name;
-                const parsedDesc = this.parseDesc(card.desc);
+            // const dataSource = result.cards.map(card => {
+            //     const listName = lists.filter(list => list.id === card.idList)[0].name;
+            //     const parsedDesc = this.parseDesc(card.desc);
 
-                const children =
-                    parsedDesc &&
-                    parsedDesc.length !== 0 &&
-                    parsedDesc.map((child, index) => ({
-                        key: card.id + index,
-                        workType: child
-                    }));
-                return { cardName: card.name, key: card.id, listName, workType: this.parseDesc(card.desc), children };
-            });
+            //     const children =
+            //         parsedDesc &&
+            //         parsedDesc.length !== 0 &&
+            //         parsedDesc.map((child, index) => ({
+            //             key: card.id + index,
+            //             workType: child
+            //         }));
+            //     return { cardName: card.name, key: card.id, listName, workType: this.parseDesc(card.desc), children };
+            // });
 
-            this.setState({ dataSource, lists, boardName: result.name });
+            const currentList = lists.find(list => LIST_NAMES.includes(list.name));
+
+            this.setState({ lists, boardName: result.name, listId: currentList.id });
             this.memberTableBuilder(result);
         };
 
@@ -113,7 +116,9 @@ class Index extends React.Component {
     };
 
     parseDesc = desc => {
-        const costs = desc.toLowerCase().split("стоимость")[1] || "";
+        // учитываем начало слова с англ буквы
+        const keyWord = desc.toLowerCase().indexOf("cтоимость") + 1 ? "cтоимость" : "стоимость";
+        const costs = desc.toLowerCase().split(keyWord)[1] || "";
         const costsArray = costs.split("\n");
         const filteredCostsArray = costsArray.filter(item => item !== "");
         return filteredCostsArray;
@@ -134,6 +139,12 @@ class Index extends React.Component {
 
         readyCards.forEach((readyCard, index) => {
             const desc = this.parseDesc(readyCard.desc);
+            if (desc.length === 0) {
+                notification.warning({
+                    message: "Раздел не найден",
+                    description: `В карточке ${readyCard.name} на найден раздел "СТОИМОСТЬ"`
+                });
+            }
             desc.forEach(descItem => {
                 // убираем лишние пробелы, делим на слова
                 const descItemWords = descItem
@@ -202,7 +213,11 @@ class Index extends React.Component {
         let number = null;
         let workType = "";
         if (numberIndex !== -1) {
-            workType = descItemWords[numberIndex - 1];
+            // если вид работы начинается со скобки, берем предыдущее слово
+            workType =
+                descItemWords[numberIndex - 1][0] === "("
+                    ? descItemWords[numberIndex - 2]
+                    : descItemWords[numberIndex - 1];
             switch (type) {
                 case "main":
                     number = Number(descItemWords[numberIndex]);
@@ -239,9 +254,9 @@ class Index extends React.Component {
     };
 
     getReadyCards = ({ cards, actions }) => {
-        const { dates } = this.state;
+        const { dates, listId } = this.state;
         return cards
-            .filter(card => card.idList === LIST_ID)
+            .filter(card => card.idList === listId)
             .filter(card => {
                 const action = actions.find(
                     act =>
@@ -251,8 +266,8 @@ class Index extends React.Component {
                         act.type === "updateCard" &&
                         act.data.listAfter &&
                         act.data.listBefore &&
-                        act.data.listAfter.id === LIST_ID &&
-                        act.data.listBefore.id !== LIST_ID
+                        act.data.listAfter.id === listId &&
+                        act.data.listBefore.id !== listId
                 );
                 return moment(action.date) > dates[0] && moment(action.date) < dates[1];
             });
