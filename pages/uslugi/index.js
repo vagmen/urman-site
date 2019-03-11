@@ -4,7 +4,7 @@ import { servicesData } from "../../constants/menuData";
 import { mainColorMid, mainColorDark } from "../../constants/colors";
 
 const Index = () => (
-    <Layout menuItem="services">
+    <Layout menuItem="uslugi">
         <div className="page-background">
             <div className="page-content">
                 <div className="services">
@@ -13,7 +13,7 @@ const Index = () => (
                     <div className="grid">
                         {servicesData.map(item => (
                             <section className="grid__item clickable-block service" key={item.id}>
-                                <Link href={`/services/${item.id}`}>
+                                <Link href={`/uslugi/${item.id}`}>
                                     <a>
                                         <img src={item.img} alt={item.name} />
                                         <article>

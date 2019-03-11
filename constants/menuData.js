@@ -14,12 +14,12 @@ export const mainMenu = [
             },
             {
                 title: "Отзывы",
-                src: "feedback",
+                src: "otzyvy",
                 description: "Отзывы"
             },
             {
                 title: "Статистика и показатели",
-                src: "stats",
+                src: "statistika-i-pokazateli",
                 description: "Статистика и показатели"
             }
         ]
@@ -28,7 +28,7 @@ export const mainMenu = [
         name: "Услуги",
         title: "Услуги | URMAN - Лесные решения",
         icon: "key",
-        src: "services",
+        src: "uslugi",
         description:
             "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка",
         isMainMenu: true
@@ -37,7 +37,7 @@ export const mainMenu = [
         name: "О нас",
         title: "О нас | URMAN - Лесные решения",
         icon: "idcard",
-        src: "about",
+        src: "o-nas",
         description:
             "Мы сплоченная команда из 15 человек. Решаем поставленные задачи по всей России — начиная от разработки проектов освоения лесов и заканчивая разработкой лесных планов субъектов РФ.",
         isMainMenu: true
@@ -95,12 +95,12 @@ export const servicesData = [
     {
         name: "Проект освоения лесов",
         img: "../../static/forest.jpg",
-        id: "pol"
+        id: "proekt-osvoeniya-lesov"
     },
     {
         name: "Проектная документация лесного участка",
         img: "../../static/forest2.jpg",
-        id: "pdlu"
+        id: "proektnaya-dokumentaciya-lesnogo-uchastka"
     }
     // {
     //     name: 'Земельный кадастровый учет',

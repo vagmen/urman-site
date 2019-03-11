@@ -38,7 +38,7 @@ const Index = () => (
                             ))}
                         </div>
                         <div className="button-section">
-                            <Link href="/clients/feedback">
+                            <Link href="/clients/otzyvy">
                                 <a href="">
                                     <Button name="Больше отзывов" />
                                 </a>

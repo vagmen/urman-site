@@ -5,7 +5,7 @@ import { menuData } from "../../../constants/menuData";
 import { feedback } from "../../../constants/feedback";
 
 const menuItem = "clients";
-const subMenuItem = "feedback";
+const subMenuItem = "otzyvy";
 
 const Index = () => (
     <Layout subMenuItem={subMenuItem} menuItem={menuItem}>

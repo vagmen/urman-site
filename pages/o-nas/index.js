@@ -3,7 +3,7 @@ import Layout from "../../components/Layout";
 import Statistics from "../../components/Statistics";
 
 const Index = () => (
-    <Layout menuItem="about">
+    <Layout menuItem="o-nas">
         <div className="template-background">
             <div className="page-content">
                 <div className="post about">
@@ -32,7 +32,7 @@ const Index = () => (
                         Мы не «распыляемся» на другие ниши. С каждым днём наращиваем экспертность в своём направлении.
                         Это позволяет сплочённой команде из 15 человек решать поставленные задачи по всей России —
                         начиная от разработки{" "}
-                        <Link href="/services/pol">
+                        <Link href="/uslugi/proekt-osvoeniya-lesov">
                             <a className="post-a" href="">
                                 проектов освоения лесов
                             </a>
