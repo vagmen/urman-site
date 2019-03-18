@@ -3,7 +3,7 @@ import fetch from "isomorphic-unfetch";
 import { message } from "antd";
 import Layout from "../../../components/Layout";
 
-const menuItem = "uslugi";
+const menuItem = "services";
 
 class Index extends Component {
     state = {

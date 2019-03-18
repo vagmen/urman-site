@@ -1,24 +1,24 @@
-import { Table, Button, Input } from "antd";
-import Link from "next/link";
-import fetch from "isomorphic-unfetch";
-import AdminLayout from "../../../../components/AdminLayout";
-import { createElement } from "react";
+import { Table, Button, Input } from 'antd';
+import Link from 'next/link';
+import fetch from 'isomorphic-unfetch';
+import AdminLayout from '../../../../components/AdminLayout';
+import { createElement } from 'react';
 const { TextArea } = Input;
 
-const handleClick = e => {
-    const el = document.getElementById("id");
-    console.log("e", el);
+const handleClick = (e) => {
+    const el = document.getElementById('id');
+    console.log('e', el);
     const sel = window.getSelection();
     var range = document.createRange();
     // range.setStart(e.target, 3);
     range.collapse(true);
     sel.removeAllRanges();
     sel.addRange(range);
-    console.log("e", e.target);
-    console.log("sel", sel);
+    console.log('e', e.target);
+    console.log('sel', sel);
 };
 
-const parse = post => {
+const parse = (post) => {
     console.log();
     return post.map((item, index) => {
         let content = item.content;
@@ -38,7 +38,7 @@ const parse = post => {
             //         </Link>
             //     );
             //     break;
-            case "h1":
+            case 'h1':
                 return (
                     <h1
                         className="post-input admin-post-h1"
@@ -52,7 +52,7 @@ const parse = post => {
                         {item.content}
                     </h1>
                 );
-            case "h3":
+            case 'h3':
                 return (
                     <TextArea
                         className="post-input admin-post-h3"
@@ -62,10 +62,10 @@ const parse = post => {
                         // autosize
                     />
                 );
-            case "p":
+            case 'p':
                 return <TextArea className="post-input admin-post-p" key={index} value={item.content} autosize />;
             default:
-                return createElement("p", { ...item.props, key: index }, content);
+                return createElement('p', { ...item.props, key: index }, content);
                 break;
         }
     });
@@ -107,14 +107,14 @@ const Index = ({ postData }) => (
 );
 
 Index.getInitialProps = async function() {
-    const res = await fetch("https://helpforest.azurewebsites.net/GetPost", {
-        method: "post",
+    const res = await fetch('https://helpforest.azurewebsites.net/GetPost', {
+        method: 'post',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            id: "bdd5500a-7307-4a99-8601-328d47d12fdf"
-        })
+            id: 'bdd5500a-7307-4a99-8601-328d47d12fdf',
+        }),
     });
     const data = await res.json();
     // console.log('data', JSON.parse(data.Body));
@@ -168,7 +168,7 @@ Index.getInitialProps = async function() {
     //                     {
     //                         tag: 'a',
     //                         props: {
-    //                             src: '/uslugi/proekt-osvoeniya-lesov',
+    //                             src: '/services/pol',
     //                         },
     //                         content: 'Проект освоения лесов.',
     //                     },

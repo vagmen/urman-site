@@ -4,7 +4,7 @@ import WithSubMenu from "../../../components/WithSubMenu";
 import { menuData } from "../../../constants/menuData";
 
 const menuItem = "clients";
-const subMenuItem = "statistika-i-pokazateli";
+const subMenuItem = "stats";
 
 const Index = () => (
     <Layout subMenuItem={subMenuItem} menuItem={menuItem}>

@@ -3,7 +3,7 @@ import fetch from "isomorphic-unfetch";
 import { message } from "antd";
 import Layout from "../../../components/Layout";
 
-const menuItem = "uslugi";
+const menuItem = "services";
 
 class Index extends Component {
     state = {
@@ -239,7 +239,7 @@ Index.getInitialProps = async function() {
     return {
         postData: {
             name: "Проект освоения лесов (ПОЛ)",
-            title: "Проект освоения лесов | URMAN - Лесные решения",
+            title: "Проект освоения лесов (ПОЛ) | URMAN - Лесные решения",
             description:
                 "Чтобы начать использовать лесной участок необходимо разработать и согласовать проект освоения лесов (в простонародье «ПОЛ»). Отсутствие такового является основанием для досрочного расторжения договора аренды лесного участка, а также принудительного прекращения права постоянного (бессрочного) пользования лесным участком."
         }
