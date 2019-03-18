@@ -6,6 +6,7 @@ import { IconContext } from "react-icons";
 import { YMInitializer } from "react-yandex-metrika";
 import Header from "./Header";
 import Menu from "./Menu";
+import Footer from "./Footer";
 import StartProject from "./StartProject";
 import { mainMenu } from "../constants/menuData";
 
@@ -15,7 +16,7 @@ const Layout = ({ postData, menuItem, children }) => (
     <Fragment>
         <Head>
             <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
-            <link rel="icon" type="image/x-icon" href="/static/images/logo.ico" />
+            <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
             <link rel="manifest" href="/static/manifest.json" />
             <meta charSet="utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,6 +37,7 @@ const Layout = ({ postData, menuItem, children }) => (
                     <Menu menuItem={menuItem} />
                     {children}
                     <StartProject />
+                    <Footer />
                 </Fragment>
             </IconContext.Provider>
         </LocaleProvider>

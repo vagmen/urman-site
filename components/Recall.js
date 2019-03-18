@@ -11,7 +11,7 @@ const Recall = ({ feedbackData }) => (
             <p>{feedbackData.header}</p>
             <Link href="/clients/video">
                 <a href="">
-                    <Button name="Смотрите интервью" className="full-width" />
+                    <Button className="full-width">Смотрите интервью</Button>
                 </a>
             </Link>
         </div>

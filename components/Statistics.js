@@ -27,8 +27,8 @@ const Statistics = () => (
             <div className="before-number">
                 <p>Успешный опыт работы в</p>
             </div>
-            <p className="number">11</p>
-            <p>регионах</p>
+            <p className="number">14</p>
+            <p>регионах, в том числе в Московской области</p>
         </div>
         <div className="stat-list__item grid__item">
             <div className="before-number">
@@ -43,6 +43,20 @@ const Statistics = () => (
             </div>
             <p className="number">745</p>
             <p>деревьев</p>
+        </div>
+        <div className="stat-list__item grid__item">
+            <div className="before-number">
+                <p>У нас в штате</p>
+            </div>
+            <p className="number">15</p>
+            <p>экспертов лесной и смежных отраслей</p>
+        </div>
+        <div className="stat-list__item grid__item">
+            <div className="before-number">
+                <p>Успешно выполнено</p>
+            </div>
+            <p className="number">7</p>
+            <p>Государственных и муниципальных контрактов</p>
         </div>
         <style jsx>{`
             .stat-list {

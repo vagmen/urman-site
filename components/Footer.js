@@ -1,82 +1,82 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Button } from 'antd';
+import React, { Component } from "react";
+import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
+import { mainColorMid, mainColorDark, mainColorLight, grey } from "../constants/colors";
 
 const footerData = [
     {
-        title: 'НАШИ УСЛУГИ',
-        url: '',
+        title: "НАШИ УСЛУГИ",
+        url: "",
         items: [
             {
-                name: 'Проектная документация лесного участка',
-                url: '',
+                name: "Проектная документация лесного участка",
+                url: ""
             },
             {
-                name: 'Земельный кадастровый учет',
-                url: '',
+                name: "Земельный кадастровый учет",
+                url: ""
             },
             {
-                name: 'Проект освоения лесов',
-                url: '',
+                name: "Проект освоения лесов",
+                url: ""
             },
             {
-                name: 'Лесные отчеты',
-                url: '',
+                name: "Лесные отчеты",
+                url: ""
             },
             {
-                name: 'Лесопатологическое обследование',
-                url: '',
+                name: "Лесопатологическое обследование",
+                url: ""
             },
             {
-                name: 'Лесная экспертиза',
-                url: '',
+                name: "Лесная экспертиза",
+                url: ""
             },
             {
-                name: 'Таксация лесных участков',
-                url: '',
+                name: "Таксация лесных участков",
+                url: ""
             },
             {
-                name: 'Полное оформление',
-                url: '',
+                name: "Полное оформление",
+                url: ""
             },
             {
-                name: 'Оформление договора водопользования',
-                url: '',
+                name: "Оформление договора водопользования",
+                url: ""
             },
             {
-                name: 'Лесохозяйственный регламент',
-                url: '',
+                name: "Лесохозяйственный регламент",
+                url: ""
             },
             {
-                name: 'Лесной план',
-                url: '',
-            },
-        ],
+                name: "Лесной план",
+                url: ""
+            }
+        ]
     },
     {
-        title: 'ПОЧЕМУ URMAN',
-        url: '',
+        title: "ПОЧЕМУ URMAN",
+        url: "",
         items: [
             {
-                name: 'Проблемы, которые мы решаем',
-                url: '',
-            },
-        ],
+                name: "Проблемы, которые мы решаем",
+                url: ""
+            }
+        ]
     },
     {
-        title: 'О НАС',
-        url: '',
+        title: "О НАС",
+        url: "",
         items: [
             {
-                name: 'Карьера',
-                url: '',
+                name: "Карьера",
+                url: ""
             },
             {
-                name: 'Наши клиенты',
-                url: '',
-            },
-        ],
-    },
+                name: "Наши клиенты",
+                url: ""
+            }
+        ]
+    }
 ];
 
 class Footer extends Component {
@@ -87,7 +87,7 @@ class Footer extends Component {
     render() {
         return (
             <footer>
-                {footerData.map((column, columnIndex) => {
+                {/* {footerData.map((column, columnIndex) => {
                     const columnItems = column.items.map((item, itemIndex) => (
                         <p key={itemIndex}>
                             <a href={item.url}>{item.name}</a>
@@ -101,45 +101,60 @@ class Footer extends Component {
                             {columnItems}
                         </div>
                     );
-                })}
+                })} */}
+                <div className="footer-column">Напишите или позвоните нам:</div>
+                <div className="footer-column">
+                    <p>+7 (347) 298-34-86</p>
+                </div>
+                <div className="footer-column">
+                    <p>
+                        <a href="mailto:proekt@urman.su">proekt@urman.su</a>
+                    </p>
+                </div>
+                <div className="footer-column icons">
+                    <p>
+                        <a href="skype:vagmen?chat">
+                            <FaSkype />
+                        </a>
+                        <a href="https://vk.com/urman_su" target="_blank">
+                            <FaVk />
+                        </a>
+                        <a href="https://www.instagram.com/urman.su" target="_blank">
+                            <FaInstagram />
+                        </a>
+                    </p>
+                </div>
                 <style jsx>{`
                     footer {
-                        background: url(https://www.techvalidate.com/assets/corp/header/home-bg-8ab16c51b18c37209e40ccd812f83fc6.png);
-                        background-size: contain;
                         display: flex;
+                        background: ${grey};
+                        color: #fff;
+                        grid-template-columns: 1fr 1fr 1fr 1fr;
+                        justify-content: center;
                         flex-wrap: wrap;
-                        
                     }
-                    .column{
-                        flex 1 1 100%;
-                        padding: 20px;
+                    .footer-column {
+                        flex: 1 1 100%;
+                        margin: 12px;
+                        font-size: 14px;
                     }
-                    h5{
-                        border-bottom: 1px solid #d5d5d5;
-                        padding-bottom: 8px;
-                        margin-bottom: 10px;
-                        font-weight: 600;
-                        font-size: 18px;
+                    .footer-column p {
+                        margin: 0;
                     }
-                    h5 a{
-                        color: #2c2f88;
+                    a:hover {
+                        color: ${mainColorLight};
                     }
-                    h5:hover, p:hover{
-                        text-decoration: underline;
+                    .icons {
+                        display: flex;
                     }
-                    P{
-                        margin: 5px 0;
+                    .icons p a {
+                        margin-right: 12px;
                     }
-                    p a{
-                        font-size: 16px;
-                        color: #2c2f88;
-                    }
-                    @media screen and (min-width: 960px) {
-                        footer{
-                            padding-bottom: 64px;
-                        }
-                        .column{
-                            flex: 1 1 33%
+                    @media (min-width: 640px) {
+                        .footer-column {
+                            flex: 0 0 auto;
+                            font-size: 16px;
+                            padding: 24px;
                         }
                     }
                 `}</style>
