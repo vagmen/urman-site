@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icon } from "antd";
 import { animateScroll as scroll } from "react-scroll";
 import { initGA, trackPageView } from "../modules/react-ga.js";
-import { mainColorLightBgr, mainColorLight } from "../constants/colors";
+import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from "../constants/colors";
 import { postWidth, pageWidth } from "../constants/settings";
 
 class Header extends Component {
@@ -221,6 +221,11 @@ class Header extends Component {
                     .post li {
                         font-weight: 100;
                     }
+                    .post .number {
+                        font-size: 30px;
+                        font-weight: 500;
+                        color: ${mainColorDark};
+                    }
                     .post-a {
                         color: inherit;
                         text-decoration: none;
@@ -229,6 +234,30 @@ class Header extends Component {
                     .post-a:hover {
                         color: inherit;
                         background: ${mainColorLight};
+                    }
+                    .post-card {
+                        padding: 24px;
+                        border-radius: 24px;
+                        background: ${mainColorLight};
+                        cursor: pointer;
+                        color: #fff;
+                        transition: all 0.4s;
+                        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+                            0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+                    }
+                    .post-card:hover {
+                        background: ${mainColorMid};
+                        box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+                            0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+                        transform: translateY(-5px);
+                    }
+                    .post-card a {
+                        font-size: 28px;
+                        color: inherit;
+                        text-decoration: none;
+                    }
+                    .post-card a:hover {
+                        color: inherit;
                     }
                     .post-img {
                         width: 100%;

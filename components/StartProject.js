@@ -7,6 +7,35 @@ const FormItem = Form.Item;
 const { TextArea } = Input;
 
 class StartProjectForm extends Component {
+    // componentDidMount() {
+    //     let amo_forms_params = { id: 463588, hash: "e439ea73ef0e7821a6c70f376be2b142", locale: "ru" };
+    //     const script = document.createElement("script");
+    //     script.id = "amoforms_script";
+    //     script.src = "https://forms.amocrm.ru/forms/assets/js/amoforms.js";
+    //     script.async = "async";
+    //     script.charSet = "utf-8";
+
+    //     document.body.appendChild(script);
+    // }
+    // componentDidMount() {
+    //     (function(d, w, c) {
+    //         w.id = 463588;
+    //         w.hash = "e439ea73ef0e7821a6c70f376be2b142";
+    //         w.locale = "ru";
+    //         var s = d.createElement("script");
+    //         w[c] =
+    //             w[c] ||
+    //             function() {
+    //                 (w[c].q = w[c].q || []).push(arguments);
+    //             };
+    //         s.id = "amoforms_script";
+    //         s.async = "async";
+    //         s.charset = "utf-8";
+    //         s.src = "https://forms.amocrm.ru/forms/assets/js/amoforms.js";
+    //         if (d.body) d.body.appendChild(s);
+    //     })(document, window, "AMO");
+    // }
+
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
@@ -39,6 +68,7 @@ class StartProjectForm extends Component {
                     Мы бесплатно проконсультируем Вас по любому вопросу, свазянному с оформлением и использованием
                     лесного участка
                 </p>
+                {/* <div ref={el => (this.instance = el)} /> */}
                 <Form onSubmit={this.handleSubmit}>
                     {/* <FormItem>
                         {getFieldDecorator("name", {
@@ -56,7 +86,7 @@ class StartProjectForm extends Component {
                             />
                         )}
                     </FormItem> */}
-                    {/* <FormItem>
+                    <FormItem>
                         {getFieldDecorator("phone", {
                             rules: [
                                 {
@@ -71,7 +101,7 @@ class StartProjectForm extends Component {
                                 size="large"
                             />
                         )}
-                    </FormItem> */}
+                    </FormItem>
                     <FormItem>
                         {getFieldDecorator("email", {
                             rules: [
