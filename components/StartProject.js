@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { Icon, Form, Input, Checkbox, message, notification } from 'antd';
-import Link from 'next/link';
-import Button from '../components/ui/Button';
+import React, { Component } from "react";
+import { Icon, Form, Input, Checkbox, message, notification } from "antd";
+import Link from "next/link";
+// import fetch from "isomorphic-unfetch";
+import Button from "../components/ui/Button";
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -36,47 +37,32 @@ class StartProjectForm extends Component {
     //     })(document, window, "AMO");
     // }
 
-    handleSubmit = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
+            console.log("values", values);
+
+            console.log(/[0123456789]/.test("in 1992"));
+
             if (!err) {
-                // this.sendFeedbackInfo(values);
-                // const url = URL.createObjectURL(fileData);
-                // const url = 'http://vagmen.ru/urman/new_lead.php?name=Имя_контакта&contact=123123123&comment=baz';
-
-                // const link = document.createElement('a');
-                // link.href = url;
-                // link.target = '_blank';
-                // document.body.appendChild(link);
-                // link.click();
-                // link.remove();
-
-                const newWindow = window.open(
-                    `http://vagmen.ru/urman/new_lead.php?name=${values.name}&contact=${values.phone}&comment=${
-                        values.information
-                    }`,
-                    '',
-                    'width=250,height=250,top=2000,left=2000'
-                );
-                notification.success({
-                    message: `Рады знакомству, ${values.name}!`,
-                    description: 'В ближайшее время свяжемся с Вами.',
-                });
-                setTimeout(() => newWindow.close(), 0);
+                this.sendFeedbackInfo(values);
             }
         });
     };
 
-    sendFeedbackInfo = async (savedData) => {
-        const res = await fetch('https://helpforest.azurewebsites.net/SendFeedbackInfo', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(savedData),
+    sendFeedbackInfo = async values => {
+        const res = await fetch(
+            `http://vagmen.ru/urman/new_lead.php?name=${values.name}&contact=${values.phone}&comment=${
+                values.information
+            }`,
+            {
+                method: "get"
+            }
+        );
+        notification.success({
+            message: `Рады знакомству, ${values.name}!`,
+            description: "В ближайшее время свяжемся с Вами."
         });
-        const data = await res.json();
-        if (data) message.success('Мы отправили письмо с вложенной формой на вашу почту');
     };
 
     render() {
@@ -92,13 +78,13 @@ class StartProjectForm extends Component {
                 {/* <div ref={el => (this.instance = el)} /> */}
                 <Form onSubmit={this.handleSubmit}>
                     <FormItem>
-                        {getFieldDecorator('name', {
+                        {getFieldDecorator("name", {
                             rules: [
                                 {
                                     required: true,
-                                    message: 'Представьтесь, пожалуйста!',
-                                },
-                            ],
+                                    message: "Представьтесь, пожалуйста!"
+                                }
+                            ]
                         })(
                             <Input
                                 // prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -108,13 +94,19 @@ class StartProjectForm extends Component {
                         )}
                     </FormItem>
                     <FormItem>
-                        {getFieldDecorator('phone', {
+                        {getFieldDecorator("phone", {
                             rules: [
                                 {
                                     required: true,
-                                    message: 'Заполните, пожалуйста, контактные данные!',
+                                    message: "Заполните, пожалуйста, контактные данные!"
                                 },
-                            ],
+                                {
+                                    pattern: new RegExp(
+                                        "^(((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10})|([-a-z0-9!#$%&'*+/=?^_`{|}~]+(.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\\.)*(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z]))$"
+                                    ),
+                                    message: "Исправьте, пожалуйста, контактные данные!"
+                                }
+                            ]
                         })(
                             <Input
                                 // prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -140,7 +132,7 @@ class StartProjectForm extends Component {
                         )}
                     </FormItem> */}
                     <FormItem>
-                        {getFieldDecorator('information')(
+                        {getFieldDecorator("information")(
                             <TextArea
                                 size="large"
                                 autosize={{ minRows: 2, maxRows: 6 }}
@@ -149,12 +141,12 @@ class StartProjectForm extends Component {
                         )}
                     </FormItem>
                     <p className="consent">
-                        Нажимая на кнопку ОТПРАВИТЬ, я даю{' '}
+                        Нажимая на кнопку ОТПРАВИТЬ, я даю{" "}
                         <Link href="/agreement">
                             <a className="post-a" href="">
                                 согласие
                             </a>
-                        </Link>{' '}
+                        </Link>{" "}
                         на обработку персональных данных
                     </p>
                     <div className="centered">
