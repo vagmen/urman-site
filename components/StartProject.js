@@ -40,10 +40,6 @@ class StartProjectForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            console.log("values", values);
-
-            console.log(/[0123456789]/.test("in 1992"));
-
             if (!err) {
                 this.sendFeedbackInfo(values);
             }
@@ -150,7 +146,9 @@ class StartProjectForm extends Component {
                         на обработку персональных данных
                     </p>
                     <div className="centered">
-                        <Button html="submit">ОТПРАВИТЬ</Button>
+                        <Button html="submit" id="feedback-form">
+                            ОТПРАВИТЬ
+                        </Button>
                     </div>
                 </Form>
                 <style jsx>{`
