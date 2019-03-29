@@ -95,7 +95,7 @@ export const servicesData = [
     {
         name: "Проект освоения лесов",
         img: "../../static/forest.jpg",
-        id: "pol"
+        id: "proekt-osvoeniya-lesov"
     },
     {
         name: "Проектная документация лесного участка",
