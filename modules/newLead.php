@@ -237,7 +237,9 @@ class Tenders {
       $tasks['add'][]=[
         'element_id'=> $lead['id'],
          'element_type'=> 2,
-         'complete_till_at'=> strtotime("+1 day"),
+         'complete_till_at'=> strtotime(date('Y-m-d 21:59:59')),
+        //  'complete_till_at'=> strtotime("now"),
+        //  'complete_till_at'=> strtotime("+1 day"),
          'task_type'=> 1,
          'text'=> "Не забыть позвонить/написать",
          'created_at'=> strtotime("now"),
