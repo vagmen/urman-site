@@ -1,41 +1,41 @@
-import React, { Component } from "react";
-import Link from "next/link";
-import { Icon } from "antd";
-import { animateScroll as scroll } from "react-scroll";
-import { initGA, trackPageView } from "../modules/react-ga.js";
-import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from "../constants/colors";
-import { postWidth, pageWidth } from "../constants/settings";
+import React, { Component } from 'react';
+import Link from 'next/link';
+import { Icon } from 'antd';
+import { animateScroll as scroll } from 'react-scroll';
+import { initGA, trackPageView } from '../modules/react-ga.js';
+import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from '../constants/colors';
+import { postWidth, pageWidth } from '../constants/settings';
 
 class Header extends Component {
     state = {
-        headerBackgroundOpacity: 0.6
+        headerBackgroundOpacity: 0.9,
     };
 
     componentDidMount() {
         (function(d, w, c) {
-            w.ChatraID = "DKFod4oh55xDx6Q29";
-            var s = d.createElement("script");
+            w.ChatraID = 'DKFod4oh55xDx6Q29';
+            var s = d.createElement('script');
             w[c] =
                 w[c] ||
                 function() {
                     (w[c].q = w[c].q || []).push(arguments);
                 };
             s.async = true;
-            s.src = "https://call.chatra.io/chatra.js";
+            s.src = 'https://call.chatra.io/chatra.js';
             if (d.head) d.head.appendChild(s);
-        })(document, window, "Chatra");
+        })(document, window, 'Chatra');
 
         //google Analitics
         initGA();
         trackPageView();
 
         // Прозрачность шапки при скролле
-        this.myInterval = setInterval(() => {
-            this.setState({ headerBackgroundOpacity: window && window.pageYOffset > 100 ? 0.9 : 0.6 });
-        }, 1000);
+        // this.myInterval = setInterval(() => {
+        //     this.setState({ headerBackgroundOpacity: window && window.pageYOffset > 100 ? 0.9 : 0.9 });
+        // }, 1000);
     }
     componentWillUnmount() {
-        clearInterval(this.myInterval);
+        // clearInterval(this.myInterval);
     }
 
     render() {
@@ -59,7 +59,7 @@ class Header extends Component {
                     </button> */}
                 </div>
                 <style jsx global>{`
-                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
+                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
                     h1,
                     h2,
                     h3,
@@ -142,14 +142,14 @@ class Header extends Component {
                         position: relative;
                     }
                     .template-background:before {
-                        content: "";
+                        content: '';
                         position: absolute;
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
                         z-index: -1;
-                        background: url("../../static/images/background.webp");
+                        background: url('../../static/images/background.webp');
                         background-size: 30%;
                         filter: opacity(10%);
                     }
@@ -262,6 +262,9 @@ class Header extends Component {
                     .post-img {
                         width: 100%;
                         margin-bottom: 0.8rem;
+                         {
+                            /* max-height: 500px; */
+                        }
                     }
                     .input-with-button {
                         display: flex;
@@ -413,17 +416,18 @@ class Header extends Component {
                         justify-content: space-between;
                         color: white;
                         align-items: center;
-                        padding: 0 20px;
+                        padding: 0 10px;
                         top: 0;
                         z-index: 1;
                         width: 100%;
                         background: rgba(58, 76, 27, ${this.state.headerBackgroundOpacity});
                         transition: all 1s;
-                        height: 80px;
+                        height: 60px;
                         position: fixed;
                         top: 0;
                         z-index: 100;
                         box-sizing: border-box;
+                        transition: all 0.8s;
                     }
                     .header.transparent {
                         background-color: transparent;
@@ -434,26 +438,29 @@ class Header extends Component {
                         align-items: center;
                     }
                     .logogo {
-                        height: 56px;
-                        width: 56px;
+                        height: 40px;
+                        width: 40px;
                         object-fit: cover;
                         margin-right: 10px;
+                        transition: all 0.8s;
                     }
                     .header-name {
                         display: flex;
                         flex-direction: column;
                         cursor: pointer;
+                        align-items: center;
                     }
                     .logo {
                         font-size: 32px;
                         letter-spacing: 4px;
                         font-family: Geneva, Arial, Helvetica, sans-serif;
-                        height: 32px;
+                        line-height: 40px;
                     }
                     .slogan {
                         font-size: 10px;
-                        padding: 10px 0;
+                        padding: 0;
                         letter-spacing: 2.8px;
+                        display: none;
                     }
                     .start-proj {
                     }
@@ -475,6 +482,20 @@ class Header extends Component {
                     .start-proj__button:hover {
                         background: #fff;
                         color: #f06060;
+                    }
+                    @media (min-width: 960px) {
+                        .header {
+                            height: 80px;
+                            padding: 0 20px;
+                        }
+                        .slogan {
+                            display: block;
+                        }
+                        .logogo {
+                            height: 56px;
+                            width: 56px;
+                            margin-right: 10px;
+                        }
                     }
                 `}</style>
             </div>
