@@ -13,7 +13,7 @@
         "prestart": "next build",
         "start": "NODE_ENV=production node server.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "poststart": "node modules/buildSitemap.js"
+        "sitemap": "node modules/buildSitemap.js"
     },
     "dependencies": {
         "antd": "^3.13.6",

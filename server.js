@@ -38,8 +38,11 @@ app.prepare()
         });
 
         server.get("/services/:id", (req, res) => {
-            const actualPage = "/services/" + req.params.id;
-            const queryParams = { id: req.params.id };
+            const id = req.params.id === 'pol' ? 'proekt-osvoeniya-lesov': req.params.id;
+            const actualPage = `/services/${id}`;
+            if(req.params.id === 'pol'){
+                res.redirect(actualPage);
+            }
             app.render(req, res, actualPage);
         });
 
