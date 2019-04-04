@@ -2,6 +2,7 @@ import { Component } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { message } from 'antd';
 import Link from 'next/link';
+import Head from 'next/head';
 import Layout from '../../../components/Layout';
 import ImgWithTitle from '../../../components/post/ImgWithTitle';
 import RelatedPost from '../../../components/post/RelatedPost';
@@ -32,6 +33,9 @@ class Index extends Component {
         const { postData } = this.props;
         return (
             <Layout postData={postData}>
+                <Head>
+                    <link ref='canonical' href='http://urman.su/services/proekt-osvoeniya-lesov'/>
+                </Head> 
                 <div className="template-background">
                     <div className="page-content">
                         <div className="post">

@@ -9,6 +9,7 @@ import Menu from "./Menu";
 import Footer from "./Footer";
 import StartProject from "./StartProject";
 import { mainMenu } from "../constants/menuData";
+import { mainColorMid } from "../constants/colors";
 
 const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
 
@@ -19,7 +20,7 @@ const Layout = ({ postData, menuItem, children }) => (
             <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
             <link rel="manifest" href="/static/manifest.json" />
             <meta charSet="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <meta name="google-site-verification" content="DTZ5X6H4xmsBhZUVAeNA0iqkBxXuf6pwWPzqXC3LhOY" />
             <meta name="yandex-verification" content="6d5ccb923e12ca16" />
             <title>{postData ? postData.title : menuItemData(menuItem).title || "URMAN"} </title>
@@ -27,6 +28,8 @@ const Layout = ({ postData, menuItem, children }) => (
                 name="description"
                 content={postData ? postData.description : menuItemData(menuItem).description || ""}
             />
+            <meta name="robots" content="index,follow" />
+            <meta name="theme-color" content={mainColorMid} />
             {/* <meta name="google-site-verification" content="13s4tTPGhfJIZYmOa_q1xPyiypySCl1Z8wJIzwjTV5w" /> */}
         </Head>
         <Header />
