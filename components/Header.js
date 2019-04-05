@@ -73,6 +73,10 @@ class Header extends Component {
                         padding: 0;
                         vertical-align: baseline;
                     }
+                    html,
+                    body {
+                        height: 100vh;
+                    }
                     body {
                         font-size: 10px;
                         background: ${mainColorLightBgr};
