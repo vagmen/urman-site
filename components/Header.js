@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Icon } from 'antd';
-import { animateScroll as scroll } from 'react-scroll';
-import { initGA, trackPageView } from '../modules/react-ga.js';
-import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from '../constants/colors';
-import { postWidth, pageWidth } from '../constants/settings';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Icon } from "antd";
+import { animateScroll as scroll } from "react-scroll";
+import { initGA, trackPageView } from "../modules/react-ga.js";
+import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from "../constants/colors";
+import { postWidth, pageWidth } from "../constants/settings";
 
 class Header extends Component {
     state = {
@@ -13,17 +13,27 @@ class Header extends Component {
 
     componentDidMount() {
         (function(d, w, c) {
-            w.ChatraID = 'DKFod4oh55xDx6Q29';
-            var s = d.createElement('script');
+            w.ChatraID = "DKFod4oh55xDx6Q29";
+            var s = d.createElement("script");
             w[c] =
                 w[c] ||
                 function() {
                     (w[c].q = w[c].q || []).push(arguments);
                 };
             s.async = true;
-            s.src = 'https://call.chatra.io/chatra.js';
+            s.src = "https://call.chatra.io/chatra.js";
             if (d.head) d.head.appendChild(s);
-        })(document, window, 'Chatra');
+            w.ChatraSetup = {
+                buttonPosition:
+                    window.innerWidth < 1024 // порог ширины
+                        ? "bc" // положение кнопки чата на маленьких экранах
+                        : "br", // положение кнопки чата на больших экранах
+                colors: {
+                    buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
+                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */,
+                },
+            };
+        })(document, window, "Chatra");
 
         //google Analitics
         initGA();
@@ -59,7 +69,7 @@ class Header extends Component {
                     </button> */}
                 </div>
                 <style jsx global>{`
-                    @import url('https://fonts.googleapis.com/css?family=Rubik:300,400');
+                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     h1,
                     h2,
                     h3,
@@ -146,14 +156,14 @@ class Header extends Component {
                         position: relative;
                     }
                     .template-background:before {
-                        content: '';
+                        content: "";
                         position: absolute;
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
                         z-index: -1;
-                        background: url('../../static/images/background.webp');
+                        background: url("../../static/images/background.webp");
                         background-size: 30%;
                         filter: opacity(10%);
                     }
@@ -238,6 +248,9 @@ class Header extends Component {
                     .post-a:hover {
                         color: inherit;
                         background: ${mainColorLight};
+                    }
+                    ul.without-mark {
+                        list-style-type: none;
                     }
                     .post-card {
                         padding: 24px;
@@ -424,7 +437,7 @@ class Header extends Component {
                         top: 0;
                         z-index: 1;
                         width: 100%;
-                        background: rgba(58, 76, 27, ${this.state.headerBackgroundOpacity});
+                        background: ${mainColorMid};
                         transition: all 1s;
                         height: 60px;
                         position: fixed;

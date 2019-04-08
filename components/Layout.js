@@ -7,11 +7,12 @@ import { YMInitializer } from "react-yandex-metrika";
 import Header from "./Header";
 import Menu from "./Menu";
 import Footer from "./Footer";
+import Connect from "./Connect";
 import StartProject from "./StartProject";
 import { mainMenu } from "../constants/menuData";
 import { mainColorMid } from "../constants/colors";
 
-const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
+const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
 const Layout = ({ postData, menuItem, children }) => (
     <Fragment>
@@ -41,6 +42,7 @@ const Layout = ({ postData, menuItem, children }) => (
                     {children}
                     <StartProject />
                     <Footer />
+                    <Connect />
                 </Fragment>
             </IconContext.Provider>
         </LocaleProvider>

@@ -1,7 +1,7 @@
 import { mainColorMid, mainColorLight } from "../../constants/colors";
 
-const Button = ({ name, className = "", children, ...props }) => (
-    <button className={`button primary-button ${className}`} {...props}>
+const ButtonGhost = ({ name, className = "", children, ...props }) => (
+    <button className={`button ${className}`} {...props}>
         {children}
         <style jsx>{`
             .button {
@@ -9,13 +9,11 @@ const Button = ({ name, className = "", children, ...props }) => (
                 cursor: pointer;
                 transition: all 0.4s;
                 border-radius: 4px;
-                box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px;
                 text-transform: uppercase;
                 font-size: 14px;
-            }
-            .primary-button {
                 color: #fff;
-                background: ${mainColorMid};
+                background: rgba(0, 0, 0, 0);
+                border: 1px solid #fff;
             }
             .primary-button:hover {
                 background: ${mainColorLight};
@@ -24,4 +22,4 @@ const Button = ({ name, className = "", children, ...props }) => (
     </button>
 );
 
-export default Button;
+export default ButtonGhost;

@@ -1,31 +1,38 @@
-import { Component } from 'react';
-import fetch from 'isomorphic-unfetch';
-import { message } from 'antd';
-import Link from 'next/link';
-import Head from 'next/head';
-import Layout from '../../../components/Layout';
-import ImgWithTitle from '../../../components/post/ImgWithTitle';
-import RelatedPost from '../../../components/post/RelatedPost';
+import { Component } from "react";
+import fetch from "isomorphic-unfetch";
+import { message } from "antd";
+import Link from "next/link";
+import Head from "next/head";
+import Layout from "../../../components/Layout";
+import ImgWithTitle from "../../../components/post/ImgWithTitle";
+import RelatedPost from "../../../components/post/RelatedPost";
+import ButtonViolet from "../../../components/ui/ButtonViolet";
 
-const menuItem = 'services';
+const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: '',
+        email: "",
     };
     sendServiceDocTemplate = async () => {
-        const res = await fetch('https://helpforest.azurewebsites.net/SendServiceDocTemplate', {
-            method: 'post',
+        const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
+            method: "post",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: 'pol',
+                ServiceCode: "pol",
             }),
         });
         const data = await res.json();
-        if (data) message.success('Мы отправили письмо с вложенной формой на вашу почту');
+        if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
+    };
+
+    connectHandler = () => {
+        const connectCollapsed = !(localStorage.getItem("connect-collapsed") === "false");
+        localStorage.setItem("connect-collapsed", !connectCollapsed);
+        connectCollapsed && Chatra("hide");
     };
 
     render() {
@@ -34,8 +41,8 @@ class Index extends Component {
         return (
             <Layout postData={postData}>
                 <Head>
-                    <link ref='canonical' href='http://urman.su/services/proekt-osvoeniya-lesov'/>
-                </Head> 
+                    <link ref="canonical" href="http://urman.su/services/proekt-osvoeniya-lesov" />
+                </Head>
                 <div className="template-background">
                     <div className="page-content">
                         <div className="post">
@@ -95,18 +102,23 @@ class Index extends Component {
                                 <li>особенности лесного участка и договора аренды.</li>
                             </ul>
                             <p>
-                                Минимальная цена разработки проекта составляет <span className="number">10 000</span>{' '}
+                                Минимальная цена разработки проекта составляет <span className="number">10 000</span>{" "}
                                 рублей. Точную стоимость Вы можете уточнить, связавшись с нашим специалистом.
                             </p>
+                            <div className="centered">
+                                <ButtonViolet onClick={this.connectHandler}>
+                                    Рассчитать стоимость проекта освоения лесов
+                                </ButtonViolet>
+                            </div>
                             <p>
                                 При заказе разработки проекта освоения лесов у нас Вам не придётся самостоятельно
                                 разбираться в деталях проектирования и участвовать в бюрократических процедурах. Мы
-                                максимально упростим весь процесс. Посмотрите{' '}
+                                максимально упростим весь процесс. Посмотрите{" "}
                                 <Link href="/clients/feedback">
                                     <a className="post-a" href="">
                                         отзывы
                                     </a>
-                                </Link>{' '}
+                                </Link>{" "}
                                 наших клиентов — это лучшее подтверждение многолетнего опыта и профессионализма
                                 компании.
                             </p>
@@ -334,13 +346,18 @@ class Index extends Component {
                                 bgr="../../../static/forest2.jpg"
                                 href="/services/pdlu"
                             />
+                            <RelatedPost
+                                title="Договор аренды лесного участка"
+                                bgr="../../../static/arenda.webp"
+                                href="/services/arenda-lesnogo-uchastka"
+                            />
                             <p>
-                                Если у Вас остались вопросы или вы решили заказать разработку проекта освоения лесов —{' '}
+                                Если у Вас остались вопросы или вы решили заказать разработку проекта освоения лесов —{" "}
                                 <Link href="/contacts">
                                     <a className="post-a" href="">
                                         свяжитесь
                                     </a>
-                                </Link>{' '}
+                                </Link>{" "}
                                 с нашим специалистом, и мы Вам поможем!
                             </p>
                         </div>
@@ -374,10 +391,10 @@ Index.getInitialProps = async function() {
 
     return {
         postData: {
-            name: 'Проект освоения лесов (ПОЛ)',
-            title: 'Проект освоения лесов 🌳 разработка, состав, экспертиза стоимость по России',
+            name: "Проект освоения лесов (ПОЛ)",
+            title: "Проект освоения лесов 🌳 разработка, состав, экспертиза стоимость по России",
             description:
-                'Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Согласно состава. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит.',
+                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Согласно состава. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит.",
         },
     };
 };

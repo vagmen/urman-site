@@ -10,19 +10,19 @@ export const mainMenu = [
             {
                 title: "Видео клиентов",
                 src: "video",
-                description: "Видео клиентов"
+                description: "Видео клиентов",
             },
             {
                 title: "Отзывы",
                 src: "feedback",
-                description: "Отзывы"
+                description: "Отзывы",
             },
             {
                 title: "Статистика и показатели",
                 src: "stats",
-                description: "Статистика и показатели"
-            }
-        ]
+                description: "Статистика и показатели",
+            },
+        ],
     },
     {
         name: "Услуги",
@@ -31,7 +31,7 @@ export const mainMenu = [
         src: "services",
         description:
             "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка",
-        isMainMenu: true
+        isMainMenu: true,
     },
     {
         name: "О нас",
@@ -40,7 +40,7 @@ export const mainMenu = [
         src: "about",
         description:
             "Мы сплоченная команда из 15 человек. Решаем поставленные задачи по всей России — начиная от разработки проектов освоения лесов и заканчивая разработкой лесных планов субъектов РФ.",
-        isMainMenu: true
+        isMainMenu: true,
     },
     {
         name: "Журнал",
@@ -48,7 +48,7 @@ export const mainMenu = [
         icon: "book",
         src: "journal",
         description: "Про лес и не только",
-        isMainMenu: true
+        isMainMenu: true,
     },
     {
         name: "Контакты",
@@ -57,7 +57,7 @@ export const mainMenu = [
         src: "contacts",
         description:
             "У нас команда проверенных, грамотных и опытных штатных сотрудников. Мы за открытую коммуникацию. Пишите и звоните нам, будем рады!",
-        isMainMenu: true
+        isMainMenu: true,
     },
     {
         name: "Соглашение",
@@ -66,15 +66,15 @@ export const mainMenu = [
         src: "agreement",
         description:
             "У нас команда проверенных, грамотных и опытных штатных сотрудников. Мы за открытую коммуникацию. Пишите и звоните нам, будем рады!",
-        isMainMenu: false
-    }
+        isMainMenu: false,
+    },
 ];
 
 export const menuData = {
     clients: {
         video: "Видео клиентов",
         feedback: "Отзывы",
-        stats: "Статистика и показатели"
+        stats: "Статистика и показатели",
         // geography: 'География проектов',
     },
     services: {
@@ -88,20 +88,25 @@ export const menuData = {
         registration: "Полное оформление",
         water: "Оформление договора водопользования",
         regulation: "Лесохозяйственный регламент",
-        plan: "Лесной план"
-    }
+        plan: "Лесной план",
+    },
 };
 export const servicesData = [
     {
         name: "Проект освоения лесов",
-        img: "../../static/forest.jpg",
-        id: "proekt-osvoeniya-lesov"
+        img: "/static/forest.jpg",
+        id: "proekt-osvoeniya-lesov",
     },
     {
         name: "Проектная документация лесного участка",
-        img: "../../static/forest2.jpg",
-        id: "pdlu"
-    }
+        img: "/static/forest2.jpg",
+        id: "pdlu",
+    },
+    {
+        name: "Аренда лесного участка",
+        img: "/static/arenda.webp",
+        id: "arenda-lesnogo-uchastka",
+    },
     // {
     //     name: 'Земельный кадастровый учет',
     //     img: 'https://pp.userapi.com/c849028/v849028114/2ecdb/xhoIZASBdhg.jpg',
