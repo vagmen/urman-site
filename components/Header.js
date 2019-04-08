@@ -321,7 +321,7 @@ class Header extends Component {
                     .hide-in-keyboard {
                         display: block;
                     }
-                    @media (max-height: 400px) {
+                    @media (max-height: 550px) {
                         .hide-in-keyboard {
                             display: none;
                         }
