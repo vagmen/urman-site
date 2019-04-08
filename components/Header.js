@@ -8,7 +8,7 @@ import { postWidth, pageWidth } from "../constants/settings";
 
 class Header extends Component {
     state = {
-        headerBackgroundOpacity: 0.9,
+        headerBackgroundOpacity: 0.9
     };
 
     componentDidMount() {
@@ -30,8 +30,8 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */,
-                },
+                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */
+                }
             };
         })(document, window, "Chatra");
 
@@ -317,6 +317,14 @@ class Header extends Component {
                     }
                     .for-mobile {
                         display: block;
+                    }
+                    .hide-in-keyboard {
+                        display: block;
+                    }
+                    @media (max-height: 400px) {
+                        .hide-in-keyboard {
+                            display: none;
+                        }
                     }
                     // подвинуть кнопку чатры, чтобы не заслонять мобильное меню
                     .chatra--side-bottom {

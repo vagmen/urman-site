@@ -12,16 +12,16 @@ class Connect extends Component {
     }
     state = {
         collapsed: true,
-        contact: "",
+        contact: ""
     };
 
     sendFeedbackInfo = async () => {
         const res = await fetch(`http://vagmen.ru/urman/new_lead.php?contact=${this.state.contact}`, {
-            method: "get",
+            method: "get"
         });
         notification.success({
             message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам.",
+            description: "В ближайшее время ответим Вам."
         });
     };
 
@@ -59,13 +59,13 @@ class Connect extends Component {
                         onClick={this.closeConnect}
                         style={{ position: "absolute", right: "16px", top: "90px", zIndex: "100000" }}
                     />
-                    <h4>Получите бесплатную консультацию</h4>
+                    <h4 className="hide-in-keyboard">Получите бесплатную консультацию</h4>
                     <br />
-                    <p>+7 (347) 298-34-86</p>
-                    <p>
+                    <p className="hide-in-keyboard">+7 (347) 298-34-86</p>
+                    <p className="hide-in-keyboard">
                         <a href="mailto:proekt@urman.su">proekt@urman.su</a>
                     </p>
-                    <p className="icons">
+                    <p className="icons hide-in-keyboard">
                         <a href="https://www.instagram.com/urman.su" target="_blank">
                             <FaInstagram />
                         </a>
@@ -82,9 +82,8 @@ class Connect extends Component {
                         type="text"
                         placeholder="Mail или телефон"
                         value={contact}
-                        onChange={(e) => this.setState({ contact: e.target.value })}
+                        onChange={e => this.setState({ contact: e.target.value })}
                     />
-                    <br />
                     <br />
                     <ButtonViolet className="full-width" onClick={this.connectHandler}>
                         Получить
