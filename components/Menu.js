@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
-import { Icon } from 'antd';
-import { mainMenu } from '../constants/menuData';
-import { grey } from '../constants/colors';
+import React, { Component } from "react";
+import Link from "next/link";
+import { Icon } from "antd";
+import { mainMenu } from "../constants/menuData";
+import { grey } from "../constants/colors";
 
 class Menu extends Component {
     render() {
@@ -17,7 +17,7 @@ class Menu extends Component {
                                         this.props.menuItem === item.src ? `menu-item_active` : ``
                                     }`}
                                 >
-                                    <Icon className="icon" type={item.icon} style={{ color: '#eee', fontSize: 25 }} />
+                                    <Icon className="icon" type={item.icon} style={{ color: "#eee", fontSize: 25 }} />
                                     <a>{item.name}</a>
                                 </li>
                             </Link>
@@ -35,6 +35,7 @@ class Menu extends Component {
                         width: 100%;
                         background-color: ${grey};
                         position: fixed;
+                        transition: all 0.4s;
                     }
                     .menu-item {
                         list-style-type: none;
@@ -64,6 +65,11 @@ class Menu extends Component {
                     }
                     .menu-item_active {
                         background: rgba(255, 255, 255, 0.2);
+                    }
+                    @media (max-height: 400px) {
+                        .menu {
+                            bottom: -80px;
+                        }
                     }
                     @media (min-width: 640px) {
                         .menu-trigger {
