@@ -6,33 +6,28 @@ import Head from "next/head";
 import Layout from "../../../components/Layout";
 import ImgWithTitle from "../../../components/post/ImgWithTitle";
 import RelatedPost from "../../../components/post/RelatedPost";
-import Connect from "../../../components/Connect";
 import ButtonViolet from "../../../components/ui/ButtonViolet";
+import { connectHandler } from "../../../utils/localStorage";
 
 const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: "",
+        email: ""
     };
     sendServiceDocTemplate = async () => {
         const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
             method: "post",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: "pol",
-            }),
+                ServiceCode: "pol"
+            })
         });
         const data = await res.json();
         if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
-    };
-
-    connectHandler = () => {
-        const connectCollapsed = !(localStorage.getItem("connect-collapsed") === "false");
-        localStorage.setItem("connect-collapsed", !connectCollapsed);
     };
 
     render() {
@@ -103,17 +98,8 @@ class Index extends Component {
                                 <li>А = 14,85*1,89*16 = 449,12 рублей.</li>
                             </ul>
                             <div className="centered">
-                                <ButtonViolet
-                                    onClick={() => {
-                                        this.connectHandler();
-                                        Chatra("hide");
-                                    }}
-                                >
-                                    Узнать стоимость
-                                </ButtonViolet>
+                                <ButtonViolet onClick={connectHandler}>Узнать стоимость</ButtonViolet>
                             </div>
-                            {/* <Button onClick={() => localStorage.setItem("connect-collapsed", true)}>Связаться</Button> */}
-                            {/* <Connect /> */}
                             <p>
                                 Необходимо помнить, что в случае проведения аукциона арендная плата неизбежно повысится
                                 и будет равняться конечной цене аукциона.
@@ -403,8 +389,8 @@ Index.getInitialProps = async function() {
             title:
                 "Аренда лесного участка 🌳 Заключение и регистрация договора аренды, внесение изменений в договор аренды",
             description:
-                "Базовые условия, необходимые для заключения договора аренды. Аренда лесного участка без торгов. Аренда лесного участка по результатам аукциона. Заключение и регистрация договора аренды. Срок действия договора аренды. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит.",
-        },
+                "Базовые условия, необходимые для заключения договора аренды. Аренда лесного участка без торгов. Аренда лесного участка по результатам аукциона. Заключение и регистрация договора аренды. Срок действия договора аренды. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит."
+        }
     };
 };
 

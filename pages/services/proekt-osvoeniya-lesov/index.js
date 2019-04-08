@@ -7,32 +7,27 @@ import Layout from "../../../components/Layout";
 import ImgWithTitle from "../../../components/post/ImgWithTitle";
 import RelatedPost from "../../../components/post/RelatedPost";
 import ButtonViolet from "../../../components/ui/ButtonViolet";
+import { connectHandler } from "../../../utils/localStorage";
 
 const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: "",
+        email: ""
     };
     sendServiceDocTemplate = async () => {
         const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
             method: "post",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: "pol",
-            }),
+                ServiceCode: "pol"
+            })
         });
         const data = await res.json();
         if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
-    };
-
-    connectHandler = () => {
-        const connectCollapsed = !(localStorage.getItem("connect-collapsed") === "false");
-        localStorage.setItem("connect-collapsed", !connectCollapsed);
-        connectCollapsed && Chatra("hide");
     };
 
     render() {
@@ -106,7 +101,7 @@ class Index extends Component {
                                 рублей. Точную стоимость Вы можете уточнить, связавшись с нашим специалистом.
                             </p>
                             <div className="centered">
-                                <ButtonViolet onClick={this.connectHandler}>
+                                <ButtonViolet onClick={connectHandler}>
                                     Рассчитать стоимость проекта освоения лесов
                                 </ButtonViolet>
                             </div>
@@ -394,8 +389,8 @@ Index.getInitialProps = async function() {
             name: "Проект освоения лесов (ПОЛ)",
             title: "Проект освоения лесов 🌳 разработка, состав, экспертиза стоимость по России",
             description:
-                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Согласно состава. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит.",
-        },
+                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Согласно состава. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит."
+        }
     };
 };
 

@@ -26,10 +26,17 @@ class Connect extends Component {
     };
 
     connectHandler = () => {
-        this.sendFeedbackInfo();
-        this.setState({ contact: "" });
-        Chatra("show");
-        this.closeConnect();
+        if (this.state.contact === "") {
+            notification.warning({
+                message: `Внимание`,
+                description: "Заполните, пожалуйста, поле"
+            });
+        } else {
+            this.sendFeedbackInfo();
+            this.setState({ contact: "" });
+            Chatra("show");
+            this.closeConnect();
+        }
     };
 
     closeConnect = () => {
