@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import Layout from '../components/Layout.js';
-import Recall from '../components/Recall.js';
-import { feedbackVideo } from '../constants/feedback';
-import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey } from '../constants/colors';
+import Link from "next/link";
+import Layout from "../components/Layout.js";
+import Recall from "../components/Recall.js";
+import { feedbackVideo } from "../constants/feedback";
+import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey } from "../constants/colors";
 const postData = {
-    title: 'URMAN - Лесные решения',
+    title: "URMAN - Лесные решения",
     description:
-        'Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.',
+        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
 };
 
 export default () => (
@@ -46,7 +46,7 @@ export default () => (
                     <div className="tour__item tour__item-ligth">
                         <h3>ЦИФРЫ</h3>
                         <p>Нами разработано и согласовано</p>
-                        <p className="number">173</p>
+                        <p className="number">331</p>
                         <p>проекта освоения лесов</p>
                     </div>
                 </Link>
@@ -66,13 +66,13 @@ export default () => (
                 grid-auto-rows: 70px auto minmax(500px, auto) auto;
                 grid-gap: 20px;
                 grid-template-areas:
-                    '.'
-                    's'
-                    'f'
-                    't';
+                    "."
+                    "s"
+                    "f"
+                    "t";
             }
             .background-image {
-                background-image: url('/static/images/logo.png');
+                background-image: url("/static/images/logo.png");
                 position: absolute;
                 min-height: 100vh;
                 top: 70px;
@@ -161,11 +161,11 @@ export default () => (
                 .main-container {
                     grid-auto-rows: 100px auto minmax(500px, auto) auto auto;
                     grid-template-areas:
-                        '.'
-                        's'
-                        'f'
-                        'l'
-                        't';
+                        "."
+                        "s"
+                        "f"
+                        "l"
+                        "t";
                 }
                 .logos {
                     display: flex;
@@ -178,10 +178,10 @@ export default () => (
                     grid-template-rows: 50px minmax(380px, auto) 100px auto;
                     grid-template-columns: 0 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0;
                     grid-template-areas:
-                        '. s s s s f f f f f .'
-                        '. s s s s f f f f f .'
-                        '. . . . . f f f f f .'
-                        't t t t t t t t t t t';
+                        ". s s s s f f f f f ."
+                        ". s s s s f f f f f ."
+                        ". . . . . f f f f f ."
+                        "t t t t t t t t t t t";
                     grid-gap: 30px;
                 }
                 .logos {
@@ -220,10 +220,10 @@ export default () => (
                 .main-container {
                     grid-template-rows: 50px minmax(550px, auto) auto auto;
                     grid-template-areas:
-                        '. . . . . f f f f f .'
-                        '. s s s s f f f f f .'
-                        '. . . . . f f f f f .'
-                        't t t t t t t t t t t';
+                        ". . . . . f f f f f ."
+                        ". s s s s f f f f f ."
+                        ". . . . . f f f f f ."
+                        "t t t t t t t t t t t";
                     grid-gap: 40px;
                 }
                 .background-image {

@@ -6,7 +6,7 @@ const Statistics = () => (
             <div className="before-number">
                 <p>Нами разработано и согласовано</p>
             </div>
-            <p className="number">173</p>
+            <p className="number">331</p>
             <p>проекта освоения лесов</p>
         </div>
         <div className="stat-list__item grid__item">
