@@ -6,10 +6,16 @@ import { initGA, trackPageView } from "../modules/react-ga.js";
 import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from "../constants/colors";
 import { postWidth, pageWidth } from "../constants/settings";
 
+let ticking = false;
+
 class Header extends Component {
-    state = {
-        headerBackgroundOpacity: 0.9
-    };
+    constructor(props) {
+        super(props);
+        const { headerOpacity } = props;
+        this.state = {
+            headerBackgroundOpacity: props.headerOpacity ? 0 : 1,
+        };
+    }
 
     componentDidMount() {
         (function(d, w, c) {
@@ -30,23 +36,43 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */
-                }
+                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */,
+                },
             };
         })(document, window, "Chatra");
 
         //google Analitics
         initGA();
         trackPageView();
-
-        // Прозрачность шапки при скролле
-        // this.myInterval = setInterval(() => {
-        //     this.setState({ headerBackgroundOpacity: window && window.pageYOffset > 100 ? 0.9 : 0.9 });
-        // }, 1000);
+        this.setOpacity();
+        window.addEventListener("scroll", this.handleScroll);
     }
     componentWillUnmount() {
-        // clearInterval(this.myInterval);
+        window.removeEventListener("scroll", this.handleScroll);
     }
+
+    handleScroll = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                this.setOpacity();
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+    };
+
+    setOpacity = () => {
+        if (this.props.headerOpacity && window.scrollY < 100) {
+            this.setState({
+                headerBackgroundOpacity: window.scrollY / 100,
+            });
+        } else {
+            this.setState({
+                headerBackgroundOpacity: 1,
+            });
+        }
+    };
 
     render() {
         return (
@@ -145,6 +171,8 @@ class Header extends Component {
                         text-decoration: none;
                     }
                     a:hover {
+                        text-decoration: none;
+                        color: inherit;
                     }
                     .react-icons {
                         vertical-align: middle;
@@ -406,7 +434,7 @@ class Header extends Component {
                             grid-template-columns: 1fr 1fr 1fr;
                         }
                         .for-desktop {
-                            display: block;
+                            display: inline-block;
                         }
                         .for-mobile {
                             display: none;
@@ -445,7 +473,7 @@ class Header extends Component {
                         top: 0;
                         z-index: 1;
                         width: 100%;
-                        background: ${mainColorMid};
+                        background: rgba(102, 118, 54, ${this.state.headerBackgroundOpacity});
                         transition: all 1s;
                         height: 60px;
                         position: fixed;

@@ -14,7 +14,7 @@ import { mainColorMid } from "../constants/colors";
 
 const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
-const Layout = ({ postData, menuItem, children }) => (
+const Layout = ({ postData, menuItem, headerOpacity, children }) => (
     <Fragment>
         <Head>
             <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
@@ -33,12 +33,12 @@ const Layout = ({ postData, menuItem, children }) => (
             <meta name="theme-color" content={mainColorMid} />
             {/* <meta name="google-site-verification" content="13s4tTPGhfJIZYmOa_q1xPyiypySCl1Z8wJIzwjTV5w" /> */}
         </Head>
-        <Header />
+        <Header headerOpacity={headerOpacity} />
         <YMInitializer accounts={[51360247]} />
         <LocaleProvider locale={ruRU}>
             <IconContext.Provider value={{ className: "react-icons" }}>
                 <Fragment>
-                    <Menu menuItem={menuItem} />
+                    <Menu menuItem={menuItem} headerOpacity={headerOpacity} />
                     {children}
                     <StartProject />
                     <Footer />

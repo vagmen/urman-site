@@ -6,6 +6,7 @@ import { grey } from "../constants/colors";
 
 class Menu extends Component {
     render() {
+        const { headerOpacity } = this.props;
         return (
             <ul className="menu">
                 {mainMenu.map(
@@ -24,6 +25,34 @@ class Menu extends Component {
                         )
                 )}
                 <style jsx>{`
+                    @keyframes appearance-of-menu {
+                        from {
+                            opacity: ${headerOpacity ? 0 : 1};
+                            transform: translateY(${headerOpacity ? "-100px" : "0px"});
+                        }
+                        67% {
+                            opacity: ${headerOpacity ? 0 : 1};
+                            transform: translateY(${headerOpacity ? "-100px" : "0px"});
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0px);
+                        }
+                    }
+                    @keyframes appearance-of-menu-mobile {
+                        from {
+                            opacity: ${headerOpacity ? 0 : 1};
+                            transform: translateY(${headerOpacity ? "100px" : "0px"});
+                        }
+                        67% {
+                            opacity: ${headerOpacity ? 0 : 1};
+                            transform: translateY(${headerOpacity ? "100px" : "0px"});
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0px);
+                        }
+                    }
                     .menu {
                         margin: 0;
                         padding: 0;
@@ -36,6 +65,7 @@ class Menu extends Component {
                         background-color: ${grey};
                         position: fixed;
                         transition: all 0.4s;
+                        animation: appearance-of-menu-mobile 2.5s ease-out;
                     }
                     .menu-item {
                         list-style-type: none;
@@ -93,6 +123,7 @@ class Menu extends Component {
                             left: 300px;
                             width: calc(100% - 600px);
                             background: none;
+                            animation: appearance-of-menu 2.5s ease-out;
                         }
                         .menu-item {
                             padding: 15px;
