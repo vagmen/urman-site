@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Link from "next/link";
 import { Icon } from "antd";
 import { mainMenu } from "../constants/menuData";
-import { grey } from "../constants/colors";
+import { grey, greyDark } from "../constants/colors";
 
 class Menu extends Component {
     render() {
@@ -62,7 +62,7 @@ class Menu extends Component {
                         bottom: 0;
                         z-index: 100;
                         width: 100%;
-                        background-color: ${grey};
+                        background-color: ${greyDark};
                         position: fixed;
                         transition: all 0.4s;
                         animation: appearance-of-menu-mobile 2.5s ease-out;
