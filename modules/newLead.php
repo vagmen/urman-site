@@ -7,7 +7,7 @@ $user = [
   'USER_HASH'=>'44b177ee540618a38dd30bae14f1d57a4a1c8dfe'
 ];
 $AMO_DATA = [
-  'SUBDOMAIN' => 'new55792af48eec6',
+  'SUBDOMAIN' => 'urman',
 //   'PIPELINE_ID' => 1068226
   'PIPELINE_ID' => 1068481
 ];
@@ -225,9 +225,16 @@ class Tenders {
               ]
             ]
           ],
+          [
+            'id'=>624663,
+            'values'=>[
+              [
+                'value'=> $output['pathname']
+              ]
+            ]
+          ],
           ]
         ];
- 
     return $leads;
   }
 
@@ -348,6 +355,7 @@ if($isLogin == 'true')
     echo $output['name'], "\n";  // value
     echo $output['contact'], "\n"; // foo bar
     echo $output['comment'], "\n"; // baz
+    echo $output['pathname'], "\n"; // baz
 
     $leads = $log -> parseTenders($output, $AMO_DATA);
     // echo json_encode($leads), "\n";

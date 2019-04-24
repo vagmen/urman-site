@@ -13,18 +13,18 @@ const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: ""
+        email: "",
     };
     sendServiceDocTemplate = async () => {
         const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
             method: "post",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: "pol"
-            })
+                ServiceCode: "pol",
+            }),
         });
         const data = await res.json();
         if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
@@ -43,7 +43,7 @@ class Index extends Component {
                         <div className="post">
                             <header>
                                 <h1>{postData.name}</h1>
-                                <img src="../../../static/forest.jpg" className="post-img" alt={postData.name} />
+                                <img src="/static/forest.webp" className="post-img" alt={postData.name} />
                             </header>
                             <h3>Что такое проект освоения лесов? </h3>
                             <p>
@@ -67,11 +67,11 @@ class Index extends Component {
                             </p>
                             <ImgWithTitle
                                 title="Титульный лист проекта освоения лесов"
-                                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/LvQT/3zNnMwokV/%D0%A2%D0%B8%D1%82%D1%83%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA%20%D0%BD%D0%BE%D0%B2%D1%8B%D0%B9%201.jpg?x-email=undefined"
+                                src="/static/images/services/pol/titulnyj-list-proekta-osvoeniya-lesov.webp"
                             />
                             <ImgWithTitle
                                 title="Пример тематической лесной карты характеристики территории лесного участка по классам пожарной опасности"
-                                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/LvQT/3zNnMwokV/1.1.jpg?x-email=undefined"
+                                src="/static/images/services/pol/primer-tematicheskoj-lesnoj-karty-kharakteristiki-territorii-lesnogo-uchastka-po-klassam-pozharnoj-opasnosti.webp"
                             />
                             <h3>Разработка проекта освоения лесов</h3>
                             <p>
@@ -117,42 +117,6 @@ class Index extends Component {
                                 наших клиентов — это лучшее подтверждение многолетнего опыта и профессионализма
                                 компании.
                             </p>
-                            {/* <h3>Как выглядит?</h3>
-                            <div className="img-container">
-                                <div className="img-item">
-                                    <img
-                                        src="../../../static/images/services/pol1.jpg"
-                                        alt="Фрагмент проекта освоения лесов"
-                                    />
-                                </div>
-                                <div className="img-item">
-                                    <img
-                                        src="../../../static/images/services/pol2.jpg"
-                                        alt="Фрагмент проекта освоения лесов"
-                                    />
-                                </div>
-                                <div className="img-item">
-                                    <img
-                                        src="../../../static/images/services/pol3.jpg"
-                                        alt="Фрагмент проекта освоения лесов"
-                                    />
-                                </div>
-                            </div> */}
-                            {/* <h3>Как получить форму?</h3>
-                            <p>
-                                Если вы хотите самостоятельно подготовить проект освоения лесов, можем вам отправить
-                                форму проекта на электронную почту.
-                            </p>
-                            <div className="input-with-button">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Ваша почта"
-                                    value={email}
-                                    onChange={e => this.setState({ email: e.target.value })}
-                                />
-                                <button onClick={this.sendServiceDocTemplate}>Получить форму</button>
-                            </div> */}
                             <h3>Срок действия проекта освоения лесов</h3>
                             <p>
                                 Для большинства видов использования лесов проект освоения лесов разрабатывается на срок
@@ -170,7 +134,7 @@ class Index extends Component {
                             </p>
                             <RelatedPost
                                 title="У вашего Проекта освоения лесов вышел срок годности"
-                                bgr="../../../static/forest.jpg"
+                                bgr="/static/forest.webp"
                                 href="/journal/out-of-date"
                             />
                             <p>
@@ -203,11 +167,11 @@ class Index extends Component {
                             </ul>
                             <ImgWithTitle
                                 title="Пример тематической лесной карты пространственного размещения существующих и проектируемых объектов лесной инфраструктуры"
-                                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/LvQT/3zNnMwokV/2.1.jpg?x-email=undefined"
+                                src="/static/images/services/pol/primer-tematicheskoj-lesnoj-karty-prostranstvennogo-razmeshcheniya-sushchestvuyushchikh-i-proektiruemykh-obektov-lesnoj-infrastruktury.webp"
                             />
                             <ImgWithTitle
                                 title="Пример тематической лесной карты характеристики существующих и проектируемых объектов, не связанных с созданием лесной инфраструктуры"
-                                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/LvQT/3zNnMwokV/3.1.jpg?x-email=undefined"
+                                src="/static/images/services/pol/primer-tematicheskoj-lesnoj-karty-kharakteristiki-sushchestvuyushchikh-i-proektiruemykh-obektov-ne-svyazannykh-s-sozdaniem-lesnoj-infrastruktury.webp"
                             />
                             {/* <p>Подробнее об этом читайте в нашем журнале:</p>
                             <Link href="/journal/out-of-date">
@@ -245,11 +209,11 @@ class Index extends Component {
                             </p>
                             <ImgWithTitle
                                 title="Пример экспертного заключения по проекту освоения лесов"
-                                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/LvQT/3zNnMwokV/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7%20%D0%A0%D0%91%202.1.jpg?x-email=undefined"
+                                src="/static/images/services/pol/primer-ehkspertnogo-zaklyucheniya-po-proektu-osvoeniya-lesov-01.webp"
                             />
                             <ImgWithTitle
                                 title="Пример экспертного заключения по проекту освоения лесов"
-                                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/LvQT/3zNnMwokV/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7%20%D0%A0%D0%91%203.1.jpg?x-email=undefined"
+                                src="/static/images/services/pol/primer-ehkspertnogo-zaklyucheniya-po-proektu-osvoeniya-lesov-02.webp"
                             />
                             <p>
                                 Для проведения экспертизы необходимо представить в уполномоченный орган следующие
@@ -297,11 +261,11 @@ class Index extends Component {
                             </p>
                             <ImgWithTitle
                                 title="Пример приказа об утверждении положительного заключения государственной экспертизы Комитет лесного хозяйства Московской области"
-                                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/LvQT/3zNnMwokV/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7%20%D0%9A%D0%9B%D0%A5%20%D0%9C%D0%9E%202.jpg?x-email=undefined"
+                                src="/static/images/services/pol/primer-prikaza-ob-utverzhdenii-polozhitelnogo-zaklyucheniya-gosudarstvennoj-ehkspertizy-komitet-lesnogo-khozyajstva-moskovskoj-oblasti.webp"
                             />
                             <ImgWithTitle
                                 title="Пример приказа об утверждении положительного заключения государственной экспертизы Министерство лесного хозяйства Республики Башкортостан"
-                                src="https://thumb.cloud.mail.ru/weblink/thumb/xw1/LvQT/3zNnMwokV/%D0%9F%D1%80%D0%B8%D0%BA%D0%B0%D0%B7%20%D0%A0%D0%91%201.1.jpg?x-email=undefined"
+                                src="/static/images/services/pol/primer-prikaza-ob-utverzhdenii-polozhitelnogo-zaklyucheniya-gosudarstvennoj-ehkspertizy-ministerstvo-lesnogo-khozyajstva-respubliki-bashkortostan.webp"
                             />
                             <p>
                                 Заключение экспертизы направляется лесопользователю в течение 5 дней после его
@@ -389,8 +353,8 @@ Index.getInitialProps = async function() {
             name: "Проект освоения лесов (ПОЛ)",
             title: "Проект освоения лесов 🌳 разработка, состав, экспертиза стоимость по России",
             description:
-                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Согласно состава. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит."
-        }
+                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Согласно состава. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит.",
+        },
     };
 };
 

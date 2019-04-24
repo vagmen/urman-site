@@ -1,8 +1,10 @@
-import { mainColorMid, mainColorLight } from '../../constants/colors';
+import { mainColorMid, mainColorLight } from "../../constants/colors";
 
-const ImgWithTitle = ({ title, src, className = '', children, ...props }) => (
+const title2 = " | URMAN - Лесные решения";
+
+const ImgWithTitle = ({ title, src, className = "", children, ...props }) => (
     <div className="post-img-wrapper">
-        <img src={src} alt={title} />
+        <img src={src} alt={title + title2} title={title + title2} />
         <em>{title}</em>
         <style jsx>{`
             .post-img-wrapper {

@@ -11,9 +11,12 @@ class errorPage extends Component {
     };
 
     sendFeedbackInfo = async () => {
-        const res = await fetch(`http://vagmen.ru/urman/new_lead.php?contact=${this.state.contact}`, {
-            method: "get",
-        });
+        const res = await fetch(
+            `http://vagmen.ru/urman/new_lead.php?contact=${this.state.contact}&pathname=${window.location.pathname}`,
+            {
+                method: "get",
+            }
+        );
         // notification.success({
         //     message: `Рады знакомству, ${values.name}!`,
         //     description: 'В ближайшее время свяжемся с Вами.',

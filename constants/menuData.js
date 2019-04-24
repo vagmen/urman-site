@@ -94,7 +94,7 @@ export const menuData = {
 export const servicesData = [
     {
         name: "Проект освоения лесов",
-        img: "/static/forest.jpg",
+        img: "/static/forest.webp",
         id: "proekt-osvoeniya-lesov",
     },
     {

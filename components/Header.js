@@ -13,7 +13,7 @@ class Header extends Component {
         super(props);
         const { headerOpacity } = props;
         this.state = {
-            headerBackgroundOpacity: props.headerOpacity ? 0 : 1
+            headerBackgroundOpacity: props.headerOpacity ? 0 : 1,
         };
     }
 
@@ -36,8 +36,8 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */
-                }
+                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */,
+                },
             };
         })(document, window, "Chatra");
 
@@ -65,7 +65,7 @@ class Header extends Component {
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
+            webvisor: true,
         });
     }
     componentWillUnmount() {
@@ -86,11 +86,11 @@ class Header extends Component {
     setOpacity = () => {
         if (this.props.headerOpacity && window.scrollY < 100) {
             this.setState({
-                headerBackgroundOpacity: window.scrollY / 100
+                headerBackgroundOpacity: window.scrollY / 100,
             });
         } else {
             this.setState({
-                headerBackgroundOpacity: 1
+                headerBackgroundOpacity: 1,
             });
         }
     };

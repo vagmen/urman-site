@@ -37,7 +37,7 @@ class StartProjectForm extends Component {
     //     })(document, window, "AMO");
     // }
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
@@ -46,18 +46,18 @@ class StartProjectForm extends Component {
         });
     };
 
-    sendFeedbackInfo = async values => {
+    sendFeedbackInfo = async (values) => {
         const res = await fetch(
             `http://vagmen.ru/urman/new_lead.php?name=${values.name}&contact=${values.phone}&comment=${
                 values.information
-            }`,
+            }&pathname=${window.location.pathname}`,
             {
-                method: "get"
+                method: "get",
             }
         );
         notification.success({
             message: `Рады знакомству, ${values.name}!`,
-            description: "В ближайшее время свяжемся с Вами."
+            description: "В ближайшее время свяжемся с Вами.",
         });
     };
 
@@ -78,9 +78,9 @@ class StartProjectForm extends Component {
                             rules: [
                                 {
                                     required: true,
-                                    message: "Представьтесь, пожалуйста!"
-                                }
-                            ]
+                                    message: "Представьтесь, пожалуйста!",
+                                },
+                            ],
                         })(
                             <Input
                                 // prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -94,15 +94,15 @@ class StartProjectForm extends Component {
                             rules: [
                                 {
                                     required: true,
-                                    message: "Заполните, пожалуйста, контактные данные!"
+                                    message: "Заполните, пожалуйста, контактные данные!",
                                 },
                                 {
                                     pattern: new RegExp(
                                         "^(((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10})|([-a-z0-9!#$%&'*+/=?^_`{|}~]+(.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\\.)*(aero|arpa|asia|biz|cat|com|coop|edu|gov|info|int|jobs|mil|mobi|museum|name|net|org|pro|tel|travel|[a-z][a-z]))$"
                                     ),
-                                    message: "Исправьте, пожалуйста, контактные данные!"
-                                }
-                            ]
+                                    message: "Исправьте, пожалуйста, контактные данные!",
+                                },
+                            ],
                         })(
                             <Input
                                 // prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
