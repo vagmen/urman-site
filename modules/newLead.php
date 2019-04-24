@@ -199,6 +199,7 @@ class Tenders {
         'responsible_user_id'=>2289874,
         'pipeline_id'=>$AMO_DATA["PIPELINE_ID"],
         'status_id' => 19077169,
+        'tags' => ['urman.su'],
         'custom_fields'=>[
           [
             'id'=>623239,

@@ -13,7 +13,7 @@ class Header extends Component {
         super(props);
         const { headerOpacity } = props;
         this.state = {
-            headerBackgroundOpacity: props.headerOpacity ? 0 : 1,
+            headerBackgroundOpacity: props.headerOpacity ? 0 : 1
         };
     }
 
@@ -36,8 +36,8 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */,
-                },
+                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */
+                }
             };
         })(document, window, "Chatra");
 
@@ -46,6 +46,27 @@ class Header extends Component {
         trackPageView();
         this.setOpacity();
         window.addEventListener("scroll", this.handleScroll);
+
+        (function(m, e, t, r, i, k, a) {
+            m[i] =
+                m[i] ||
+                function() {
+                    (m[i].a = m[i].a || []).push(arguments);
+                };
+            m[i].l = 1 * new Date();
+            (k = e.createElement(t)),
+                (a = e.getElementsByTagName(t)[0]),
+                (k.async = 1),
+                (k.src = r),
+                a.parentNode.insertBefore(k, a);
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(51360247, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
     }
     componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
@@ -65,11 +86,11 @@ class Header extends Component {
     setOpacity = () => {
         if (this.props.headerOpacity && window.scrollY < 100) {
             this.setState({
-                headerBackgroundOpacity: window.scrollY / 100,
+                headerBackgroundOpacity: window.scrollY / 100
             });
         } else {
             this.setState({
-                headerBackgroundOpacity: 1,
+                headerBackgroundOpacity: 1
             });
         }
     };

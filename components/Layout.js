@@ -20,7 +20,7 @@ const FooterWithMap = dynamic(import("./FooterWithMap"));
 const Connect = dynamic(import("./Connect"));
 const StartProject = dynamic(import("./StartProject"));
 
-const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
+const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
 
 const Layout = ({ postData, menuItem, headerOpacity, children }) => (
     <Fragment>
@@ -48,7 +48,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children }) => (
             {/* <meta name="google-site-verification" content="13s4tTPGhfJIZYmOa_q1xPyiypySCl1Z8wJIzwjTV5w" /> */}
         </Head>
         <Header headerOpacity={headerOpacity} />
-        <YMInitializer accounts={[51360247]} />
+        {/* <YMInitializer accounts={[51360247]} /> */}
         <LocaleProvider locale={ruRU}>
             <IconContext.Provider value={{ className: "react-icons" }}>
                 <Fragment>
