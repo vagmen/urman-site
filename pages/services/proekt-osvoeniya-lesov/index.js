@@ -3,11 +3,16 @@ import fetch from "isomorphic-unfetch";
 import { message } from "antd";
 import Link from "next/link";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import Layout from "../../../components/Layout";
-import ImgWithTitle from "../../../components/post/ImgWithTitle";
-import RelatedPost from "../../../components/post/RelatedPost";
+// import ImgWithTitle from "../../../components/post/ImgWithTitle";
+// import RelatedPost from "../../../components/post/RelatedPost";
 import ButtonViolet from "../../../components/ui/ButtonViolet";
 import { connectHandler } from "../../../utils/localStorage";
+
+// const Layout = dynamic(import("../../../components/post/Layout"));
+const ImgWithTitle = dynamic(import("../../../components/post/ImgWithTitle"));
+const RelatedPost = dynamic(import("../../../components/post/RelatedPost"));
 
 const menuItem = "services";
 
