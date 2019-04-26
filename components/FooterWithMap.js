@@ -46,7 +46,7 @@ class FooterWithMap extends Component {
                                     450047, Уфа, ул. Ленина 63
                                 </a>
                                 <br />
-                                <span className="extra">(Напротив министерства лесного хозяйства РБ)</span>
+                                <span className="extra">(Напротив Министерства лесного хозяйства РБ)</span>
                                 <br />
                                 <a href="tel:+79631363486">
                                     <span>

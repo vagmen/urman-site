@@ -21,7 +21,7 @@ const Statistics = () => (
                 <p>Нами разработано</p>
             </div>
             <p className="number">18</p>
-            <p>регламентов</p>
+            <p>лесохозяйственных регламентов</p>
         </div>
         <div className="stat-list__item grid__item">
             <div className="before-number">
@@ -35,7 +35,7 @@ const Statistics = () => (
                 <p>Выполнено работ на</p>
             </div>
             <p className="number">127</p>
-            <p>Га</p>
+            <p>га</p>
         </div>
         <div className="stat-list__item grid__item">
             <div className="before-number">
@@ -56,7 +56,7 @@ const Statistics = () => (
                 <p>Успешно выполнено</p>
             </div>
             <p className="number">7</p>
-            <p>Государственных и муниципальных контрактов</p>
+            <p>государственных и муниципальных контрактов</p>
         </div>
         <style jsx>{`
             .stat-list {
