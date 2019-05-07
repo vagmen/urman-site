@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { notification } from "antd";
-import { mainColorMid, mainColorDark, mainColorLight, grey } from "../constants/colors";
+import { mainColorMid, mainColorDark, mainColorLight, grey, colorViolet } from "../constants/colors";
 import Button from "./ui/Button";
 import ButtonViolet from "./ui/ButtonViolet";
 
@@ -133,7 +133,7 @@ class Connect extends Component {
                         margin-right: 16px;
                     }
                     a:hover {
-                        color: #5b2a4f;
+                        color: ${colorViolet};
                     }
                     @media (min-width: 960px) {
                         .connect-cover {

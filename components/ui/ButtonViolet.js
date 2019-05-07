@@ -1,7 +1,7 @@
-import { mainColorMid, mainColorLight } from "../../constants/colors";
+import { mainColorMid, mainColorLight, colorViolet, colorVioletDark } from "../../constants/colors";
 
-const ButtonViolet = ({ name, className = "", children, ...props }) => (
-    <button className={`button ${className}`} {...props}>
+const ButtonViolet = ({ name, className = "", size, children, ...props }) => (
+    <button className={`button ${size ? `size-${size}` : ""} ${className}`} {...props}>
         {children}
         <style jsx>{`
             .button {
@@ -12,11 +12,14 @@ const ButtonViolet = ({ name, className = "", children, ...props }) => (
                 text-transform: uppercase;
                 font-size: 14px;
                 color: #fff;
-                background: #5b2a4f;
+                background: ${colorViolet};
                 margin: 16px 0 32px;
             }
-            .primary-button:hover {
-                background: ${mainColorLight};
+            .button:hover {
+                background: ${colorVioletDark};
+            }
+            .size-l {
+                padding: 16px;
             }
         `}</style>
     </button>

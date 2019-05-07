@@ -4,3 +4,6 @@ export const mainColorMid = "#667636"; //102, 118, 54
 export const mainColorDark = "#3a431b"; //58, 76, 27
 export const grey = "#5c5c5c"; //92, 92, 92
 export const greyDark = "#393b3d"; //92, 92, 92
+export const colorViolet = "#5b2a4f";
+export const colorVioletDark = "#3B0E30";
+export const colorVioletLight = "#AD7AA0";

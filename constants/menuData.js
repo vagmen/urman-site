@@ -107,6 +107,11 @@ export const servicesData = [
         img: "/static/arenda.webp",
         id: "arenda-lesnogo-uchastka",
     },
+    {
+        name: "Лесоустройство и таксация",
+        img: "/static/images/services/lesoustrojstvo-i-taksaciya.webp",
+        id: "lesoustrojstvo-i-taksaciya",
+    },
     // {
     //     name: 'Земельный кадастровый учет',
     //     img: 'https://pp.userapi.com/c849028/v849028114/2ecdb/xhoIZASBdhg.jpg',

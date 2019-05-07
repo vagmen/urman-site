@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/Layout.js";
-import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey } from "../constants/colors";
+import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey, colorViolet } from "../constants/colors";
 import Button from "../components/ui/Button.js";
 import ButtonViolet from "../components/ui/ButtonViolet";
 import ButtonBorder from "../components/ui/ButtonBorder";
@@ -211,7 +211,7 @@ export default () => (
             }
             .service h3 {
                 padding: 12px;
-                background: linear-gradient(45deg, #5b2a4f, rgba(80, 80, 80, 0));
+                background: linear-gradient(45deg, ${colorViolet}, rgba(80, 80, 80, 0));
                 min-height: 100px;
                 width: 100%;
             }

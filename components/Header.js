@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icon } from "antd";
 import { animateScroll as scroll } from "react-scroll";
 import { initGA, trackPageView } from "../modules/react-ga.js";
-import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from "../constants/colors";
+import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid, colorViolet } from "../constants/colors";
 import { postWidth, pageWidth } from "../constants/settings";
 
 let ticking = false;
@@ -36,7 +36,7 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: "#5B2A4F" /* цвет фона кнопки чата */,
+                    buttonBg: colorViolet /* цвет фона кнопки чата */,
                 },
             };
         })(document, window, "Chatra");
@@ -203,6 +203,7 @@ class Header extends Component {
                         display: flex;
                         justify-content: center;
                         position: relative;
+                        flex-wrap: wrap;
                     }
                     .template-background:before {
                         content: "";
