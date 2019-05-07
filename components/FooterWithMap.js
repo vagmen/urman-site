@@ -7,7 +7,7 @@ class FooterWithMap extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isUfaSelected: true,
+            isUfaSelected: true
         };
     }
 
@@ -15,15 +15,16 @@ class FooterWithMap extends Component {
         this.setState({ isUfaSelected: !(localStorage.getItem("city") === "moscow") });
     }
 
-    changeSelectedCity = (isUfa) => {
+    changeSelectedCity = isUfa => {
         localStorage.setItem("city", isUfa ? "ufa" : "moscow");
         this.setState({ isUfaSelected: isUfa });
     };
 
     render() {
         const { isUfaSelected } = this.state;
+        const { isContacts } = this.props;
         return (
-            <footer>
+            <footer className={isContacts ? "is-contacts" : ""}>
                 <div className="footer-column text">
                     <div className="footer-header">
                         <h2 className={isUfaSelected ? "selected" : ""} onClick={() => this.changeSelectedCity(true)}>
@@ -120,21 +121,32 @@ class FooterWithMap extends Component {
                 </div>
                 <div className="footer-column">
                     <div className="map map-ufa">
-                        <script
+                        <img src="/static/images/map/ufa.png" alt="" />
+                        {/* <script
                             type="text/javascript"
                             charSet="utf-8"
                             async
                             src={`https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A798c47d6ec9476b31bd77261de226b79cba73cc2c67641b1dbdb05e4c13329dc&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=false`}
-                        />
+                        /> */}
                     </div>
                     <div className="map map-msk">
-                        <script
+                        <img src="/static/images/map/msk.png" alt="" />
+                        {/* <script
                             type="text/javascript"
                             charSet="utf-8"
                             async
                             src={`https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af39f5c57e0aeb31b431d2c3e1f91023f80682984615447bc9fe7e3eaf3b0d13b&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=false`}
-                        />
+                        /> */}
                     </div>
+                    <a
+                        className="link"
+                        href={
+                            isUfaSelected
+                                ? `https://yandex.ru/maps/172/ufa/?ll=55.953013%2C54.736974&mode=routes&pt=72.878889E%2C54.484167N%2Cpmwtm1&rtext=~54.736873%2C55.952259&rtt=auto&z=18`
+                                : `https://yandex.ru/maps/?ll=37.402722%2C55.867834&mode=routes&pt=72.878889E%2C54.484167N%2Cpmwtm1&rtext=~55.868739%2C37.404782&rtt=auto&z=17`
+                        }
+                        target="_blank"
+                    />
                 </div>
                 <style jsx>{`
                     p span {
@@ -150,7 +162,7 @@ class FooterWithMap extends Component {
                         background: ${greyDark};
                         color: #fff;
                         grid-template-columns: 1fr;
-                        grid-template-rows: 1fr calc(100vh - 60px);
+                        grid-template-rows: 1fr calc(50vh);
                     }
                     .footer-column {
                         position: relative;
@@ -165,6 +177,13 @@ class FooterWithMap extends Component {
                     .footer-column span.extra {
                         font-size: 16px;
                         opacity: 0.7;
+                    }
+                    .footer-column .link {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
                     }
                     .footer-header {
                         display: flex;
@@ -184,12 +203,20 @@ class FooterWithMap extends Component {
                         font-size: 32px;
                         opacity: 1;
                     }
+
                     .map {
                         position: absolute;
                         top: 0;
                         height: 100%;
                         width: 100%;
                         transition: left 0.4s ease-in-out;
+                        overflow: hidden;
+                    }
+                    .map img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        transform: scale(2);
                     }
                     .map-ufa {
                         left: ${isUfaSelected ? 0 : "-100%"};
@@ -200,10 +227,16 @@ class FooterWithMap extends Component {
                     @media (min-width: 960px) {
                         footer {
                             grid-template-columns: 1fr 1fr;
+                            grid-template-rows: auto;
+                        }
+                        .is-contacts {
                             grid-template-rows: calc(100vh - 80px);
                         }
                         .footer-column.text {
                             padding: 32px;
+                        }
+                        .map img {
+                            transform: scale(1);
                         }
                     }
                 `}</style>

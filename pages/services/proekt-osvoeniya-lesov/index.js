@@ -5,12 +5,10 @@ import Link from "next/link";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Layout from "../../../components/Layout";
-// import ImgWithTitle from "../../../components/post/ImgWithTitle";
-// import RelatedPost from "../../../components/post/RelatedPost";
 import ButtonViolet from "../../../components/ui/ButtonViolet";
 import { connectHandler } from "../../../utils/localStorage";
+import PostHeader from "../../../components/post/PostHeader";
 
-// const Layout = dynamic(import("../../../components/post/Layout"));
 const ImgWithTitle = dynamic(import("../../../components/post/ImgWithTitle"));
 const RelatedPost = dynamic(import("../../../components/post/RelatedPost"));
 
@@ -18,18 +16,18 @@ const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: "",
+        email: ""
     };
     sendServiceDocTemplate = async () => {
         const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
             method: "post",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: "pol",
-            }),
+                ServiceCode: "pol"
+            })
         });
         const data = await res.json();
         if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
@@ -39,17 +37,18 @@ class Index extends Component {
         const { email } = this.state;
         const { postData } = this.props;
         return (
-            <Layout postData={postData}>
+            <Layout postData={postData} headerOpacity={true}>
                 <Head>
                     <link ref="canonical" href="http://urman.su/services/proekt-osvoeniya-lesov" />
                 </Head>
                 <div className="template-background">
+                    <PostHeader h1={postData.name} img="/static/forest.webp" />
                     <div className="page-content">
                         <div className="post">
-                            <header>
+                            {/* <header>
                                 <h1>{postData.name}</h1>
                                 <img src="/static/forest.webp" className="post-img" alt={postData.name} />
-                            </header>
+                            </header> */}
                             <h3>Что такое проект освоения лесов? </h3>
                             <p>
                                 Проект освоения лесов (или, сокращённо, ПОЛ) — это один из основных документов,
@@ -358,8 +357,8 @@ Index.getInitialProps = async function() {
             name: "Проект освоения лесов",
             title: "Проект освоения лесов 🌳 Разработка, состав, экспертиза, стоимость по России",
             description:
-                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит.",
-        },
+                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит."
+        }
     };
 };
 

@@ -8,7 +8,7 @@ import { mainColorMid, greyDark } from "../../constants/colors";
 const Index = () => (
     <Layout menuItem="contacts">
         <div className="wrapper">
-            <FooterWithMap />
+            <FooterWithMap isContacts={true} />
         </div>
         <style jsx>{`
             .wrapper {

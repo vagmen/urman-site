@@ -1,20 +1,13 @@
 import { Component } from "react";
-import fetch from "isomorphic-unfetch";
-import { message } from "antd";
 import Link from "next/link";
-import Head from "next/head";
 import Layout from "../../../components/Layout";
-import ImgWithTitle from "../../../components/post/ImgWithTitle";
-import RelatedPost from "../../../components/post/RelatedPost";
 import PostHeader from "../../../components/post/PostHeader";
-import ButtonViolet from "../../../components/ui/ButtonViolet";
-import { connectHandler } from "../../../utils/localStorage";
 
 const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: "",
+        email: ""
     };
 
     render() {
@@ -224,8 +217,8 @@ Index.getInitialProps = async function() {
             name: "Лесоустройство и таксация",
             title: "Лесоустройство и таксация 🌳 Оказание услуг по лесоустройству, отвод и таксация лесосек",
             description:
-                "Что такое таксация? Кто может проводить лесоустройство? Как проводится таксация лесов? Отвод и таксация лесосек",
-        },
+                "Что такое таксация? Кто может проводить лесоустройство? Как проводится таксация лесов? Отвод и таксация лесосек"
+        }
     };
 };
 

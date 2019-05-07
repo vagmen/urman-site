@@ -8,6 +8,7 @@ import ImgWithTitle from "../../../components/post/ImgWithTitle";
 import RelatedPost from "../../../components/post/RelatedPost";
 import ButtonViolet from "../../../components/ui/ButtonViolet";
 import { connectHandler } from "../../../utils/localStorage";
+import PostHeader from "../../../components/post/PostHeader";
 
 const menuItem = "services";
 
@@ -34,14 +35,15 @@ class Index extends Component {
         const { email } = this.state;
         const { postData } = this.props;
         return (
-            <Layout postData={postData}>
+            <Layout postData={postData} headerOpacity={true}>
                 <div className="template-background">
+                    <PostHeader h1={postData.name} img="/static/arenda.webp" />
                     <div className="page-content">
                         <div className="post">
-                            <header>
+                            {/* <header>
                                 <h1>{postData.name}</h1>
                                 <img src="/static/arenda.webp" className="post-img" alt={postData.name} />
-                            </header>
+                            </header> */}
                             <p>
                                 Право аренды лесного участка, находящегося в государственной или муниципальной
                                 собственности, — это один из основных видов прав (помимо права постоянного (бессрочного)
