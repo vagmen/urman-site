@@ -113,7 +113,7 @@ class Index extends Component {
                                 При заказе разработки проекта освоения лесов у нас Вам не придётся самостоятельно
                                 разбираться в деталях проектирования и участвовать в бюрократических процедурах. Мы
                                 максимально упростим весь процесс. Посмотрите{" "}
-                                <Link href="/clients/feedback">
+                                <Link href="/clients/feedback" passHref>
                                     <a className="post-a" href="">
                                         отзывы
                                     </a>
@@ -316,7 +316,7 @@ class Index extends Component {
                             />
                             <p>
                                 Если у Вас остались вопросы или вы решили заказать разработку проекта освоения лесов —{" "}
-                                <Link href="/contacts">
+                                <Link href="/contacts" passHref>
                                     <a className="post-a" href="">
                                         свяжитесь
                                     </a>

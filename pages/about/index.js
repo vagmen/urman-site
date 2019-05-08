@@ -32,7 +32,7 @@ const Index = () => (
                         Мы не «распыляемся» на другие ниши. С каждым днём наращиваем экспертность в своём направлении.
                         Это позволяет сплочённой команде из 15 человек решать поставленные задачи по всей России —
                         начиная от разработки{" "}
-                        <Link href="/services/proekt-osvoeniya-lesov">
+                        <Link href="/services/proekt-osvoeniya-lesov" passHref>
                             <a className="post-a" href="">
                                 проектов освоения лесов
                             </a>
@@ -41,7 +41,7 @@ const Index = () => (
                     </p>
                     <p>
                         Сейчас у нас функционирует{" "}
-                        <Link href="/contacts">
+                        <Link href="/contacts" passHref>
                             <a className="post-a" href="">
                                 2 офиса (в Москве и в Уфе)
                             </a>

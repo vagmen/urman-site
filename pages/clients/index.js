@@ -26,7 +26,7 @@ const Index = () => (
                             />
                         </div>
                         <div className="button-section">
-                            <Link href="/clients/video">
+                            <Link href="/clients/video" passHref>
                                 <a href="">
                                     <Button name="Больше видео" />
                                 </a>
@@ -38,7 +38,7 @@ const Index = () => (
                             ))}
                         </div>
                         <div className="button-section">
-                            <Link href="/clients/feedback">
+                            <Link href="/clients/feedback" passHref>
                                 <a href="">
                                     <Button name="Больше отзывов" />
                                 </a>

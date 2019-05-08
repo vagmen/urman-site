@@ -32,7 +32,7 @@ const Index = () => (
                         <li>выражает согласие с условиями обработки персональных данных.</li>
                     </ul>
                     <div className="centered">
-                        <Link href="/">
+                        <Link href="/" passHref>
                             <Button name="На главную" />
                         </Link>
                     </div>

@@ -138,7 +138,7 @@ class StartProjectForm extends Component {
                     </FormItem>
                     <p className="consent">
                         Нажимая на кнопку ОТПРАВИТЬ, я даю{" "}
-                        <Link href="/agreement">
+                        <Link href="/agreement" passHref>
                             <a className="post-a" href="">
                                 согласие
                             </a>

@@ -62,7 +62,7 @@ class Index extends Component {
                             </p>
                             <p>
                                 В штате{" "}
-                                <Link href="/about">
+                                <Link href="/about" passHref>
                                     <a className="post-a" href="">
                                         команды URMAN
                                     </a>
@@ -176,7 +176,7 @@ class Index extends Component {
                             </p>
                             <p>
                                 Остались вопросы?{" "}
-                                <Link href="/contacts">
+                                <Link href="/contacts" passHref>
                                     <a className="post-a" href="">
                                         Свяжитесь
                                     </a>

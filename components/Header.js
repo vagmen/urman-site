@@ -98,7 +98,7 @@ class Header extends Component {
     render() {
         return (
             <div className={`header ${true ? `` : `transparent`}`}>
-                <Link href="/">
+                <Link href="/" passHref>
                     <div className="header-container">
                         <img src="../static/images/logo-w.png" alt="Логотип" className="logogo" />
                         <div className="header-name">

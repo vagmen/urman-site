@@ -122,7 +122,7 @@ class Index extends Component {
                                 <li>
                                     Объектом аренды могут быть только лесные участки, прошедшие государственный
                                     кадастровый учёт. Об этой процедуре читайте в нашей статье{" "}
-                                    <Link href="/services/pdlu">
+                                    <Link href="/services/pdlu" passHref>
                                         <a className="post-a" href="">
                                             «Проектная документация лесного участка»
                                         </a>
@@ -187,7 +187,7 @@ class Index extends Component {
                                 <li>
                                     Подать заявление о проведении аукциона на право заключения договора аренды лесного
                                     участка, приложив{" "}
-                                    <Link href="/services/pdlu">
+                                    <Link href="/services/pdlu" passHref>
                                         <a className="post-a" href="">
                                             проектную документацию лесного участка
                                         </a>
@@ -275,7 +275,7 @@ class Index extends Component {
                             <p>
                                 После заключения и государственной регистрации договора аренды лесного участка
                                 необходимо начать разработку{" "}
-                                <Link href="/services/proekt-osvoeniya-lesov">
+                                <Link href="/services/proekt-osvoeniya-lesov" passHref>
                                     <a className="post-a" href="">
                                         проекта освоения лесов
                                     </a>
@@ -349,7 +349,7 @@ class Index extends Component {
                             </p>
                             <p>
                                 Остались вопросы?{" "}
-                                <Link href="/contacts">
+                                <Link href="/contacts" passHref>
                                     <a className="post-a" href="">
                                         Свяжитесь
                                     </a>

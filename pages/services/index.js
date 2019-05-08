@@ -13,7 +13,7 @@ const Index = () => (
                     <div className="grid">
                         {servicesData.map(item => (
                             <section className="grid__item clickable-block service" key={item.id}>
-                                <Link href={`/services/${item.id}`}>
+                                <Link href={`/services/${item.id}`} passHref>
                                     <a>
                                         <img src={item.img} alt={item.name} />
                                         <article>

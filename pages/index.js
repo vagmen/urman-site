@@ -24,7 +24,7 @@ export default () => (
                     </h3>
                     <span className="for-desktop main-section__button">
                         <ButtonBorder>
-                            <Link href="/about">
+                            <Link href="/about" passHref>
                                 <a href="">Подробнее</a>
                             </Link>
                         </ButtonBorder>
@@ -36,26 +36,26 @@ export default () => (
                     <h2>У нас заказывают</h2>
                 </div>
                 <div className="service service-pol">
-                    <Link href="/services/proekt-osvoeniya-lesov">
+                    <Link href="/services/proekt-osvoeniya-lesov" passHref>
                         <a href=""> </a>
                     </Link>
                     <h3>Проект освоения лесов</h3>
                 </div>
                 <div className="service service-arenda">
-                    <Link href="/services/arenda-lesnogo-uchastka">
+                    <Link href="/services/arenda-lesnogo-uchastka" passHref>
                         <a href=""> </a>
                     </Link>
                     <h3>Аренда лесного участка</h3>
                 </div>
                 <div className="service service-pdlu">
-                    <Link href="/services/pdlu">
+                    <Link href="/services/pdlu" passHref>
                         <a href=""> </a>
                     </Link>
                     <h3>Проектная документация лесного участка</h3>
                 </div>
                 <span className="section__services-button">
                     <ButtonBorder>
-                        <Link href="/services">
+                        <Link href="/services" passHref>
                             <a href="">Все услуги</a>
                         </Link>
                     </ButtonBorder>

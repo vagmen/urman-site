@@ -7,14 +7,14 @@ import Button from "../components/ui/Button";
 
 class errorPage extends Component {
     state = {
-        contact: "",
+        contact: ""
     };
 
     sendFeedbackInfo = async () => {
         const res = await fetch(
             `http://vagmen.ru/urman/new_lead.php?contact=${this.state.contact}&pathname=${window.location.pathname}`,
             {
-                method: "get",
+                method: "get"
             }
         );
         // notification.success({
@@ -38,19 +38,19 @@ class errorPage extends Component {
                 <div className="inner">
                     <p className="p404">404</p>
                     <h1>Такой страницы нет</h1>
-                    <Link href="/">
+                    <Link href="/" passHref>
                         <button className="centered">На главную</button>
                     </Link>
                     <h4>Возможно, вы искали одну из этих страниц:</h4>
                     <p>
-                        <Link href="/services/proekt-osvoeniya-lesov">
+                        <Link href="/services/proekt-osvoeniya-lesov" passHref>
                             <a className="post-a" href="">
                                 Проект освоения лесов
                             </a>
                         </Link>
                     </p>
                     <p>
-                        <Link href="/journal/out-of-date">
+                        <Link href="/journal/out-of-date" passHref>
                             <a className="post-a" href="">
                                 У вашего Проекта освоения лесов
                                 <br />
@@ -87,7 +87,7 @@ class errorPage extends Component {
                         type="text"
                         placeholder="Mail или телефон"
                         value={contact}
-                        onChange={(e) => this.setState({ contact: e.target.value })}
+                        onChange={e => this.setState({ contact: e.target.value })}
                     />
                     <input className="button" type="button" value="Связаться" onClick={() => this.sendFeedbackInfo()} />
                 </div>

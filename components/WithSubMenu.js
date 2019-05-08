@@ -7,7 +7,7 @@ const WithSubMenu = ({ subMenuItem, menuItem, children }) => (
     <div className="with-sub-menu">
         <ul className="sub-menu">
             {subMenuItems(menuItem).children.map(item => (
-                <Link href={`/${menuItem}/${item.src}`} key={item.src}>
+                <Link href={`/${menuItem}/${item.src}`} key={item.src} passHref>
                     <a className={subMenuItem == item.src ? "active" : ""}>{item.title}</a>
                 </Link>
             ))}

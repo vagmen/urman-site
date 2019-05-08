@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import { mainColorMid, mainColorLight, mainColorDark } from '../../constants/colors';
+import Link from "next/link";
+import { mainColorMid, mainColorLight, mainColorDark } from "../../constants/colors";
 
-const RelatedPost = ({ title, bgr, href, className = '', children, ...props }) => (
+const RelatedPost = ({ title, bgr, href, className = "", children, ...props }) => (
     <div className="related-post">
         <div className="white-bgr">
-            <Link href={href}>
+            <Link href={href} passHref>
                 <a href="">
                     <h4>{title}</h4>
                 </a>

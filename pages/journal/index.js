@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
-import Link from 'next/link';
-import moment from 'moment';
-import Layout from '../../components/Layout';
-import { journalData } from '../../constants/journalData';
+import { Fragment } from "react";
+import Link from "next/link";
+import moment from "moment";
+import Layout from "../../components/Layout";
+import { journalData } from "../../constants/journalData";
 
 const Index = ({ journalItems }) => (
     <Layout menuItem="journal">
@@ -12,16 +12,16 @@ const Index = ({ journalItems }) => (
                     <h1>Журнал – URMAN</h1>
                     <p>Про лес и не только</p>
                     <div className="grid">
-                        {journalItems.map((item) => (
+                        {journalItems.map(item => (
                             <section className="grid__item clickable-block" key={item.id}>
-                                <Link as={`/journal/${item.id}`} href={`/journal/post?id=${item.id}`}>
+                                <Link as={`/journal/${item.id}`} href={`/journal/post?id=${item.id}`} passHref>
                                     <a href="">
                                         <Fragment>
                                             <div className="img-wrapper">
                                                 <img src={item.img} alt={item.title} />
                                             </div>
                                             <article>
-                                                <time>{moment().format('D MMMM YYYY')}</time>
+                                                <time>{moment().format("D MMMM YYYY")}</time>
                                                 <header>
                                                     <h4>{item.title}</h4>
                                                 </header>
@@ -75,7 +75,7 @@ Index.getInitialProps = async function() {
     // console.log('data', data);
 
     return {
-        journalItems: journalData,
+        journalItems: journalData
     };
 };
 
