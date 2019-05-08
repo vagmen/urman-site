@@ -10,14 +10,14 @@ class PostHeader extends Component {
     state = {
         formHidden: true,
         name: "",
-        phone: "",
+        phone: ""
     };
 
     onChange = ({ name, value }) => {
         this.setState({ [name]: value });
     };
 
-    formHandler = (e) => {
+    formHandler = e => {
         e.preventDefault();
         const { formHidden, name, phone } = this.state;
         if (formHidden) {
@@ -25,7 +25,7 @@ class PostHeader extends Component {
         } else if (name === "" || phone === "") {
             notification.warning({
                 message: `Внимание`,
-                description: "Заполните, пожалуйста, поля",
+                description: "Заполните, пожалуйста, поля"
             });
         } else {
             this.sendFeedbackInfo();
@@ -40,12 +40,12 @@ class PostHeader extends Component {
                 window.location.pathname
             }`,
             {
-                method: "get",
+                method: "get"
             }
         );
         notification.success({
             message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам.",
+            description: "В ближайшее время ответим Вам."
         });
     };
 
@@ -60,7 +60,7 @@ class PostHeader extends Component {
                     <form className="for-desktop post-header__form">
                         <div className={`inner ${formHidden ? "form-hidden" : "form-visible"}`}>
                             <p>Хотите получить консультацию?</p>
-                            <p>Оставьте заявку и мы с Вами свяжемся</p>
+                            <p>Оставьте заявку, и мы с Вами свяжемся</p>
                             <Input
                                 name="name"
                                 className="full-width"
@@ -76,7 +76,7 @@ class PostHeader extends Component {
                                 onChange={this.onChange}
                                 type="tel"
                             />
-                            <ButtonViolet size="l" onClick={(e) => this.formHandler(e)}>
+                            <ButtonViolet size="l" onClick={e => this.formHandler(e)}>
                                 {formHidden ? "Бесплатная консультация" : "Отправить"}
                             </ButtonViolet>
                         </div>
