@@ -80,7 +80,7 @@ class Index extends Component {
                                 title="Мы работаем по всей России"
                                 subTitle="Свяжитесь с нами, если на вашем лесном участке необходимо
                                 провести лесоустроительные работы."
-                                backgroundImage="/static/images/1.webp"
+                                backgroundImage="/static/images/4.webp"
                             />
                             <h3>Что такое таксация?</h3>
                             <p>
