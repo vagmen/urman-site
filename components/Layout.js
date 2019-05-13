@@ -9,7 +9,6 @@ import { YMInitializer } from "react-yandex-metrika";
 // import Menu from "./Menu";
 // import Footer from "./Footer";
 // import Connect from "./Connect";
-// import StartProject from "./StartProject";
 import { mainMenu } from "../constants/menuData";
 import { mainColorMid } from "../constants/colors";
 
@@ -18,9 +17,8 @@ const Menu = dynamic(import("./Menu"));
 const Footer = dynamic(import("./Footer"));
 const FooterWithMap = dynamic(import("./FooterWithMap"));
 const Connect = dynamic(import("./Connect"));
-const StartProject = dynamic(import("./StartProject"));
 
-const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
+const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
 const Layout = ({ postData, menuItem, headerOpacity, children }) => (
     <Fragment>
@@ -54,12 +52,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children }) => (
                 <Fragment>
                     <Menu menuItem={menuItem} headerOpacity={headerOpacity} />
                     {children}
-                    {menuItem !== "contacts" && (
-                        <Fragment>
-                            <StartProject />
-                            <FooterWithMap />
-                        </Fragment>
-                    )}
+                    {menuItem !== "contacts" && <FooterWithMap />}
                     <Connect />
                 </Fragment>
             </IconContext.Provider>

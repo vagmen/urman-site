@@ -8,6 +8,7 @@ import Layout from "../../../components/Layout";
 import ButtonViolet from "../../../components/ui/ButtonViolet";
 import { connectHandler } from "../../../utils/localStorage";
 import PostHeader from "../../../components/post/PostHeader";
+import FeedbackForm from "../../../components/FeedbackForm";
 
 const ImgWithTitle = dynamic(import("../../../components/post/ImgWithTitle"));
 const RelatedPost = dynamic(import("../../../components/post/RelatedPost"));
@@ -16,18 +17,18 @@ const menuItem = "services";
 
 class Index extends Component {
     state = {
-        email: ""
+        email: "",
     };
     sendServiceDocTemplate = async () => {
         const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
             method: "post",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: "pol"
-            })
+                ServiceCode: "pol",
+            }),
         });
         const data = await res.json();
         if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
@@ -314,17 +315,14 @@ class Index extends Component {
                                 bgr="../../../static/arenda.webp"
                                 href="/services/arenda-lesnogo-uchastka"
                             />
-                            <p>
-                                Если у Вас остались вопросы или вы решили заказать разработку проекта освоения лесов —{" "}
-                                <Link href="/contacts" passHref>
-                                    <a className="post-a" href="">
-                                        свяжитесь
-                                    </a>
-                                </Link>{" "}
-                                с нашим специалистом, и мы Вам поможем!
-                            </p>
                         </div>
                     </div>
+                    <FeedbackForm
+                        title="Остались вопросы?"
+                        subTitle="Если вы решили заказать разработку проекта освоения лесов — свяжитесь с нашим специалистом, и мы Вам поможем."
+                        backgroundImage="/static/images/4.webp"
+                        withComment={true}
+                    />
                 </div>
                 <style jsx>{`
                     header img {
@@ -357,8 +355,8 @@ Index.getInitialProps = async function() {
             name: "Проект освоения лесов",
             title: "Проект освоения лесов 🌳 Разработка, состав, экспертиза, стоимость по России",
             description:
-                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит."
-        }
+                "Разработаем проект освоения лесов на арендованный вами участок. Гарантия прохождения экспертизы. В соответствии с требованиями законодательства к порядку разработки и срокам действия. Если хотите узнать стоимость - звоните! Цена Вас приятно удивит.",
+        },
     };
 };
 

@@ -1,86 +1,20 @@
 import React, { Component } from "react";
-import Link from "next/link";
-import { notification } from "antd";
-import Input from "../../components/ui/Input";
-import ButtonBorder from "../../components/ui/ButtonBorder";
-import ButtonViolet from "../../components/ui/ButtonViolet";
-import { mainColorMid, mainColorLight, mainColorDark } from "../../constants/colors";
+import FeedbackForm from "../FeedbackForm";
 
 class PostHeader extends Component {
-    state = {
-        formHidden: true,
-        name: "",
-        phone: ""
-    };
-
-    onChange = ({ name, value }) => {
-        this.setState({ [name]: value });
-    };
-
-    formHandler = e => {
-        e.preventDefault();
-        const { formHidden, name, phone } = this.state;
-        if (formHidden) {
-            this.setState({ formHidden: false });
-        } else if (name === "" || phone === "") {
-            notification.warning({
-                message: `Внимание`,
-                description: "Заполните, пожалуйста, поля"
-            });
-        } else {
-            this.sendFeedbackInfo();
-            this.setState({ name: "", phone: "" });
-        }
-    };
-
-    sendFeedbackInfo = async () => {
-        console.log("window.location.pathname", window.location.pathname);
-        const res = await fetch(
-            `http://vagmen.ru/urman/new_lead.php?contact=${this.state.phone}&name=${this.state.name}&pathname=${
-                window.location.pathname
-            }`,
-            {
-                method: "get"
-            }
-        );
-        notification.success({
-            message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам."
-        });
-    };
-
     render() {
         const { h1, img, className = "", children, ...props } = this.props;
-        const { formHidden, name, phone } = this.state;
         return (
             <header>
                 <div className="post-header__bg" />
                 <div className="post-header__inner">
                     <h1>{h1}</h1>
-                    <form className="for-desktop post-header__form">
-                        <div className={`inner ${formHidden ? "form-hidden" : "form-visible"}`}>
-                            <p>Хотите получить консультацию?</p>
-                            <p>Оставьте заявку, и мы с Вами свяжемся</p>
-                            <Input
-                                name="name"
-                                className="full-width"
-                                value={name}
-                                placeholder="Имя"
-                                onChange={this.onChange}
-                            />
-                            <Input
-                                name="phone"
-                                className="full-width"
-                                value={phone}
-                                placeholder="Телефон"
-                                onChange={this.onChange}
-                                type="tel"
-                            />
-                            <ButtonViolet size="l" onClick={e => this.formHandler(e)}>
-                                {formHidden ? "Бесплатная консультация" : "Отправить"}
-                            </ButtonViolet>
-                        </div>
-                    </form>
+                    <FeedbackForm
+                        isHidable={true}
+                        title="Хотите получить консультацию?"
+                        subTitle="Оставьте заявку, и мы с Вами свяжемся"
+                        hideTitleInMobile={true}
+                    />
                 </div>
                 <style jsx>{`
                     @keyframes scale-img {
@@ -92,7 +26,7 @@ class PostHeader extends Component {
                         }
                     }
                     header {
-                        height: 100vh;
+                        min-height: 100vh;
                         width: 100%;
                         display: flex;
                         flex-wrap: wrap;
@@ -119,21 +53,7 @@ class PostHeader extends Component {
                     h1 {
                         font-size: 40px;
                         color: #fff;
-                        margin: 100px 0;
-                    }
-                    .post-header__form {
-                        color: rgba(255, 255, 255, 0.7);
-                        overflow: hidden;
-                        max-width: 400px;
-                    }
-                    .inner {
-                        transition: all 1s;
-                    }
-                    .form-hidden {
-                        transform: translateY(calc(-1 * (100% - 90px)));
-                    }
-                    .form-visible {
-                        transform: translateY(0);
+                        margin: 75px 0 50px;
                     }
                     @media (min-width: 640px) {
                         h1 {
@@ -182,7 +102,7 @@ class PostHeader extends Component {
                         h1 {
                             font-size: 56px;
                             line-height: 56px;
-                            margin: 150px 0 100px;
+                            margin: 125px 0 75px;
                         }
                         h2 {
                             font-size: 42px;
@@ -197,7 +117,7 @@ class PostHeader extends Component {
                         h1 {
                             font-size: 60px;
                             line-height: 60px;
-                            margin: 200px 0 150px;
+                            margin: 150px 0 125px;
                         }
                         h2 {
                             font-size: 45px;
@@ -212,7 +132,7 @@ class PostHeader extends Component {
                         h1 {
                             font-size: 64px;
                             line-height: 64px;
-                            margin: 250px 0 200px;
+                            margin: 200px 0 175px;
                         }
                         h2 {
                             font-size: 48px;

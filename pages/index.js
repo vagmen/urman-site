@@ -4,6 +4,7 @@ import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey, colorViole
 import Button from "../components/ui/Button.js";
 import ButtonViolet from "../components/ui/ButtonViolet";
 import ButtonBorder from "../components/ui/ButtonBorder";
+import FeedbackForm from "../components/FeedbackForm";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -61,6 +62,14 @@ export default () => (
                     </ButtonBorder>
                 </span>
             </section>
+            <section className="section section__feelback">
+                <FeedbackForm
+                    title="Напишите свой вопрос"
+                    subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
+                    backgroundImage="/static/images/4.jpg"
+                    withComment={true}
+                />
+            </section>
         </div>
 
         <style jsx>{`
@@ -104,11 +113,12 @@ export default () => (
             }
             .main-container {
                 display: grid;
-                grid-auto-rows: 100vh 1fr;
+                grid-auto-rows: 100vh 1fr auto;
                 grid-auto-columns: 1fr;
                 grid-template-areas:
                     "m"
-                    "s";
+                    "s"
+                    "f";
                  {
                     /* auto minmax(500px, auto) auto; */
                 }
@@ -234,6 +244,10 @@ export default () => (
                 grid-area: ssb;
                 text-align: center;
                 padding: 16px;
+            }
+            .section__feelback {
+                grid-area: f;
+                margin-bottom: -6px;
             }
             @media (min-width: 640px) {
                 h1 {
