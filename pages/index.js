@@ -62,7 +62,7 @@ export default () => (
                     </ButtonBorder>
                 </span>
             </section>
-            <section className="section section__feelback">
+            <section className="section section__feedback">
                 <FeedbackForm
                     title="Напишите свой вопрос"
                     subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
@@ -245,9 +245,9 @@ export default () => (
                 text-align: center;
                 padding: 16px;
             }
-            .section__feelback {
+            .section__feedback {
                 grid-area: f;
-                margin-bottom: -6px;
+                z-index: 1;
             }
             @media (min-width: 640px) {
                 h1 {
