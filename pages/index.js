@@ -5,6 +5,7 @@ import Button from "../components/ui/Button.js";
 import ButtonViolet from "../components/ui/ButtonViolet";
 import ButtonBorder from "../components/ui/ButtonBorder";
 import FeedbackForm from "../components/FeedbackForm";
+import Services from "../components/Services";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -33,6 +34,7 @@ export default () => (
                 </div>
             </section>
             <section className="section section__services">
+                {/* <Services /> */}
                 <div className="section__services-title">
                     <h2>У нас заказывают</h2>
                 </div>

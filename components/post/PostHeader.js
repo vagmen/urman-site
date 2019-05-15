@@ -1,7 +1,15 @@
 import React, { Component } from "react";
+// import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll";
 import FeedbackForm from "../FeedbackForm";
+const Scroll = require("react-scroll");
+const scroll = Scroll.animateScroll;
 
 class PostHeader extends Component {
+    scrollTo = () => {
+        const wH = window.innerHeight;
+        scroll.scrollTo(wH);
+    };
+
     render() {
         const { h1, img, className = "", children, ...props } = this.props;
         return (
@@ -15,6 +23,20 @@ class PostHeader extends Component {
                         subTitle="Оставьте заявку, и мы с Вами свяжемся"
                         hideTitleInMobile={true}
                     />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="39"
+                        height="19"
+                        viewBox="0 0 39 19"
+                        fill="none"
+                        className="down-arrow"
+                        onClick={this.scrollTo}
+                    >
+                        <path
+                            d="M19.208 18.592C18.967 18.592 18.725 18.505 18.535 18.331L0.327004 1.73999C-0.0809963 1.36799 -0.110996 0.735988 0.261004 0.326988C0.633004 -0.0820121 1.265 -0.112012 1.674 0.260988L19.208 16.24L36.743 0.260988C37.154 -0.111012 37.785 -0.081012 38.156 0.326988C38.528 0.734988 38.499 1.36799 38.091 1.73999L19.881 18.332C19.691 18.505 19.449 18.592 19.208 18.592Z"
+                            fill="white"
+                        />
+                    </svg>
                 </div>
                 <style jsx>{`
                     @keyframes scale-img {
@@ -24,6 +46,18 @@ class PostHeader extends Component {
                         to {
                             transform: scale(1.2);
                         }
+                    }
+                    @keyframes down-arrow {
+                        from {
+                            transform: translateY(0);
+                        }
+                        to {
+                            transform: translateY(15px);
+                        }
+                    }
+                    .down-arrow {
+                        animation: down-arrow 1.5s infinite alternate;
+                        cursor: pointer;
                     }
                     header {
                         min-height: 100vh;
@@ -102,7 +136,7 @@ class PostHeader extends Component {
                         h1 {
                             font-size: 56px;
                             line-height: 56px;
-                            margin: 125px 0 75px;
+                            margin: 125px 0 50px;
                         }
                         h2 {
                             font-size: 42px;

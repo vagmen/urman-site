@@ -213,9 +213,16 @@ class Header extends Component {
                         width: 100%;
                         height: 100%;
                         z-index: -1;
-                        background: url("../../static/images/background.webp");
-                        background-size: 30%;
-                        filter: opacity(10%);
+                         {
+                            /* background: url("../../static/images/background.webp"); */
+                        }
+                        background: #fff;
+                         {
+                            /* background-size: 30%; */
+                        }
+                         {
+                            /* filter: opacity(4%); */
+                        }
                     }
                     .page-content {
                         flex: 1;
