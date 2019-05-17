@@ -9,22 +9,24 @@ class FeedbackForm extends Component {
         formHidden: true,
         name: "",
         phone: "",
-        comment: "",
+        comment: ""
     };
 
     onChange = ({ name, value }) => {
         this.setState({ [name]: value });
     };
 
-    formHandler = (e) => {
+    formHandler = e => {
         e.preventDefault();
         const { formHidden, name, phone } = this.state;
-        if (formHidden) {
+        const { isHidable } = this.props;
+
+        if (formHidden && isHidable) {
             this.setState({ formHidden: false });
         } else if (name === "" || phone === "") {
             notification.warning({
                 message: `Внимание`,
-                description: "Заполните, пожалуйста, поля",
+                description: "Заполните, пожалуйста, поля"
             });
         } else {
             this.sendFeedbackInfo();
@@ -39,12 +41,12 @@ class FeedbackForm extends Component {
                 window.location.pathname
             }`,
             {
-                method: "get",
+                method: "get"
             }
         );
         notification.success({
             message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам.",
+            description: "В ближайшее время ответим Вам."
         });
     };
 
@@ -76,7 +78,7 @@ class FeedbackForm extends Component {
                             type="text"
                         />
                     )}
-                    <ButtonViolet size="l" onClick={(e) => this.formHandler(e)}>
+                    <ButtonViolet size="l" onClick={e => this.formHandler(e)}>
                         {formHidden && isHidable ? "Бесплатная консультация" : "Отправить"}
                     </ButtonViolet>
                 </div>
