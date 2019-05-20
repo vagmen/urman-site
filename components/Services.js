@@ -5,24 +5,21 @@ import {
     pageWidthDesktopsSmall,
     pageWidthDesktopsMedium,
     pageWidthDesktopsLarge,
-    pageWidthDesktopsExtraLarge,
+    pageWidthDesktopsExtraLarge
 } from "../constants/settings";
 const Services = () => (
     <div className="services">
         {servicesData &&
-            servicesData.map((item) => (
-                <Card key={item.name} title={item.name} img={item.img} />
-                // <div className="service" key={item.name}>
-                //     {item.name}
-                //     <img src={item.img} alt="" />
-                // </div>
+            servicesData.map(item => (
+                <Card key={item.id} title={item.name} img={item.img} href={`/services/${item.id}`} />
             ))}
         <style jsx>{`
             .services {
-                background: #eee;
+                background: rgb(250, 250, 250);
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-gap: 8px;
+                grid-gap: 16px;
+                padding: 32px 0;
             }
             @media (min-width: ${pageWidthTablets}) {
                 .services {

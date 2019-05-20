@@ -13,7 +13,7 @@ class Header extends Component {
         super(props);
         const { headerOpacity } = props;
         this.state = {
-            headerBackgroundOpacity: props.headerOpacity ? 0 : 1,
+            headerBackgroundOpacity: props.headerOpacity ? 0 : 1
         };
     }
 
@@ -36,8 +36,8 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: colorViolet /* цвет фона кнопки чата */,
-                },
+                    buttonBg: colorViolet /* цвет фона кнопки чата */
+                }
             };
         })(document, window, "Chatra");
 
@@ -65,7 +65,7 @@ class Header extends Component {
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true,
+            webvisor: true
         });
     }
     componentWillUnmount() {
@@ -86,11 +86,11 @@ class Header extends Component {
     setOpacity = () => {
         if (this.props.headerOpacity && window.scrollY < 100) {
             this.setState({
-                headerBackgroundOpacity: window.scrollY / 100,
+                headerBackgroundOpacity: window.scrollY / 100
             });
         } else {
             this.setState({
-                headerBackgroundOpacity: 1,
+                headerBackgroundOpacity: 1
             });
         }
     };
@@ -510,10 +510,15 @@ class Header extends Component {
                         z-index: 100;
                         box-sizing: border-box;
                         transition: all 0.8s;
+                        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, calc(0.14 * ${this.state.headerBackgroundOpacity})),
+                            0 1px 10px 0 rgba(0, 0, 0, calc(0.12 * ${this.state.headerBackgroundOpacity})),
+                            0 2px 4px -1px rgba(0, 0, 0, calc(0.2 * ${this.state.headerBackgroundOpacity}));
                     }
-                    .header.transparent {
+                     {
+                        /* .header.transparent {
                         background-color: transparent;
                         border-bottom-color: transparent;
+                    } */
                     }
                     .header-container {
                         display: flex;

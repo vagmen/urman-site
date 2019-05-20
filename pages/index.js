@@ -10,7 +10,7 @@ import Services from "../components/Services";
 const postData = {
     title: "URMAN - Лесные решения",
     description:
-        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
+        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка."
 };
 
 export default () => (
@@ -35,7 +35,10 @@ export default () => (
             </section>
             <section className="section section__services">
                 {/* <Services /> */}
-                <div className="section__services-title">
+                <h2>Услуги</h2>
+                <p>Выполним Вам за лучшую цену</p>
+                <Services />
+                {/* <div className="section__services-title">
                     <h2>У нас заказывают</h2>
                 </div>
                 <div className="service service-pol">
@@ -55,13 +58,13 @@ export default () => (
                         <a href=""> </a>
                     </Link>
                     <h3>Проектная документация лесного участка</h3>
-                </div>
-                <span className="section__services-button">
-                    <ButtonBorder>
+                </div> */}
+                <span className="section__services-button centered">
+                    <Button>
                         <Link href="/services" passHref>
                             <a href="">Все услуги</a>
                         </Link>
-                    </ButtonBorder>
+                    </Button>
                 </span>
             </section>
             <section className="section section__feedback">
@@ -175,9 +178,9 @@ export default () => (
             .main-section__button {
                 animation: appearance-of-text-delay-2 2s ease-out;
             }
-            .section__services {
+             {
+                /* .section__services {
                 grid-area: s;
-                background: ${mainColorLight};
                 display: grid;
                 grid-auto-rows: auto 300px 300px 300px auto;
                 grid-auto-columns: 1fr;
@@ -187,6 +190,10 @@ export default () => (
                     "s2"
                     "s3"
                     "ssb";
+            } */
+            }
+            .section__services {
+                padding: 8px 8px 32px;
             }
             .section__services-title {
                 grid-area: sst;
@@ -286,8 +293,10 @@ export default () => (
                     padding: 0 200px;
                 }
                 .section__services {
-                    grid-gap: 16px;
-                    padding: 16px;
+                     {
+                        /* grid-gap: 16px;
+                    padding: 16px; */
+                    }
                 }
             }
             @media (min-width: 1200px) {
@@ -310,12 +319,7 @@ export default () => (
                     margin-top: 200px;
                 }
                 .section__services {
-                    grid-auto-rows: auto 300px auto;
-                    grid-auto-columns: 1fr 1fr 1fr;
-                    grid-template-areas:
-                        "sst    sst sst"
-                        "s1     s2  s3"
-                        "ssb    ssb ssb";
+                    padding: 32px 16px;
                 }
             }
             @media (min-width: 1366px) {
