@@ -1,5 +1,5 @@
-export const pageWidth = "1200px";
-export const postWidth = "1000px";
+export const pageWidth = `1200px`;
+export const postWidth = `1000px`;
 export const pageWidthPhones = `320px`;
 export const pageWidthTablets = `800px`;
 export const pageWidthDesktopsSmall = `1024px`;

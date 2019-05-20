@@ -6,11 +6,12 @@ import ButtonViolet from "../components/ui/ButtonViolet";
 import ButtonBorder from "../components/ui/ButtonBorder";
 import FeedbackForm from "../components/FeedbackForm";
 import Services from "../components/Services";
+import { servicesData } from "../constants/menuData";
 
 const postData = {
     title: "URMAN - Лесные решения",
     description:
-        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка."
+        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
 };
 
 export default () => (
@@ -34,31 +35,9 @@ export default () => (
                 </div>
             </section>
             <section className="section section__services">
-                {/* <Services /> */}
                 <h2>Услуги</h2>
                 <p>Выполним Вам за лучшую цену</p>
-                <Services />
-                {/* <div className="section__services-title">
-                    <h2>У нас заказывают</h2>
-                </div>
-                <div className="service service-pol">
-                    <Link href="/services/proekt-osvoeniya-lesov" passHref>
-                        <a href=""> </a>
-                    </Link>
-                    <h3>Проект освоения лесов</h3>
-                </div>
-                <div className="service service-arenda">
-                    <Link href="/services/arenda-lesnogo-uchastka" passHref>
-                        <a href=""> </a>
-                    </Link>
-                    <h3>Аренда лесного участка</h3>
-                </div>
-                <div className="service service-pdlu">
-                    <Link href="/services/pdlu" passHref>
-                        <a href=""> </a>
-                    </Link>
-                    <h3>Проектная документация лесного участка</h3>
-                </div> */}
+                <Services items={servicesData} />
                 <span className="section__services-button centered">
                     <Button>
                         <Link href="/services" passHref>
@@ -76,7 +55,6 @@ export default () => (
                 />
             </section>
         </div>
-
         <style jsx>{`
             @keyframes appearance-of-text {
                 from {
@@ -124,12 +102,6 @@ export default () => (
                     "m"
                     "s"
                     "f";
-                 {
-                    /* auto minmax(500px, auto) auto; */
-                }
-                 {
-                    /* grid-gap: 20px; */
-                }
             }
             .section__main {
                 grid-area: m;
@@ -178,20 +150,6 @@ export default () => (
             .main-section__button {
                 animation: appearance-of-text-delay-2 2s ease-out;
             }
-             {
-                /* .section__services {
-                grid-area: s;
-                display: grid;
-                grid-auto-rows: auto 300px 300px 300px auto;
-                grid-auto-columns: 1fr;
-                grid-template-areas:
-                    "sst"
-                    "s1"
-                    "s2"
-                    "s3"
-                    "ssb";
-            } */
-            }
             .section__services {
                 padding: 8px 8px 32px;
             }
@@ -201,53 +159,6 @@ export default () => (
                 color: rgba(0, 0, 0, 0.8);
                 padding: 100px 50px 50px;
                 font-weight: 900;
-            }
-            .service {
-                display: flex;
-                align-items: flex-end;
-                color: rgba(255, 255, 255, 1);
-                border-radius: 8px;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                cursor: pointer;
-                box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-                    0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-                transition: all 0.4s;
-                position: relative;
-            }
-            .service:hover {
-                box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-                    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-                transform: translateY(-5px);
-            }
-            .service a {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-            }
-            .service h3 {
-                padding: 12px;
-                background: linear-gradient(45deg, ${colorViolet}, rgba(80, 80, 80, 0));
-                min-height: 100px;
-                width: 100%;
-            }
-            .service-pol {
-                grid-area: s1;
-                background-image: url("static/images/about/about2.jpg");
-                 {
-                    /* filter: brightness(0.4); */
-                }
-            }
-            .service-arenda {
-                grid-area: s2;
-                background-image: url("static/images/about/about4.jpg");
-            }
-            .service-pdlu {
-                grid-area: s3;
-                background-image: url("static/images/about/about5.jpg");
             }
             .section__services-button {
                 grid-area: ssb;
@@ -291,12 +202,6 @@ export default () => (
                 }
                 .main-section__inner {
                     padding: 0 200px;
-                }
-                .section__services {
-                     {
-                        /* grid-gap: 16px;
-                    padding: 16px; */
-                    }
                 }
             }
             @media (min-width: 1200px) {

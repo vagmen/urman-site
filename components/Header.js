@@ -4,7 +4,15 @@ import { Icon } from "antd";
 import { animateScroll as scroll } from "react-scroll";
 import { initGA, trackPageView } from "../modules/react-ga.js";
 import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid, colorViolet } from "../constants/colors";
-import { postWidth, pageWidth } from "../constants/settings";
+import {
+    postWidth,
+    pageWidth,
+    pageWidthTablets,
+    pageWidthDesktopsSmall,
+    pageWidthDesktopsMedium,
+    pageWidthDesktopsLarge,
+    pageWidthDesktopsExtraLarge,
+} from "../constants/settings";
 
 let ticking = false;
 
@@ -13,7 +21,7 @@ class Header extends Component {
         super(props);
         const { headerOpacity } = props;
         this.state = {
-            headerBackgroundOpacity: props.headerOpacity ? 0 : 1
+            headerBackgroundOpacity: props.headerOpacity ? 0 : 1,
         };
     }
 
@@ -36,8 +44,8 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: colorViolet /* цвет фона кнопки чата */
-                }
+                    buttonBg: colorViolet /* цвет фона кнопки чата */,
+                },
             };
         })(document, window, "Chatra");
 
@@ -65,7 +73,7 @@ class Header extends Component {
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
+            webvisor: true,
         });
     }
     componentWillUnmount() {
@@ -86,11 +94,11 @@ class Header extends Component {
     setOpacity = () => {
         if (this.props.headerOpacity && window.scrollY < 100) {
             this.setState({
-                headerBackgroundOpacity: window.scrollY / 100
+                headerBackgroundOpacity: window.scrollY / 100,
             });
         } else {
             this.setState({
-                headerBackgroundOpacity: 1
+                headerBackgroundOpacity: 1,
             });
         }
     };
@@ -213,25 +221,12 @@ class Header extends Component {
                         width: 100%;
                         height: 100%;
                         z-index: -1;
-                         {
-                            /* background: url("../../static/images/background.webp"); */
-                        }
                         background: #fff;
-                         {
-                            /* background-size: 30%; */
-                        }
-                         {
-                            /* filter: opacity(4%); */
-                        }
                     }
                     .page-content {
                         flex: 1;
-
                         padding-top: 100px;
                         margin: 0 10px;
-                         {
-                            /* overflow: hidden; */
-                        }
                     }
                     .centered {
                         display: flex;
@@ -276,6 +271,8 @@ class Header extends Component {
                         color: #262421;
                         max-width: ${postWidth};
                         margin: 0 auto;
+                        padding-left: 4px;
+                        padding-right: 4px;
                     }
                     .post h1 {
                         margin-bottom: 2rem;
@@ -336,38 +333,6 @@ class Header extends Component {
                     .post-img {
                         width: 100%;
                         margin-bottom: 0.8rem;
-                         {
-                            /* max-height: 500px; */
-                        }
-                    }
-                    .input-with-button {
-                        display: flex;
-                        justify-content: center;
-                        margin-bottom: 1em;
-                        flex-wrap: wrap;
-                    }
-                    .input-with-button input {
-                        border: none;
-                        border-top-left-radius: 24px;
-                        border-top-right-radius: 24px;
-                        padding: 10px;
-                        flex: 100%;
-                    }
-                    .input-with-button button {
-                        color: #fff;
-                        padding: 10px 14px;
-                        border-bottom-left-radius: 24px;
-                        border-bottom-right-radius: 24px;
-                        cursor: pointer;
-                        transition-duration: 0.3s;
-                        transition-timing-function: ease;
-                        transition-property: background-color, color, opacity;
-                        background: #f06060;
-                        flex: 100%;
-                    }
-                    .input-with-button button:hover {
-                        background: #fff;
-                        color: #f06060;
                     }
                     .for-desktop {
                         display: none;
@@ -377,6 +342,10 @@ class Header extends Component {
                     }
                     .hide-in-keyboard {
                         display: block;
+                    }
+                    .page-padding {
+                        padding-left: 4px;
+                        padding-right: 4px;
                     }
                     @media (max-height: 550px) {
                         .hide-in-keyboard {
@@ -399,18 +368,6 @@ class Header extends Component {
                         .clickable-block:hover {
                             transform: translate(0, -10px);
                             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-                        }
-                        .input-with-button input {
-                            flex: 0 0 auto;
-                            border-top-left-radius: 24px;
-                            border-bottom-left-radius: 24px;
-                            border-top-right-radius: 0px;
-                        }
-                        .input-with-button button {
-                            flex: 0 0 auto;
-                            border-top-right-radius: 24px;
-                            border-bottom-right-radius: 24px;
-                            border-bottom-left-radius: 0px;
                         }
                         .post {
                             margin-top: 20px;
@@ -491,6 +448,41 @@ class Header extends Component {
                             grid-template-columns: 1fr 1fr 1fr 1fr;
                         }
                     }
+                    @media (min-width: ${pageWidthTablets}) {
+                        .post,
+                        .page-padding {
+                            padding-left: 8px;
+                            padding-right: 8px;
+                        }
+                    }
+                    @media (min-width: ${pageWidthDesktopsSmall}) {
+                        .post,
+                        .page-padding {
+                            padding-left: 12px;
+                            padding-right: 12px;
+                        }
+                    }
+                    @media (min-width: ${pageWidthDesktopsMedium}) {
+                        .post,
+                        .page-padding {
+                            padding-left: 16px;
+                            padding-right: 16px;
+                        }
+                    }
+                    @media (min-width: ${pageWidthDesktopsLarge}) {
+                        .post,
+                        .page-padding {
+                            padding-left: 20px;
+                            padding-right: 20px;
+                        }
+                    }
+                    @media (min-width: ${pageWidthDesktopsExtraLarge}) {
+                        .post,
+                        .page-padding {
+                            padding-left: 24px;
+                            padding-right: 24px;
+                        }
+                    }
                 `}</style>
                 <style jsx>{`
                     .header {
@@ -513,12 +505,6 @@ class Header extends Component {
                         box-shadow: 0 4px 5px 0 rgba(0, 0, 0, calc(0.14 * ${this.state.headerBackgroundOpacity})),
                             0 1px 10px 0 rgba(0, 0, 0, calc(0.12 * ${this.state.headerBackgroundOpacity})),
                             0 2px 4px -1px rgba(0, 0, 0, calc(0.2 * ${this.state.headerBackgroundOpacity}));
-                    }
-                     {
-                        /* .header.transparent {
-                        background-color: transparent;
-                        border-bottom-color: transparent;
-                    } */
                     }
                     .header-container {
                         display: flex;

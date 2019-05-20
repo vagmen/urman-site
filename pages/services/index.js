@@ -11,25 +11,7 @@ const Index = () => (
             <div className="page-content">
                 <h1>Услуги</h1>
                 <p>Выполним Вам за лучшую цену</p>
-                <Services />
-                {/* <div className="services">
-                    <h1>Услуги</h1>
-                    <p>Посмотрите, чем мы можем быть вам полезны</p>
-                    <div className="grid">
-                    {servicesData.map(item => (
-                        <section className="grid__item clickable-block service" key={item.id}>
-                        <Link href={`/services/${item.id}`} passHref>
-                        <a>
-                        <img src={item.img} alt={item.name} />
-                        <article>
-                        <h3>{item.name}</h3>
-                        </article>
-                        </a>
-                        </Link>
-                        </section>
-                        ))}
-                        </div>
-                    </div> */}
+                <Services items={servicesData} />
             </div>
             <FeedbackForm
                 title="Оставьте заявку"
