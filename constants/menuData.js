@@ -112,6 +112,11 @@ export const servicesData = [
         img: "/static/images/services/lesoustrojstvo-i-taksaciya.webp",
         id: "lesoustrojstvo-i-taksaciya",
     },
+    {
+        name: "Лесопатологическое обследование",
+        img: "/static/images/services/lesopatologicheskoe-obsledovanie.webp",
+        id: "lesopatologicheskoe-obsledovanie",
+    },
     // {
     //     name: 'Земельный кадастровый учет',
     //     img: 'https://pp.userapi.com/c849028/v849028114/2ecdb/xhoIZASBdhg.jpg',
@@ -121,11 +126,6 @@ export const servicesData = [
     //     name: 'Лесные отчеты',
     //     img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
     //     id: 'reports',
-    // },
-    // {
-    //     name: 'Лесопатологическое обследование',
-    //     img: 'https://pp.userapi.com/c840437/v840437449/3d0ca/INCijajQc4Q.jpg',
-    //     id: 'pathology',
     // },
     // {
     //     name: 'Лесная экспертиза',

@@ -2,12 +2,14 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import { servicesData } from "../../constants/menuData";
 import { mainColorMid, mainColorDark } from "../../constants/colors";
+import Services from "../../components/Services";
 
 const Index = () => (
     <Layout menuItem="services">
         <div className="page-background">
             <div className="page-content">
-                <div className="services">
+                <Services />
+                {/* <div className="services">
                     <h1>Услуги</h1>
                     <p>Посмотрите, чем мы можем быть вам полезны</p>
                     <div className="grid">
@@ -24,7 +26,7 @@ const Index = () => (
                             </section>
                         ))}
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
         <style jsx>{`

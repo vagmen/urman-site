@@ -226,7 +226,7 @@ class Header extends Component {
                     }
                     .page-content {
                         flex: 1;
-                        max-width: ${pageWidth};
+
                         padding-top: 100px;
                         margin: 0 10px;
                          {
