@@ -20,7 +20,6 @@ const itemId = "lesnoj-plan";
 
 class Index extends Component {
     render() {
-        const { email } = this.state;
         const { postData } = this.props;
         return (
             <Layout postData={postData} headerOpacity={true}>
