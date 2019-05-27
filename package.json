@@ -16,20 +16,19 @@
         "sitemap": "node modules/buildSitemap.js"
     },
     "dependencies": {
-        "antd": "^3.13.6",
+        "antd": "^3.18.2",
         "draft-js": "^0.10.5",
-        "express": "^4.16.3",
+        "express": "^4.17.0",
         "isomorphic-unfetch": "^3.0.0",
         "moment": "^2.24.0",
-        "next": "^8.0.3",
-        "react": "^16.8.2",
-        "react-dom": "^16.8.2",
+        "next": "^8.1.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
         "react-ga": "^2.5.7",
         "react-icons": "^3.2.0",
         "react-markdown": "^3.4.1",
         "react-player": "^1.6.6",
-        "react-scroll": "^1.7.10",
-        "react-yandex-metrika": "^2.4.2"
+        "react-scroll": "^1.7.10"
     },
     "devDependencies": {
         "babel-plugin-import": "^1.9.1",
