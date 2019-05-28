@@ -22,7 +22,7 @@ const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem
 const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
     const title = postData ? postData.title : menuItemData(menuItem).title || "URMAN - Лесные решения";
     const description = postData ? postData.description : menuItemData(menuItem).description || "";
-    const image = <img src={metaImg || '/static/images/logo.png'}
+    const image = <img src={metaImg || "/static/images/logo.png"} />;
     return (
         <Fragment>
             <Head>
@@ -39,13 +39,6 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
                 <meta property="og:image" content={image} />
                 <meta name="robots" content="index,follow" />
                 <meta name="theme-color" content={mainColorMid} />
-                {/* <script
-                type="text/javascript"
-                charset="utf-8"
-                async
-                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A798c47d6ec9476b31bd77261de226b79cba73cc2c67641b1dbdb05e4c13329dc&amp;lang=ru_RU&amp;scroll=false;id=mymap"
-            /> */}
-                {/* <meta name="google-site-verification" content="13s4tTPGhfJIZYmOa_q1xPyiypySCl1Z8wJIzwjTV5w" /> */}
             </Head>
             <Header headerOpacity={headerOpacity} />
             <LocaleProvider locale={ruRU}>

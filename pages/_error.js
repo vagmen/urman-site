@@ -7,14 +7,14 @@ import Button from "../components/ui/Button";
 
 class errorPage extends Component {
     state = {
-        contact: ""
+        contact: "",
     };
 
     sendFeedbackInfo = async () => {
         const res = await fetch(
             `http://vagmen.ru/urman/new_lead.php?contact=${this.state.contact}&pathname=${window.location.pathname}`,
             {
-                method: "get"
+                method: "get",
             }
         );
         // notification.success({
@@ -87,7 +87,7 @@ class errorPage extends Component {
                         type="text"
                         placeholder="Mail или телефон"
                         value={contact}
-                        onChange={e => this.setState({ contact: e.target.value })}
+                        onChange={(e) => this.setState({ contact: e.target.value })}
                     />
                     <input className="button" type="button" value="Связаться" onClick={() => this.sendFeedbackInfo()} />
                 </div>
