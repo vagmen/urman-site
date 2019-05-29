@@ -38,13 +38,12 @@ app.prepare()
         });
 
         server.get("/services/:id", (req, res) => {
-            // const id = req.params.id === 'pol' ? 'proekt-osvoeniya-lesov': req.params.id;
-            // const actualPage = `/services/${id}`;
             const actualPage = `/services/${req.params.id}`;
-            // if(req.params.id === 'pol'){
-            //     res.redirect(actualPage);
-            // }
             app.render(req, res, actualPage);
+        });
+
+        server.get("/regions/:region", (req, res) => {
+            app.render(req, res, "/regions/", { region: req.params.region });
         });
 
         server.get("/admin/posts/:id", (req, res) => {

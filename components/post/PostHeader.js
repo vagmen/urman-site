@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from "react-scroll";
 import FeedbackForm from "../FeedbackForm";
+import { greyDark } from "../../constants/colors";
 const Scroll = require("react-scroll");
 const scroll = Scroll.animateScroll;
 
@@ -76,6 +77,7 @@ class PostHeader extends Component {
                         left: 0;
                         height: 100%;
                         width: 100%;
+                        background: #999;
                         background-image: url(${img});
                         background-position: center center;
                         background-repeat: no-repeat;
