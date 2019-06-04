@@ -8,17 +8,17 @@ const path = require("path");
 const robotsOptions = {
     root: path.join(__dirname, "/static"),
     headers: {
-        "Content-Type": "text/plain;charset=UTF-8",
-    },
+        "Content-Type": "text/plain;charset=UTF-8"
+    }
 };
 const sitemapOptions = {
     root: path.join(__dirname, "/static"),
     headers: {
-        "Content-Type": "text/xml;charset=UTF-8",
-    },
+        "Content-Type": "text/xml;charset=UTF-8"
+    }
 };
 const faviconOptions = {
-    root: path.join(__dirname, "/static"),
+    root: path.join(__dirname, "/static")
 };
 
 app.prepare()
@@ -43,7 +43,9 @@ app.prepare()
         });
 
         server.get("/regions/:region", (req, res) => {
-            app.render(req, res, "/regions/", { region: req.params.region });
+            const actualPage = `/regions/${req.params.region}`;
+            const queryParams = { region: req.params.region };
+            app.render(req, res, "/regions/", actualPage, queryParams);
         });
 
         server.get("/admin/posts/:id", (req, res) => {
@@ -56,12 +58,12 @@ app.prepare()
             return handle(req, res);
         });
 
-        server.listen(dev ? 3000 : 80, (err) => {
+        server.listen(dev ? 3000 : 80, err => {
             if (err) throw err;
             console.log(`> Ready on http://localhost: ${dev ? 3000 : 80}`);
         });
     })
-    .catch((ex) => {
+    .catch(ex => {
         console.error(ex.stack);
         process.exit(1);
     });
