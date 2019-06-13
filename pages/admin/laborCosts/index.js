@@ -12,67 +12,67 @@ const columns = [
     {
         title: "Объект",
         dataIndex: "cardName",
-        key: "cardName"
+        key: "cardName",
     },
     {
         title: "Статус",
         dataIndex: "listName",
-        key: "listName"
+        key: "listName",
     },
     {
         title: "Вид работы",
         dataIndex: "workType",
-        key: "workType"
+        key: "workType",
     },
     {
         title: "Сумма",
         dataIndex: "total",
-        key: "total"
+        key: "total",
     },
     {
         title: "Исполнитель",
         dataIndex: "member",
-        key: "member"
-    }
+        key: "member",
+    },
 ];
 
 const memberColumns = [
     {
         title: "Сотрудник",
         dataIndex: "member",
-        key: "member"
+        key: "member",
     },
     {
         title: "Объект",
         dataIndex: "cardName",
-        key: "cardName"
+        key: "cardName",
     },
     {
         title: "Вид работы",
         dataIndex: "workType",
-        key: "workType"
+        key: "workType",
     },
     {
         title: "Сумма",
         dataIndex: "total",
-        key: "total"
-    }
+        key: "total",
+    },
 ];
 
 class Index extends React.Component {
     state = {
         memberData: [],
         dates: [moment().subtract(1, "months"), moment()],
-        boardList: []
+        boardList: [],
     };
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.setState({ boardList: [] });
         const { files } = document.getElementById("selectFiles");
         const fr = new FileReader();
 
-        fr.onload = event => {
+        fr.onload = (event) => {
             const result = JSON.parse(event.target.result);
             this.memberTableBuilder(result);
         };
@@ -86,19 +86,19 @@ class Index extends React.Component {
         }
     };
 
-    parseDesc = desc => {
+    parseDesc = (desc) => {
         // учитываем начало слова с англ буквы
         const keyWord = desc.toLowerCase().indexOf("cтоимость") + 1 ? "cтоимость" : "стоимость";
         const costs = desc.toLowerCase().split(keyWord)[1] || "";
         const costsArray = costs.split("\n");
-        const filteredCostsArray = costsArray.filter(item => item !== "");
+        const filteredCostsArray = costsArray.filter((item) => item !== "");
         return filteredCostsArray;
     };
 
-    memberTableBuilder = boardData => {
-        const currentList = boardData.lists.find(list => LIST_NAMES.includes(list.name));
+    memberTableBuilder = (boardData) => {
+        const currentList = boardData.lists.find((list) => LIST_NAMES.includes(list.name));
         // формируем список сотрудников
-        let membersTemp = boardData.members.map(member => {
+        let membersTemp = boardData.members.map((member) => {
             let names = member.fullName.split(" ");
             let name = names[0];
             if (names[1] === "Г.") {
@@ -110,7 +110,7 @@ class Index extends React.Component {
         const readyCards = this.getReadyCards({
             cards: boardData.cards,
             actions: boardData.actions,
-            listId: currentList.id
+            listId: currentList.id,
         });
 
         readyCards.forEach((readyCard, index) => {
@@ -119,10 +119,10 @@ class Index extends React.Component {
             if (desc.length === 0) {
                 notification.warning({
                     message: "Раздел не найден",
-                    description: `В карточке ${readyCard.name} на найден раздел "СТОИМОСТЬ"`
+                    description: `В карточке ${readyCard.name} на найден раздел "СТОИМОСТЬ"`,
                 });
             }
-            desc.forEach(descItem => {
+            desc.forEach((descItem) => {
                 // убираем лишние пробелы, делим на слова
                 const descItemWords = descItem
                     .replace(/\s+/g, " ")
@@ -133,25 +133,25 @@ class Index extends React.Component {
 
                 let tempMember = "";
                 if (descItemWords[0] === "юля") {
-                    tempMember = membersTemp.find(m => m.member === "Юлия");
+                    tempMember = membersTemp.find((m) => m.member === "Юлия");
                 } else if (descItemWords[0] === "ильдар") {
-                    tempMember = membersTemp.find(m => m.member === "Ильдар Г.");
+                    tempMember = membersTemp.find((m) => m.member === "Ильдар Г.");
                 } else {
                     tempMember = membersTemp.find(
-                        m => `${descItemWords[0]} ${descItemWords[1]}` === m.member.toLowerCase()
+                        (m) => `${descItemWords[0]} ${descItemWords[1]}` === m.member.toLowerCase()
                     );
                     if (!tempMember) {
-                        tempMember = membersTemp.find(m => descItemWords[0] === m.member.toLowerCase());
+                        tempMember = membersTemp.find((m) => descItemWords[0] === m.member.toLowerCase());
                     }
                 }
                 if (tempMember && number) {
-                    const temp = membersTemp.find(m => m.member === tempMember.member);
+                    const temp = membersTemp.find((m) => m.member === tempMember.member);
                     temp.total = temp.total + Number(number);
                     const children = {
                         key: temp.key + temp.total + temp.member,
                         total: number,
                         cardName: readyCard.name,
-                        workType: workType
+                        workType: workType,
                     };
                     if (temp.children) {
                         temp.children.push(children);
@@ -164,7 +164,7 @@ class Index extends React.Component {
 
         const _boardList = [
             ...this.state.boardList,
-            { id: boardData.id, name: boardData.name, memberData: membersTemp }
+            { id: boardData.id, name: boardData.name, memberData: membersTemp },
         ];
         this.setState({ boardList: _boardList });
     };
@@ -216,18 +216,18 @@ class Index extends React.Component {
             if (number == 0) {
                 notification.warning({
                     message: "Сумма равна 0!",
-                    description: `В карточке ${readyCard.name} сумма равна 0!`
+                    description: `В карточке ${readyCard.name} сумма равна 0!`,
                 });
             } else if (workType == "") {
                 notification.warning({
                     message: "Тип работы не определен",
-                    description: `В карточке ${readyCard.name} тип работы не определен!`
+                    description: `В карточке ${readyCard.name} тип работы не определен!`,
                 });
             }
         } else {
             notification.warning({
                 message: "Не найдена сумма!",
-                description: `В карточке ${readyCard.name} не найдена сумма!`
+                description: `В карточке ${readyCard.name} не найдена сумма!`,
             });
         }
 
@@ -237,10 +237,10 @@ class Index extends React.Component {
     getReadyCards = ({ cards, actions, listId }) => {
         const { dates } = this.state;
         return cards
-            .filter(card => card.idList === listId)
-            .filter(card => {
+            .filter((card) => card.idList === listId)
+            .filter((card) => {
                 const action = actions.find(
-                    act =>
+                    (act) =>
                         act.data &&
                         act.data.card &&
                         card.id === act.data.card.id &&
@@ -250,13 +250,15 @@ class Index extends React.Component {
                         act.data.listAfter.id === listId &&
                         act.data.listBefore.id !== listId
                 );
-                return moment(action.date) > dates[0] && moment(action.date) < dates[1];
+                console.log("action", action);
+
+                return action && moment(action.date) > dates[0] && moment(action.date) < dates[1];
             });
     };
 
     onChange = (dates, dateStrings) => {
         this.setState({
-            dates: dates
+            dates: dates,
         });
     };
 
@@ -271,7 +273,7 @@ class Index extends React.Component {
                         ranges={{
                             Сегодня: [moment(), moment()],
                             // Месяц: [moment().subtract(1, "months"), moment()]
-                            Месяц: [moment().startOf("month"), moment().endOf("month")]
+                            Месяц: [moment().startOf("month"), moment().endOf("month")],
                         }}
                         showTime={{ format: "H:mm" }}
                         format="DD.MM.YYYY H:mm"
@@ -285,7 +287,7 @@ class Index extends React.Component {
                 </div>
                 <div className="admin-content">
                     {boardList &&
-                        boardList.map(board => (
+                        boardList.map((board) => (
                             <div className="admin-card" key={board.id}>
                                 <div className="admin-card-header">
                                     <h2>{board.name}</h2>
@@ -311,7 +313,7 @@ class Index extends React.Component {
 notification.config({
     placement: "bottomRight",
     bottom: 50,
-    duration: 8
+    duration: 8,
 });
 
 export default Index;
