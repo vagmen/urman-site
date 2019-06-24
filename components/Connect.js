@@ -18,7 +18,7 @@ class Connect extends Component {
     sendFeedbackInfo = async () => {
         console.log("window.location.pathname", window.location.pathname);
         const res = await fetch(
-            `http://vagmen.ru/urman/new_lead.php?contact=${this.state.contact}&pathname=${window.location.pathname}`,
+            `http://vagmen.ru/urman/send.php?email=${this.state.contact}&pathname=${window.location.pathname}`,
             {
                 method: "get",
             }

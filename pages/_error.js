@@ -12,7 +12,7 @@ class errorPage extends Component {
 
     sendFeedbackInfo = async () => {
         const res = await fetch(
-            `http://vagmen.ru/urman/new_lead.php?contact=${this.state.contact}&pathname=${window.location.pathname}`,
+            `http://vagmen.ru/urman/send.php?email=${this.state.contact}&pathname=${window.location.pathname}`,
             {
                 method: "get",
             }

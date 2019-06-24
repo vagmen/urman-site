@@ -37,7 +37,7 @@ class FeedbackForm extends Component {
     sendFeedbackInfo = async () => {
         const { formHidden, name, phone, comment } = this.state;
         const res = await fetch(
-            `http://vagmen.ru/urman/new_lead.php?contact=${phone}&name=${name}&comment=${comment}&pathname=${
+            `http://vagmen.ru/urman/send.php?email=${phone}&name=${name}&comment=${comment}&pathname=${
                 window.location.pathname
             }`,
             {
