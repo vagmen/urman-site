@@ -12,20 +12,22 @@ class Connect extends Component {
     }
     state = {
         collapsed: true,
-        contact: "",
+        contact: ""
     };
 
     sendFeedbackInfo = async () => {
         console.log("window.location.pathname", window.location.pathname);
         const res = await fetch(
-            `http://vagmen.ru/urman/send.php?email=${this.state.contact}&pathname=${window.location.pathname}`,
+            `http://vagmen.ru/urman/send.php?phone=${this.state.contact}&pathname=${
+                window.location.pathname
+            }&formName=Боковая форма "Получить консультацию"`,
             {
-                method: "get",
+                method: "get"
             }
         );
         notification.success({
             message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам.",
+            description: "В ближайшее время ответим Вам."
         });
     };
 
@@ -33,7 +35,7 @@ class Connect extends Component {
         if (this.state.contact === "") {
             notification.warning({
                 message: `Внимание`,
-                description: "Заполните, пожалуйста, поле",
+                description: "Заполните, пожалуйста, поле"
             });
         } else {
             this.sendFeedbackInfo();
@@ -91,9 +93,9 @@ class Connect extends Component {
                     <input
                         className="input full-width"
                         type="text"
-                        placeholder="Mail или телефон"
+                        placeholder="Tелефон"
                         value={contact}
-                        onChange={(e) => this.setState({ contact: e.target.value })}
+                        onChange={e => this.setState({ contact: e.target.value })}
                     />
                     <br />
                     <ButtonViolet className="full-width" onClick={this.connectHandler}>
