@@ -7,20 +7,31 @@ import Button from "../components/ui/Button";
 
 class errorPage extends Component {
     state = {
-        contact: "",
+        contact: ""
     };
 
     sendFeedbackInfo = async () => {
         const res = await fetch(
-            `http://vagmen.ru/urman/send.php?email=${this.state.contact}&pathname=${window.location.pathname}`,
+            `http://vagmen.ru/urman/send.php?phone=${this.state.contact}&pathname=${
+                window.location.pathname
+            }&formName='Форма со страницы 404'`,
             {
-                method: "get",
+                method: "get"
             }
         );
         // notification.success({
         //     message: `Рады знакомству, ${values.name}!`,
         //     description: 'В ближайшее время свяжемся с Вами.',
         // });
+    };
+
+    testRequest = async () => {
+        const data = JSON.stringify({ name: "werwerwerwerwer", a: "a" });
+        const res = await fetch(`http://vagmen.ru/urman/addTender.php?`, {
+            method: "POST",
+            mode: "cors",
+            body: data
+        });
     };
 
     render() {
@@ -85,11 +96,11 @@ class errorPage extends Component {
                     <input
                         className="input"
                         type="text"
-                        placeholder="Mail или телефон"
+                        placeholder="Ваш телефон"
                         value={contact}
-                        onChange={(e) => this.setState({ contact: e.target.value })}
+                        onChange={e => this.setState({ contact: e.target.value })}
                     />
-                    <input className="button" type="button" value="Связаться" onClick={() => this.sendFeedbackInfo()} />
+                    <input className="button" type="button" value="Связаться" onClick={() => this.testRequest()} />
                 </div>
                 <style jsx global>{`
                     @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
