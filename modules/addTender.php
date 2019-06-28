@@ -19,9 +19,9 @@ $LEAD_DATA = [
 
 $TENDERLAND_FIELDS = [
   'URL' => 'www.tenderland.ru/pages/main?',
-  //'AUTOPOISK' => '369225', // гос актуальный
+  'AUTOPOISK' => '369225', // гос актуальный
   // 'AUTOPOISK' => '313477', // гос старый
-  'AUTOPOISK' => '325954', // тест
+  // 'AUTOPOISK' => '325954', // тест
   'REPORT' => '26380',
   'LOGIN' => 'green01',
   'PASSWORD' => '2983486@'
@@ -83,7 +83,7 @@ class Tenders {
 
   public function getRequestId ($TENDERLAND_FIELDS) {
 
-    $link= $TENDERLAND_FIELDS["URL"].'autopoisk='.$TENDERLAND_FIELDS["AUTOPOISK"].'&api=1&report='.$TENDERLAND_FIELDS["REPORT"].'&login='.$TENDERLAND_FIELDS["LOGIN"].'&password='.$TENDERLAND_FIELDS["PASSWORD"].'&force_prev=0';
+    $link= $TENDERLAND_FIELDS["URL"].'autopoisk='.$TENDERLAND_FIELDS["AUTOPOISK"].'&api=1&report='.$TENDERLAND_FIELDS["REPORT"].'&login='.$TENDERLAND_FIELDS["LOGIN"].'&password='.$TENDERLAND_FIELDS["PASSWORD"].'&force_prev=1';
 
     $curl=curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -344,24 +344,19 @@ class Tenders {
 }
 
 $log = new Tenders();
-if (!empty($_POST["name"]))
- {
-    echo $_POST["name"], "\n";
- }
-if (!empty($_POST["a"]))
- {
-    echo $_POST["a"], "\n";
- }
- echo "test\n";
- if($isLogin == 'true')
-{
+//  if($isLogin == 'true')
+// {
   $requestId = $log -> getRequestId($TENDERLAND_FIELDS); 
-}
-sleep(30);
+// }
+sleep(5);
 $xml = $log -> getXML($requestId, $TENDERLAND_FIELDS);
 $rawTenders = $log -> xmlToJson($xml["file"]);
-$rawTenders = json_decode($rawTenders, true);
+
+// $rawTenders = json_encode($rawTenders, true);
 echo $rawTenders, "\n";
+
+
+
     // echo 'Привет ' . htmlspecialchars($_POST["name"]) . '!';
     // parse_str($_SERVER['QUERY_STRING'], $output);
 
