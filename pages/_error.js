@@ -100,7 +100,7 @@ class errorPage extends Component {
                         value={contact}
                         onChange={e => this.setState({ contact: e.target.value })}
                     />
-                    <input className="button" type="button" value="Связаться" onClick={() => this.testRequest()} />
+                    <input className="button" type="button" value="Связаться" onClick={() => this.sendFeedbackInfo()} />
                 </div>
                 <style jsx global>{`
                     @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
