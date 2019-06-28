@@ -4,6 +4,7 @@ import { message } from "antd";
 import Link from "next/link";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { isMobile } from "react-device-detect";
 import Layout from "../../../components/Layout";
 import ButtonViolet from "../../../components/ui/ButtonViolet";
 import { connectHandler } from "../../../utils/localStorage";
@@ -181,7 +182,7 @@ class Index extends Component {
                         <iframe
                             src="https://egrp365.ru/p_map/?ref=bt"
                             width="100%"
-                            height="600"
+                            height={isMobile ? "300" : "600"}
                             frameborder="0"
                             allowfullscreen="allowfullscreen"
                         />
@@ -216,12 +217,11 @@ class Index extends Component {
                     </p>
                     <p>
                         Выписку из ЕГРН об основных характеристиках и зарегистрированных правах на объект недвижимости
-                        можно получить на сайте Росреестра, заполнив все необходимые поля на этой странице:
-                    </p>
-                    <p>
+                        можно получить на сайте Росреестра, заполнив все необходимые поля на{" "}
                         <a className="post-a" href="https://rosreestr.ru/wps/portal/p/cc_present/EGRN_1">
-                            https://rosreestr.ru/wps/portal/p/cc_present/EGRN_1
+                            этой странице
                         </a>
+                        .
                     </p>
                     <p>
                         Также можно получить выписку из ЕГРН через многофункциональный центр (МФЦ). Выписка
