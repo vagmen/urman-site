@@ -20,18 +20,18 @@ const itemId = "kadastrovyj-uchyot-lesnykh-uchastkov";
 
 class Index extends Component {
     state = {
-        email: ""
+        email: "",
     };
     sendServiceDocTemplate = async () => {
         const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
             method: "post",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 To: this.state.email,
-                ServiceCode: "pol"
-            })
+                ServiceCode: "pol",
+            }),
         });
         const data = await res.json();
         if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
@@ -182,8 +182,8 @@ class Index extends Component {
                             src="https://egrp365.ru/p_map/?ref=bt"
                             width="100%"
                             height="600"
-                            frameborder="0"
-                            allowfullscreen="allowfullscreen"
+                            frameBorder="0"
+                            allowFullScreen="allowfullscreen"
                         />
                     </p>
                     <p>
@@ -239,7 +239,7 @@ class Index extends Component {
                         <h4>Другие наши услуги:</h4>
                     </em>
                 </div>
-                <Services withPagePadding={true} bg={true} items={servicesData.filter(item => item.id !== itemId)} />
+                <Services withPagePadding={true} bg={true} items={servicesData.filter((item) => item.id !== itemId)} />
                 <FeedbackForm
                     title="Свяжитесь с нами!"
                     subTitle="Специалисты URMAN помогут Вам в кратчайшие сроки получить выписку из ЕГРН для Вашего лесного участка."
@@ -273,7 +273,7 @@ Index.getInitialProps = async function() {
     // const data = await res.json();
 
     return {
-        postData: servicesData.find(item => item.id === itemId)
+        postData: servicesData.find((item) => item.id === itemId),
     };
 };
 

@@ -7,22 +7,15 @@ $user = [
   'USER_HASH'=>'44b177ee540618a38dd30bae14f1d57a4a1c8dfe'
 ];
 
-$lead_name = 'qwe';
-$lead_contact = '123';
-$lead_comment = 'qwe123';
-
-$LEAD_DATA = [
-    'NAME' => 'qwe',
-    'CONTACT' => '123',
-    'COMMENT' => 'qwe123',
-];
-
 $TENDERLAND_FIELDS = [
-  'URL' => 'www.tenderland.ru/pages/main?',
-  'AUTOPOISK' => '369225', // гос актуальный
+  'URL' => 'www.tenderland.ru/pages/comm?',
+  // 'AUTOPOISK' => '369225', // гос актуальный
   // 'AUTOPOISK' => '313477', // гос старый
   // 'AUTOPOISK' => '325954', // тест
-  'REPORT' => '26380',
+  'AUTOPOISK' => '66619', // комм
+  // 'AUTOPOISK' => '68136', // ком тест
+  // 'REPORT' => '26380',
+  'REPORT' => '2484',
   'LOGIN' => 'green01',
   'PASSWORD' => '2983486@'
 ];
@@ -82,8 +75,7 @@ class Tenders {
   }
 
   public function getRequestId ($TENDERLAND_FIELDS) {
-
-    $link= $TENDERLAND_FIELDS["URL"].'autopoisk='.$TENDERLAND_FIELDS["AUTOPOISK"].'&api=1&report='.$TENDERLAND_FIELDS["REPORT"].'&login='.$TENDERLAND_FIELDS["LOGIN"].'&password='.$TENDERLAND_FIELDS["PASSWORD"].'&force_prev=1';
+    $link= $TENDERLAND_FIELDS["URL"].'autopoisk='.$TENDERLAND_FIELDS["AUTOPOISK"].'&api=1&report='.$TENDERLAND_FIELDS["REPORT"].'&login='.$TENDERLAND_FIELDS["LOGIN"].'&password='.$TENDERLAND_FIELDS["PASSWORD"];
 
     $curl=curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -200,9 +192,7 @@ class Tenders {
     // $date_delivery_goods = $rawTenders['date_delivery_goods'] && sizeof($rawTenders['date_delivery_goods']) ? $rawTenders['date_delivery_goods'] : "";
     $e_place = $rawTenders['e_place'] && sizeof($rawTenders['e_place']) ? $rawTenders['e_place'] : "";
     $archive_link = $rawTenders['archive_link'] && sizeof($rawTenders['archive_link']) ? $rawTenders['archive_link'] : "";
-    $tender_id = substr($archive_link, -8);
-    $tender_link = 'https://www.tenderland.ru/pages/catalog/tenders/0/'.$tender_id;
-    $tender_number = $rawTenders['@attributes']['number'];
+    $tender_number = $rawTenders['@attributes']['id'];
 
     $mailText = "Наименование: ".$name."\nНомер: ".$tender_number."\nЗаказчик: ".$customer."\nНачальная цена контракта: ".$start_price_contract."\nДата начала подачи заявок: ".$publication_date."\nДата и время окончания срока подачи заявок: ".$datetime_dedline_request."\nРегион: ".$region."\nДата и время проведения: ".$datetime_holding."\nТип заявки: ".$request_type."\nРазмер обеспечения заявки: ".$request_provision_size."\nЭлектронная площадка: ".$e_place."\nСсылка на оф. сайт: ".$link."\nДата публикации: ".$publish_date."\nСсылка на архив: ".$archive_link;
 
@@ -331,10 +321,8 @@ $xml = $log -> getXML($requestId, $TENDERLAND_FIELDS);
 $rawTenders = $log -> xmlToJson($xml["file"]);
 
 $rawTenders = json_decode($rawTenders, true);
-// echo $rawTenders, "\n";
 
 if(array_key_exists ( 'tender' , $rawTenders )){
-  // $leads = $log -> parseTenders($rawTenders['tender'], $xml["items_count"]);
   if($xml["items_count"] == '1'){
     $leads = $log -> parseTender($rawTenders['tender']);
   } else{
@@ -344,8 +332,3 @@ if(array_key_exists ( 'tender' , $rawTenders )){
     } 
   }
 }
-    // echo json_encode($leads), "\n";
-    // $lead = $log -> addLeads($leads, $AMO_DATA);
-    // sleep(1);
-    // $tasks = $log -> parseTask($lead, $AMO_DATA);
-    // $log -> addTask($tasks, $AMO_DATA);
