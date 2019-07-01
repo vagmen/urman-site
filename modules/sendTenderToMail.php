@@ -1,6 +1,7 @@
 <?php
 
-header('Content-type: application/json');
+// header('Content-type: application/json');
+header('Content-Type: text/html; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 $user = [
   'USER_LOGIN'=>'green.landia@mail.ru',
