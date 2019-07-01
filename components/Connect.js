@@ -5,6 +5,7 @@ import { notification } from "antd";
 import { mainColorMid, mainColorDark, mainColorLight, grey, colorViolet } from "../constants/colors";
 import Button from "./ui/Button";
 import ButtonViolet from "./ui/ButtonViolet";
+import { sendLead } from "../utils/api";
 
 class Connect extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Connect extends Component {
     }
     state = {
         collapsed: true,
-        contact: ""
+        contact: localStorage.getItem("formPhone"),
     };
 
     sendFeedbackInfo = async () => {
@@ -22,27 +23,22 @@ class Connect extends Component {
                 window.location.pathname
             }&formName=Боковая форма "Получить консультацию"`,
             {
-                method: "get"
+                method: "get",
             }
         );
         notification.success({
             message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам."
+            description: "В ближайшее время ответим Вам.",
         });
     };
 
     connectHandler = () => {
-        if (this.state.contact === "") {
-            notification.warning({
-                message: `Внимание`,
-                description: "Заполните, пожалуйста, поле"
-            });
-        } else {
-            this.sendFeedbackInfo();
-            this.setState({ contact: "" });
-            Chatra("show");
-            this.closeConnect();
-        }
+        const { contact } = this.state;
+
+        this.sendLead({ formType: "side" });
+        this.setState({ contact: "" });
+        Chatra("show");
+        this.closeConnect();
     };
 
     closeConnect = () => {
@@ -92,10 +88,13 @@ class Connect extends Component {
                     <br />
                     <input
                         className="input full-width"
-                        type="text"
+                        type="tel"
                         placeholder="Tелефон"
                         value={contact}
-                        onChange={e => this.setState({ contact: e.target.value })}
+                        onChange={(e) => {
+                            localStorage.setItem("formPhone", e.target.value);
+                            this.setState({ contact: e.target.value });
+                        }}
                     />
                     <br />
                     <ButtonViolet className="full-width" onClick={this.connectHandler}>

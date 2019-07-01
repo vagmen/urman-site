@@ -3,3 +3,5 @@ export const connectHandler = () => {
     localStorage.setItem("connect-collapsed", !connectCollapsed);
     connectCollapsed && Chatra("hide");
 };
+
+export const changeFormItem = ({ state, itemName }) => {};

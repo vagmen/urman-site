@@ -3,20 +3,22 @@ import { notification } from "antd";
 import Link from "next/link";
 import ButtonViolet from "./ui/ButtonViolet";
 import Input from "./ui/Input";
+import { sendLead } from "../utils/api";
+import { changeFormItem } from "../utils/localStorage";
 
 class FeedbackForm extends Component {
     state = {
         formHidden: true,
         name: "",
         phone: "",
-        comment: ""
+        comment: "",
     };
 
     onChange = ({ name, value }) => {
         this.setState({ [name]: value });
     };
 
-    formHandler = e => {
+    formHandler = (e) => {
         e.preventDefault();
         const { formHidden, name, phone } = this.state;
         const { isHidable } = this.props;
@@ -26,27 +28,30 @@ class FeedbackForm extends Component {
         } else if (name === "" || phone === "") {
             notification.warning({
                 message: `Внимание`,
-                description: "Заполните, пожалуйста, поля"
+                description: "Заполните, пожалуйста, поля",
             });
         } else {
-            this.sendFeedbackInfo();
+            sendLead({ formType: "header" });
             this.setState({ name: "", phone: "", comment: "" });
         }
     };
 
     sendFeedbackInfo = async () => {
-        const { formHidden, name, phone, comment } = this.state;
         const res = await fetch(
             `http://vagmen.ru/urman/send.php?phone=${phone}&name=${name}&comment=${comment}&pathname=${
                 window.location.pathname
-            }&formName=${withComment ? 'Форма с полем для вопроса(в конце страницы)' : 'Форма "Получить консультацию"(в шапке услуги, скорее всего)'}`,
+            }&formName=${
+                withComment
+                    ? "Форма с полем для вопроса(в конце страницы)"
+                    : 'Форма "Получить консультацию"(в шапке услуги, скорее всего)'
+            }`,
             {
-                method: "get"
+                method: "get",
             }
         );
         notification.success({
             message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам."
+            description: "В ближайшее время ответим Вам.",
         });
     };
 
@@ -59,7 +64,14 @@ class FeedbackForm extends Component {
                 <div className={`inner ${formHidden && isHidable ? "form-hidden" : "form-visible"}`}>
                     {title && <p className={`title ${hideTitleInMobile && "for-desktop"}`}>{title}</p>}
                     {subTitle && <p className={`sub-title ${hideTitleInMobile && "for-desktop"}`}>{subTitle}</p>}
-                    <Input name="name" className="full-width" value={name} placeholder="Имя" onChange={this.onChange} />
+                    <Input
+                        name="name"
+                        className="full-width"
+                        value={name}
+                        placeholder="Имя"
+                        onChange={() => changeFormItem({ state: this.state, itemName: "name" })}
+                        type="text"
+                    />
                     <Input
                         name="phone"
                         className="full-width"
@@ -78,7 +90,7 @@ class FeedbackForm extends Component {
                             type="text"
                         />
                     )}
-                    <ButtonViolet size="l" onClick={e => this.formHandler(e)}>
+                    <ButtonViolet size="l" onClick={(e) => this.formHandler(e)}>
                         {formHidden && isHidable ? "Бесплатная консультация" : "Отправить"}
                     </ButtonViolet>
                 </div>
