@@ -8,29 +8,12 @@ $user = [
 ];
 $AMO_DATA = [
   'SUBDOMAIN' => 'urman',
-//   'PIPELINE_ID' => 1068226
   'PIPELINE_ID' => 1068481
 ];
 
 $lead_name = 'qwe';
-$lead_contact = '123';
+$lead_phone = '123';
 $lead_comment = 'qwe123';
-
-$LEAD_DATA = [
-    'NAME' => 'qwe',
-    'CONTACT' => '123',
-    'COMMENT' => 'qwe123',
-];
-
-// $TENDERLAND_FIELDS = [
-//   'URL' => 'www.tenderland.ru/pages/main?',
-//   'AUTOPOISK' => '369225', // гос актуальный
-//   // 'AUTOPOISK' => '313477', // гос старый
-//   // 'AUTOPOISK' => '325954', // тест
-//   'REPORT' => '26380',
-//   'LOGIN' => 'green01',
-//   'PASSWORD' => '2983486@'
-// ];
 
 class Tenders {
 
@@ -109,7 +92,7 @@ class Tenders {
             'id'=>623253,
             'values'=>[
               [
-                'value'=> $output['contact']
+                'value'=> $output['phone']
               ]
             ]
           ],
@@ -249,7 +232,7 @@ if($isLogin == 'true')
 {
     parse_str($_SERVER['QUERY_STRING'], $output);
     echo $output['name'], "\n";  // value
-    echo $output['contact'], "\n"; // foo bar
+    echo $output['phone'], "\n"; // foo bar
     echo $output['comment'], "\n"; // baz
     echo $output['pathname'], "\n"; // baz
 

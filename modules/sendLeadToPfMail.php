@@ -4,6 +4,10 @@
 header('Content-Type: text/html; charset=utf-8');              
 header('Access-Control-Allow-Origin: *');
 
+$mailTo = 'vagmen27@gmail.com';
+// $mailTo = 'request-site@urman.planfix.rú';
+$mailFrom = 'direktor@urman.su';
+
 parse_str($_SERVER['QUERY_STRING'], $output);
 $name = htmlspecialchars($output['name']);
 $phone = htmlspecialchars($output['phone']);
@@ -26,7 +30,7 @@ $formName = trim($formName);
 $mailText = "Имя лида: ".$name."\nТелефон: ".$phone."\nEmail: ".$email."\nКоммент: ".$comment."\nЦелевая страница: ".$pathname."\nФорма: ".$formName;
 echo $mailText;
 
-if (mail("request-site@urman.planfix.ru", "Заявка с сайта", $mailText ,"From: direktor@urman.su \r\n"))
+if (mail($mailTo, "Заявка с сайта", $mailText ,"From: ".$mailFrom."\r\n"))
  {     echo "\n\nСообщение успешно отправлено"; 
 } else { 
     echo "\n\nПри отправке сообщения возникли ошибки";

@@ -324,6 +324,7 @@ $rawTenders = $log -> xmlToJson($xml["file"]);
 $rawTenders = json_decode($rawTenders, true);
 
 if(array_key_exists ( 'tender' , $rawTenders )){
+  echo $xml["items_count"];
   if($xml["items_count"] == '1'){
     $leads = $log -> parseTender($rawTenders['tender']);
   } else{

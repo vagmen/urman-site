@@ -11,48 +11,41 @@ class FeedbackForm extends Component {
         formHidden: true,
         name: "",
         phone: "",
-        comment: "",
+        comment: ""
     };
+
+    componentDidMount() {
+        this.setState({
+            name: localStorage.getItem("name") || "",
+            phone: localStorage.getItem("phone") || "",
+            comment: localStorage.getItem("comment") || ""
+        });
+    }
 
     onChange = ({ name, value }) => {
         this.setState({ [name]: value });
+        localStorage.setItem([name], value);
     };
 
-    formHandler = (e) => {
+    formHandler = e => {
         e.preventDefault();
         const { formHidden, name, phone } = this.state;
-        const { isHidable } = this.props;
+        const { isHidable, withComment } = this.props;
 
         if (formHidden && isHidable) {
             this.setState({ formHidden: false });
         } else if (name === "" || phone === "") {
             notification.warning({
                 message: `Внимание`,
-                description: "Заполните, пожалуйста, поля",
+                description: "Заполните, пожалуйста, поля"
             });
         } else {
-            sendLead({ formType: "header" });
+            sendLead({ formType: withComment ? "pageEnd" : "pageStart" });
             this.setState({ name: "", phone: "", comment: "" });
+            localStorage.removeItem("name");
+            localStorage.removeItem("phone");
+            localStorage.removeItem("comment");
         }
-    };
-
-    sendFeedbackInfo = async () => {
-        const res = await fetch(
-            `http://vagmen.ru/urman/send.php?phone=${phone}&name=${name}&comment=${comment}&pathname=${
-                window.location.pathname
-            }&formName=${
-                withComment
-                    ? "Форма с полем для вопроса(в конце страницы)"
-                    : 'Форма "Получить консультацию"(в шапке услуги, скорее всего)'
-            }`,
-            {
-                method: "get",
-            }
-        );
-        notification.success({
-            message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам.",
-        });
     };
 
     render() {
@@ -69,7 +62,7 @@ class FeedbackForm extends Component {
                         className="full-width"
                         value={name}
                         placeholder="Имя"
-                        onChange={() => changeFormItem({ state: this.state, itemName: "name" })}
+                        onChange={this.onChange}
                         type="text"
                     />
                     <Input
@@ -90,7 +83,7 @@ class FeedbackForm extends Component {
                             type="text"
                         />
                     )}
-                    <ButtonViolet size="l" onClick={(e) => this.formHandler(e)}>
+                    <ButtonViolet size="l" onClick={e => this.formHandler(e)}>
                         {formHidden && isHidable ? "Бесплатная консультация" : "Отправить"}
                     </ButtonViolet>
                 </div>

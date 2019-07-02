@@ -4,10 +4,11 @@ import Head from "next/head";
 import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
 import { mainColorMid, mainColorDark, mainColorLight, grey } from "../constants/colors";
 import Button from "../components/ui/Button";
+import { sendLead } from "../utils/api";
 
 class errorPage extends Component {
     state = {
-        contact: ""
+        contact: localStorage.getItem("phone")
     };
 
     sendFeedbackInfo = async () => {
@@ -95,12 +96,20 @@ class errorPage extends Component {
                     </div>
                     <input
                         className="input"
-                        type="text"
+                        type="tel"
                         placeholder="Ваш телефон"
                         value={contact}
-                        onChange={e => this.setState({ contact: e.target.value })}
+                        onChange={e => {
+                            localStorage.setItem("phone", e.target.value);
+                            this.setState({ contact: e.target.value });
+                        }}
                     />
-                    <input className="button" type="button" value="Связаться" onClick={() => this.testRequest()} />
+                    <input
+                        className="button"
+                        type="button"
+                        value="Связаться"
+                        onClick={() => sendLead({ formType: "p404" })}
+                    />
                 </div>
                 <style jsx global>{`
                     @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");

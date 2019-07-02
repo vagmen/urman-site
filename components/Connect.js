@@ -13,30 +13,21 @@ class Connect extends Component {
     }
     state = {
         collapsed: true,
-        contact: localStorage.getItem("formPhone"),
+        contact: ""
     };
 
-    sendFeedbackInfo = async () => {
-        console.log("window.location.pathname", window.location.pathname);
-        const res = await fetch(
-            `http://vagmen.ru/urman/send.php?phone=${this.state.contact}&pathname=${
-                window.location.pathname
-            }&formName=Боковая форма "Получить консультацию"`,
-            {
-                method: "get",
-            }
-        );
-        notification.success({
-            message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам.",
+    componentDidMount() {
+        this.setState({
+            comment: localStorage.getItem("comment")
         });
-    };
+    }
 
     connectHandler = () => {
         const { contact } = this.state;
 
-        this.sendLead({ formType: "side" });
+        sendLead({ formType: "side" });
         this.setState({ contact: "" });
+        localStorage.removeItem("phone");
         Chatra("show");
         this.closeConnect();
     };
@@ -91,8 +82,8 @@ class Connect extends Component {
                         type="tel"
                         placeholder="Tелефон"
                         value={contact}
-                        onChange={(e) => {
-                            localStorage.setItem("formPhone", e.target.value);
+                        onChange={e => {
+                            localStorage.setItem("phone", e.target.value);
                             this.setState({ contact: e.target.value });
                         }}
                     />
