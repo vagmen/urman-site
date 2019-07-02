@@ -4,8 +4,8 @@
 header('Content-Type: text/html; charset=utf-8');              
 header('Access-Control-Allow-Origin: *');
 
-$mailTo = 'vagmen27@gmail.com';
-// $mailTo = 'request-site@urman.planfix.rú';
+// $mailTo = 'vagmen27@gmail.com';
+$mailTo = 'request-site@urman.planfix.rú';
 $mailFrom = 'direktor@urman.su';
 
 parse_str($_SERVER['QUERY_STRING'], $output);
