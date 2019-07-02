@@ -12,7 +12,7 @@ import { Component } from "react";
 const postData = {
     title: "URMAN - Лесные решения",
     description:
-        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка."
+        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
 };
 
 // export default () => (
@@ -135,7 +135,7 @@ class Index extends Component {
                         left: 0;
                         height: 100%;
                         width: 100%;
-                        background: #ccc;
+                        background: #eee;
                         // background: url("static/images/comanda.webp");
                         background-position: center center;
                         background-repeat: no-repeat;

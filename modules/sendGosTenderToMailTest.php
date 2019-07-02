@@ -8,10 +8,10 @@ header('Access-Control-Allow-Origin: *');
 // $mailTo = 'vagmen27@gmail.com';
 // $mailFrom = 'direktor@urman.su';
 
-// $MAIL = [
-//   'TO' => 'vagmen27@gmail.com',
-//   'FROM' => 'direktor@urman.su'
-// ];
+$MAIL = [
+  'TO' => 'vagmen27@gmail.com',
+  'FROM' => 'direktor@urman.su'
+];
 
 $user = [
   'USER_LOGIN'=>'green.landia@mail.ru',
@@ -20,10 +20,10 @@ $user = [
 
 $TENDERLAND_FIELDS = [
   'URL' => 'www.tenderland.ru/pages/main?',
-  'AUTOPOISK' => '369225', // гос актуальный
+  // 'AUTOPOISK' => '369225', // гос актуальный
   // 'AUTOPOISK' => '313477', // гос старый
   // 'AUTOPOISK' => '325954', // тест
-  // 'AUTOPOISK' => '399965', // c 1 тендером
+  'AUTOPOISK' => '399965', // c 1 тендером
   'REPORT' => '26380',
   'LOGIN' => 'green01',
   'PASSWORD' => '2983486@'
@@ -85,7 +85,7 @@ class Tenders {
 
   public function getRequestId ($TENDERLAND_FIELDS) {
 
-    $link= $TENDERLAND_FIELDS["URL"].'autopoisk='.$TENDERLAND_FIELDS["AUTOPOISK"].'&api=1&report='.$TENDERLAND_FIELDS["REPORT"].'&login='.$TENDERLAND_FIELDS["LOGIN"].'&password='.$TENDERLAND_FIELDS["PASSWORD"].'&force_prev=0';
+    $link= $TENDERLAND_FIELDS["URL"].'autopoisk='.$TENDERLAND_FIELDS["AUTOPOISK"].'&api=1&report='.$TENDERLAND_FIELDS["REPORT"].'&login='.$TENDERLAND_FIELDS["LOGIN"].'&password='.$TENDERLAND_FIELDS["PASSWORD"].'&force_prev=1';
 
     $curl=curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -209,7 +209,7 @@ class Tenders {
 
     $mailText = "Наименование: ".$name."\nНомер: ".$tender_number."\nЗаказчик: ".$customer."\nКонтакты заказчика: ".$customer_contacts."\nНачальная цена контракта: ".$start_price_contract."\nДата начала подачи заявок: ".$publication_date."\nДата и время окончания срока подачи заявок: ".$datetime_dedline_request."\nРегион: ".$region."\nДата и время проведения: ".$datetime_holding."\nТип заявки: ".$request_type."\nРазмер обеспечения заявки: ".$request_provision_size."\nЭлектронная площадка: ".$e_place."\nСсылка на оф. сайт: ".$link."\nДата публикации: ".$publish_date."\nСсылка на архив: ".$archive_link;
 
-    if (mail( "request-tender@urman.planfix.ru", "Новый тендер", $mailText ,"From: direktor@urman.su\r\n")){
+    if (mail( "vagmen27@gmail.com", "Новый тендер", $mailText ,"From: direktor@urman.su\r\n")){
       echo "\n\nСообщение успешно отправлено"; 
     } else { 
         echo "\n\nПри отправке сообщения возникли ошибки";
