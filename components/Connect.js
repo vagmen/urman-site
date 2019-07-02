@@ -13,20 +13,20 @@ class Connect extends Component {
     }
     state = {
         collapsed: true,
-        contact: ""
+        phone: ""
     };
 
     componentDidMount() {
         this.setState({
-            comment: localStorage.getItem("comment")
+            phone: localStorage.getItem("phone") || ""
         });
     }
 
     connectHandler = () => {
-        const { contact } = this.state;
+        const { phone } = this.state;
 
         sendLead({ formType: "side" });
-        this.setState({ contact: "" });
+        this.setState({ phone: "" });
         localStorage.removeItem("phone");
         Chatra("show");
         this.closeConnect();
@@ -49,7 +49,7 @@ class Connect extends Component {
     }
 
     render() {
-        const { collapsed, contact } = this.state;
+        const { collapsed, phone } = this.state;
         return (
             <div>
                 <div className={`connect-cover ${collapsed ? "collapsed" : ""}`}>
@@ -81,10 +81,10 @@ class Connect extends Component {
                         className="input full-width"
                         type="tel"
                         placeholder="Tелефон"
-                        value={contact}
+                        value={phone}
                         onChange={e => {
                             localStorage.setItem("phone", e.target.value);
-                            this.setState({ contact: e.target.value });
+                            this.setState({ phone: e.target.value });
                         }}
                     />
                     <br />

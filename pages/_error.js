@@ -8,35 +8,17 @@ import { sendLead } from "../utils/api";
 
 class errorPage extends Component {
     state = {
-        contact: localStorage.getItem("phone")
+        phone: ""
     };
 
-    sendFeedbackInfo = async () => {
-        const res = await fetch(
-            `http://vagmen.ru/urman/send.php?phone=${this.state.contact}&pathname=${
-                window.location.pathname
-            }&formName='Форма со страницы 404'`,
-            {
-                method: "get"
-            }
-        );
-        // notification.success({
-        //     message: `Рады знакомству, ${values.name}!`,
-        //     description: 'В ближайшее время свяжемся с Вами.',
-        // });
-    };
-
-    testRequest = async () => {
-        const data = JSON.stringify({ name: "werwerwerwerwer", a: "a" });
-        const res = await fetch(`http://vagmen.ru/urman/addTender.php?`, {
-            method: "POST",
-            mode: "cors",
-            body: data
+    componentDidMount() {
+        this.setState({
+            phone: localStorage.getItem("phone") || ""
         });
-    };
+    }
 
     render() {
-        const { contact } = this.props;
+        const { phone } = this.props;
         return (
             <div className="error-page">
                 <Head>
@@ -98,17 +80,21 @@ class errorPage extends Component {
                         className="input"
                         type="tel"
                         placeholder="Ваш телефон"
-                        value={contact}
+                        value={phone}
                         onChange={e => {
                             localStorage.setItem("phone", e.target.value);
-                            this.setState({ contact: e.target.value });
+                            this.setState({ phone: e.target.value });
                         }}
                     />
                     <input
                         className="button"
                         type="button"
                         value="Связаться"
-                        onClick={() => sendLead({ formType: "p404" })}
+                        onClick={() => {
+                            sendLead({ formType: "p404" });
+                            localStorage.removeItem("phone");
+                            this.setState({ phone: "" });
+                        }}
                     />
                 </div>
                 <style jsx global>{`
