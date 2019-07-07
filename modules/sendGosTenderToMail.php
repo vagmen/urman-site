@@ -20,10 +20,10 @@ $user = [
 
 $TENDERLAND_FIELDS = [
   'URL' => 'www.tenderland.ru/pages/main?',
-  // 'AUTOPOISK' => '369225', // гос актуальный
+  'AUTOPOISK' => '369225', // гос актуальный
   // 'AUTOPOISK' => '313477', // гос старый
   // 'AUTOPOISK' => '325954', // тест
-  'AUTOPOISK' => '399965', // c 1 тендером
+  // 'AUTOPOISK' => '399965', // c 1 тендером
   'REPORT' => '26380',
   'LOGIN' => 'green01',
   'PASSWORD' => '2983486@'
@@ -85,7 +85,7 @@ class Tenders {
 
   public function getRequestId ($TENDERLAND_FIELDS) {
 
-    $link= $TENDERLAND_FIELDS["URL"].'autopoisk='.$TENDERLAND_FIELDS["AUTOPOISK"].'&api=1&report='.$TENDERLAND_FIELDS["REPORT"].'&login='.$TENDERLAND_FIELDS["LOGIN"].'&password='.$TENDERLAND_FIELDS["PASSWORD"].'&force_prev=1';
+    $link= $TENDERLAND_FIELDS["URL"].'autopoisk='.$TENDERLAND_FIELDS["AUTOPOISK"].'&api=1&report='.$TENDERLAND_FIELDS["REPORT"].'&login='.$TENDERLAND_FIELDS["LOGIN"].'&password='.$TENDERLAND_FIELDS["PASSWORD"].'&force_prev=0';
 
     $curl=curl_init();
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -372,5 +372,5 @@ if(array_key_exists ( 'tender' , $rawTenders )){
       $leads = $log -> parseTender($tender);
     } 
   }
-  echo '16';
+  echo '17';
 }

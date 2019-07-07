@@ -181,10 +181,36 @@ class Tenders {
   public function parseTender($rawTenders){
     $name = $rawTenders['name'] ?: "";
     $start_price_contract = $rawTenders['start_price_contract'] ?: "";
-    $publish_date = $rawTenders['publish_date'] ? strtotime($rawTenders['publish_date']) : "";
-    $publication_date = $rawTenders['publication_date'] ? strtotime($rawTenders['publication_date']) : "";
-    $datetime_dedline_request = $rawTenders['datetime_dedline_request'] ? strtotime($rawTenders['datetime_dedline_request']) : "";
-    $datetime_holding = $rawTenders['datetime_holding'] ? strtotime($rawTenders['datetime_holding']) : "";
+
+    $publish_date = '-';
+    $publication_date = '-';
+    $datetime_dedline_request = '-';
+    $datetime_holding = '-';
+    
+    if($rawTenders['publish_date'] && $rawTenders['publish_date'] != '-' ){
+      $publish_date = new DateTime($rawTenders['publish_date']);
+      $publish_date = $publish_date->format('d-m-Y');
+    }
+
+    if($rawTenders['publication_date'] && $rawTenders['publication_date'] != '-' ){
+      $publication_date = new DateTime($rawTenders['publication_date']);
+      $publication_date = $publication_date->format('d-m-Y');
+    }
+
+    if($rawTenders['datetime_dedline_request'] && $rawTenders['datetime_dedline_request'] != '-' ){
+      $datetime_dedline_request = new DateTime($rawTenders['datetime_dedline_request']);
+      $datetime_dedline_request = $datetime_dedline_request->format('d-m-Y H:i');
+    }
+
+    if($rawTenders['datetime_holding'] && $rawTenders['datetime_holding'] != '-' ){
+      $datetime_holding = new DateTime($rawTenders['datetime_holding']);
+      $datetime_holding = $datetime_holding->format('d-m-Y H:i');
+    }
+
+    // $publish_date = $rawTenders['publish_date'] ? strtotime($rawTenders['publish_date']) : "";
+    // $publication_date = $rawTenders['publication_date'] ? strtotime($rawTenders['publication_date']) : "";
+    // $datetime_dedline_request = $rawTenders['datetime_dedline_request'] ? strtotime($rawTenders['datetime_dedline_request']) : "";
+    // $datetime_holding = $rawTenders['datetime_holding'] ? strtotime($rawTenders['datetime_holding']) : "";
     $request_type = ($rawTenders['request_type'] && sizeof($rawTenders['request_type']) ) ? $rawTenders['request_type'] : "";
     $customer = $rawTenders['customer'] && sizeof($rawTenders['customer']) ? $rawTenders['customer'] : "";
     $region = $rawTenders['region'] && sizeof($rawTenders['region']) ? $rawTenders['region'] : "";
@@ -197,7 +223,13 @@ class Tenders {
 
     $mailText = "Наименование: ".$name."\nНомер: ".$tender_number."\nЗаказчик: ".$customer."\nНачальная цена контракта: ".$start_price_contract."\nДата начала подачи заявок: ".$publication_date."\nДата и время окончания срока подачи заявок: ".$datetime_dedline_request."\nРегион: ".$region."\nДата и время проведения: ".$datetime_holding."\nТип заявки: ".$request_type."\nРазмер обеспечения заявки: ".$request_provision_size."\nЭлектронная площадка: ".$e_place."\nСсылка на оф. сайт: ".$link."\nДата публикации: ".$publish_date."\nСсылка на архив: ".$archive_link;
 
-    if (mail("request-tender@urman.planfix.ru", "Новый тендер", $mailText ,"From: direktor@urman.su \r\n")){
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers.= "From: direktor@urman.su\r\n";
+    $headers.= "Content-Type: text/plain;charset=utf-8\r\n";
+    $headers.= "X-Mailer: PHP/" . phpversion();
+    // echo $mailText;
+
+    if (mail("request-tender@urman.planfix.ru", "Новый тендер", mb_convert_encoding($mailText, "UTF-8") ,$headers)){
       echo "\n\nСообщение успешно отправлено"; 
     } else { 
         echo "\n\nПри отправке сообщения возникли ошибки";
