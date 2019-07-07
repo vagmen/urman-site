@@ -1,4 +1,6 @@
 export const mainColorLight = "#b5c594"; //181, 197, 148
+export const mainColor50 = "#EBEFE0"; //181, 197, 148
+export const mainColor100 = "#CCD9A7"; //181, 197, 148
 export const mainColorLightBgr = "#b5c59412"; //181, 197, 148
 export const mainColorMid = "#667636"; //102, 118, 54
 export const mainColorDark = "#3a431b"; //58, 76, 27
