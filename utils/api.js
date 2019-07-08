@@ -4,28 +4,28 @@ const FORM_TYPES = {
     default: {
         items: ["name", "phone"],
         required: ["phone"],
-        name: "Форма стандартная",
+        name: "Форма стандартная"
     },
     side: {
         items: ["phone"],
         required: ["phone"],
-        name: "Форма на раскрывающейся боковой панели",
+        name: "Форма на раскрывающейся боковой панели"
     },
     p404: {
         items: ["phone"],
         required: ["phone"],
-        name: "Форма на раскрывающейся боковой панели",
+        name: "Форма на раскрывающейся боковой панели"
     },
     pageStart: {
         items: ["phone"],
         required: ["phone"],
-        name: "Форма в шапке статьи",
+        name: "Форма в шапке статьи"
     },
     pageEnd: {
         items: ["name", "phone", "comment"],
         required: ["phone"],
-        name: "Форма в конце статьи",
-    },
+        name: "Форма в конце статьи"
+    }
 };
 
 // export const sendLead = async ({ name = "", phone = "", formName = "" }) => {
@@ -45,7 +45,7 @@ export const sendLead = async ({ formType = "default" }) => {
     // }&pathname=${pathname}&`;
     if (phone) {
         const res1 = await fetch(url1, {
-            method: "get",
+            method: "get"
         });
         // const res2 = await fetch(url2, {
         //     method: "get"
@@ -53,12 +53,12 @@ export const sendLead = async ({ formType = "default" }) => {
     } else {
         notification.warning({
             message: `Внимание`,
-            description: "Заполните, пожалуйста, поле",
+            description: "Заполните, пожалуйста, поле"
         });
     }
 
     notification.success({
         message: `Получили Вашу заявку`,
-        description: "В ближайшее время ответим Вам.",
+        description: "В ближайшее время ответим Вам."
     });
 };
