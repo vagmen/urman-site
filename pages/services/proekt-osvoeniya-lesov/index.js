@@ -4,6 +4,7 @@ import { message } from "antd";
 import Link from "next/link";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import YouTubePlayer from "react-player/lib/players/YouTube";
 import Layout from "../../../components/Layout";
 import ButtonViolet from "../../../components/ui/ButtonViolet";
 import { connectHandler } from "../../../utils/localStorage";
@@ -51,6 +52,15 @@ class Index extends Component {
                         соответствии со статьёй 88 Лесного кодекса РФ после регистрации договора аренды лесного участка
                         или права постоянного (бессрочного) пользования.
                     </p>
+                    <div className="player-wrapper">
+                        <YouTubePlayer
+                            url="https://www.youtube.com/watch?v=2k_m5qGUgjg"
+                            controls
+                            className="react-player"
+                            width="100%"
+                            height="100%"
+                        />
+                    </div>
                     <p>
                         Основой разработки проекта является приказ Федерального агентства лесного хозяйства (Рослесхоза)
                         от 29 февраля 2012 года № 69 «Об утверждении состава проекта освоения лесов и порядка его

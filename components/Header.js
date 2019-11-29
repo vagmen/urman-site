@@ -261,6 +261,7 @@ class Header extends Component {
                     .player-wrapper {
                         position: relative;
                         padding-top: 56.25%;
+                        margin: 16px 0;
                     }
                     .react-player {
                         position: absolute;
@@ -403,6 +404,9 @@ class Header extends Component {
                             line-height: 3rem;
                             margin-top: 2rem;
                             margin-bottom: 4rem;
+                        }
+                        .player-wrapper {
+                            margin: 32px 0;
                         }
                         // подвинуть кнопку чатры, чтобы не заслонять мобильное меню
                         .chatra--side-bottom {
