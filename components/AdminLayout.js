@@ -9,15 +9,15 @@ import { mainMenu } from "../constants/menuData";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
+const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
 // const AdminLayout = ({ postData, menuItem, children }) => (
 class AdminLayout extends React.Component {
     state = {
-        collapsed: false
+        collapsed: false,
     };
 
-    onCollapse = collapsed => this.setState({ collapsed });
+    onCollapse = (collapsed) => this.setState({ collapsed });
 
     render() {
         const { postData, menuItem, children } = this.props;
@@ -41,26 +41,34 @@ class AdminLayout extends React.Component {
                                 onCollapse={this.onCollapse}
                                 style={{
                                     overflow: "auto",
-                                    height: "100vh"
+                                    height: "100vh",
                                 }}
                             >
                                 <div className="logo">
                                     <h3>{`URMAN${collapsed ? "" : " - Админка"}`}</h3>
                                 </div>
                                 <Menu theme="dark" mode="inline">
-                                    <Menu.Item key="1">
+                                    {/* <Menu.Item key="1">
                                         <Link href="/admin/posts">
                                             <a href="">
                                                 <Icon type="copy" />
                                                 <span>Журнал</span>
                                             </a>
                                         </Link>
-                                    </Menu.Item>
+                                    </Menu.Item> */}
                                     <Menu.Item key="2">
                                         <Link href="/admin/laborCosts">
                                             <a href="">
                                                 <Icon type="dollar" />
                                                 <span>Трудозатраты</span>
+                                            </a>
+                                        </Link>
+                                    </Menu.Item>
+                                    <Menu.Item key="3">
+                                        <Link href="/admin/avers">
+                                            <a href="">
+                                                <Icon type="file-sync" />
+                                                <span>Аверс</span>
                                             </a>
                                         </Link>
                                     </Menu.Item>
@@ -91,12 +99,12 @@ class AdminLayout extends React.Component {
                         z-index: 100;
                         background: #fff;
                         display: flex;
+                        align-items: center;
                     }
 
                     .admin-content {
                         display: flex;
                         flex-wrap: wrap;
-                        justify-content: center;
                     }
                     .admin-card {
                         flex: 1 1 100%;
