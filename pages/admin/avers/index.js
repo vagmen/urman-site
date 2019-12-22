@@ -49,7 +49,12 @@ class Index extends React.Component {
             });
             return;
         }
-        this.setState({ fileList: [], spinning: true, filesCount: files.length });
+        this.setState({
+            fileList: [],
+            spinning: true,
+            filesCount: files.length,
+            total: { areacutting: 0, breeds: [] },
+        });
         const fr = new FileReader();
 
         fr.onload = (event) => {
@@ -104,13 +109,13 @@ class Index extends React.Component {
                 let currentBreed = totalBreeds.find((totalBreed) => totalBreed.name === newBreed.name);
                 if (currentBreed) {
                     newBreed.steps.forEach((step) => {
-                        const currentStep = currentBreed.steps.find((currentStep) => currentStep.step === step.step);
+                        let currentStep = currentBreed.steps.find((currentStep) => currentStep.step === step.step);
                         if (currentStep) {
                             currentStep.business = Number(currentStep.business) + Number(step.business);
                             currentStep.halfbusiness = Number(currentStep.halfbusiness) + Number(step.halfbusiness);
                             currentStep.firewood = Number(currentStep.firewood) + Number(step.firewood);
                         } else {
-                            currentStep.push(step);
+                            currentStep = [step];
                         }
                     });
                 } else {
