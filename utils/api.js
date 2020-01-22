@@ -30,6 +30,7 @@ const FORM_TYPES = {
 
 // export const sendLead = async ({ name = "", phone = "", formName = "" }) => {
 export const sendLead = async ({ formType = "default" }) => {
+    ym(51360247, "reachGoal", "feedback-form");
     const baseUrl1 = "http://vagmen.ru/urman/sendLeadToPfMail.php?";
     // const baseUrl2 = "http://vagmen.ru/urman/sendLeadToAmo.php?";
     const name = localStorage.getItem("name");
@@ -37,9 +38,7 @@ export const sendLead = async ({ formType = "default" }) => {
     const email = localStorage.getItem("email");
     const comment = localStorage.getItem("comment");
     const { pathname } = window.location;
-    const url1 = `${baseUrl1}name=${name}&phone=${phone}&email=${email}&comment=${comment}&formName=${
-        FORM_TYPES[formType].name
-    }&pathname=${pathname}&`;
+    const url1 = `${baseUrl1}name=${name}&phone=${phone}&email=${email}&comment=${comment}&formName=${FORM_TYPES[formType].name}&pathname=${pathname}&`;
     // const url2 = `${baseUrl2}name=${name}&phone=${phone}&email=${email}&comment=${comment}&formName=${
     //     FORM_TYPES[formType].name
     // }&pathname=${pathname}&`;

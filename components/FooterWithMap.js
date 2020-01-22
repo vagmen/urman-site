@@ -12,7 +12,9 @@ class FooterWithMap extends Component {
     }
 
     componentDidMount() {
-        this.setState({ isUfaSelected: !(localStorage.getItem("city") === "moscow") });
+        this.setState({
+            isUfaSelected: !(localStorage.getItem("city") === "moscow")
+        });
     }
 
     changeSelectedCity = isUfa => {
@@ -49,14 +51,14 @@ class FooterWithMap extends Component {
                                 <br />
                                 <span className="extra">(Напротив Министерства лесного хозяйства РБ)</span>
                                 <br />
-                                <a href="tel:+79631363486">
+                                <a href="tel:+79631363486" onClick={() => ym(51360247, "reachGoal", "tel1")}>
                                     <span>
                                         <MdLocalPhone />
                                     </span>
                                     +7 (963) 136-34-86
                                 </a>
                                 <br />
-                                <a href="tel:+73472983486">
+                                <a href="tel:+73472983486" onClick={() => ym(51360247, "reachGoal", "tel2")}>
                                     <span>
                                         <MdLocalPhone />
                                     </span>
@@ -77,14 +79,14 @@ class FooterWithMap extends Component {
                                 <br />
                                 <span className="extra">(Соседнее здание с Комитетом лесного хозяйства МО)</span>
                                 <br />
-                                <a href="tel:+79039683486">
+                                <a href="tel:+79039683486" onClick={() => ym(51360247, "reachGoal", "telmsk1")}>
                                     <span>
                                         <MdLocalPhone />
                                     </span>
                                     +7 (903) 968-34-86
                                 </a>
                                 <br />
-                                <a href="tel:+74959683486">
+                                <a href="tel:+74959683486" onClick={() => ym(51360247, "reachGoal", "telmsk2")}>
                                     <span>
                                         <MdLocalPhone />
                                     </span>

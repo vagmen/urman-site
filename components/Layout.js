@@ -17,7 +17,7 @@ const Footer = dynamic(import("./Footer"));
 const FooterWithMap = dynamic(import("./FooterWithMap"));
 const Connect = dynamic(import("./Connect"));
 
-const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
+const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
 
 const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
     const title = postData ? postData.title : menuItemData(menuItem).title || "URMAN - Лесные решения";
