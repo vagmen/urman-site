@@ -58,9 +58,9 @@ app.prepare()
             return handle(req, res);
         });
 
-        server.listen(dev ? 3000 : 80, (err) => {
+        server.listen(3000, (err) => {
             if (err) throw err;
-            console.log(`> Ready on http://localhost: ${dev ? 3000 : 80}`);
+            console.log(`> Ready on http://localhost: 3000`);
         });
     })
     .catch((ex) => {
