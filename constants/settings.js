@@ -6,3 +6,5 @@ export const pageWidthDesktopsSmall = `1024px`;
 export const pageWidthDesktopsMedium = `1280px`;
 export const pageWidthDesktopsLarge = `1600px`;
 export const pageWidthDesktopsExtraLarge = `1920px`;
+
+export const API_URL = "https://admin.urman.su";

@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import AdminLayout from '../../components/AdminLayout';
+import AdminLayout from "../../components/AdminLayout";
 
 const Index = () => (
     // <Layout menuItem="about">

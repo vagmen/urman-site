@@ -20,10 +20,7 @@ class Index extends Component {
     componentDidMount() {
         const src = "static/images/comanda.webp";
         let img = document.createElement("img");
-        img.onload = function() {
-            console.log("sdfsdfsdfsdf", src);
-            console.log("sdfsdfsdfsdf", src);
-
+        img.onload = function () {
             const im = document.querySelector(".main-section__bg");
             im.style.backgroundImage = "url(" + src + ")"; // устанавливаем картинку как фон
         };

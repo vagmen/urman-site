@@ -2,7 +2,9 @@ import { Fragment } from "react";
 import Link from "next/link";
 import moment from "moment";
 import Layout from "../../components/Layout";
-import { journalData } from "../../constants/journalData";
+import fetch from "isomorphic-unfetch";
+import { API_URL } from "../../constants/settings.js";
+moment.locale("ru");
 
 const Index = ({ journalItems }) => (
     <Layout menuItem="journal">
@@ -12,7 +14,7 @@ const Index = ({ journalItems }) => (
                     <h1>Журнал – URMAN</h1>
                     <p>Про лес и не только</p>
                     <div className="grid">
-                        {journalItems.map(item => (
+                        {journalItems.map((item) => (
                             <section className="grid__item clickable-block" key={item.id}>
                                 <Link as={`/journal/${item.id}`} href={`/journal/post?id=${item.id}`} passHref>
                                     <a href="">
@@ -21,7 +23,7 @@ const Index = ({ journalItems }) => (
                                                 <img src={item.img} alt={item.title} />
                                             </div>
                                             <article>
-                                                <time>{moment().format("D MMMM YYYY")}</time>
+                                                <time>{moment(item.date).format("D MMMM YYYY")}</time>
                                                 <header>
                                                     <h4>{item.title}</h4>
                                                 </header>
@@ -69,13 +71,19 @@ const Index = ({ journalItems }) => (
     </Layout>
 );
 
-Index.getInitialProps = async function() {
-    // const res = await fetch('https://helpforest.azurewebsites.net/GetPosts');
-    // const data = await res.json();
-    // console.log('data', data);
+Index.getInitialProps = async function () {
+    const res = await fetch(API_URL + "/articles");
+    const data = await res.json();
+    const journalItems = data.map((item) => ({
+        id: item.urlId,
+        img: API_URL + item.image[0].url,
+        title: item.title,
+        date: item.publishedAt,
+        description: item.description,
+    }));
 
     return {
-        journalItems: journalData
+        journalItems,
     };
 };
 

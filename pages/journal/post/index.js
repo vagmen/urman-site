@@ -1,187 +1,47 @@
-import { withRouter } from "next/router";
 import fetch from "isomorphic-unfetch";
-import Link from "next/link";
 import Layout from "../../../components/Layout.js";
-import { createElement } from "react";
+import Error from "next/error";
+import { API_URL } from "../../../constants/settings.js";
+import ReactMarkdown from "react-markdown";
 
-const htmlParser = postArray =>
-    postArray.map((item, index) => {
-        let content = item.content;
-        if (Array.isArray(item.content)) {
-            content = htmlParser(item.content);
-        }
-        switch (item.tag) {
-            case "string":
-                return content;
-                break;
-            case "a":
-                return (
-                    <Link key={index} href={item.props.src} passHref>
-                        <a className="post-a" href="">
-                            {item.content}
-                        </a>
-                    </Link>
-                );
-                break;
-            default:
-                return createElement(item.tag, { ...item.props, key: index }, content);
-                break;
-        }
-    });
-
-const Index = ({ postData }) => (
-    <Layout postData={postData}>
-        <div className="template-background">
-            <div className="page-content">
-                <div className="post">{htmlParser(postData.post)}</div>
+const Index = ({ postData, err }) =>
+    postData ? (
+        <Layout postData={postData}>
+            <div className="template-background">
+                <div className="page-content">
+                    <div className="post">
+                        <h1>{postData.title}</h1>
+                        <img className="post-img" src={postData.image} alt={postData.title} />
+                        <ReactMarkdown source={postData.content} />
+                    </div>
+                </div>
             </div>
-        </div>
-    </Layout>
-);
-Index.getInitialProps = async function() {
-    return {
-        postData: {
-            title: "У вашего Проекта освоения лесов вышел срок годности",
-            description:
-                "Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу.",
-            post: [
-                {
-                    tag: "h1",
-                    content: "У вашего Проекта освоения лесов вышел срок годности"
-                },
-                {
-                    tag: "img",
-                    props: {
-                        className: "post-img",
-                        src: "/static/forest.webp",
-                        alt: "У вашего Проекта освоения лесов вышел срок годности"
-                    }
-                },
-                {
-                    tag: "h3",
-                    content:
-                        " Почему нужно разрабатывать проект освоения лесов (сокращенно ПОЛ) уже сейчас и почему он у Вас не пройдет государственную экспертизу."
-                },
-                {
-                    tag: "p",
-                    content: "У нас для Вас 2 новости: одна плохая, другая хорошая."
-                },
-                {
-                    tag: "p",
-                    content:
-                        "Плохая в том, что срок Проекта освоения лесов на ваш лесной участок заканчивается в этом году. И с нового года Вы не имеете права вести деятельность на участке без нового лесного проекта прошедшего государственную экспертизу. Что сулит проблемы и штрафы."
-                },
-                {
-                    tag: "p",
-                    content: [
-                        {
-                            tag: "strong",
-                            content: "Хорошая"
-                        },
-                        {
-                            tag: "string",
-                            content: " в том, что мы готовы для Вас сделать новый "
-                        },
-                        {
-                            tag: "a",
-                            props: {
-                                src: "/services/proekt-osvoeniya-lesov"
-                            },
-                            content: "Проект освоения лесов."
-                        }
-                    ]
-                },
-                {
-                    tag: "p",
-                    content:
-                        "В этом году обновляются многие Проекты освоения лесов. Будет завал и у разработчиков и у организаций проводящих экспертизу, которая занимает 30 дней по закону. Так же если у вас было лесоустройство и изменились номера выделов, нужно будет заключать доп. соглашение, а это трата драгоценного времени."
-                },
-                {
-                    tag: "p",
-                    content:
-                        "Особенно это важно для заготовителей древесины, которые не смогут вести деятельность на своем лесном участке с 1 января 2019 года без принятой лесной декларации по новому ПОЛ. Соответственно встанет вся работа."
-                },
-                {
-                    tag: "h3",
-                    content: "Почему нужно заново разрабатывать Проект освоения лесов?"
-                },
-                {
-                    tag: "p",
-                    content:
-                        'Согласно п.30 Приказа № 69 от 29 февраля 2012 года "Об утверждении состава проекта освоения лесов и порядка его разработки" Проекты освоения лесов составляются на срок действия договора аренды по видам пользования:'
-                },
-                {
-                    tag: "ul",
-                    content: [
-                        {
-                            tag: "li",
-                            content: "геологическое изучение недр, разработка месторождений полезных ископаемых;"
-                        },
-                        {
-                            tag: "li",
-                            content:
-                                "строительства и эксплуатации водохранилищ, иных искусственных водных объектов, а также гидротехнических сооружений, морских портов, морских терминалов, речных портов, причалов;"
-                        },
-                        {
-                            tag: "li",
-                            content: "строительства, реконструкции, эксплуатации линейных объектов;"
-                        }
-                    ]
-                },
-                {
-                    tag: "p",
-                    content:
-                        "По остальным видам использования лесов проект освоения лесов разрабатывается на срок не более 10 лет, но не должен превышать срок действия договора аренды и лесохозяйственного регламента лесничества (лесопарка)."
-                },
-                {
-                    tag: "p",
-                    content:
-                        "Так получилось, что практически все лесничества по всей стране в этом году обновляют лесохозяйственные регламенты и лесные планы."
-                },
-                {
-                    tag: "p",
-                    content: [
-                        {
-                            tag: "string",
-                            content:
-                                "Но есть в этом положительный момент. Напомним, что вносить изменения в Проект освоения лесов можно только в "
-                        },
-                        {
-                            tag: "strong",
-                            content: "3 случаях:"
-                        }
-                    ]
-                },
-                {
-                    tag: "ul",
-                    content: [
-                        {
-                            tag: "li",
-                            content: "при изменении Лесохозяйственного регламента;"
-                        },
-                        {
-                            tag: "li",
-                            content: "изменении условий договора аренды;"
-                        },
-                        {
-                            tag: "li",
-                            content: "при проведении лесопатологического обследования;"
-                        }
-                    ]
-                },
-                {
-                    tag: "p",
-                    content:
-                        "Если Вы делали Проект освоения лесов 10 лет назад, многое в Ваших планах могло поменяться. Это отличная возможность откорректировать Проект с Вашим новым видением. Но если Вы делали Проект пару лет назад, то в любом случае придется переделывать ПОЛ. В этом случае стоит попросить скидку у разработчика."
-                },
-                {
-                    tag: "p",
-                    content:
-                        "Наша компания успешно разрабатывает проекты освоения лесов любой сложности на все разрешенные Лесным кодексом виды деятельности. Работаем по всей России. Собрали опыт с разных уголков страны, что позволяет нам с каждым прошедшим экспертизу ПОЛ, улучшать качество наших Проектов, увереннее давать гарантии результата и предлагать наиболее интересные цены на рынке."
-                }
-            ]
-        }
-    };
+        </Layout>
+    ) : (
+        <Error statusCode={err} />
+    );
+
+Index.getInitialProps = async function ({ query }) {
+    const id = query.id;
+
+    const res = await fetch(API_URL + "/articles?urlId=" + id);
+    const data = await res.json();
+    if (data && data[0]) {
+        const currentArticle = data[0];
+        const postData = {
+            id: currentArticle.urlId,
+            image: API_URL + currentArticle.image[0].url,
+            title: currentArticle.title,
+            date: currentArticle.publishedAt,
+            description: currentArticle.description,
+            content: currentArticle.content,
+        };
+        return {
+            postData,
+        };
+    } else {
+        return { err: 404 };
+    }
 };
 
 export default Index;

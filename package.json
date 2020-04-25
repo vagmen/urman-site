@@ -3,7 +3,7 @@
     "main": "index.js",
     "repository": "https://github.com/vagmen/urman-site.git",
     "author": "Akhmetov Vagiz",
-    "license": "MIT",
+    "license": "UNLICENSED",
     "version": "1.0.0",
     "scripts": {
         "dev": "node server.js",
@@ -16,7 +16,6 @@
     },
     "dependencies": {
         "antd": "^3.18.2",
-        "draft-js": "^0.10.5",
         "express": "^4.17.0",
         "isomorphic-unfetch": "^3.0.0",
         "moment": "^2.24.0",
@@ -25,14 +24,22 @@
         "react-dom": "^16.8.6",
         "react-ga": "^2.5.7",
         "react-icons": "3.2.0",
-        "react-markdown": "^3.4.1",
+        "react-markdown": "^4.3.1",
         "react-player": "^1.6.6",
         "react-scroll": "^1.7.10"
     },
     "devDependencies": {
+        "babel-eslint": "^10.1.0",
         "babel-plugin-import": "^1.9.1",
         "cross-env": "^5.2.0",
-        "sw-precache-webpack-plugin": "^0.11.5"
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-react": "^7.19.0",
+        "prettier": "^2.0.5",
+        "sw-precache-webpack-plugin": "^0.11.5",
+        "webpack": "^4.43.0"
     },
     "resolutions": {
         "ajv": "6.8.1"

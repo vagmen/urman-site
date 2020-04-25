@@ -11,7 +11,7 @@ import {
     pageWidthDesktopsSmall,
     pageWidthDesktopsMedium,
     pageWidthDesktopsLarge,
-    pageWidthDesktopsExtraLarge
+    pageWidthDesktopsExtraLarge,
 } from "../constants/settings";
 
 let ticking = false;
@@ -21,17 +21,17 @@ class Header extends Component {
         super(props);
         const { headerOpacity } = props;
         this.state = {
-            headerBackgroundOpacity: props.headerOpacity ? 0 : 1
+            headerBackgroundOpacity: props.headerOpacity ? 0 : 1,
         };
     }
 
     componentDidMount() {
-        (function(d, w, c) {
+        (function (d, w, c) {
             w.ChatraID = "DKFod4oh55xDx6Q29";
             var s = d.createElement("script");
             w[c] =
                 w[c] ||
-                function() {
+                function () {
                     (w[c].q = w[c].q || []).push(arguments);
                 };
             s.async = true;
@@ -44,8 +44,8 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: colorViolet /* цвет фона кнопки чата */
-                }
+                    buttonBg: colorViolet /* цвет фона кнопки чата */,
+                },
             };
         })(document, window, "Chatra");
 
@@ -55,10 +55,10 @@ class Header extends Component {
         this.setOpacity();
         window.addEventListener("scroll", this.handleScroll);
 
-        (function(m, e, t, r, i, k, a) {
+        (function (m, e, t, r, i, k, a) {
             m[i] =
                 m[i] ||
-                function() {
+                function () {
                     (m[i].a = m[i].a || []).push(arguments);
                 };
             m[i].l = 1 * new Date();
@@ -73,7 +73,7 @@ class Header extends Component {
             clickmap: true,
             trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true
+            webvisor: true,
         });
     }
     componentWillUnmount() {
@@ -94,11 +94,11 @@ class Header extends Component {
     setOpacity = () => {
         if (this.props.headerOpacity && window.scrollY < 100) {
             this.setState({
-                headerBackgroundOpacity: window.scrollY / 100
+                headerBackgroundOpacity: window.scrollY / 100,
             });
         } else {
             this.setState({
-                headerBackgroundOpacity: 1
+                headerBackgroundOpacity: 1,
             });
         }
     };
@@ -372,6 +372,7 @@ class Header extends Component {
                         }
                         .post {
                             margin-top: 20px;
+                            margin-bottom: 20px;
                         }
                         .post h2,
                         .post h3,
@@ -398,6 +399,10 @@ class Header extends Component {
                         }
                         .post {
                             margin-top: 50px;
+                            margin-bottom: 50px;
+                        }
+                        .post-img {
+                            margin-bottom: 2rem;
                         }
                         .post h1 {
                             font-size: 3rem;
