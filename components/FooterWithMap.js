@@ -1,23 +1,23 @@
 import React, { Component, Fragment } from "react";
 import { MdLocationOn, MdEmail, MdLocalPhone } from "react-icons/md";
 import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
-import { mainColorMid, mainColorDark, mainColorLight, grey, greyDark } from "../constants/colors";
+import { greyDark } from "../constants/colors";
 
 class FooterWithMap extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isUfaSelected: true
+            isUfaSelected: true,
         };
     }
 
     componentDidMount() {
         this.setState({
-            isUfaSelected: !(localStorage.getItem("city") === "moscow")
+            isUfaSelected: !(localStorage.getItem("city") === "moscow"),
         });
     }
 
-    changeSelectedCity = isUfa => {
+    changeSelectedCity = (isUfa) => {
         localStorage.setItem("city", isUfa ? "ufa" : "moscow");
         this.setState({ isUfaSelected: isUfa });
     };

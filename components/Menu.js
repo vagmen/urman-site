@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { Icon } from "antd";
 import { mainMenu } from "../constants/menuData";
-import { grey, greyDark } from "../constants/colors";
+import { greyDark } from "../constants/colors";
 
 class Menu extends Component {
     render() {
         const { headerOpacity } = this.props;
         return (
             <ul className="menu">
-                {mainMenu.map(
-                    (item, index) =>
+                {mainMenu.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
                         item.isMainMenu && (
                             <Link prefetch key={index} href={`/${item.src}`} passHref>
                                 <li
@@ -18,12 +18,13 @@ class Menu extends Component {
                                         this.props.menuItem === item.src ? `menu-item_active` : ``
                                     }`}
                                 >
-                                    <Icon className="icon" type={item.icon} style={{ color: "#eee", fontSize: 25 }} />
+                                    <Icon className="icon" style={{ color: "#eee", fontSize: 25 }} />
                                     <a>{item.name}</a>
                                 </li>
                             </Link>
                         )
-                )}
+                    );
+                })}
                 <style jsx>{`
                     @keyframes appearance-of-menu {
                         from {
@@ -89,6 +90,9 @@ class Menu extends Component {
                         padding-top: 5px;
                         text-decoration: none;
                         margin: 0;
+                    }
+                    .icon {
+                        margin: 0 auto;
                     }
                     .menu-item:hover {
                         background: rgba(255, 255, 255, 0.1);

@@ -1,3 +1,5 @@
+import { MdVpnKey, MdFace, MdContactPhone, MdLibraryBooks } from "react-icons/md";
+
 export const mainMenu = [
     // {
     //     name: "Клиенты",
@@ -27,7 +29,7 @@ export const mainMenu = [
     {
         name: "Услуги",
         title: "Услуги | URMAN - Лесные решения",
-        icon: "key",
+        icon: MdVpnKey,
         src: "services",
         description:
             "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка",
@@ -36,7 +38,7 @@ export const mainMenu = [
     {
         name: "О нас",
         title: "О нас | URMAN - Лесные решения",
-        icon: "idcard",
+        icon: MdFace,
         src: "about",
         description:
             "Мы сплоченная команда из 15 человек. Решаем поставленные задачи по всей России — начиная от разработки проектов освоения лесов и заканчивая разработкой лесных планов субъектов РФ.",
@@ -45,7 +47,7 @@ export const mainMenu = [
     {
         name: "Журнал",
         title: "Журнал | URMAN - Лесные решения",
-        icon: "book",
+        icon: MdLibraryBooks,
         src: "journal",
         description: "Про лес и не только",
         isMainMenu: true,
@@ -53,7 +55,7 @@ export const mainMenu = [
     {
         name: "Контакты",
         title: "Контакты | URMAN - Лесные решения",
-        icon: "phone",
+        icon: MdContactPhone,
         src: "contacts",
         description:
             "У нас команда проверенных, грамотных и опытных штатных сотрудников. Мы за открытую коммуникацию. Пишите и звоните нам, будем рады!",
@@ -62,7 +64,6 @@ export const mainMenu = [
     {
         name: "Соглашение",
         title: "Соглашение",
-        icon: "phone",
         src: "agreement",
         description:
             "У нас команда проверенных, грамотных и опытных штатных сотрудников. Мы за открытую коммуникацию. Пишите и звоните нам, будем рады!",
@@ -78,6 +79,7 @@ export const menuData = {
         // geography: 'География проектов',
     },
 };
+
 export const servicesData = [
     {
         name: "Проект освоения лесов",

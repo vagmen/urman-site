@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { Icon } from "antd";
-import { animateScroll as scroll } from "react-scroll";
 import { initGA, trackPageView } from "../modules/react-ga.js";
 import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid, colorViolet } from "../constants/colors";
 import {
     postWidth,
-    pageWidth,
     pageWidthTablets,
     pageWidthDesktopsSmall,
     pageWidthDesktopsMedium,
@@ -19,7 +16,6 @@ let ticking = false;
 class Header extends Component {
     constructor(props) {
         super(props);
-        const { headerOpacity } = props;
         this.state = {
             headerBackgroundOpacity: props.headerOpacity ? 0 : 1,
         };
@@ -105,7 +101,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div className={`header ${true ? `` : `transparent`}`}>
+            <div className="header">
                 <Link href="/" passHref>
                     <div className="header-container">
                         <img src="../static/images/logo-w.png" alt="Логотип" className="logogo" />
@@ -115,14 +111,6 @@ class Header extends Component {
                         </div>
                     </div>
                 </Link>
-                <div className="start-proj">
-                    {/* <button className="start-proj__button for-desktop" onClick={() => scroll.scrollToBottom()}>
-                        Рассчитать стоимость
-                    </button>
-                    <button className="start-proj__button for-mobile" onClick={() => scroll.scrollToBottom()}>
-                        <Icon type="plus" />
-                    </button> */}
-                </div>
                 <style jsx global>{`
                     @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     h1,
@@ -543,27 +531,6 @@ class Header extends Component {
                         padding: 0;
                         letter-spacing: 2.8px;
                         display: none;
-                    }
-                    .start-proj {
-                    }
-                    .start-proj__phone {
-                        display: none;
-                    }
-                    .start-proj__button {
-                        margin-left: 20px;
-                        color: #fff;
-                        padding: 10px 14px;
-                        border-radius: 20px;
-                        cursor: pointer;
-                        transition-duration: 0.3s;
-                        transition-timing-function: ease;
-                        transition-property: background-color, color, opacity;
-                        font-weight: 700;
-                        background: #f06060;
-                    }
-                    .start-proj__button:hover {
-                        background: #fff;
-                        color: #f06060;
                     }
                     @media (min-width: 960px) {
                         .header {

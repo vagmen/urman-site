@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
-import { notification } from "antd";
-import { mainColorMid, mainColorDark, mainColorLight, grey, colorViolet } from "../constants/colors";
-import Button from "./ui/Button";
+import { grey, colorViolet } from "../constants/colors";
 import ButtonViolet from "./ui/ButtonViolet";
 import { sendLead } from "../utils/api";
 
@@ -13,18 +11,10 @@ class Connect extends Component {
     }
     state = {
         collapsed: true,
-        phone: ""
+        phone: "",
     };
 
-    componentDidMount() {
-        this.setState({
-            phone: localStorage.getItem("phone") || ""
-        });
-    }
-
     connectHandler = () => {
-        const { phone } = this.state;
-
         sendLead({ formType: "side" });
         this.setState({ phone: "" });
         localStorage.removeItem("phone");
@@ -38,6 +28,9 @@ class Connect extends Component {
     };
 
     componentDidMount() {
+        this.setState({
+            phone: localStorage.getItem("phone") || "",
+        });
         this.connectCollapsedInterval = setInterval(() => {
             const collapsed = localStorage.getItem("connect-collapsed") === "false" ? false : true;
             this.setState({ collapsed });
@@ -82,7 +75,7 @@ class Connect extends Component {
                         type="tel"
                         placeholder="Tелефон"
                         value={phone}
-                        onChange={e => {
+                        onChange={(e) => {
                             localStorage.setItem("phone", e.target.value);
                             this.setState({ phone: e.target.value });
                         }}

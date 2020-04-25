@@ -1,18 +1,14 @@
-import { Fragment } from "react";
+import { Fragment, Component } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { LocaleProvider, Layout, Menu, Breadcrumb, Icon } from "antd";
+import { LocaleProvider, Layout, Menu, Icon } from "antd";
 import ruRU from "antd/lib/locale-provider/ru_RU";
 import { IconContext } from "react-icons";
-import AdminMenu from "./AdminMenu";
-import { mainMenu } from "../constants/menuData";
 
-const { Header, Content, Footer, Sider } = Layout;
-
-const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
+const { Content, Sider } = Layout;
 
 // const AdminLayout = ({ postData, menuItem, children }) => (
-class AdminLayout extends React.Component {
+class AdminLayout extends Component {
     state = {
         collapsed: false,
     };
@@ -20,7 +16,7 @@ class AdminLayout extends React.Component {
     onCollapse = (collapsed) => this.setState({ collapsed });
 
     render() {
-        const { postData, menuItem, children } = this.props;
+        const { children } = this.props;
         const { collapsed } = this.state;
         return (
             <Fragment>

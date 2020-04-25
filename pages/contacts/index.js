@@ -1,9 +1,5 @@
-import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import dynamic from "next/dynamic";
 import Layout from "../../components/Layout";
 import FooterWithMap from "../../components/FooterWithMap";
-import { mainColorMid, greyDark } from "../../constants/colors";
 
 const Index = () => (
     <Layout menuItem="contacts">
