@@ -6,18 +6,16 @@ import ruRU from "antd/lib/locale-provider/ru_RU";
 import { IconContext } from "react-icons";
 // import Header from "./Header";
 // import Menu from "./Menu";
-// import Footer from "./Footer";
 // import Connect from "./Connect";
 import { mainMenu } from "../constants/menuData";
 import { mainColorMid } from "../constants/colors";
 
 const Header = dynamic(import("./Header"));
 const Menu = dynamic(import("./Menu"));
-const Footer = dynamic(import("./Footer"));
 const FooterWithMap = dynamic(import("./FooterWithMap"));
 const Connect = dynamic(import("./Connect"));
 
-const menuItemData = menuItem => mainMenu.find(item => item.src === menuItem);
+const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
 const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
     const title = postData ? postData.title : menuItemData(menuItem).title || "URMAN - Лесные решения";

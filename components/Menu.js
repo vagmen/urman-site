@@ -12,7 +12,7 @@ class Menu extends Component {
                     const Icon = item.icon;
                     return (
                         item.isMainMenu && (
-                            <Link prefetch key={index} href={`/${item.src}`} passHref>
+                            <Link key={index} href={`/${item.src}`} passHref>
                                 <li
                                     className={`menu-item ${
                                         this.props.menuItem === item.src ? `menu-item_active` : ``

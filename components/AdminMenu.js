@@ -11,7 +11,7 @@ class Menu extends Component {
                 {mainMenu.map(
                     (item, index) =>
                         item.isMainMenu && (
-                            <Link prefetch key={index} href={`/${item.src}`}>
+                            <Link key={index} href={`/${item.src}`}>
                                 <li
                                     className={`menu-item ${
                                         this.props.menuItem === item.src ? `menu-item_active` : ``

@@ -1,4 +1,3 @@
-import { servicesData } from "./../constants/menuData";
 import Card from "./../components/Card";
 import {
     pageWidthTablets,
