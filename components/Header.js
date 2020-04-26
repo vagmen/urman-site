@@ -104,7 +104,7 @@ class Header extends Component {
             <div className="header">
                 <Link href="/" passHref>
                     <div className="header-container">
-                        <img src="../static/images/logo-w.png" alt="Логотип" className="logogo" />
+                        <img src="/images/logo-w.png" alt="Логотип" className="logogo" />
                         <div className="header-name">
                             <span className="logo">URMAN</span>
                             <span className="slogan">ЛЕСНЫЕ РЕШЕНИЯ</span>

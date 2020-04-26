@@ -52,7 +52,7 @@ class Index extends Component {
                     <FeedbackForm
                         title="Оставьте заявку"
                         subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                        backgroundImage="/static/images/4.webp"
+                        backgroundImage="/images/4.webp"
                         withComment={true}
                     />
                     <h3>С кем нужно согласовывать лесной план?</h3>
@@ -173,7 +173,7 @@ class Index extends Component {
                 <FeedbackForm
                     title="Остались вопросы?"
                     subTitle="Если вы решили заказать разработку проекта освоения лесов — свяжитесь с нашим специалистом, и мы Вам поможем."
-                    backgroundImage="/static/images/4.webp"
+                    backgroundImage="/images/4.webp"
                     withComment={true}
                 />
                 <style jsx>{``}</style>
@@ -182,7 +182,7 @@ class Index extends Component {
     }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
     // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     // const data = await res.json();
 

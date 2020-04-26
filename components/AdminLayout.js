@@ -22,7 +22,7 @@ class AdminLayout extends Component {
             <Fragment>
                 <Head>
                     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
-                    <link rel="icon" type="image/x-icon" href="/static/images/logo.ico" />
+                    <link rel="icon" type="image/x-icon" href="/images/logo.ico" />
                     <meta charSet="utf-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <title>URMAN - Админка</title>

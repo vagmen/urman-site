@@ -20,14 +20,14 @@ const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem
 const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
     const title = postData ? postData.title : menuItemData(menuItem).title || "URMAN - Лесные решения";
     const description = postData ? postData.description : menuItemData(menuItem).description || "";
-    const image = <img src={metaImg || "/static/images/logo.png"} />;
+    const image = <img src={metaImg || "/images/logo.png"} />;
     return (
         <Fragment>
             <Head>
                 <meta charSet="UTF-8" />
                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
-                <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
-                <link rel="manifest" href="/static/manifest.json" />
+                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+                <link rel="manifest" href="/manifest.json" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="google-site-verification" content="DTZ5X6H4xmsBhZUVAeNA0iqkBxXuf6pwWPzqXC3LhOY" />
                 <meta name="yandex-verification" content="6d5ccb923e12ca16" />

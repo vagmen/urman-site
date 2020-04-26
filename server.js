@@ -6,19 +6,19 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const path = require("path");
 const robotsOptions = {
-    root: path.join(__dirname, "/static"),
+    root: path.join(__dirname, ""),
     headers: {
         "Content-Type": "text/plain;charset=UTF-8",
     },
 };
 const sitemapOptions = {
-    root: path.join(__dirname, "/static"),
+    root: path.join(__dirname, ""),
     headers: {
         "Content-Type": "text/xml;charset=UTF-8",
     },
 };
 const faviconOptions = {
-    root: path.join(__dirname, "/static"),
+    root: path.join(__dirname, ""),
 };
 
 app.prepare()

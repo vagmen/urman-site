@@ -12,7 +12,7 @@
 //             config.plugins.push(
 //                 new SWPrecacheWebpackPlugin({
 //                     cacheId: "test-lighthouse",
-//                     filepath: path.resolve("./static/sw.js"),
+//                     filepath: path.resolve("./sw.js"),
 //                     staticFileGlobs: ["static/**/*"],
 //                     minify: true,
 //                     staticFileGlobsIgnorePatterns: [/\.next\//],

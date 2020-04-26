@@ -84,7 +84,7 @@ class Index extends Component {
                     <FeedbackForm
                         title="Свяжитесь с нами"
                         subTitle="Наши специалисты с удовольствием ответят на все Ваши вопросы и проведут расчет стоимости ЛПО."
-                        backgroundImage="/static/images/4.webp"
+                        backgroundImage="/images/4.webp"
                     />
                     <h3>В чём заключается проведение ЛПО?</h3>
                     <p>В процессе ЛПО производятся:</p>
@@ -174,7 +174,7 @@ class Index extends Component {
                 <FeedbackForm
                     title="Позвоните или оставьте заявку"
                     subTitle="Наши специалисты с удовольствием ответят на все Ваши вопросы и проведут расчет стоимости ЛПО."
-                    backgroundImage="/static/images/4.webp"
+                    backgroundImage="/images/4.webp"
                 />
                 <style jsx>{``}</style>
             </Layout>
@@ -182,7 +182,7 @@ class Index extends Component {
     }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
     // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     // const data = await res.json();
 

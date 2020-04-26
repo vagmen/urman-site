@@ -7,7 +7,7 @@ const Panel = Collapse.Panel;
 const postData = {
     title: "URMAN - Лесные решения",
     description:
-        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка."
+        "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
 };
 
 const handlerDownload = () => {
@@ -72,7 +72,7 @@ export default () => (
                     "t";
             }
             .background-image {
-                background-image: url("/static/images/logo.png");
+                background-image: url("/images/logo.png");
                 position: absolute;
                 min-height: 100vh;
                 top: 70px;

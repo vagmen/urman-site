@@ -76,11 +76,11 @@ class Index extends Component {
                     </p>
                     <ImgWithTitle
                         title="Титульный лист проекта освоения лесов"
-                        src="/static/images/services/pol/titulnyj-list-proekta-osvoeniya-lesov.webp"
+                        src="/images/services/pol/titulnyj-list-proekta-osvoeniya-lesov.webp"
                     />
                     <ImgWithTitle
                         title="Пример тематической лесной карты характеристики территории лесного участка по классам пожарной опасности"
-                        src="/static/images/services/pol/primer-tematicheskoj-lesnoj-karty-kharakteristiki-territorii-lesnogo-uchastka-po-klassam-pozharnoj-opasnosti.webp"
+                        src="/images/services/pol/primer-tematicheskoj-lesnoj-karty-kharakteristiki-territorii-lesnogo-uchastka-po-klassam-pozharnoj-opasnosti.webp"
                     />
                     <h3>Разработка проекта освоения лесов</h3>
                     <p>
@@ -139,7 +139,7 @@ class Index extends Component {
                     </p>
                     <RelatedPost
                         title="У вашего Проекта освоения лесов вышел срок годности"
-                        bgr="/static/forest.webp"
+                        bgr="/forest.webp"
                         href="/journal/out-of-date"
                     />
                     <p>
@@ -169,11 +169,11 @@ class Index extends Component {
                     </ul>
                     <ImgWithTitle
                         title="Пример тематической лесной карты пространственного размещения существующих и проектируемых объектов лесной инфраструктуры"
-                        src="/static/images/services/pol/primer-tematicheskoj-lesnoj-karty-prostranstvennogo-razmeshcheniya-sushchestvuyushchikh-i-proektiruemykh-obektov-lesnoj-infrastruktury.webp"
+                        src="/images/services/pol/primer-tematicheskoj-lesnoj-karty-prostranstvennogo-razmeshcheniya-sushchestvuyushchikh-i-proektiruemykh-obektov-lesnoj-infrastruktury.webp"
                     />
                     <ImgWithTitle
                         title="Пример тематической лесной карты характеристики существующих и проектируемых объектов, не связанных с созданием лесной инфраструктуры"
-                        src="/static/images/services/pol/primer-tematicheskoj-lesnoj-karty-kharakteristiki-sushchestvuyushchikh-i-proektiruemykh-obektov-ne-svyazannykh-s-sozdaniem-lesnoj-infrastruktury.webp"
+                        src="/images/services/pol/primer-tematicheskoj-lesnoj-karty-kharakteristiki-sushchestvuyushchikh-i-proektiruemykh-obektov-ne-svyazannykh-s-sozdaniem-lesnoj-infrastruktury.webp"
                     />
                     {/* <p>Подробнее об этом читайте в нашем журнале:</p>
                             <Link href="/journal/out-of-date">
@@ -211,11 +211,11 @@ class Index extends Component {
                     </p>
                     <ImgWithTitle
                         title="Пример экспертного заключения по проекту освоения лесов"
-                        src="/static/images/services/pol/primer-ehkspertnogo-zaklyucheniya-po-proektu-osvoeniya-lesov-01.webp"
+                        src="/images/services/pol/primer-ehkspertnogo-zaklyucheniya-po-proektu-osvoeniya-lesov-01.webp"
                     />
                     <ImgWithTitle
                         title="Пример экспертного заключения по проекту освоения лесов"
-                        src="/static/images/services/pol/primer-ehkspertnogo-zaklyucheniya-po-proektu-osvoeniya-lesov-02.webp"
+                        src="/images/services/pol/primer-ehkspertnogo-zaklyucheniya-po-proektu-osvoeniya-lesov-02.webp"
                     />
                     <p>Для проведения экспертизы необходимо представить в уполномоченный орган следующие документы:</p>
                     <ol>
@@ -258,11 +258,11 @@ class Index extends Component {
                     </p>
                     <ImgWithTitle
                         title="Пример приказа об утверждении положительного заключения государственной экспертизы Комитет лесного хозяйства Московской области"
-                        src="/static/images/services/pol/primer-prikaza-ob-utverzhdenii-polozhitelnogo-zaklyucheniya-gosudarstvennoj-ehkspertizy-komitet-lesnogo-khozyajstva-moskovskoj-oblasti.webp"
+                        src="/images/services/pol/primer-prikaza-ob-utverzhdenii-polozhitelnogo-zaklyucheniya-gosudarstvennoj-ehkspertizy-komitet-lesnogo-khozyajstva-moskovskoj-oblasti.webp"
                     />
                     <ImgWithTitle
                         title="Пример приказа об утверждении положительного заключения государственной экспертизы Министерство лесного хозяйства Республики Башкортостан"
-                        src="/static/images/services/pol/primer-prikaza-ob-utverzhdenii-polozhitelnogo-zaklyucheniya-gosudarstvennoj-ehkspertizy-ministerstvo-lesnogo-khozyajstva-respubliki-bashkortostan.webp"
+                        src="/images/services/pol/primer-prikaza-ob-utverzhdenii-polozhitelnogo-zaklyucheniya-gosudarstvennoj-ehkspertizy-ministerstvo-lesnogo-khozyajstva-respubliki-bashkortostan.webp"
                     />
                     <p>
                         Заключение экспертизы направляется лесопользователю в течение 5 дней после его утверждения. Если
@@ -302,7 +302,7 @@ class Index extends Component {
                 <FeedbackForm
                     title="Остались вопросы?"
                     subTitle="Если вы решили заказать разработку проекта освоения лесов — свяжитесь с нашим специалистом, и мы Вам поможем."
-                    backgroundImage="/static/images/4.webp"
+                    backgroundImage="/images/4.webp"
                     withComment={true}
                 />
                 <style jsx>{`
@@ -327,7 +327,7 @@ class Index extends Component {
     }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
     // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     // const data = await res.json();
 

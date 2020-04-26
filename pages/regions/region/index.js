@@ -10,7 +10,7 @@ import { mainColorLight, mainColor100, mainColor50 } from "../../../constants/co
 const handlerDownload = (event) => {
     event.preventDefault();
     const tempLink = document.createElement("a");
-    tempLink.href = "/static/docs/Plan_kalugi_OBL.docx";
+    tempLink.href = "/docs/Plan_kalugi_OBL.docx";
     tempLink.download = "Лесной план Калужской области 2019-2028";
     document.body.appendChild(tempLink);
     tempLink.click();

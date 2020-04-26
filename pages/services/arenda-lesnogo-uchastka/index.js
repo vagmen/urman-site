@@ -111,7 +111,7 @@ class Index extends Component {
                     </ol>
                     {/* <RelatedPost
                                 title="Проектная документация лесного участка"
-                                bgr="../../../static/forest2.jpg"
+                                bgr="../../../forest2.jpg"
                                 href="/services/pdlu"
                             /> */}
                     <h3>Аренда лесного участка без торгов</h3>
@@ -319,7 +319,7 @@ class Index extends Component {
                 <FeedbackForm
                     title="Остались вопросы?"
                     subTitle="Свяжитесь с нами — наши специалисты помогут Вам оформить участок леса в аренду."
-                    backgroundImage="/static/images/4.webp"
+                    backgroundImage="/images/4.webp"
                 />
                 <style jsx>{``}</style>
             </Layout>
@@ -327,7 +327,7 @@ class Index extends Component {
     }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
     // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     // const data = await res.json();
 

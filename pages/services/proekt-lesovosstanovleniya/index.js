@@ -71,7 +71,7 @@ class Index extends Component {
                         Работы по лесовосстановлению осуществляются на землях, предназначенных для лесовосстановления
                         (вырубки, гари, редины, пустыри, прогалины и другие).
                     </p>
-                    <ImgWithTitle title="" src="/static/images/services/plv-2.jpg" />
+                    <ImgWithTitle title="" src="/images/services/plv-2.jpg" />
                     <h3>Что такое компенсационное лесовосстановление?</h3>
                     <p>
                         Федеральным законом от 19 июля 2018 года № 212-ФЗ в Лесной кодекс РФ была введена статья 63.1
@@ -120,7 +120,7 @@ class Index extends Component {
                         Правила выполнения таких работ утверждены постановлением Правительства Российской Федерации от 7
                         мая 2019 года № 566.
                     </p>
-                    <ImgWithTitle title="" src="/static/images/services/plv-3.jpg" />
+                    <ImgWithTitle title="" src="/images/services/plv-3.jpg" />
                     <h3>Примерный порядок проведения компенсационного лесовосстановления</h3>
                     <ul>
                         <li>
@@ -187,11 +187,11 @@ class Index extends Component {
                         <h4>Другие наши услуги:</h4>
                     </em>
                 </div>
-                <Services withPagePadding={true} bg={true} items={servicesData.filter(item => item.id !== itemId)} />
+                <Services withPagePadding={true} bg={true} items={servicesData.filter((item) => item.id !== itemId)} />
                 <FeedbackForm
                     title="Напишите свой вопрос"
                     subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                    backgroundImage="/static/images/4.jpg"
+                    backgroundImage="/images/4.jpg"
                     withComment={true}
                 />
                 <style jsx>{`
@@ -213,12 +213,12 @@ class Index extends Component {
     }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
     // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     // const data = await res.json();
 
     return {
-        postData: servicesData.find(item => item.id === itemId)
+        postData: servicesData.find((item) => item.id === itemId),
     };
 };
 

@@ -123,7 +123,7 @@ class FooterWithMap extends Component {
                 </div>
                 <div className="footer-column">
                     <div className="map map-ufa">
-                        <img src="/static/images/map/ufa.png" alt="" />
+                        <img src="/images/map/ufa.png" alt="" />
                         {/* <script
                             type="text/javascript"
                             charSet="utf-8"
@@ -132,7 +132,7 @@ class FooterWithMap extends Component {
                         /> */}
                     </div>
                     <div className="map map-msk">
-                        <img src="/static/images/map/msk.png" alt="" />
+                        <img src="/images/map/msk.png" alt="" />
                         {/* <script
                             type="text/javascript"
                             charSet="utf-8"

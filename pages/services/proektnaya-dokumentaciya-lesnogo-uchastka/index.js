@@ -1,13 +1,10 @@
 import { Component } from "react";
-import fetch from "isomorphic-unfetch";
-import { message } from "antd";
 import Layout from "../../../components/Layout";
 import PostHeader from "../../../components/post/PostHeader";
 import FeedbackForm from "../../../components/FeedbackForm";
 import Services from "../../../components/Services";
 import { servicesData } from "../../../constants/menuData";
 
-const menuItem = "services";
 const itemId = "proektnaya-dokumentaciya-lesnogo-uchastka";
 
 class Index extends Component {
@@ -41,13 +38,13 @@ class Index extends Component {
                     <div className="img-container">
                         <div className="img-item">
                             <img
-                                src="../../../static/images/services/pdlu1.jpg"
+                                src="../../../images/services/pdlu1.jpg"
                                 alt="Фрагмент проектной документации лесного участка"
                             />
                         </div>
                         <div className="img-item">
                             <img
-                                src="../../../static/images/services/pdlu2.jpg"
+                                src="../../../images/services/pdlu2.jpg"
                                 alt="Фрагмент проектной документации лесного участка"
                             />
                         </div>
@@ -141,7 +138,7 @@ class Index extends Component {
                 <FeedbackForm
                     title="Напишите свой вопрос"
                     subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                    backgroundImage="/static/images/4.jpg"
+                    backgroundImage="/images/4.jpg"
                     withComment={true}
                 />
                 <style jsx>{`
@@ -163,7 +160,7 @@ class Index extends Component {
     }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
     // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     // const data = await res.json();
 

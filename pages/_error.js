@@ -3,17 +3,16 @@ import Link from "next/link";
 import Head from "next/head";
 import { FaVk, FaSkype, FaInstagram } from "react-icons/fa";
 import { mainColorMid, mainColorDark, mainColorLight, grey } from "../constants/colors";
-import Button from "../components/ui/Button";
 import { sendLead } from "../utils/api";
 
 class errorPage extends Component {
     state = {
-        phone: ""
+        phone: "",
     };
 
     componentDidMount() {
         this.setState({
-            phone: localStorage.getItem("phone") || ""
+            phone: localStorage.getItem("phone") || "",
         });
     }
 
@@ -81,7 +80,7 @@ class errorPage extends Component {
                         type="tel"
                         placeholder="Ваш телефон"
                         value={phone}
-                        onChange={e => {
+                        onChange={(e) => {
                             localStorage.setItem("phone", e.target.value);
                             this.setState({ phone: e.target.value });
                         }}
@@ -124,7 +123,7 @@ class errorPage extends Component {
                         text-align: center;
                         min-width: 100%;
                         min-height: 100vh;
-                        background: url("/static/images/logo.png") 100% 100% no-repeat;
+                        background: url("/images/logo.png") 100% 100% no-repeat;
                         background-size: contain;
                         background-position: center center;
                         position: absolute;

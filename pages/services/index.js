@@ -16,7 +16,7 @@ const Index = () => (
             <FeedbackForm
                 title="Оставьте заявку"
                 subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                backgroundImage="/static/images/4.jpg"
+                backgroundImage="/images/4.jpg"
                 withComment={true}
             />
         </div>

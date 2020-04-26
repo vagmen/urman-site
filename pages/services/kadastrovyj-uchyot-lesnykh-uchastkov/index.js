@@ -134,7 +134,7 @@ class Index extends Component {
                     <FeedbackForm
                         title="Получите консультацию"
                         subTitle="Если у Вас есть вопрос по кадастровому учету — свяжитесь с нашим специалистом, и мы Вам поможем."
-                        backgroundImage="/static/images/4.webp"
+                        backgroundImage="/images/4.webp"
                         withComment={true}
                     />
                     <h3>О кадастровых номерах</h3>
@@ -243,7 +243,7 @@ class Index extends Component {
                 <FeedbackForm
                     title="Свяжитесь с нами!"
                     subTitle="Специалисты URMAN помогут Вам в кратчайшие сроки получить выписку из ЕГРН для Вашего лесного участка."
-                    backgroundImage="/static/images/4.webp"
+                    backgroundImage="/images/4.webp"
                     withComment={true}
                 />
                 <style jsx>{`
@@ -268,7 +268,7 @@ class Index extends Component {
     }
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
     // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
     // const data = await res.json();
 

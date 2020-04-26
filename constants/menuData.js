@@ -83,7 +83,7 @@ export const menuData = {
 export const servicesData = [
     {
         name: "Проект освоения лесов",
-        img: "/static/forest.webp",
+        img: "/forest.webp",
         id: "proekt-osvoeniya-lesov",
         title: "Проект освоения лесов 🌳 Разработка, состав, экспертиза, стоимость по России",
         description:
@@ -91,7 +91,7 @@ export const servicesData = [
     },
     {
         name: "Проектная документация лесного участка",
-        img: "/static/forest2.jpg",
+        img: "/forest2.jpg",
         id: "proektnaya-dokumentaciya-lesnogo-uchastka",
         title: "Проектная документация лесного участка 🍁 разработка, содержание по России",
         description:
@@ -99,7 +99,7 @@ export const servicesData = [
     },
     {
         name: "Аренда лесного участка",
-        img: "/static/arenda.webp",
+        img: "/arenda.webp",
         id: "arenda-lesnogo-uchastka",
         title:
             "Аренда лесного участка 🌳 Заключение и регистрация договора аренды, внесение изменений в договор аренды",
@@ -108,7 +108,7 @@ export const servicesData = [
     },
     {
         name: "Лесоустройство и таксация",
-        img: "/static/images/services/lesoustrojstvo-i-taksaciya.webp",
+        img: "/images/services/lesoustrojstvo-i-taksaciya.webp",
         id: "lesoustrojstvo-i-taksaciya",
         title: "Лесоустройство и таксация 🌳 Оказание услуг по лесоустройству, отвод и таксация лесосек",
         description:
@@ -116,7 +116,7 @@ export const servicesData = [
     },
     {
         name: "Лесопатологическое обследование",
-        img: "/static/images/services/lesopatologicheskoe-obsledovanie.webp",
+        img: "/images/services/lesopatologicheskoe-obsledovanie.webp",
         id: "lesopatologicheskoe-obsledovanie",
         title:
             "Лесопатологическое обследование 🐞 Заключение и регистрация договора аренды, внесение изменений в договор аренды",
@@ -125,7 +125,7 @@ export const servicesData = [
     },
     {
         name: "Лесной план",
-        img: "/static/images/services/lesnoj-plan.webp",
+        img: "/images/services/lesnoj-plan.webp",
         id: "lesnoj-plan",
         title: "Лесной план 🍀 Разработка, согласование, внесение изменений, стоимость по России",
         description:
@@ -133,7 +133,7 @@ export const servicesData = [
     },
     {
         name: "Лесохозяйственный регламент",
-        img: "/static/images/services/lesokhozyajstvennyj-reglament.webp",
+        img: "/images/services/lesokhozyajstvennyj-reglament.webp",
         id: "lesokhozyajstvennyj-reglament",
         title: "Лесохозяйственный регламент 🌿 Разработка, согласование, внесение изменений, стоимость по России",
         description:
@@ -141,7 +141,7 @@ export const servicesData = [
     },
     {
         name: "Кадастровый учёт лесных участков",
-        img: "/static/images/services/roel-van-sabben-vgnq_1mTubY-unsplash.webp",
+        img: "/images/services/roel-van-sabben-vgnq_1mTubY-unsplash.webp",
         id: "kadastrovyj-uchyot-lesnykh-uchastkov",
         title: "Кадастровый учёт лесных участков 🌿 Кадастровый номер. Выписка из ЕГРН",
         description:
@@ -149,7 +149,7 @@ export const servicesData = [
     },
     {
         name: "Проект лесовосстановления",
-        img: "/static/images/services/plv-1.jpg",
+        img: "/images/services/plv-1.jpg",
         id: "proekt-lesovosstanovleniya",
         title: "Проект лесовосстановления 🌿 Компенсационное лесовосстановление",
         description: "Способы лесовосстановления. Порядок проведения компенсационного лесовосстановления",
