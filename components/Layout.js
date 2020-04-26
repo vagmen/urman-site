@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { LocaleProvider } from "antd";
+import { ConfigProvider } from "antd";
 import ruRU from "antd/lib/locale-provider/ru_RU";
 import { IconContext } from "react-icons";
 // import Header from "./Header";
@@ -39,7 +39,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
                 <meta name="theme-color" content={mainColorMid} />
             </Head>
             <Header headerOpacity={headerOpacity} />
-            <LocaleProvider locale={ruRU}>
+            <ConfigProvider locale={ruRU}>
                 <IconContext.Provider value={{ className: "react-icons" }}>
                     <Fragment>
                         <Menu menuItem={menuItem} headerOpacity={headerOpacity} />
@@ -48,7 +48,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
                         <Connect />
                     </Fragment>
                 </IconContext.Provider>
-            </LocaleProvider>
+            </ConfigProvider>
         </Fragment>
     );
 };

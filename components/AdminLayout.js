@@ -1,7 +1,7 @@
 import { Fragment, Component } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { LocaleProvider, Layout, Menu, Icon } from "antd";
+import { ConfigProvider, Layout, Menu, Icon } from "antd";
 import ruRU from "antd/lib/locale-provider/ru_RU";
 import { IconContext } from "react-icons";
 
@@ -28,7 +28,7 @@ class AdminLayout extends Component {
                     <title>URMAN - Админка</title>
                 </Head>
                 {/* <Header /> */}
-                <LocaleProvider locale={ruRU}>
+                <ConfigProvider locale={ruRU}>
                     <IconContext.Provider value={{ className: "react-icons" }}>
                         <Layout style={{ height: "100vh" }}>
                             <Sider
@@ -79,7 +79,7 @@ class AdminLayout extends Component {
                             </Layout>
                         </Layout>
                     </IconContext.Provider>
-                </LocaleProvider>
+                </ConfigProvider>
                 <style jsx global>{`
                     @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     body {
