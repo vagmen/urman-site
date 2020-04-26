@@ -200,6 +200,7 @@ class Header extends Component {
                         justify-content: center;
                         position: relative;
                         flex-wrap: wrap;
+                        width: 100%;
                     }
                     .template-background:before {
                         content: "";

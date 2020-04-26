@@ -28,7 +28,10 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
                 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
                 <link rel="manifest" href="/manifest.json" />
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1"
+                />
                 <meta name="google-site-verification" content="DTZ5X6H4xmsBhZUVAeNA0iqkBxXuf6pwWPzqXC3LhOY" />
                 <meta name="yandex-verification" content="6d5ccb923e12ca16" />
                 <title>{title}</title>
