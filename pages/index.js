@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Layout from "../components/Layout.js";
-import { mainColorLight, mainColorMid, greyDark, mainColorDark, grey, colorViolet } from "../constants/colors";
 import Button from "../components/ui/Button.js";
-import ButtonViolet from "../components/ui/ButtonViolet";
 import ButtonBorder from "../components/ui/ButtonBorder";
 import FeedbackForm from "../components/FeedbackForm";
 import Services from "../components/Services";
@@ -18,7 +16,7 @@ const postData = {
 // export default () => (
 class Index extends Component {
     componentDidMount() {
-        const src = "static/images/comanda.webp";
+        const src = "images/comanda.webp";
         let img = document.createElement("img");
         img.onload = function () {
             const im = document.querySelector(".main-section__bg");
