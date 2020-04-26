@@ -59,10 +59,10 @@ class Connect extends Component {
                         <a href="mailto:proekt@urman.su">proekt@urman.su</a>
                     </p>
                     <p className="icons hide-in-keyboard">
-                        <a href="https://www.instagram.com/urman.su" target="_blank">
+                        <a href="https://www.instagram.com/urman.su" target="_blank" rel="noopener noreferrer">
                             <FaInstagram />
                         </a>
-                        <a href="https://vk.com/urman_su" target="_blank">
+                        <a href="https://vk.com/urman_su" target="_blank" rel="noopener noreferrer">
                             <FaVk />
                         </a>
                         <a href="skype:vagmen?chat">

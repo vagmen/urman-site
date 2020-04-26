@@ -67,10 +67,10 @@ class errorPage extends Component {
                             <a href="skype:vagmen?chat">
                                 <FaSkype />
                             </a>
-                            <a href="https://vk.com/urman_su" target="_blank">
+                            <a href="https://vk.com/urman_su" target="_blank" rel="noopener noreferrer">
                                 <FaVk />
                             </a>
-                            <a href="https://www.instagram.com/urman.su" target="_blank">
+                            <a href="https://www.instagram.com/urman.su" target="_blank" rel="noopener noreferrer">
                                 <FaInstagram />
                             </a>
                         </p>

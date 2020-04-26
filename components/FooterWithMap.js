@@ -42,6 +42,7 @@ class FooterWithMap extends Component {
                                 <a
                                     href="https://yandex.ru/maps/172/ufa/?ll=55.953013%2C54.736974&mode=routes&pt=72.878889E%2C54.484167N%2Cpmwtm1&rtext=~54.736873%2C55.952259&rtt=auto&z=18"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     <span>
                                         <MdLocationOn />
@@ -70,6 +71,7 @@ class FooterWithMap extends Component {
                                 <a
                                     href="https://yandex.ru/maps/?ll=37.402722%2C55.867834&mode=routes&pt=72.878889E%2C54.484167N%2Cpmwtm1&rtext=~55.868739%2C37.404782&rtt=auto&z=17"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     <span>
                                         <MdLocationOn />
@@ -104,12 +106,12 @@ class FooterWithMap extends Component {
                             proekt@urman.su
                         </a>
                         <br />
-                        <a href="https://www.instagram.com/urman.su" target="_blank">
+                        <a href="https://www.instagram.com/urman.su" target="_blank" rel="noopener noreferrer">
                             <span>
                                 <FaInstagram />
                             </span>
                         </a>
-                        <a href="https://vk.com/urman_su" target="_blank">
+                        <a href="https://vk.com/urman_su" target="_blank" rel="noopener noreferrer">
                             <span>
                                 <FaVk />
                             </span>
@@ -148,6 +150,7 @@ class FooterWithMap extends Component {
                                 : `https://yandex.ru/maps/?ll=37.402722%2C55.867834&mode=routes&pt=72.878889E%2C54.484167N%2Cpmwtm1&rtext=~55.868739%2C37.404782&rtt=auto&z=17`
                         }
                         target="_blank"
+                        rel="noopener noreferrer"
                     />
                 </div>
                 <style jsx>{`

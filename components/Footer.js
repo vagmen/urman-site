@@ -9,49 +9,49 @@ const footerData = [
         items: [
             {
                 name: "Проектная документация лесного участка",
-                url: ""
+                url: "",
             },
             {
                 name: "Земельный кадастровый учет",
-                url: ""
+                url: "",
             },
             {
                 name: "Проект освоения лесов",
-                url: ""
+                url: "",
             },
             {
                 name: "Лесные отчеты",
-                url: ""
+                url: "",
             },
             {
                 name: "Лесопатологическое обследование",
-                url: ""
+                url: "",
             },
             {
                 name: "Лесная экспертиза",
-                url: ""
+                url: "",
             },
             {
                 name: "Таксация лесных участков",
-                url: ""
+                url: "",
             },
             {
                 name: "Полное оформление",
-                url: ""
+                url: "",
             },
             {
                 name: "Оформление договора водопользования",
-                url: ""
+                url: "",
             },
             {
                 name: "Лесохозяйственный регламент",
-                url: ""
+                url: "",
             },
             {
                 name: "Лесной план",
-                url: ""
-            }
-        ]
+                url: "",
+            },
+        ],
     },
     {
         title: "ПОЧЕМУ URMAN",
@@ -59,9 +59,9 @@ const footerData = [
         items: [
             {
                 name: "Проблемы, которые мы решаем",
-                url: ""
-            }
-        ]
+                url: "",
+            },
+        ],
     },
     {
         title: "О НАС",
@@ -69,14 +69,14 @@ const footerData = [
         items: [
             {
                 name: "Карьера",
-                url: ""
+                url: "",
             },
             {
                 name: "Наши клиенты",
-                url: ""
-            }
-        ]
-    }
+                url: "",
+            },
+        ],
+    },
 ];
 
 class Footer extends Component {
@@ -116,10 +116,10 @@ class Footer extends Component {
                         <a href="skype:vagmen?chat">
                             <FaSkype />
                         </a>
-                        <a href="https://vk.com/urman_su" target="_blank">
+                        <a href="https://vk.com/urman_su" target="_blank" rel="noopener noreferrer">
                             <FaVk />
                         </a>
-                        <a href="https://www.instagram.com/urman.su" target="_blank">
+                        <a href="https://www.instagram.com/urman.su" target="_blank" rel="noopener noreferrer">
                             <FaInstagram />
                         </a>
                     </p>
