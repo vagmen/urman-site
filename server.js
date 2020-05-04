@@ -4,32 +4,10 @@ const next = require("next");
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
-const path = require("path");
-const robotsOptions = {
-    root: path.join(__dirname, ""),
-    headers: {
-        "Content-Type": "text/plain;charset=UTF-8",
-    },
-};
-const sitemapOptions = {
-    root: path.join(__dirname, ""),
-    headers: {
-        "Content-Type": "text/xml;charset=UTF-8",
-    },
-};
-const faviconOptions = {
-    root: path.join(__dirname, ""),
-};
 
 app.prepare()
     .then(() => {
         const server = express();
-
-        server.get("/robots.txt", (req, res) => res.status(200).sendFile("robots.txt", robotsOptions));
-
-        server.get("/sitemap.xml", (req, res) => res.status(200).sendFile("sitemap.xml", sitemapOptions));
-
-        server.get("/favicon.ico", (req, res) => res.status(200).sendFile("favicon.ico", faviconOptions));
 
         server.get("/journal/:id", (req, res) => {
             const actualPage = "/journal/post";

@@ -26,7 +26,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
             <Head>
                 <meta charSet="UTF-8" />
                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
-                <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+                <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" importance="low" />
                 <link rel="manifest" href="/manifest.json" />
                 <meta
                     name="viewport"
