@@ -15,17 +15,17 @@
         "sitemap": "node modules/buildSitemap.js"
     },
     "dependencies": {
-        "antd": "^4.1.5",
+        "antd": "^4.2.0",
         "express": "^4.17.1",
         "isomorphic-unfetch": "^3.0.0",
-        "moment": "^2.24.0",
-        "next": "^9.3.5",
+        "moment": "^2.25.1",
+        "next": "^9.3.6",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-ga": "^2.7.0",
         "react-icons": "3.10.0",
         "react-markdown": "^4.3.1",
-        "react-player": "^2.0.0"
+        "react-player": "^2.0.1"
     },
     "devDependencies": {
         "babel-eslint": "^10.1.0",
