@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { initGA, trackPageView } from "../modules/react-ga.js";
-import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid, colorViolet } from "../constants/colors";
+import { initGA, trackPageView } from "../../modules/react-ga.js";
+import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid, colorViolet } from "../../constants/colors";
 import {
     postWidth,
     pageWidthTablets,
@@ -9,7 +9,8 @@ import {
     pageWidthDesktopsMedium,
     pageWidthDesktopsLarge,
     pageWidthDesktopsExtraLarge,
-} from "../constants/settings";
+} from "../../constants/settings";
+import styles from "./Header.module.css";
 
 let ticking = false;
 

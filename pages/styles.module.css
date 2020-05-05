@@ -1,0 +1,26 @@
+/* @import './../styles/global.css'; */
+
+.bg {
+    composes: container from './../styles/global.css';
+    background: var(--colorPrimary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/images/services/lesnoj-plan.webp');
+}
+
+.wrapper {
+    color: #fff;
+    text-align: end;
+}
+
+.name {
+    font-size: 120px;
+    padding: 0;
+    margin: 0;
+    line-height: 100px;
+}
+
+.lastName {
+    text-transform: uppercase;
+}

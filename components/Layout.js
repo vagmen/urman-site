@@ -10,7 +10,7 @@ import { IconContext } from "react-icons";
 import { mainMenu } from "../constants/menuData";
 import { mainColorMid } from "../constants/colors";
 
-const Header = dynamic(import("./Header"));
+const Header = dynamic(import("./Header/Header"));
 const Menu = dynamic(import("./Menu"));
 const FooterWithMap = dynamic(import("./FooterWithMap"));
 const Connect = dynamic(import("./Connect"));
@@ -25,8 +25,8 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
         <Fragment>
             <Head>
                 <meta charSet="UTF-8" />
-                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
-                <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" importance="low" />
+                <meta name="theme-color" content={mainColorMid} />
+                <link rel="icon" href="/favicon.ico" />
                 <link rel="manifest" href="/manifest.json" />
                 <meta
                     name="viewport"
@@ -39,7 +39,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
                 <meta property="og:title" content={title} />
                 <meta property="og:image" content={image} />
                 <meta name="robots" content="index,follow" />
-                <meta name="theme-color" content={mainColorMid} />
+                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
             </Head>
             <Header headerOpacity={headerOpacity} />
             <ConfigProvider locale={ruRU}>

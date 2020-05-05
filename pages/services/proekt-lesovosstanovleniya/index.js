@@ -9,7 +9,6 @@ import dynamic from "next/dynamic";
 
 const ImgWithTitle = dynamic(import("../../../components/post/ImgWithTitle"));
 
-const menuItem = "services";
 const itemId = "proekt-lesovosstanovleniya";
 
 class Index extends Component {

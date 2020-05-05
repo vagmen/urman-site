@@ -1,8 +1,5 @@
 import { Component } from "react";
-import fetch from "isomorphic-unfetch";
-import { message } from "antd";
 import Link from "next/link";
-import Head from "next/head";
 import dynamic from "next/dynamic";
 import YouTubePlayer from "react-player/lib/players/YouTube";
 import Layout from "../../../components/Layout";
@@ -16,30 +13,10 @@ import { servicesData } from "../../../constants/menuData";
 const ImgWithTitle = dynamic(import("../../../components/post/ImgWithTitle"));
 const RelatedPost = dynamic(import("../../../components/post/RelatedPost"));
 
-const menuItem = "services";
 const itemId = "proekt-osvoeniya-lesov";
 
 class Index extends Component {
-    state = {
-        email: "",
-    };
-    sendServiceDocTemplate = async () => {
-        const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                To: this.state.email,
-                ServiceCode: "pol",
-            }),
-        });
-        const data = await res.json();
-        if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
-    };
-
     render() {
-        const { email } = this.state;
         const { postData } = this.props;
         return (
             <Layout postData={postData} headerOpacity={true}>
@@ -139,7 +116,7 @@ class Index extends Component {
                     </p>
                     <RelatedPost
                         title="У вашего Проекта освоения лесов вышел срок годности"
-                        bgr="/forest.webp"
+                        bgr="/images/forest.webp"
                         href="/journal/out-of-date"
                     />
                     <p>
@@ -328,9 +305,6 @@ class Index extends Component {
 }
 
 Index.getInitialProps = async function () {
-    // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
-    // const data = await res.json();
-
     return {
         postData: servicesData.find((item) => item.id === itemId),
     };

@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Layout from "../components/Layout.js";
 import Button from "../components/ui/Button.js";
-import ButtonBorder from "../components/ui/ButtonBorder";
+// import ButtonBorder from "../components/ui/ButtonBorder";
 import FeedbackForm from "../components/FeedbackForm";
 import Services from "../components/Services";
 import { servicesData } from "../constants/menuData";
 import { Component } from "react";
+import styles from "./styles.module.css";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -16,20 +17,20 @@ const postData = {
 // export default () => (
 class Index extends Component {
     componentDidMount() {
-        const src = "images/comanda.webp";
-        let img = document.createElement("img");
-        img.onload = function () {
-            const im = document.querySelector(".main-section__bg");
-            im.style.backgroundImage = "url(" + src + ")"; // устанавливаем картинку как фон
-        };
-        img.src = src;
+        // const src = "images/comanda.webp";
+        // let img = document.createElement("img");
+        // img.onload = function () {
+        //     const im = document.querySelector(".main-section__bg");
+        //     im.style.backgroundImage = "url(" + src + ")"; // устанавливаем картинку как фон
+        // };
+        // img.src = src;
     }
 
     render() {
         return (
             <Layout postData={postData} headerOpacity={true}>
                 <div className="main-container">
-                    <section className="section section__main">
+                    {/* <section className="section section__main">
                         <div className="main-section__bg" />
                         <div className="main-section__inner">
                             <h1>С 2010 года упрощаем жизнь нашим клиентам</h1>
@@ -45,6 +46,13 @@ class Index extends Component {
                                 </ButtonBorder>
                             </span>
                         </div>
+                    </section> */}
+
+                    <section className={styles.bg}>
+                        {/* <div className={styles.wrapper}>
+                            <p className={styles.name}>URMAN</p>
+                            <p className={styles.lastName}>лесные решения</p>
+                        </div> */}
                     </section>
                     <section className="section section__services">
                         <h2>Услуги</h2>
