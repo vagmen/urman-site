@@ -1,11 +1,6 @@
-import { createElement } from "react";
-import { withRouter } from "next/router";
-import Link from "next/link";
-import fetch from "isomorphic-unfetch";
 import { MdFileDownload } from "react-icons/md";
 import Layout from "../../../components/Layout.js";
-import { regions } from "../../../constants/regions";
-import { mainColorLight, mainColor100, mainColor50 } from "../../../constants/colors.js";
+import { mainColorLight, mainColor50 } from "../../../constants/colors.js";
 
 const handlerDownload = (event) => {
     event.preventDefault();
@@ -60,16 +55,9 @@ const Index = ({ region }) => {
     );
 };
 Index.getInitialProps = async ({ query }) => {
-    console.log("query", query);
-    const { region } = query;
-
     // const region = regions.find(item => item.id === query.region);
     // console.log("region", region);
 
-    const res = await fetch(
-        `https://urmanhelpforest20190704115206.azurewebsites.net/regions/${region}?translitName=${region}`
-    );
-    const data = await res.json();
     // console.log("data", data);
 
     // const res = await fetch("https://ws3.morpher.ru/russian/declension?s=Соединенное%20королевство", {
@@ -85,7 +73,7 @@ Index.getInitialProps = async ({ query }) => {
     // console.log("data", data);
 
     return {
-        region: data,
+        region: { Name: "" },
     };
 };
 

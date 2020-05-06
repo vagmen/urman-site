@@ -116,7 +116,7 @@ class Index extends Component {
                     }
                     .main-container {
                         display: grid;
-                        grid-auto-rows: 1px 1fr auto;
+                        grid-auto-rows: 100vh 1fr auto;
                         grid-auto-columns: 1fr;
                         grid-template-areas:
                             "m"

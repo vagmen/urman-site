@@ -75,7 +75,7 @@ class Menu extends Component {
                         justify-content: center;
                         flex-wrap: wrap;
                         flex-direction: column;
-                        padding: 20px 10px;
+                        padding: 10px 10px;
                         cursor: pointer;
                         transition: all 0.4s;
                     }
@@ -85,7 +85,6 @@ class Menu extends Component {
                         color: #fff;
                         font-weight: 100;
                         white-space: nowrap;
-                        display: none;
                         font-size: 10px;
                         padding-top: 5px;
                         text-decoration: none;
@@ -130,7 +129,7 @@ class Menu extends Component {
                             animation: appearance-of-menu 2.5s ease-out;
                         }
                         .menu-item {
-                            padding: 15px;
+                            padding: 8px;
                         }
                         .menu-item a {
                             font-size: 14px;

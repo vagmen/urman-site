@@ -16,13 +16,6 @@ import classNames from "classnames";
 let ticking = false;
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            headerBackgroundOpacity: props.headerOpacity ? 0 : 1,
-        };
-    }
-
     componentDidMount() {
         (function (d, w, c) {
             w.ChatraID = "DKFod4oh55xDx6Q29";
@@ -92,44 +85,45 @@ class Header extends Component {
     setOpacity = () => {
         const header = document.querySelector("#header");
         const headerBg = document.querySelector("#headerBg");
-        // const headerHeight = header.clientHeight;
+        const logo = document.querySelector("#logo");
         const windowHeight = window.innerHeight;
-        const scrollY = window.scrollY;
-        if (this.props.isMainPage) {
-            const newHeight = windowHeight - scrollY;
-            header.style.height = newHeight + "px";
-        }
-        console.log("header.style", header.style);
+        const scrollY = Math.round(window.scrollY);
+        let headerBackgroundOpacity = 1;
 
-        if (this.props.headerOpacity && window.scrollY < 100) {
-            this.setState({
-                headerBackgroundOpacity: window.scrollY / 100,
-            });
-            headerBg.style.setProperty("--headerOpacity", window.scrollY / 100);
-        } else {
-            this.setState({
-                headerBackgroundOpacity: 1,
-            });
-            headerBg.style.setProperty("--headerOpacity", 1);
+        if (this.props.isMainPage) {
+            let newHeight = windowHeight - scrollY;
+            if (newHeight < 64) {
+                newHeight = 64;
+            }
+            header.style.height = newHeight + "px";
+            if (scrollY < windowHeight) {
+                headerBackgroundOpacity = scrollY / windowHeight;
+            }
+            logo.style.setProperty("--headerOpacity", headerBackgroundOpacity);
+        } else if (this.props.headerOpacity && scrollY < 100) {
+            headerBackgroundOpacity = scrollY / 100;
         }
+
+        headerBg.style.setProperty("--headerOpacity", headerBackgroundOpacity);
     };
 
     render() {
         const { isMainPage } = this.props;
-        console.log("isMainPage", this.props);
 
         return (
             <div className={classNames(styles.header, { [styles.main]: isMainPage })} id="header">
-                <div className={styles.bg} id="headerBg" />
                 <Link href="/" passHref>
-                    <div className={styles.wrapper}>
-                        <img src="/images/logo-w.png" alt="Логотип" className={styles.logo} />
-                        <div className={styles.names}>
-                            <span className={styles.firstName}>URMAN</span>
-                            <span className={styles.lastName}>ЛЕСНЫЕ РЕШЕНИЯ</span>
-                        </div>
+                    <div className={classNames(styles.wrapper, { [styles.appearanceOfLogo]: isMainPage })}>
+                        <img
+                            src="/images/logogo.svg"
+                            alt="Логотип"
+                            className={classNames(styles.logo, { [styles.cursorPointer]: !isMainPage })}
+                            id="logo"
+                        />
                     </div>
                 </Link>
+                {isMainPage && <div className={styles.bgImage} />}
+                <div className={styles.bg} id="headerBg" />
                 <style jsx global>{`
                     @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     h1,
@@ -498,81 +492,6 @@ class Header extends Component {
                         .page-padding {
                             padding-left: 24px;
                             padding-right: 24px;
-                        }
-                    }
-                `}</style>
-                <style jsx>{`
-                    .header {
-                        display: flex;
-                        justify-content: space-between;
-                        color: white;
-                        align-items: center;
-                        padding: 0 10px;
-                        top: 0;
-                        z-index: 1;
-                        width: 100%;
-                        background: url("/images/services/lesnoj-plan.webp");
-                        
-                        transition: all 1s;
-                        height: calc(60px + 100vh;
-                        position: fixed;
-                        top: 0;
-                        z-index: 100;
-                        box-sizing: border-box;
-                        transition: all 0.8s;
-                        box-shadow: 0 4px 5px 0 rgba(0, 0, 0, calc(0.14 * ${this.state.headerBackgroundOpacity})),
-                            0 1px 10px 0 rgba(0, 0, 0, calc(0.12 * ${this.state.headerBackgroundOpacity})),
-                            0 2px 4px -1px rgba(0, 0, 0, calc(0.2 * ${this.state.headerBackgroundOpacity}));
-                    }
-                    .header-bg {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(255, 0, 0, ${this.state.headerBackgroundOpacity});
-                    }
-                    .header-container {
-                        display: flex;
-                        align-items: center;
-                    }
-                    .logogo {
-                        height: 40px;
-                        width: 40px;
-                        object-fit: cover;
-                        margin-right: 10px;
-                        transition: all 0.8s;
-                    }
-                    .header-name {
-                        display: flex;
-                        flex-direction: column;
-                        cursor: pointer;
-                        align-items: center;
-                    }
-                    .logo {
-                        font-size: 32px;
-                        letter-spacing: 4px;
-                        font-family: Geneva, Arial, Helvetica, sans-serif;
-                        line-height: 40px;
-                    }
-                    .slogan {
-                        font-size: 10px;
-                        padding: 0;
-                        letter-spacing: 2.8px;
-                        display: none;
-                    }
-                    @media (min-width: 960px) {
-                        .header {
-                            height: 80px;
-                            padding: 0 20px;
-                        }
-                        .slogan {
-                            display: block;
-                        }
-                        .logogo {
-                            height: 56px;
-                            width: 56px;
-                            margin-right: 10px;
                         }
                     }
                 `}</style>

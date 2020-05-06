@@ -1,7 +1,4 @@
-import { Fragment } from "react";
 import Link from "next/link";
-import moment from "moment";
-import fetch from "isomorphic-unfetch";
 import Layout from "../../components/Layout";
 // import { regions } from "../../constants/regions";
 
@@ -31,13 +28,9 @@ const Index = ({ regions }) => {
     );
 };
 
-Index.getInitialProps = async function() {
-    const res = await fetch("https://urmanhelpforest20190704115206.azurewebsites.net/regions");
-    const data = await res.json();
-    // console.log("data", data);
-
+Index.getInitialProps = async function () {
     return {
-        regions: data,
+        regions: [],
     };
 };
 
