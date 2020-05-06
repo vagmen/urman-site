@@ -11,6 +11,7 @@ import {
     pageWidthDesktopsExtraLarge,
 } from "../../constants/settings";
 import styles from "./Header.module.css";
+import classNames from "classnames";
 
 let ticking = false;
 
@@ -89,26 +90,43 @@ class Header extends Component {
     };
 
     setOpacity = () => {
+        const header = document.querySelector("#header");
+        const headerBg = document.querySelector("#headerBg");
+        // const headerHeight = header.clientHeight;
+        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+        if (this.props.isMainPage) {
+            const newHeight = windowHeight - scrollY;
+            header.style.height = newHeight + "px";
+        }
+        console.log("header.style", header.style);
+
         if (this.props.headerOpacity && window.scrollY < 100) {
             this.setState({
                 headerBackgroundOpacity: window.scrollY / 100,
             });
+            headerBg.style.setProperty("--headerOpacity", window.scrollY / 100);
         } else {
             this.setState({
                 headerBackgroundOpacity: 1,
             });
+            headerBg.style.setProperty("--headerOpacity", 1);
         }
     };
 
     render() {
+        const { isMainPage } = this.props;
+        console.log("isMainPage", this.props);
+
         return (
-            <div className="header">
+            <div className={classNames(styles.header, { [styles.main]: isMainPage })} id="header">
+                <div className={styles.bg} id="headerBg" />
                 <Link href="/" passHref>
-                    <div className="header-container">
-                        <img src="/images/logo-w.png" alt="Логотип" className="logogo" />
-                        <div className="header-name">
-                            <span className="logo">URMAN</span>
-                            <span className="slogan">ЛЕСНЫЕ РЕШЕНИЯ</span>
+                    <div className={styles.wrapper}>
+                        <img src="/images/logo-w.png" alt="Логотип" className={styles.logo} />
+                        <div className={styles.names}>
+                            <span className={styles.firstName}>URMAN</span>
+                            <span className={styles.lastName}>ЛЕСНЫЕ РЕШЕНИЯ</span>
                         </div>
                     </div>
                 </Link>
@@ -493,9 +511,10 @@ class Header extends Component {
                         top: 0;
                         z-index: 1;
                         width: 100%;
-                        background: rgba(102, 118, 54, ${this.state.headerBackgroundOpacity});
+                        background: url("/images/services/lesnoj-plan.webp");
+                        
                         transition: all 1s;
-                        height: 60px;
+                        height: calc(60px + 100vh;
                         position: fixed;
                         top: 0;
                         z-index: 100;
@@ -504,6 +523,14 @@ class Header extends Component {
                         box-shadow: 0 4px 5px 0 rgba(0, 0, 0, calc(0.14 * ${this.state.headerBackgroundOpacity})),
                             0 1px 10px 0 rgba(0, 0, 0, calc(0.12 * ${this.state.headerBackgroundOpacity})),
                             0 2px 4px -1px rgba(0, 0, 0, calc(0.2 * ${this.state.headerBackgroundOpacity}));
+                    }
+                    .header-bg {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(255, 0, 0, ${this.state.headerBackgroundOpacity});
                     }
                     .header-container {
                         display: flex;

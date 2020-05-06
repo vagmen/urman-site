@@ -28,7 +28,7 @@ class Index extends Component {
 
     render() {
         return (
-            <Layout postData={postData} headerOpacity={true}>
+            <Layout postData={postData} headerOpacity={true} isMainPage={true}>
                 <div className="main-container">
                     {/* <section className="section section__main">
                         <div className="main-section__bg" />
@@ -116,7 +116,7 @@ class Index extends Component {
                     }
                     .main-container {
                         display: grid;
-                        grid-auto-rows: 100vh 1fr auto;
+                        grid-auto-rows: 1px 1fr auto;
                         grid-auto-columns: 1fr;
                         grid-template-areas:
                             "m"

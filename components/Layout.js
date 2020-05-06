@@ -17,7 +17,7 @@ const Connect = dynamic(import("./Connect"));
 
 const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
-const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
+const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPage }) => {
     const title = postData ? postData.title : menuItemData(menuItem).title || "URMAN - Лесные решения";
     const description = postData ? postData.description : menuItemData(menuItem).description || "";
     const image = <img src={metaImg || "/images/logo.png"} />;
@@ -41,7 +41,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg }) => {
                 <meta name="robots" content="index,follow" />
                 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
             </Head>
-            <Header headerOpacity={headerOpacity} />
+            <Header headerOpacity={headerOpacity} isMainPage={isMainPage} />
             <ConfigProvider locale={ruRU}>
                 <IconContext.Provider value={{ className: "react-icons" }}>
                     <Fragment>

@@ -1,0 +1,26 @@
+.header {
+    --headerHeight: 64px;
+    position: sticky;
+    height: var(--headerOpacity);
+    top: 0;
+    z-index: 100;
+    transition: all 0.1s;
+}
+
+.main {
+    /* --mainHeaderOpacity: 1; */
+    /* height: 100vh; */
+    background: url("/images/services/lesnoj-plan.webp");
+}
+
+.bg {
+    --headerOpacity: 0;
+    composes: container from "./../../styles/global.css";
+    opacity: var(--headerOpacity);
+    background: var(--colorPrimary);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

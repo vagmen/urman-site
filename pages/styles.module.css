@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/images/services/lesnoj-plan.webp');
+    /* background: url('/images/services/lesnoj-plan.webp'); */
 }
 
 .wrapper {
