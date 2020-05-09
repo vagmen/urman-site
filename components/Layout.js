@@ -25,7 +25,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
         <Fragment>
             <Head>
                 <meta charSet="UTF-8" />
-                <meta name="theme-color" content={mainColorMid} />
+                <meta name="theme-color" content="#488558" />
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="manifest" href="/manifest.json" />
                 <meta

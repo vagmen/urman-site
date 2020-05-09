@@ -1,8 +1,7 @@
 {
     "name": "URMAN",
     "short_name": "URMAN",
-    "icons": [
-        {
+    "icons": [{
             "src": "images/logo_120x120.png",
             "sizes": "120x120",
             "type": "image/png"
@@ -30,6 +29,6 @@
     ],
     "start_url": "/",
     "display": "fullscreen",
-    "theme_color": "#667636",
+    "theme_color": "#488558",
     "background_color": "#EEE"
 }
