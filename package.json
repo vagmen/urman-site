@@ -11,6 +11,7 @@
         "export": "next export",
         "deploy": "next build && next export",
         "start": "NODE_ENV=production node server.js -p $PORT",
+        "startTest": "NODE_ENV=production node server.js PORT=5042",
         "postinstall": "npm run build",
         "test": "echo \"Error: no test specified\" && exit 1",
         "sitemap": "node modules/buildSitemap.js"

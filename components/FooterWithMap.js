@@ -85,14 +85,14 @@ class FooterWithMap extends Component {
                                     <span>
                                         <MdLocalPhone />
                                     </span>
-                                    +7 (903) 968-34-86
+                                    +7 (963) 136-34-86
                                 </a>
                                 <br />
                                 <a href="tel:+74959683486" onClick={() => ym(51360247, "reachGoal", "telmsk2")}>
                                     <span>
                                         <MdLocalPhone />
                                     </span>
-                                    +7 (495) 968-34-86
+                                    +7 (347) 298-34-86
                                 </a>
                             </Fragment>
                         )}

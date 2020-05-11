@@ -8,7 +8,6 @@ import { IconContext } from "react-icons";
 // import Menu from "./Menu";
 // import Connect from "./Connect";
 import { mainMenu } from "../constants/menuData";
-import { mainColorMid } from "../constants/colors";
 
 const Header = dynamic(import("./Header/Header"));
 const Menu = dynamic(import("./Menu"));
