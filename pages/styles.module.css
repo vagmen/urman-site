@@ -1,12 +1,27 @@
 /* @import './../styles/global.css'; */
 
+.mainContainer {
+    display: grid;
+    grid-auto-rows: calc(100vh - 150px) auto auto auto;
+    grid-auto-columns: 100%;
+    grid-template-areas:
+        "bg"
+        "we"
+        "s"
+        "ssb"
+        "f";
+}
+
+.we {
+    grid-area: we;
+}
+
 .bg {
-    composes: container from './../styles/global.css';
-    background: var(--colorPrimary);
+    grid-area: bg;
+    composes: container from "./../styles/global.css";
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: appearance 1s ease-out;
 }
 
 .wrapper {
@@ -23,14 +38,4 @@
 
 .lastName {
     text-transform: uppercase;
-}
-
-@keyframes appearance {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
 }

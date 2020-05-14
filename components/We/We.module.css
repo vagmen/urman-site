@@ -2,10 +2,12 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
-        'who'
-        'video'
-        'stat'
-        'benefits';
+        "who"
+        "video"
+        "benefits"
+        "stat";
+    background: #fff;
+    z-index: 1;
 }
 
 .bg {
@@ -37,12 +39,11 @@
 
 .weList li::before {
     /* composes: container from "./../../styles/global.css"; */
-    content: '0'counter(my-awesome-counter);
-    color: #61AC27;
+    content: "0" counter(my-awesome-counter);
+    color: #61ac27;
     font-weight: bold;
     padding-right: 16px;
 }
-
 
 .video {
     grid-area: video;
@@ -109,8 +110,14 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
-            'who stat'
-            'video benefits';
+            "who stat"
+            "video benefits";
+        composes: pagePadding from "./../../styles/global.css";
+        margin: var(--padding);
+        box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+        overflow: hidden;
+        animation: appearance 2s ease-out;
     }
 
     .statGrid {
@@ -120,5 +127,19 @@
         font-size: 24px;
         column-gap: var(--padding);
         row-gap: calc(var(--padding) / 2);
+    }
+}
+
+@keyframes appearance {
+    from {
+        transform: translateY(50%);
+    }
+
+    50% {
+        transform: translateY(50%);
+    }
+
+    to {
+        transform: translateY(0);
     }
 }

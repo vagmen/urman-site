@@ -91,13 +91,17 @@ class Header extends Component {
         let headerBackgroundOpacity = 1;
 
         if (this.props.isMainPage) {
-            let newHeight = windowHeight - scrollY;
+            let newHeight = windowHeight - scrollY - (scrollY / windowHeight) * 300;
             if (newHeight < 64) {
                 newHeight = 64;
             }
             header.style.height = newHeight + "px";
-            if (scrollY < windowHeight) {
-                headerBackgroundOpacity = scrollY / windowHeight;
+            header.style.zIndex = "0";
+            if (scrollY < windowHeight - 300) {
+                headerBackgroundOpacity = scrollY / (windowHeight - 300);
+            }
+            if (scrollY > windowHeight / 2) {
+                header.style.zIndex = "2";
             }
             logo.style.setProperty("--headerOpacity", headerBackgroundOpacity);
         } else if (this.props.headerOpacity && scrollY < 100) {

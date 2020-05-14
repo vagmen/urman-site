@@ -18,9 +18,9 @@ const postData = {
 
 const Index = ({ statistics, whoAreWe, benefits }) => (
     <Layout postData={postData} headerOpacity={true} isMainPage={true}>
-        <div className="main-container">
+        <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
-            {/* <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} /> */}
+            <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} />
             <section className="section section__services">
                 <h2>Услуги</h2>
                 <p>Выполним Вам за лучшую цену</p>
@@ -81,20 +81,12 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
                     transform: translateY(0px);
                 }
             }
-            .main-container {
-                display: grid;
-                grid-auto-rows: 100vh auto 1fr auto;
-                grid-auto-columns: 1fr;
-                grid-template-areas:
-                    "m"
-                    "s"
-                    "f";
-            }
             h2 {
                 font-size: 30px;
             }
             .section__services {
                 padding: 8px 8px 32px;
+                grid-area: s;
             }
             .section__services-title {
                 grid-area: sst;
@@ -161,7 +153,7 @@ Index.getInitialProps = async function () {
     let whoAreWe = "";
     let benefits = [];
     try {
-        const res = await fetch(API_URL + "/statistics");
+        const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
         const data = await res.json();
 
         statistics = data.map((item) => ({

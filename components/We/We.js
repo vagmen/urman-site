@@ -5,11 +5,9 @@ import ReactPlayer from "react-player";
 import ReactMarkdown from "react-markdown";
 import { MdCheckCircle } from "react-icons/md";
 
-const We = ({ statistics, whoAreWe, benefits }) => {
-    console.log("benefits", benefits);
-
+const We = ({ statistics, whoAreWe, benefits, className }) => {
     return (
-        <div className={styles.we}>
+        <div className={classNames(className, styles.we)}>
             <div className={styles.who}>
                 <ReactMarkdown source={whoAreWe} />
                 {/* <h2>Кто мы?</h2>
