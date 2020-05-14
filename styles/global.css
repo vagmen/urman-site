@@ -1,7 +1,101 @@
 .container {
     --colorPrimary: #488558;
+    --colorSecondary: #61AC27;
+}
+
+.pagePadding {
+    --padding: 16px;
+    transition: all 0.4s;
 }
 
 /* :root {
     --colorPrimary: #488558;
 } */
+
+.gorizontalPadding {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.boxPadding {
+    padding: 8px;
+}
+
+@media (min-width: 500px) {
+    .gorizontalPadding {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .boxPadding {
+        padding: 32px;
+    }
+
+    .pagePadding {
+        --padding: 32px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .gorizontalPadding {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .boxPadding {
+        padding: 24px;
+    }
+
+    .pagePadding {
+        --padding: 48px;
+    }
+
+}
+
+@media (min-width: 1500px) {
+    .gorizontalPadding {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .boxPadding {
+        padding: 32px;
+    }
+
+    .pagePadding {
+        --padding: 64px;
+    }
+
+}
+
+@media (min-width: 2000px) {
+    .gorizontalPadding {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .boxPadding {
+        padding: 40px;
+    }
+
+    .pagePadding {
+        --padding: 80px;
+    }
+
+}
+
+@media (min-width: 2500px) {
+    .gorizontalPadding {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+
+    .boxPadding {
+        padding: 48px;
+    }
+
+    .pagePadding {
+        --padding: 96px;
+    }
+
+}

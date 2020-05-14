@@ -44,13 +44,14 @@
 }
 
 .wrapper {
+    composes: pagePadding from "./../../styles/global.css";
     z-index: 1;
     display: flex;
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
-    margin: 0 8px;
+    margin: 0 var(--padding);
     position: relative;
 }
 
@@ -83,9 +84,9 @@
 }
 
 @media (min-width: 960px) {
-    .wrapper {
+    /* .wrapper {
         margin: 0 16px;
-    }
+    } */
 
     .logo {
         transform: translateX(calc((1 - var(--headerOpacity)) * -50%)) scale(calc((1 - var(--headerOpacity)) + 1));

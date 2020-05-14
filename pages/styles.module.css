@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: url('/images/services/lesnoj-plan.webp'); */
+    animation: appearance 1s ease-out;
 }
 
 .wrapper {
@@ -23,4 +23,14 @@
 
 .lastName {
     text-transform: uppercase;
+}
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

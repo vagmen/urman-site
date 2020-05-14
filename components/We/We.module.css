@@ -1,0 +1,124 @@
+.we {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'who'
+        'video'
+        'stat'
+        'benefits';
+}
+
+.bg {
+    --headerOpacity: 0;
+    composes: container from "./../../styles/global.css";
+    opacity: var(--headerOpacity);
+    background: var(--colorPrimary);
+}
+
+.who {
+    grid-area: who;
+    composes: pagePadding from "./../../styles/global.css";
+    padding: var(--padding);
+}
+
+.weList {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+    margin: 0;
+    padding: 0;
+    /* font-size: 16px;
+    line-height: 19px; */
+}
+
+.weList li {
+    counter-increment: my-awesome-counter;
+    padding-bottom: 24px;
+}
+
+.weList li::before {
+    /* composes: container from "./../../styles/global.css"; */
+    content: '0'counter(my-awesome-counter);
+    color: #61AC27;
+    font-weight: bold;
+    padding-right: 16px;
+}
+
+
+.video {
+    grid-area: video;
+}
+
+.stat {
+    grid-area: stat;
+    background: url("/images/bgStat.jpg");
+    background-size: cover;
+    background-position: center;
+    composes: pagePadding from "./../../styles/global.css";
+    padding: var(--padding);
+    color: #fff;
+}
+
+.statGrid {
+    composes: pagePadding from "./../../styles/global.css";
+    display: grid;
+    grid-template-columns: auto 1fr;
+    font-size: 24px;
+    column-gap: var(--padding);
+    row-gap: var(--padding);
+}
+
+.statNumber {
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.statText {
+    display: flex;
+    align-items: center;
+}
+
+.benefits {
+    grid-area: benefits;
+    composes: pagePadding from "./../../styles/global.css";
+    padding: var(--padding);
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    padding-bottom: 32px;
+}
+
+.benefits:last-child {
+    padding-bottom: 8px;
+}
+
+.benefitIcon {
+    composes: pagePadding from "./../../styles/global.css";
+    margin-right: var(--padding);
+    flex: 0 0 auto;
+}
+
+.benefitText {
+    padding: 0;
+}
+
+@media (min-width: 1000px) {
+    .we {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'who stat'
+            'video benefits';
+    }
+
+    .statGrid {
+        composes: pagePadding from "./../../styles/global.css";
+        display: grid;
+        grid-template-columns: auto 1fr;
+        font-size: 24px;
+        column-gap: var(--padding);
+        row-gap: calc(var(--padding) / 2);
+    }
+}
