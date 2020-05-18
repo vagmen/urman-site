@@ -21,6 +21,11 @@
     padding: 8px;
 }
 
+.shadow {
+    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+}
+
 @media (min-width: 500px) {
     .gorizontalPadding {
         padding-left: 16px;

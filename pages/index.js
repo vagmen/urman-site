@@ -7,6 +7,8 @@ import Services from "../components/Services";
 import { servicesData } from "../constants/menuData";
 import styles from "./styles.module.css";
 import We from "../components/We/We.js";
+import SectionHeader from "components/SectionHeader/SectionHeader";
+import Carousel from "components/Carousel/Carousel";
 import { API_URL } from "../constants/settings.js";
 import fetch from "isomorphic-unfetch";
 
@@ -21,9 +23,11 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
             <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} />
+
             <section className="section section__services">
-                <h2>Услуги</h2>
-                <p>Выполним Вам за лучшую цену</p>
+                <SectionHeader title="Услуги" />
+                <Carousel list={servicesData.map((item) => ({ title: item.name, img: item.img, id: item.id }))} />
+                {/* <p>Выполним Вам за лучшую цену</p>
                 <Services items={servicesData} />
                 <span className="section__services-button centered">
                     <Button>
@@ -31,7 +35,7 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
                             <a href="">Все услуги</a>
                         </Link>
                     </Button>
-                </span>
+                </span> */}
             </section>
             <section className="section section__feedback">
                 <FeedbackForm
@@ -85,7 +89,9 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
                 font-size: 30px;
             }
             .section__services {
-                padding: 8px 8px 32px;
+                 {
+                    /* padding: 8px 8px 32px; */
+                }
                 grid-area: s;
             }
             .section__services-title {

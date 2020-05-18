@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styles from "./We.module.css";
 import classNames from "classnames";
 import ReactPlayer from "react-player";
@@ -21,14 +21,14 @@ const We = ({ statistics, whoAreWe, benefits, className }) => {
             <div className={styles.stat}>
                 <div className={styles.statGrid}>
                     {statistics.map((item) => (
-                        <>
-                            <div className={styles.statNumber} key={"count-" + item.id}>
+                        <Fragment key={"count-" + item.id}>
+                            <div className={styles.statNumber}>
                                 <span>{item.count}</span>
                             </div>
-                            <div className={styles.statText} key={"description-" + item.id}>
+                            <div className={styles.statText}>
                                 <span>{item.description}</span>
                             </div>
-                        </>
+                        </Fragment>
                     ))}
                     {/* <div className={styles.statNumber}>
                         <span>331</span>

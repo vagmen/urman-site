@@ -1,0 +1,47 @@
+.container {
+    composes: pagePadding from "./../../styles/global.css";
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media (min-width: 1000px) {
+    .we {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "who stat"
+            "video benefits";
+        composes: pagePadding from "./../../styles/global.css";
+        margin: var(--padding);
+        box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+        overflow: hidden;
+        animation: appearance 2s ease-out;
+    }
+
+    .statGrid {
+        composes: pagePadding from "./../../styles/global.css";
+        display: grid;
+        grid-template-columns: auto 1fr;
+        font-size: 24px;
+        column-gap: var(--padding);
+        row-gap: calc(var(--padding) / 2);
+    }
+}
+
+@keyframes appearance {
+    from {
+        transform: translateY(50%);
+    }
+
+    50% {
+        transform: translateY(50%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

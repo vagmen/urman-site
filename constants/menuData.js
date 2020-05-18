@@ -45,8 +45,8 @@ export const mainMenu = [
         isMainMenu: true,
     },
     {
-        name: "Журнал",
-        title: "Журнал | URMAN - Лесные решения",
+        name: "Статьи",
+        title: "Статьи | URMAN - Лесные решения",
         icon: MdLibraryBooks,
         src: "journal",
         description: "Про лес и не только",

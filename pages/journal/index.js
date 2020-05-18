@@ -11,7 +11,7 @@ const Index = ({ journalItems }) => (
         <div className="page-background">
             <div className="page-content">
                 <div className="journal">
-                    <h1>Журнал – URMAN</h1>
+                    <h1>Статьи – URMAN</h1>
                     <p>Про лес и не только</p>
                     <div className="grid">
                         {journalItems.map((item) => (

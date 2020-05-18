@@ -1,0 +1,60 @@
+.container {
+    overflow-x: scroll;
+
+}
+
+.scrollable {
+    composes: pagePadding from "./../../styles/global.css";
+    padding-left: var(--padding);
+    display: inline-flex;
+    padding-bottom: var(--padding);
+}
+
+.card {
+    width: 175px;
+    composes: shadow from "./../../styles/global.css";
+    composes: pagePadding from "./../../styles/global.css";
+    margin-right: var(--padding);
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+
+.content {
+    padding: 16px;
+    overflow: hidden;
+}
+
+.title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 20px;
+    line-height: 30px;
+    color: rgb(51, 51, 51);
+    margin: 0;
+}
+
+
+
+@media (min-width: 1000px) {}
+
+@keyframes appearance {
+    from {
+        transform: translateY(50%);
+    }
+
+    50% {
+        transform: translateY(50%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
