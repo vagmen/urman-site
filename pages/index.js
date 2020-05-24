@@ -129,7 +129,7 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
                     line-height: 39px;
                 }
                 .section__services {
-                    padding: 32px 16px;
+                    // padding: 32px 16px;
                 }
             }
             @media (min-width: 1366px) {

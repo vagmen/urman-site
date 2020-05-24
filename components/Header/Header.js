@@ -137,7 +137,7 @@ class Header extends Component {
                     h5,
                     h6 {
                         color: inherit;
-                        font-size: 1em;
+                        // font-size: 1em;
                         line-height: inherit;
                         margin: 0;
                         padding: 0;
@@ -162,10 +162,10 @@ class Header extends Component {
                         margin-bottom: 1.3rem;
                     }
                     h2 {
-                        font-size: 2rem;
-                        line-height: 2.3rem;
-                        margin-top: 1.3rem;
-                        margin-bottom: 1.2rem;
+                        // font-size: 2rem;
+                        // line-height: 2.3rem;
+                        // margin-top: 1.3rem;
+                        // margin-bottom: 1.2rem;
                     }
                     h3 {
                         font-size: 1.8rem;

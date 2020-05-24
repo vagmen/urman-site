@@ -5,7 +5,7 @@ import classNames from "classnames";
 const SectionHeader = ({ title, link, className, count }) => {
     return (
         <div className={classNames(className, styles.container)}>
-            <h2>{title}</h2>
+            <h2 className={styles.title}>{title}</h2>
             {/* {link &&  } */}
         </div>
     );

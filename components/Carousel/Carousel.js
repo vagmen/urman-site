@@ -1,9 +1,16 @@
+import { useRef } from "react";
 import styles from "./Carousel.module.css";
 import classNames from "classnames";
 
 const Carousel = ({ list = [] }) => {
+    const textInput = useRef(null);
+
+    // function handleClick() {
+    //     textInput.current.focus();
+    // }
+
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={textInput}>
             <div className={styles.scrollable}>
                 {list?.map((item) => (
                     <div key={item.id} className={styles.card}>
@@ -13,6 +20,12 @@ const Carousel = ({ list = [] }) => {
                         </div>
                     </div>
                 ))}
+            </div>
+            <div className={styles.leftButtonContainer}>
+                <p className={styles.button}>Пред</p>
+            </div>
+            <div className={styles.rightButtonContainer}>
+                <p className={styles.button}>След</p>
             </div>
         </div>
     );

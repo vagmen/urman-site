@@ -1,6 +1,6 @@
 .container {
     --colorPrimary: #488558;
-    --colorSecondary: #61AC27;
+    --colorSecondary: #61ac27;
 }
 
 .pagePadding {
@@ -21,9 +21,40 @@
     padding: 8px;
 }
 
+.radius {
+    --card-border-radius: 8px;
+}
+
 .shadow {
     box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
+}
+
+.clickableShadow {
+    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s;
+    position: relative;
+    /* overflow: visible; */
+    cursor: pointer;
+}
+
+.clickableShadow:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
+    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.13);
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.clickableShadow:hover:before {
+    opacity: 1;
 }
 
 @media (min-width: 500px) {
@@ -54,7 +85,6 @@
     .pagePadding {
         --padding: 48px;
     }
-
 }
 
 @media (min-width: 1500px) {
@@ -70,7 +100,6 @@
     .pagePadding {
         --padding: 64px;
     }
-
 }
 
 @media (min-width: 2000px) {
@@ -86,7 +115,6 @@
     .pagePadding {
         --padding: 80px;
     }
-
 }
 
 @media (min-width: 2500px) {
@@ -102,5 +130,4 @@
     .pagePadding {
         --padding: 96px;
     }
-
 }
