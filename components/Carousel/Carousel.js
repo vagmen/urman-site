@@ -19,23 +19,15 @@ const Carousel = ({ list = [] }) => {
 
     const { width } = useWindowSize();
     useEffect(() => {
-        if (width > 999 && width < 1500) {
+        if (width > 899 && width < 1400) {
             setCountOfVisible(3);
-        } else if (width > 1499) {
+        } else if (width > 1399) {
             setCountOfVisible(4);
         }
         setLastCard(firstCard + countOfVisible - 1);
         setLeftButtonHidden(offset === 0);
-        console.log(
-            "list.length - lastCard < countOfVisible",
-            list.length,
-            lastCard,
-            list.length - lastCard < countOfVisible
-        );
-
         setRightButtonHidden(list.length === lastCard);
-
-        setIsMobile(width < 1000);
+        setIsMobile(width < 900);
     });
 
     const handleScrollPrev = () => {

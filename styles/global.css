@@ -74,7 +74,7 @@
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
     .gorizontalPadding {
         padding-left: 24px;
         padding-right: 24px;
@@ -89,7 +89,7 @@
     }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1400px) {
     .gorizontalPadding {
         padding-left: 32px;
         padding-right: 32px;
@@ -105,7 +105,7 @@
     }
 }
 
-@media (min-width: 2000px) {
+@media (min-width: 1900px) {
     .gorizontalPadding {
         padding-left: 40px;
         padding-right: 40px;
@@ -117,10 +117,11 @@
 
     .pagePadding {
         --padding: 256px;
+        --gap: 128px;
     }
 }
 
-@media (min-width: 2500px) {
+@media (min-width: 2400px) {
     .gorizontalPadding {
         padding-left: 48px;
         padding-right: 48px;

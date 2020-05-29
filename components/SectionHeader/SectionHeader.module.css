@@ -28,9 +28,6 @@
     text-decoration: underline;
 }
 
-@media (min-width: 1000px) {
-}
-
 @keyframes appearance {
     from {
         transform: translateY(50%);

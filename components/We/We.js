@@ -10,13 +10,6 @@ const We = ({ statistics, whoAreWe, benefits, className }) => {
         <div className={classNames(className, styles.we)}>
             <div className={styles.who}>
                 <ReactMarkdown source={whoAreWe} />
-                {/* <h2>Кто мы?</h2>
-                <ol className={styles.weList}>
-                    <li>Десукция отражает подзол. При равных условиях потускула экспериментально верифицируема.</li>
-                    <li>Десукция отражает подзол. При равных условиях потускула экспериментально верифицируема.</li>
-                    <li>Десукция отражает подзол. При равных условиях потускула экспериментально верифицируема.</li>
-                    <li>Десукция отражает подзол. При равных условиях потускула экспериментально верифицируема.</li>
-                </ol> */}
             </div>
             <div className={styles.stat}>
                 <div className={styles.statGrid}>
@@ -30,13 +23,6 @@ const We = ({ statistics, whoAreWe, benefits, className }) => {
                             </div>
                         </Fragment>
                     ))}
-                    {/* <div className={styles.statNumber}>
-                        <span>331</span>
-                    </div>
-                    <div className={styles.statText}>
-                        <span>Разработано и согласовано проектов освоения леса</span>
-                    </div>
-                  */}
                 </div>
             </div>
             <div className={styles.video}>
@@ -53,21 +39,5 @@ const We = ({ statistics, whoAreWe, benefits, className }) => {
         </div>
     );
 };
-
-// We.getInitialProps = async function () {
-//     const res = await fetch(API_URL + "/statistikas");
-//     const data = await res.json();
-//     console.log("data", data);
-
-//     const statistics = data.map((item) => ({
-//         id: item.id,
-//         count: item.count,
-//         text: item.text,
-//     }));
-
-//     return {
-//         statistics,
-//     };
-// };
 
 export default We;
