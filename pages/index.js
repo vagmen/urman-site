@@ -1,9 +1,5 @@
-import Link from "next/link";
 import Layout from "../components/Layout.js";
-import Button from "../components/ui/Button.js";
-// import ButtonBorder from "../components/ui/ButtonBorder";
 import FeedbackForm from "../components/FeedbackForm";
-import Services from "../components/Services";
 import { servicesData } from "../constants/menuData";
 import styles from "./styles.module.css";
 import We from "../components/We/We.js";
@@ -34,15 +30,6 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
                         url: "/services/" + item.id,
                     }))}
                 />
-                {/* <p>Выполним Вам за лучшую цену</p>
-                <Services items={servicesData} />
-                <span className="section__services-button centered">
-                    <Button>
-                        <Link href="/services" passHref>
-                            <a href="">Все услуги</a>
-                        </Link>
-                    </Button>
-                </span> */}
             </section>
             <section className="section section__feedback">
                 <FeedbackForm
@@ -54,64 +41,11 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
             </section>
         </div>
         <style jsx>{`
-            @keyframes appearance-of-text {
-                from {
-                    opacity: 0;
-                    transform: translateY(200px);
-                }
-                to {
-                    opacity: 0.8;
-                    transform: translateY(0px);
-                }
-            }
-            @keyframes appearance-of-text-delay-1 {
-                from {
-                    opacity: 0;
-                    transform: translateY(200px);
-                }
-                33% {
-                    opacity: 0;
-                    transform: translateY(200px);
-                }
-                to {
-                    opacity: 0.8;
-                    transform: translateY(0px);
-                }
-            }
-            @keyframes appearance-of-text-delay-2 {
-                from {
-                    opacity: 0;
-                    transform: translateY(200px);
-                }
-                50% {
-                    opacity: 0;
-                    transform: translateY(200px);
-                }
-                to {
-                    opacity: 0.8;
-                    transform: translateY(0px);
-                }
-            }
             h2 {
                 font-size: 30px;
             }
             .section__services {
-                 {
-                    /* padding: 8px 8px 32px; */
-                }
                 grid-area: s;
-            }
-            .section__services-title {
-                grid-area: sst;
-                text-align: center;
-                color: rgba(0, 0, 0, 0.8);
-                padding: 100px 50px 50px;
-                font-weight: 900;
-            }
-            .section__services-button {
-                grid-area: ssb;
-                text-align: center;
-                padding: 16px;
             }
             .section__feedback {
                 grid-area: f;
@@ -134,9 +68,6 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
                 h2 {
                     font-size: 39px;
                     line-height: 39px;
-                }
-                .section__services {
-                    // padding: 32px 16px;
                 }
             }
             @media (min-width: 1366px) {

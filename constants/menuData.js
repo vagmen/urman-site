@@ -2,29 +2,14 @@ import { MdVpnKey, MdFace, MdContactPhone, MdLibraryBooks } from "react-icons/md
 
 export const mainMenu = [
     // {
-    //     name: "Клиенты",
-    //     title: "Клиенты | URMAN - Лесные решения",
-    //     icon: "team",
-    //     src: "clients",
-    //     description: "От глобальных лидеров до быстрорастущих стартапов, сотни компаний полагаются на URMAN.",
+    //     name: "Главная",
+    //     title: "URMAN - Лесные решения",
+    //     icon: MdHome,
+    //     src: "",
+    //     description:
+    //         "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка",
     //     isMainMenu: true,
-    //     children: [
-    //         {
-    //             title: "Видео клиентов",
-    //             src: "video",
-    //             description: "Видео клиентов"
-    //         },
-    //         {
-    //             title: "Отзывы",
-    //             src: "feedback",
-    //             description: "Отзывы"
-    //         },
-    //         {
-    //             title: "Статистика и показатели",
-    //             src: "stats",
-    //             description: "Статистика и показатели"
-    //         }
-    //     ]
+    //     hiddenInDesktop: true,
     // },
     {
         name: "Услуги",
