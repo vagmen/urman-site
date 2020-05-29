@@ -1,4 +1,5 @@
 .we {
+    composes: pagePadding from "./../../styles/global.css";
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -20,7 +21,7 @@
 .who {
     grid-area: who;
     composes: pagePadding from "./../../styles/global.css";
-    padding: var(--padding);
+    padding: var(--gap);
 }
 
 .weList {
@@ -28,8 +29,6 @@
     counter-reset: my-awesome-counter;
     margin: 0;
     padding: 0;
-    /* font-size: 16px;
-    line-height: 19px; */
 }
 
 .weList li {
@@ -55,7 +54,7 @@
     background-size: cover;
     background-position: center;
     composes: pagePadding from "./../../styles/global.css";
-    padding: var(--padding);
+    padding: var(--gap);
     color: #fff;
 }
 
@@ -64,8 +63,8 @@
     display: grid;
     grid-template-columns: auto 1fr;
     font-size: 24px;
-    column-gap: var(--padding);
-    row-gap: var(--padding);
+    column-gap: var(--gap);
+    row-gap: var(--gap);
 }
 
 .statNumber {
@@ -80,9 +79,9 @@
 }
 
 .benefits {
-    grid-area: benefits;
     composes: pagePadding from "./../../styles/global.css";
-    padding: var(--padding);
+    grid-area: benefits;
+    padding: var(--gap);
 }
 
 .benefit {
@@ -97,7 +96,7 @@
 
 .benefitIcon {
     composes: pagePadding from "./../../styles/global.css";
-    margin-right: var(--padding);
+    margin-right: var(--gap);
     flex: 0 0 auto;
 }
 
@@ -112,8 +111,7 @@
         grid-template-areas:
             "who stat"
             "video benefits";
-        composes: pagePadding from "./../../styles/global.css";
-        margin: var(--padding);
+        margin: var(--padding) var(--padding) 0;
         box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
         border-radius: 8px;
         overflow: hidden;
@@ -125,8 +123,7 @@
         display: grid;
         grid-template-columns: auto 1fr;
         font-size: 24px;
-        column-gap: var(--padding);
-        row-gap: calc(var(--padding) / 2);
+        row-gap: calc(var(--gap) / 2);
     }
 }
 

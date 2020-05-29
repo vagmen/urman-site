@@ -5,6 +5,7 @@
 
 .pagePadding {
     --padding: 16px;
+    --gap: 16px;
     transition: all 0.4s;
 }
 
@@ -69,6 +70,7 @@
 
     .pagePadding {
         --padding: 32px;
+        --gap: 32px;
     }
 }
 
@@ -83,7 +85,7 @@
     }
 
     .pagePadding {
-        --padding: 48px;
+        --padding: 64px;
     }
 }
 
@@ -98,7 +100,8 @@
     }
 
     .pagePadding {
-        --padding: 64px;
+        --padding: 128px;
+        --gap: 64px;
     }
 }
 
@@ -113,7 +116,7 @@
     }
 
     .pagePadding {
-        --padding: 80px;
+        --padding: 256px;
     }
 }
 
@@ -128,6 +131,6 @@
     }
 
     .pagePadding {
-        --padding: 96px;
+        --padding: 256px;
     }
 }

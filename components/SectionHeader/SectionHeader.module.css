@@ -5,11 +5,27 @@
     padding-top: var(--padding);
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
 }
 
 .title {
-    /* font-size: 30px; */
     color: #333;
+}
+
+.link {
+    composes: container from "./../../styles/global.css";
+    color: var(--colorPrimary);
+    cursor: pointer;
+}
+
+.link {
+    composes: container from "./../../styles/global.css";
+    color: var(--colorPrimary);
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
 }
 
 @media (min-width: 1000px) {

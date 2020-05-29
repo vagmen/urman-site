@@ -1,62 +1,94 @@
 .container {
+    composes: pagePadding from "./../../styles/global.css";
+    width: 100%;
+    display: grid;
+    grid-template-areas: ". s .";
+    grid-template-columns: var(--padding) auto var(--padding);
+    margin-bottom: var(--padding);
+    margin-top: 16px;
+}
+
+.scrollable {
     overflow-x: scroll;
     position: relative;
+    composes: pagePadding from "./../../styles/global.css";
+    display: inline-flex;
+    scroll-snap-type: x mandatory;
     /* background: green; */
-    width: 100%;
+    scroll-padding-left: var(--padding);
+    scroll-behavior: smooth;
+    grid-area: s;
+    margin: -32px calc(-1 * var(--padding));
+    padding: 32px var(--padding);
+    min-width: calc(100% + 2 * var(--padding));
+}
+
+.desktop {
+    composes: pagePadding from "./../../styles/global.css";
+    display: flex;
+    transition: transform 500ms cubic-bezier(0.03, 0.6, 0.36, 1) 0s;
+    width: calc(100% + var(--gap));
+    flex-direction: row;
+    padding-right: var(--gap);
 }
 
 .buttonContainer {
     composes: pagePadding from "./../../styles/global.css";
-    width: var(--padding);
     height: 100%;
-    position: absolute;
-    top: 0;
-    /* background: red; */
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
-    background: #fafafa;
+    z-index: 1;
 }
 
 .leftButtonContainer {
     composes: buttonContainer;
-    left: 0;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }
 
 .rightButtonContainer {
     composes: buttonContainer;
-    right: 0;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }
 
 .button {
     cursor: pointer;
 }
 
-.scrollable {
+.cardWrapper {
     composes: pagePadding from "./../../styles/global.css";
-    margin-left: var(--padding);
-    display: inline-flex;
-    padding-bottom: var(--padding);
-    margin-top: 16px;
-    margin-right: var(--padding);
-    scroll-snap-type: x mandatory;
+    padding-right: var(--gap);
+    min-width: 190px;
+    transition: transform 500ms cubic-bezier(0.03, 0.6, 0.36, 1) 0s;
 }
 
 .card {
-    width: 175px;
     composes: radius from "./../../styles/global.css";
     composes: clickableShadow from "./../../styles/global.css";
     composes: pagePadding from "./../../styles/global.css";
-    margin-right: 16px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     border-radius: var(--card-border-radius);
     scroll-snap-align: start;
+    width: 100%;
+    height: 100%;
 }
 
-.card:last-of-type {
-    margin-right: 0;
+.cardWrapper:first-of-type {
+    /* margin-left: var(--padding); */
+}
+
+.cardWrapper:last-of-type {
+    margin-right: var(--padding);
 }
 
 .img {
@@ -82,15 +114,53 @@
     margin: 0;
 }
 
+.psevdoLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.buttonHidden {
+    display: none;
+}
+
 @media (min-width: 1000px) {
+    .container {
+        grid-template-areas: ". s .";
+    }
     .scrollable {
-        margin-top: 24px;
+        overflow-x: initial;
+        min-width: calc(100% + 2 * var(--padding));
     }
-    .card {
-        /* flex: 0 0 calc((100% - 2 * var(--padding)) / 4); */
-        width: 300px;
+
+    .cardWrapper {
+        min-width: calc((100% + var(--gap)) / 3);
     }
+
     .card:hover {
         transform: translateY(-4px);
+    }
+    .img {
+        height: 170px;
+    }
+    .title {
+        font-size: 22px;
+        line-height: 34px;
+    }
+    .buttonContainer {
+        display: flex;
+    }
+
+    .buttonHidden {
+        display: none;
+    }
+}
+
+@media (min-width: 1500px) {
+    .cardWrapper {
+        min-width: calc((100% + var(--gap)) / 4);
+    }
+    .img {
+        height: 200px;
     }
 }

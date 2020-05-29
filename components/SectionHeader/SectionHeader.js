@@ -1,30 +1,19 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styles from "./SectionHeader.module.css";
 import classNames from "classnames";
+import Link from "next/link";
 
-const SectionHeader = ({ title, link, className, count }) => {
+const SectionHeader = ({ title, link, className, linkTitle }) => {
     return (
         <div className={classNames(className, styles.container)}>
             <h2 className={styles.title}>{title}</h2>
-            {/* {link &&  } */}
+            {link && (
+                <Link href={link}>
+                    <p className={styles.link}>{linkTitle}</p>
+                </Link>
+            )}
         </div>
     );
 };
-
-// We.getInitialProps = async function () {
-//     const res = await fetch(API_URL + "/statistikas");
-//     const data = await res.json();
-//     console.log("data", data);
-
-//     const statistics = data.map((item) => ({
-//         id: item.id,
-//         count: item.count,
-//         text: item.text,
-//     }));
-
-//     return {
-//         statistics,
-//     };
-// };
 
 export default SectionHeader;

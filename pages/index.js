@@ -25,8 +25,15 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
             <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} />
 
             <section className="section section__services">
-                <SectionHeader title="Услуги" />
-                <Carousel list={servicesData.map((item) => ({ title: item.name, img: item.img, id: item.id }))} />
+                <SectionHeader title="Услуги" link="/services" linkTitle={"Все " + servicesData.length} />
+                <Carousel
+                    list={servicesData.map((item) => ({
+                        title: item.name,
+                        img: item.img,
+                        id: item.id,
+                        url: "/services/" + item.id,
+                    }))}
+                />
                 {/* <p>Выполним Вам за лучшую цену</p>
                 <Services items={servicesData} />
                 <span className="section__services-button centered">
