@@ -1,21 +1,11 @@
 import { Component } from "react";
-import fetch from "isomorphic-unfetch";
-import { message } from "antd";
 import Link from "next/link";
-import Head from "next/head";
-import dynamic from "next/dynamic";
 import Layout from "../../../components/Layout";
-import ButtonViolet from "../../../components/ui/ButtonViolet";
-import { connectHandler } from "../../../utils/localStorage";
 import PostHeader from "../../../components/post/PostHeader";
 import FeedbackForm from "../../../components/FeedbackForm";
 import Services from "../../../components/Services";
 import { servicesData } from "../../../constants/menuData";
 
-const ImgWithTitle = dynamic(import("../../../components/post/ImgWithTitle"));
-const RelatedPost = dynamic(import("../../../components/post/RelatedPost"));
-
-const menuItem = "services";
 const itemId = "lesnoj-plan";
 
 class Index extends Component {
@@ -176,16 +166,12 @@ class Index extends Component {
                     backgroundImage="/images/4.webp"
                     withComment={true}
                 />
-                <style jsx>{``}</style>
             </Layout>
         );
     }
 }
 
 Index.getInitialProps = async function () {
-    // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
-    // const data = await res.json();
-
     return {
         postData: servicesData.find((item) => item.id === itemId),
     };

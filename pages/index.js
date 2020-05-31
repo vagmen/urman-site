@@ -3,10 +3,8 @@ import FeedbackForm from "../components/FeedbackForm";
 import { servicesData } from "../constants/menuData";
 import styles from "./styles.module.css";
 import We from "../components/We/We.js";
-import SectionHeader from "components/SectionHeader/SectionHeader";
 import Carousel from "components/Carousel/Carousel";
 import { API_URL } from "../constants/settings.js";
-import fetch from "isomorphic-unfetch";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -14,24 +12,24 @@ const postData = {
         "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
 };
 
-const Index = ({ statistics, whoAreWe, benefits }) => (
+const Index = ({ statistics, whoAreWe, benefits, articles }) => (
     <Layout postData={postData} headerOpacity={true} isMainPage={true}>
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
             <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} />
-
-            <section className="section section__services">
-                <SectionHeader title="Услуги" link="/services" linkTitle={"Все " + servicesData.length} />
-                <Carousel
-                    list={servicesData.map((item) => ({
-                        title: item.name,
-                        img: item.img,
-                        id: item.id,
-                        url: "/services/" + item.id,
-                    }))}
-                />
-            </section>
-            <section className="section section__feedback">
+            <Carousel
+                list={servicesData.map((item) => ({
+                    title: item.name,
+                    img: item.img,
+                    id: item.id,
+                    url: "/services/" + item.id,
+                }))}
+                title="Услуги"
+                link="/services"
+                className={styles.services}
+            />
+            <Carousel list={articles} link="/journal" title="Статьи" className={styles.journal} />
+            <section className={styles.feedback}>
                 <FeedbackForm
                     title="Напишите свой вопрос"
                     subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
@@ -40,55 +38,6 @@ const Index = ({ statistics, whoAreWe, benefits }) => (
                 />
             </section>
         </div>
-        <style jsx>{`
-            h2 {
-                font-size: 30px;
-            }
-            .section__services {
-                grid-area: s;
-            }
-            .section__feedback {
-                grid-area: f;
-                z-index: 1;
-            }
-            @media (min-width: 640px) {
-                h2 {
-                    font-size: 33px;
-                    line-height: 33px;
-                }
-            }
-
-            @media (min-width: 960px) {
-                h2 {
-                    font-size: 36px;
-                    line-height: 36px;
-                }
-            }
-            @media (min-width: 1200px) {
-                h2 {
-                    font-size: 39px;
-                    line-height: 39px;
-                }
-            }
-            @media (min-width: 1366px) {
-                h2 {
-                    font-size: 42px;
-                    line-height: 42px;
-                }
-            }
-            @media (min-width: 1600px) {
-                h2 {
-                    font-size: 45px;
-                    line-height: 45px;
-                }
-            }
-            @media (min-width: 1920px) {
-                h2 {
-                    font-size: 48px;
-                    line-height: 48px;
-                }
-            }
-        `}</style>
     </Layout>
 );
 
@@ -96,6 +45,7 @@ Index.getInitialProps = async function () {
     let statistics = [];
     let whoAreWe = "";
     let benefits = [];
+    let articles = [];
     try {
         const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
         const data = await res.json();
@@ -112,6 +62,18 @@ Index.getInitialProps = async function () {
 
         const benefitsJson = await fetch(API_URL + "/benefits");
         benefits = await benefitsJson.json();
+
+        const articlesJson = await fetch(API_URL + "/articles");
+        const arts = await articlesJson.json();
+        articles = arts.map((item) => ({
+            id: item.urlId,
+            img: API_URL + item.image[0].url,
+            title: item.title,
+            date: item.publishedAt,
+            description: item.description,
+            url: "/journal/" + item.id,
+            extra: item.publishedAt,
+        }));
     } catch (error) {
         console.log(error);
     }
@@ -119,6 +81,7 @@ Index.getInitialProps = async function () {
         statistics,
         whoAreWe,
         benefits,
+        articles,
     };
 };
 

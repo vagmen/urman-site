@@ -1,8 +1,8 @@
 .container {
     composes: pagePadding from "./../../styles/global.css";
-    padding-left: var(--padding);
-    padding-right: var(--padding);
-    padding-top: var(--padding);
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+    margin-top: var(--padding);
     display: flex;
     justify-content: space-between;
     align-items: baseline;

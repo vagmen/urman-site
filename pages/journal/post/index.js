@@ -1,4 +1,3 @@
-import fetch from "isomorphic-unfetch";
 import Layout from "../../../components/Layout.js";
 import Error from "next/error";
 import { API_URL } from "../../../constants/settings.js";

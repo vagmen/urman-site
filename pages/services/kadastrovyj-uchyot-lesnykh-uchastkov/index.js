@@ -1,44 +1,15 @@
 import { Component } from "react";
-import fetch from "isomorphic-unfetch";
-import { message } from "antd";
 import Link from "next/link";
-import Head from "next/head";
-import dynamic from "next/dynamic";
 import Layout from "../../../components/Layout";
-import ButtonViolet from "../../../components/ui/ButtonViolet";
-import { connectHandler } from "../../../utils/localStorage";
 import PostHeader from "../../../components/post/PostHeader";
 import FeedbackForm from "../../../components/FeedbackForm";
 import Services from "../../../components/Services";
 import { servicesData } from "../../../constants/menuData";
 
-const ImgWithTitle = dynamic(import("../../../components/post/ImgWithTitle"));
-const RelatedPost = dynamic(import("../../../components/post/RelatedPost"));
-
-const menuItem = "services";
 const itemId = "kadastrovyj-uchyot-lesnykh-uchastkov";
 
 class Index extends Component {
-    state = {
-        email: "",
-    };
-    sendServiceDocTemplate = async () => {
-        const res = await fetch("https://helpforest.azurewebsites.net/SendServiceDocTemplate", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                To: this.state.email,
-                ServiceCode: "pol",
-            }),
-        });
-        const data = await res.json();
-        if (data) message.success("Мы отправили письмо с вложенной формой на вашу почту");
-    };
-
     render() {
-        const { email } = this.state;
         const { postData } = this.props;
         return (
             <Layout postData={postData} headerOpacity={true}>
@@ -269,9 +240,6 @@ class Index extends Component {
 }
 
 Index.getInitialProps = async function () {
-    // const res = await fetch('https://api.tvmaze.com/search/shows?q=forest');
-    // const data = await res.json();
-
     return {
         postData: servicesData.find((item) => item.id === itemId),
     };

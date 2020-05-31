@@ -2,18 +2,20 @@
 
 .mainContainer {
     display: grid;
-    grid-auto-rows: calc(100vh - 150px) auto auto auto;
+    grid-auto-rows: calc(100vh - 150px) auto auto auto auto;
     grid-auto-columns: 100%;
     grid-template-areas:
         "bg"
         "we"
         "s"
+        "j"
         "ssb"
         "f";
 }
 
 .we {
     grid-area: we;
+    color: #333;
 }
 
 .bg {
@@ -22,6 +24,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.services {
+    grid-area: s;
+}
+
+.journal {
+    grid-area: j;
+    composes: container from "./../styles/global.css";
+    padding-bottom: var(--padding);
+}
+
+.feedback {
+    grid-area: f;
+    z-index: 1;
 }
 
 .wrapper {

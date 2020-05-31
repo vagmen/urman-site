@@ -2,10 +2,14 @@
     composes: pagePadding from "./../../styles/global.css";
     width: 100%;
     display: grid;
-    grid-template-areas: ". s .";
+    grid-template-areas:
+        "h h h"
+        ". s .";
     grid-template-columns: var(--padding) auto var(--padding);
-    margin-bottom: var(--padding);
-    margin-top: 16px;
+}
+
+.header {
+    grid-area: h;
 }
 
 .scrollable {
@@ -28,6 +32,7 @@
     display: flex;
     transition: transform 500ms cubic-bezier(0.03, 0.6, 0.36, 1) 0s;
     width: calc(100% + var(--gap));
+    min-width: calc(100% + var(--gap));
     flex-direction: row;
     padding-right: var(--gap);
 }
@@ -39,12 +44,12 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 .leftButtonContainer {
     composes: buttonContainer;
-    grid-row-start: 1;
-    grid-row-end: 2;
     grid-column-start: 1;
     grid-column-end: 2;
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
@@ -52,15 +57,9 @@
 
 .rightButtonContainer {
     composes: buttonContainer;
-    grid-row-start: 1;
-    grid-row-end: 2;
     grid-column-start: 3;
     grid-column-end: 4;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-}
-
-.button {
-    cursor: pointer;
 }
 
 .cardWrapper {
@@ -81,10 +80,6 @@
     scroll-snap-align: start;
     width: 100%;
     height: 100%;
-}
-
-.cardWrapper:first-of-type {
-    /* margin-left: var(--padding); */
 }
 
 .cardWrapper:last-of-type {
@@ -115,13 +110,17 @@
     word-wrap: break-word;
 }
 
+.extra {
+    padding-top: 16px;
+}
+
 .buttonHidden {
     display: none;
 }
 
 @media (min-width: 900px) {
     .container {
-        grid-template-areas: ". s .";
+        grid-row-gap: 16px;
     }
     .scrollable {
         overflow-x: initial;
@@ -130,6 +129,7 @@
 
     .cardWrapper {
         min-width: calc((100% + var(--gap)) / 3);
+        width: calc((100% + var(--gap)) / 3);
     }
 
     .card:hover {
@@ -154,14 +154,9 @@
 @media (min-width: 1400px) {
     .cardWrapper {
         min-width: calc((100% + var(--gap)) / 4);
+        width: calc((100% + var(--gap)) / 4);
     }
     .img {
         height: 170px;
-    }
-}
-
-@media (min-width: 1900px) {
-    .cardWrapper {
-        min-width: calc((100% + var(--gap)) / 4);
     }
 }

@@ -5,15 +5,16 @@ import Link from "next/link";
 import { useWindowSize } from "utils/hooks.js";
 import CircleButton from "components/CircleButton/CircleButton.js";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
+import SectionHeader from "components/SectionHeader/SectionHeader";
 
-const Carousel = ({ list = [] }) => {
+const Carousel = ({ list = [], link, title, className }) => {
     const scrollableContainer = useRef(null);
 
     const [offset, setOffset] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const [firstCard, setFirstCard] = useState(1);
     const [lastCard, setLastCard] = useState(1);
-    const [countOfVisible, setCountOfVisible] = useState(4);
+    const [countOfVisible, setCountOfVisible] = useState(1);
     const [leftButtonHidden, setLeftButtonHidden] = useState(false);
     const [rightButtonHidden, setRightButtonHidden] = useState(false);
 
@@ -77,6 +78,7 @@ const Carousel = ({ list = [] }) => {
                         <img src={item.img} alt={item.title} className={styles.img} />
                         <div className={styles.content}>
                             <h3 className={styles.title}>{item.title}</h3>
+                            <extra className={styles.extra}>{item.extra}</extra>
                         </div>
                     </div>
                 </div>
@@ -84,7 +86,13 @@ const Carousel = ({ list = [] }) => {
         ));
 
     return (
-        <div className={styles.container}>
+        <div className={classNames(styles.container, className)}>
+            <SectionHeader
+                title={title}
+                link={link}
+                linkTitle={list.length > countOfVisible ? "Все " + list.length : ""}
+                className={styles.header}
+            />
             <div className={styles.scrollable}>
                 {isMobile ? (
                     build()
@@ -94,16 +102,28 @@ const Carousel = ({ list = [] }) => {
                     </div>
                 )}
             </div>
-            <div className={classNames(styles.leftButtonContainer, { [styles.buttonHidden]: leftButtonHidden })}>
-                <CircleButton onClick={handleScrollPrev}>
-                    <MdNavigateBefore size="30" />
-                </CircleButton>
-            </div>
-            <div className={classNames(styles.rightButtonContainer, { [styles.buttonHidden]: rightButtonHidden })}>
-                <CircleButton onClick={handleScrollNext}>
-                    <MdNavigateNext size="30" />
-                </CircleButton>
-            </div>
+            {list.length > countOfVisible && (
+                <>
+                    <div
+                        className={classNames(styles.leftButtonContainer, {
+                            [styles.buttonHidden]: leftButtonHidden,
+                        })}
+                    >
+                        <CircleButton onClick={handleScrollPrev}>
+                            <MdNavigateBefore size="30" />
+                        </CircleButton>
+                    </div>
+                    <div
+                        className={classNames(styles.rightButtonContainer, {
+                            [styles.buttonHidden]: rightButtonHidden,
+                        })}
+                    >
+                        <CircleButton onClick={handleScrollNext}>
+                            <MdNavigateNext size="30" />
+                        </CircleButton>
+                    </div>
+                </>
+            )}
         </div>
     );
 };

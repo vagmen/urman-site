@@ -5,8 +5,13 @@
         "es6": true,
         "commonjs": true
     },
-    "plugins": ["react", "prettier"],
-    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+    "plugins": ["react", "prettier", "css-modules"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "plugin:css-modules/recommended"
+    ],
     "settings": {
         "react": {
             "version": "16.8.6"
@@ -39,7 +44,9 @@
         "react/no-find-dom-node": 0,
         "react/prop-types": 0,
         "no-nested-ternary": 0,
-        "react/no-unescaped-entities": 0
+        "react/no-unescaped-entities": 0,
+        "css-modules/no-unused-class": [2, { "camelCase": true }],
+        "css-modules/no-undef-class": [2, { "camelCase": true }]
     },
     "globals": {
         "grecaptcha": "readonly"

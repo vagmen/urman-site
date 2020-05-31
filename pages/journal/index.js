@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import Link from "next/link";
 import moment from "moment";
 import Layout from "../../components/Layout";
-import fetch from "isomorphic-unfetch";
 import { API_URL } from "../../constants/settings.js";
 moment.locale("ru");
 
