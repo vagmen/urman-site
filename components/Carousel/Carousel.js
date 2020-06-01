@@ -72,17 +72,19 @@ const Carousel = ({ list = [], link, title, className }) => {
 
     const build = () =>
         list?.map((item) => (
-            <Link href={item.url} passHref key={item.id}>
-                <div className={styles.cardWrapper}>
-                    <div className={styles.card}>
-                        <img src={item.img} alt={item.title} className={styles.img} />
-                        <div className={styles.content}>
-                            <h3 className={styles.title}>{item.title}</h3>
-                            <extra className={styles.extra}>{item.extra}</extra>
+            <div className={styles.cardWrapper} key={item.id}>
+                <Link as={item.as} href={item.href} passHref>
+                    <a href="">
+                        <div className={styles.card}>
+                            <img src={item.img} alt={item.title} className={styles.img} />
+                            <div className={styles.content}>
+                                <h3 className={styles.title}>{item.title}</h3>
+                                <extra className={styles.extra}>{item.extra}</extra>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </Link>
+                    </a>
+                </Link>
+            </div>
         ));
 
     return (

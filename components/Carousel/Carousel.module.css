@@ -18,7 +18,6 @@
     composes: pagePadding from "./../../styles/global.css";
     display: inline-flex;
     scroll-snap-type: x mandatory;
-    /* background: green; */
     scroll-padding-left: var(--padding);
     scroll-behavior: smooth;
     grid-area: s;
@@ -80,6 +79,7 @@
     scroll-snap-align: start;
     width: 100%;
     height: 100%;
+    background: #fff;
 }
 
 .cardWrapper:last-of-type {

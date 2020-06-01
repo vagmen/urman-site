@@ -5,6 +5,8 @@ import styles from "./styles.module.css";
 import We from "../components/We/We.js";
 import Carousel from "components/Carousel/Carousel";
 import { API_URL } from "../constants/settings.js";
+import FeedbackSection from "components/FeedbackSection/FeedbackSection";
+import { feedback } from "constants/feedback.js";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -22,14 +24,17 @@ const Index = ({ statistics, whoAreWe, benefits, articles }) => (
                     title: item.name,
                     img: item.img,
                     id: item.id,
-                    url: "/services/" + item.id,
+                    // url: "/services/" + item.id,
+                    as: `/services/${item.id}`,
+                    href: `/services/${item.id}`,
                 }))}
                 title="Услуги"
                 link="/services"
                 className={styles.services}
             />
             <Carousel list={articles} link="/journal" title="Статьи" className={styles.journal} />
-            <section className={styles.feedback}>
+            {/* <FeedbackSection className={styles.feedback} list={feedback} /> */}
+            <section className={styles.feedbackForm}>
                 <FeedbackForm
                     title="Напишите свой вопрос"
                     subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
@@ -71,7 +76,9 @@ Index.getInitialProps = async function () {
             title: item.title,
             date: item.publishedAt,
             description: item.description,
-            url: "/journal/" + item.id,
+            // url: "/journal/" + item.urlId,
+            as: `/journal/${item.urlId}`,
+            href: `/journal/post?id=${item.urlId}`,
             extra: item.publishedAt,
         }));
     } catch (error) {
