@@ -3,8 +3,8 @@ import FeedbackForm from "../components/FeedbackForm";
 import { servicesData } from "../constants/menuData";
 import styles from "./styles.module.css";
 import We from "../components/We/We.js";
-import CarouselDeprecated from "components/CarouselDeprecated/CarouselDeprecated";
 import Carousel from "components/Carousel/Carousel";
+import Card from "components/Card/Card";
 import { API_URL } from "../constants/settings.js";
 import { feedback } from "constants/feedback.js";
 import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
@@ -20,22 +20,28 @@ const Index = ({ statistics, whoAreWe, benefits, articles }) => (
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
             <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} />
-            <CarouselDeprecated
+            <Carousel
+                title="Услуги"
+                link="/services"
+                className={styles.services}
+                grid={{ s: "240px", m: 3, l: 3, xl: 4 }}
                 list={servicesData.map((item) => ({
                     title: item.name,
                     img: item.img,
                     id: item.id,
                     as: `/services/${item.id}`,
                     href: `/services/${item.id}`,
+                    extra: item.extra,
                 }))}
-                title="Услуги"
-                link="/services"
-                className={styles.services}
+                renderItem={({ title, img, as, href, extra }) => (
+                    <Card title={title} img={img} as={as} href={href} extra={extra} />
+                )}
             />
             <Carousel
-                list={feedback.map((item) => ({ ...item, title: item.header }))}
                 title="Отзывы"
                 className={styles.feedback}
+                grid={{ s: 1, m: 1, l: 1, xl: 2 }}
+                list={feedback.map((item) => ({ ...item, title: item.header }))}
                 renderItem={({ title, author, company, img, avatar, logo }) => (
                     <FeedbackCard
                         title={title}
@@ -46,9 +52,17 @@ const Index = ({ statistics, whoAreWe, benefits, articles }) => (
                         logo={logo}
                     />
                 )}
-                grid={{ s: 1, m: 1, l: 1, xl: 2 }}
             />
-            <CarouselDeprecated list={articles} link="/journal" title="Статьи" className={styles.journal} />
+            <Carousel
+                title="Статьи"
+                link="/journal"
+                className={styles.journal}
+                grid={{ s: "240px", m: 3, l: 3, xl: 4 }}
+                list={articles}
+                renderItem={({ title, img, as, href, extra }) => (
+                    <Card title={title} img={img} as={as} href={href} extra={extra} />
+                )}
+            />
             <section className={styles.feedbackForm}>
                 <FeedbackForm
                     title="Напишите свой вопрос"

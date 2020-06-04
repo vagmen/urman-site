@@ -1,0 +1,62 @@
+.card {
+    composes: radius from "./../../styles/global.css";
+    composes: clickableShadow from "./../../styles/global.css";
+    composes: pagePadding from "./../../styles/global.css";
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border-radius: var(--card-border-radius);
+    scroll-snap-align: start;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.img {
+    composes: radius from "./../../styles/global.css";
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: var(--card-border-radius);
+}
+
+.content {
+    padding: 16px;
+    overflow: hidden;
+}
+
+.title {
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontMedium);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 24px;
+    color: rgb(51, 51, 51);
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.extra {
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontTiny);
+    padding-top: 16px;
+}
+
+@media (min-width: 900px) {
+    .card:hover {
+        transform: translateY(-4px);
+    }
+    .img {
+        height: 170px;
+    }
+    .title {
+        line-height: 32px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .img {
+        height: 170px;
+    }
+}
