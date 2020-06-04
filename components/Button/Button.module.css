@@ -1,0 +1,14 @@
+.button {
+    composes: colors from "./../../styles/global.css";
+    composes: fontSize from "./../../styles/global.css";
+    background: var(--colorPrimary100);
+    text-transform: uppercase;
+    color: var(--colorPrimary);
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 16px;
+    font-size: var(--fontMedium);
+}
+
+@media (min-width: 900px) {
+}

@@ -11,7 +11,6 @@ const FeedbackCard = ({ className, title, avatar, logo, author, company, img }) 
                     <p className={styles.title}>{title}</p>
                 </div>
                 <Author avatar={avatar} logo={logo} name={author} company={company} className={styles.author} />
-                <button className={styles.button}>Рекомендательное письмо</button>
             </div>
             <div className={styles.imgWrapper}>
                 <img src={img} className={styles.img} />

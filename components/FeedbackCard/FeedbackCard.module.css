@@ -5,6 +5,7 @@
     display: flex;
     background: #fff;
     border-radius: var(--card-border-radius);
+    flex-wrap: wrap;
 }
 
 .content {
@@ -40,38 +41,22 @@
     /* width: 30%; */
     /* flex: 0 0 auto; */
     height: auto;
-    display: none;
     width: auto;
-    max-width: 25%;
+    max-width: 100%;
+    padding: 8px;
 }
 
 .img {
     object-fit: contain;
     height: 100%;
     width: 100%;
-    border-top-right-radius: var(--card-border-radius);
-    border-bottom-right-radius: var(--card-border-radius);
-}
-
-.button {
-    composes: colors from "./../../styles/global.css";
-    composes: fontSize from "./../../styles/global.css";
-    background: var(--colorPrimary100);
-    text-transform: uppercase;
-    color: var(--colorPrimary);
-    padding: 12px;
-    border-radius: 4px;
-    margin-top: 16px;
-    font-size: var(--fontMedium);
+    border-radius: var(--card-border-radius);
 }
 
 @media (min-width: 900px) {
     .imgWrapper {
         display: block;
-    }
-
-    .button {
-        display: none;
+        max-width: 30%;
     }
 
     .author {
