@@ -1,8 +1,6 @@
 .card {
-    /* background: red; */
     composes: radius from "./../../styles/global.css";
-    composes: clickableShadow from "./../../styles/global.css";
-    /* margin: 16px; */
+    composes: shadow from "./../../styles/global.css";
     scroll-snap-align: start;
     display: flex;
     background: #fff;
@@ -22,7 +20,7 @@
 }
 
 .quote {
-    composes: container from "./../../styles/global.css";
+    composes: colors from "./../../styles/global.css";
     color: var(--colorPrimary);
     font-size: 60px;
     margin-right: 16px;
@@ -51,18 +49,20 @@
     object-fit: contain;
     height: 100%;
     width: 100%;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-top-right-radius: var(--card-border-radius);
+    border-bottom-right-radius: var(--card-border-radius);
 }
 
 .button {
-    composes: container from "./../../styles/global.css";
+    composes: colors from "./../../styles/global.css";
+    composes: fontSize from "./../../styles/global.css";
     background: var(--colorPrimary100);
     text-transform: uppercase;
     color: var(--colorPrimary);
-    padding: 8px;
-    border-radius: 8px;
+    padding: 12px;
+    border-radius: 4px;
     margin-top: 16px;
+    font-size: var(--fontMedium);
 }
 
 @media (min-width: 900px) {

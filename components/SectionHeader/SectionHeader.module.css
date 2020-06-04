@@ -16,7 +16,7 @@
 }
 
 .link {
-    composes: container from "./../../styles/global.css";
+    composes: colors from "./../../styles/global.css";
     composes: fontSize from "./../../styles/global.css";
     color: var(--colorPrimary);
     font-size: var(--fontSmall);

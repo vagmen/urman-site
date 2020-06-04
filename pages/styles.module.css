@@ -19,7 +19,7 @@
 
 .bg {
     grid-area: bg;
-    composes: container from "./../styles/global.css";
+    composes: colors from "./../styles/global.css";
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +31,6 @@
 
 .journal {
     grid-area: j;
-    composes: container from "./../styles/global.css";
     padding-bottom: var(--padding);
 }
 

@@ -1,4 +1,4 @@
-.container {
+.colors {
     --colorPrimary: #488558;
     --colorPrimary100: rgba(72, 133, 88, 0.08);
     --colorSecondary: #61ac27;
@@ -32,10 +32,10 @@
 }
 
 .clickableShadow {
-    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
+    composes: shadow;
+    composes: radius;
     transition: all 0.4s;
     position: relative;
-    /* overflow: visible; */
     cursor: pointer;
 }
 
@@ -49,7 +49,7 @@
     z-index: -1;
     width: 100%;
     height: 100%;
-    border-radius: 8px;
+    border-radius: var(--card-border-radius);
     box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.13);
     transition: opacity 0.3s;
     opacity: 0;
@@ -91,7 +91,6 @@
 @media (min-width: 1900px) {
     .pagePadding {
         --padding: 256px;
-        /* --gap: 96px; */
     }
 
     .fontSize {

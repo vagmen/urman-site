@@ -1,5 +1,6 @@
 .we {
     composes: pagePadding from "./../../styles/global.css";
+    composes: radius from "./../../styles/global.css";
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -9,7 +10,7 @@
         "stat";
     background: #fff;
     z-index: 1;
-    border-radius: 16px;
+    border-radius: var(--card-border-radius);
     animation: appearance 2s ease-out;
 }
 
