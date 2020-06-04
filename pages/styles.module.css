@@ -1,14 +1,14 @@
 .mainContainer {
     display: grid;
-    grid-auto-rows: calc(100vh - 150px) auto auto auto auto;
+    grid-auto-rows: calc(100vh - 150px) auto auto auto auto auto;
     grid-auto-columns: 100%;
     grid-template-areas:
         "bg"
         "we"
         "s"
+        "f"
         "j"
         "ssb"
-        /* "f" */
         "ff";
 }
 

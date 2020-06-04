@@ -3,10 +3,11 @@ import FeedbackForm from "../components/FeedbackForm";
 import { servicesData } from "../constants/menuData";
 import styles from "./styles.module.css";
 import We from "../components/We/We.js";
+import CarouselDeprecated from "components/CarouselDeprecated/CarouselDeprecated";
 import Carousel from "components/Carousel/Carousel";
 import { API_URL } from "../constants/settings.js";
-import FeedbackSection from "components/FeedbackSection/FeedbackSection";
 import { feedback } from "constants/feedback.js";
+import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -19,12 +20,11 @@ const Index = ({ statistics, whoAreWe, benefits, articles }) => (
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
             <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} />
-            <Carousel
+            <CarouselDeprecated
                 list={servicesData.map((item) => ({
                     title: item.name,
                     img: item.img,
                     id: item.id,
-                    // url: "/services/" + item.id,
                     as: `/services/${item.id}`,
                     href: `/services/${item.id}`,
                 }))}
@@ -32,8 +32,23 @@ const Index = ({ statistics, whoAreWe, benefits, articles }) => (
                 link="/services"
                 className={styles.services}
             />
-            <Carousel list={articles} link="/journal" title="Статьи" className={styles.journal} />
-            {/* <FeedbackSection className={styles.feedback} list={feedback} /> */}
+            <Carousel
+                list={feedback.map((item) => ({ ...item, title: item.header }))}
+                title="Отзывы"
+                className={styles.feedback}
+                renderItem={({ title, author, company, img, avatar, logo }) => (
+                    <FeedbackCard
+                        title={title}
+                        author={author}
+                        img={img}
+                        company={company}
+                        avatar={avatar}
+                        logo={logo}
+                    />
+                )}
+                grid={{ s: 1, m: 1, l: 1, xl: 2 }}
+            />
+            <CarouselDeprecated list={articles} link="/journal" title="Статьи" className={styles.journal} />
             <section className={styles.feedbackForm}>
                 <FeedbackForm
                     title="Напишите свой вопрос"

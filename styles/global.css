@@ -1,26 +1,27 @@
 .container {
     --colorPrimary: #488558;
+    --colorPrimary100: rgba(72, 133, 88, 0.08);
     --colorSecondary: #61ac27;
 }
 
 .pagePadding {
-    --padding: 16px;
-    --gap: 16px;
+    --padding: 20px;
+    --gap: 10px;
     transition: all 0.4s;
+}
+
+.fontSize {
+    --fontTiny: 12px; /*дополнительный текст*/
+    --fontSmall: 14px; /*обычный текст*/
+    --fontMedium: 18px; /*подзаголовок*/
+    --fontLarge: 26px; /*заголовок секции*/
+    --fontHuge: 32px; /*заголовок страницы*/
+    --fontExtraHuge: 48px;
 }
 
 /* :root {
     --colorPrimary: #488558;
 } */
-
-.gorizontalPadding {
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.boxPadding {
-    padding: 8px;
-}
 
 .radius {
     --card-border-radius: 8px;
@@ -59,46 +60,28 @@
 }
 
 @media (min-width: 500px) {
-    .gorizontalPadding {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .boxPadding {
-        padding: 32px;
-    }
-
     .pagePadding {
         --padding: 32px;
-        --gap: 32px;
+        --gap: 16px;
     }
 }
 
 @media (min-width: 900px) {
-    .gorizontalPadding {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-
-    .boxPadding {
-        padding: 24px;
-    }
-
     .pagePadding {
         --padding: 64px;
+        --gap: 32px;
+    }
+
+    .fontSize {
+        --fontTiny: 14px;
+        --fontSmall: 18px;
+        --fontMedium: 22px;
+        --fontLarge: 40px;
+        --fontHuge: 60px;
     }
 }
 
 @media (min-width: 1400px) {
-    .gorizontalPadding {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-
-    .boxPadding {
-        padding: 32px;
-    }
-
     .pagePadding {
         --padding: 128px;
         --gap: 64px;
@@ -106,32 +89,19 @@
 }
 
 @media (min-width: 1900px) {
-    .gorizontalPadding {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-
-    .boxPadding {
-        padding: 40px;
-    }
-
     .pagePadding {
         --padding: 256px;
-        --gap: 128px;
+        /* --gap: 96px; */
+    }
+
+    .fontSize {
+        --fontTiny: 16px;
+        --fontSmall: 20px;
+        --fontMedium: 24px;
+        --fontLarge: 48px;
+        --fontHuge: 70px;
     }
 }
 
 @media (min-width: 2400px) {
-    .gorizontalPadding {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
-    .boxPadding {
-        padding: 48px;
-    }
-
-    .pagePadding {
-        --padding: 256px;
-    }
 }

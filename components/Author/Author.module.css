@@ -1,0 +1,57 @@
+.container {
+    composes: pagePadding from "./../../styles/global.css";
+    display: flex;
+    /* margin-top: 16px; */
+}
+
+.images {
+    width: 48px;
+    height: 48px;
+    position: relative;
+    flex: 0 0 48px;
+    margin-right: 16px;
+}
+
+.avatar {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logo {
+    position: absolute;
+    right: -10%;
+    bottom: -10%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.text {
+    align-self: flex-end;
+}
+
+.name {
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontMedium);
+    color: #333;
+    margin: 0;
+}
+.company {
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontTiny);
+}
+
+@media (min-width: 900px) {
+    .images {
+        width: 80px;
+        height: 80px;
+        flex: 0 0 80px;
+    }
+}
+
+@media (min-width: 1400px) {
+}

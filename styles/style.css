@@ -3,19 +3,39 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    font-size: 14px;
+}
+
+p {
+    margin-bottom: 8px;
+}
+
 h2 {
     padding: 0;
     margin: 0;
 }
 
 h2 {
-    font-size: 30px;
     line-height: 35px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 500px) {
+    body {
+        font-size: 16px;
+    }
+
     h2 {
-        font-size: 40px;
+        line-height: 40px;
+    }
+}
+
+@media (min-width: 900px) {
+    body {
+        font-size: 18px;
+    }
+
+    h2 {
         line-height: 50px;
     }
 }

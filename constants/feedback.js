@@ -16,6 +16,8 @@ export const feedback = [
         header: '"Отмечаю высокий уровень профессионализма и квалификацию"',
         img: "../images/feedback/10.png",
         alt: 'Отзыв от компании "ОлимпСитиСтрой"',
+        avatar: "https://cdn.freelance.ru/img/portfolio/pics/00/37/9B/3644384.jpg?mt=57607de1",
+        logo: "https://media.lpgenerator.ru/uploads/2019/07/11/1_thumb600x460.jpg",
     },
     {
         id: 11,
@@ -25,6 +27,7 @@ export const feedback = [
             '"Отдельная благодарность инженеру-таксатору Проектной организации "Гринландия" за оперативность и профессионализм"',
         img: "../images/feedback/11.png",
         alt: 'Отзыв от компании "Регион-Авто"',
+        avatar: "https://cdn.freelance.ru/img/portfolio/pics/00/37/9B/3644384.jpg?mt=57607de1",
     },
     {
         id: 12,
@@ -34,6 +37,7 @@ export const feedback = [
             '"Благодаря опыту и профессионализму сотрудников Проект освоения лесов положительно прошел государственную экспертизу"',
         img: "../images/feedback/12.png",
         alt: 'Отзыв от компании "Робинзон"',
+        logo: "https://media.lpgenerator.ru/uploads/2019/07/11/1_thumb600x460.jpg",
     },
     {
         id: 13,
@@ -47,11 +51,12 @@ export const feedback = [
     {
         id: 14,
         author: "Манячкин Андрей Викторович",
-        company: `ИП "Манячкин А.В."`,
+        // company: `ИП "Манячкин А.В."`,
         header:
             '"Рекомендуем ООО "Гринландия" для выполнения работ по разработке и согласованию проекта освоения лесов"',
         img: "../images/feedback/14.png",
         alt: 'Отзыв от ИП "Манячкин А.В."',
+        avatar: "https://cdn.freelance.ru/img/portfolio/pics/00/37/9B/3644384.jpg?mt=57607de1",
     },
     {
         id: 15,

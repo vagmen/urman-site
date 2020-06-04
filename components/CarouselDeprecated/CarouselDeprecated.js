@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import styles from "./Carousel.module.css";
+import styles from "./CarouselDeprecated.module.css";
 import classNames from "classnames";
 import Link from "next/link";
 import { useWindowSize } from "utils/hooks.js";
@@ -7,9 +7,8 @@ import CircleButton from "components/CircleButton/CircleButton.js";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import SectionHeader from "components/SectionHeader/SectionHeader";
 
-const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) => {
+const CarouselDeprecated = ({ list = [], link, title, className }) => {
     const scrollableContainer = useRef(null);
-    const cardWrapper = useRef(null);
 
     const [offset, setOffset] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
@@ -21,17 +20,11 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
 
     const { width } = useWindowSize();
     useEffect(() => {
-        const { s = 1, m = 2, l = 3, xl = 4 } = grid;
-        if (width < 900) {
-            setCountOfVisible(s);
-        } else if (width < 1400) {
-            setCountOfVisible(m);
-        } else if (width < 1900) {
-            setCountOfVisible(l);
-        } else if (width > 1899) {
-            setCountOfVisible(xl);
+        if (width > 899 && width < 1400) {
+            setCountOfVisible(3);
+        } else if (width > 1399) {
+            setCountOfVisible(4);
         }
-
         setLastCard(firstCard + countOfVisible - 1);
         setLeftButtonHidden(offset === 0);
         setRightButtonHidden(list.length === lastCard);
@@ -77,21 +70,22 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
         current.style.transform = `translate3d(${newOffset}%, 0px, 0px)`;
     };
 
-    const renderItemWithLink = () => {
-        const width =
-            typeof countOfVisible === "number" ? `calc((100% + var(--gap)) / ${countOfVisible})` : countOfVisible;
-        return list?.map((item) => (
-            <div className={styles.cardWrapper} key={item.id} ref={cardWrapper} style={{ minWidth: width, width }}>
-                {item.as && item.href ? (
-                    <Link as={item.as} href={item.href} passHref>
-                        <a href="">{renderItem(item)}</a>
-                    </Link>
-                ) : (
-                    renderItem(item)
-                )}
+    const build = () =>
+        list?.map((item) => (
+            <div className={styles.cardWrapper} key={item.id}>
+                <Link as={item.as} href={item.href} passHref>
+                    <a href="">
+                        <div className={styles.card}>
+                            <img src={item.img} alt={item.title} className={styles.img} />
+                            <div className={styles.content}>
+                                <h3 className={styles.title}>{item.title}</h3>
+                                <span className={styles.extra}>{item.extra}</span>
+                            </div>
+                        </div>
+                    </a>
+                </Link>
             </div>
         ));
-    };
 
     return (
         <div className={classNames(styles.container, className)}>
@@ -103,10 +97,10 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
             />
             <div className={styles.scrollable}>
                 {isMobile ? (
-                    renderItemWithLink()
+                    build()
                 ) : (
                     <div className={styles.desktop} ref={scrollableContainer}>
-                        {renderItemWithLink()}
+                        {build()}
                     </div>
                 )}
             </div>
@@ -136,4 +130,4 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
     );
 };
 
-export default Carousel;
+export default CarouselDeprecated;

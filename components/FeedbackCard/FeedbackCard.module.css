@@ -1,0 +1,80 @@
+.card {
+    /* background: red; */
+    composes: radius from "./../../styles/global.css";
+    composes: clickableShadow from "./../../styles/global.css";
+    /* margin: 16px; */
+    scroll-snap-align: start;
+    display: flex;
+    background: #fff;
+    border-radius: var(--card-border-radius);
+}
+
+.content {
+    composes: pagePadding from "./../../styles/global.css";
+    padding: var(--gap);
+    flex: 1 1 0;
+    /* flex: 0 0 70%; */
+}
+
+.text {
+    display: flex;
+    align-items: center;
+}
+
+.quote {
+    composes: container from "./../../styles/global.css";
+    color: var(--colorPrimary);
+    font-size: 60px;
+    margin-right: 16px;
+    line-height: 60px;
+    align-self: flex-start;
+}
+
+.title {
+    composes: fontSize from "./../../styles/global.css";
+    color: #333;
+    font-size: var(--fontSmall);
+}
+
+.imgWrapper {
+    height: 100%;
+    /* min-height: 400px; */
+    /* width: 30%; */
+    /* flex: 0 0 auto; */
+    height: auto;
+    display: none;
+    width: auto;
+    max-width: 25%;
+}
+
+.img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.button {
+    composes: container from "./../../styles/global.css";
+    background: var(--colorPrimary100);
+    text-transform: uppercase;
+    color: var(--colorPrimary);
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+@media (min-width: 900px) {
+    .imgWrapper {
+        display: block;
+    }
+
+    .button {
+        display: none;
+    }
+
+    .author {
+        margin-top: 16px;
+    }
+}

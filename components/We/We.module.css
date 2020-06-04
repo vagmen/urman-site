@@ -16,7 +16,18 @@
 .who {
     grid-area: who;
     composes: pagePadding from "./../../styles/global.css";
+    composes: fontSize from "./../../styles/global.css";
     padding: var(--padding);
+}
+
+.who > h2 {
+    font-size: var(--fontLarge);
+    margin-bottom: 16px;
+}
+
+.who > p {
+    font-size: var(--fontMedium);
+    /* margin-bottom: 16px; */
 }
 
 .video {
@@ -24,20 +35,21 @@
 }
 
 .stat {
+    composes: pagePadding from "./../../styles/global.css";
     grid-area: stat;
     background: url("/images/bgStat.jpg");
     background-size: cover;
     background-position: center;
-    composes: pagePadding from "./../../styles/global.css";
     padding: var(--padding);
     color: #fff;
 }
 
 .statGrid {
     composes: pagePadding from "./../../styles/global.css";
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontMedium);
     display: grid;
     grid-template-columns: auto 1fr;
-    font-size: 24px;
     column-gap: var(--gap);
     row-gap: var(--gap);
 }
@@ -55,6 +67,7 @@
 
 .benefits {
     composes: pagePadding from "./../../styles/global.css";
+    composes: fontSize from "./../../styles/global.css";
     grid-area: benefits;
     padding: var(--padding);
 }
@@ -63,6 +76,7 @@
     display: flex;
     align-items: center;
     padding-bottom: 32px;
+    font-size: var(--fontMedium);
 }
 
 .benefits:last-child {
@@ -100,7 +114,6 @@
         composes: pagePadding from "./../../styles/global.css";
         display: grid;
         grid-template-columns: auto 1fr;
-        font-size: 24px;
         row-gap: calc(var(--gap) / 2);
     }
 }

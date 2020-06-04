@@ -137,7 +137,6 @@ class Header extends Component {
                     h5,
                     h6 {
                         color: inherit;
-                        // font-size: 1em;
                         line-height: inherit;
                         margin: 0;
                         padding: 0;
@@ -148,7 +147,6 @@ class Header extends Component {
                         height: 100vh;
                     }
                     body {
-                        font-size: 10px;
                         background: ${mainColorLightBgr};
                         font-family: Rubik, Helvetica, sans-serif;
                     }
@@ -160,12 +158,6 @@ class Header extends Component {
                         line-height: 2.5rem;
                         margin-top: 1.1rem;
                         margin-bottom: 1.3rem;
-                    }
-                    h2 {
-                        // font-size: 2rem;
-                        // line-height: 2.3rem;
-                        // margin-top: 1.3rem;
-                        // margin-bottom: 1.2rem;
                     }
                     h3 {
                         font-size: 1.8rem;
@@ -189,12 +181,6 @@ class Header extends Component {
                         font-size: 1.3rem;
                         line-height: 1.4rem;
                         margin-top: 0.9rem;
-                        margin-bottom: 0.8rem;
-                    }
-                    p,
-                    strong,
-                    a {
-                        font-size: 1.2rem;
                         margin-bottom: 0.8rem;
                     }
                     li {
@@ -365,9 +351,6 @@ class Header extends Component {
                         max-height: calc(100% - 100px) !important;
                     }
                     @media (min-width: 640px) {
-                        body {
-                            font-size: 12px;
-                        }
                         .grid,
                         .grid-with-menu {
                             grid-template-columns: 1fr 1fr;
@@ -390,9 +373,6 @@ class Header extends Component {
                         }
                     }
                     @media (min-width: 960px) {
-                        body {
-                            font-size: 14px;
-                        }
                         .grid {
                             grid-template-columns: 1fr 1fr 1fr;
                         }
@@ -425,9 +405,6 @@ class Header extends Component {
                         }
                     }
                     @media (min-width: 1200px) {
-                        body {
-                            font-size: 16px;
-                        }
                         .grid {
                             grid-template-columns: 1fr 1fr 1fr 1fr;
                         }

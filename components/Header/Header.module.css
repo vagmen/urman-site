@@ -72,20 +72,7 @@
     cursor: pointer;
 }
 
-.names {
-    flex: 1 1 0;
-}
-
-.firstName {
-    color: #fff;
-    font-size: 48px;
-}
-
 @media (min-width: 960px) {
-    /* .wrapper {
-        margin: 0 16px;
-    } */
-
     .logo {
         transform: translateX(calc((1 - var(--headerOpacity)) * -50%)) scale(calc((1 - var(--headerOpacity)) + 1));
     }

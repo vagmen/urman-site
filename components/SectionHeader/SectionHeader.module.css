@@ -6,21 +6,20 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 16px;
 }
 
 .title {
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontLarge);
     color: #333;
 }
 
 .link {
     composes: container from "./../../styles/global.css";
+    composes: fontSize from "./../../styles/global.css";
     color: var(--colorPrimary);
-    cursor: pointer;
-}
-
-.link {
-    composes: container from "./../../styles/global.css";
-    color: var(--colorPrimary);
+    font-size: var(--fontSmall);
     cursor: pointer;
 }
 
@@ -28,16 +27,8 @@
     text-decoration: underline;
 }
 
-@keyframes appearance {
-    from {
-        transform: translateY(50%);
-    }
-
-    50% {
-        transform: translateY(50%);
-    }
-
-    to {
-        transform: translateY(0);
+@media (min-width: 900px) {
+    .container {
+        margin-top: calc(var(--padding) / 2);
     }
 }
