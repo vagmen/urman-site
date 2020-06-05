@@ -15,7 +15,7 @@ const postData = {
         "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
 };
 
-const Index = ({ statistics, whoAreWe, benefits, articles }) => (
+const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks }) => (
     <Layout postData={postData} headerOpacity={true} isMainPage={true}>
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
@@ -40,18 +40,9 @@ const Index = ({ statistics, whoAreWe, benefits, articles }) => (
             <Carousel
                 title="Отзывы"
                 className={styles.feedback}
-                grid={{ s: 1, m: 1, l: 1, xl: 2 }}
-                list={feedback.map((item) => ({ ...item, title: item.header }))}
-                renderItem={({ title, author, company, img, avatar, logo }) => (
-                    <FeedbackCard
-                        title={title}
-                        author={author}
-                        img={img}
-                        company={company}
-                        avatar={avatar}
-                        logo={logo}
-                    />
-                )}
+                grid={{ s: 1, m: 1, l: 1, xl: 1 }}
+                list={feedbacks}
+                renderItem={(props) => <FeedbackCard {...props} />}
             />
             <Carousel
                 title="Статьи"
@@ -80,6 +71,7 @@ Index.getInitialProps = async function () {
     let whoAreWe = "";
     let benefits = [];
     let articles = [];
+    let feedbacks = [];
     try {
         const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
         const data = await res.json();
@@ -110,6 +102,8 @@ Index.getInitialProps = async function () {
             href: `/journal/post?id=${item.urlId}`,
             extra: item.publishedAt,
         }));
+
+        feedbacks = await fetchFeedbacks();
     } catch (error) {
         console.log(error);
     }
@@ -118,7 +112,20 @@ Index.getInitialProps = async function () {
         whoAreWe,
         benefits,
         articles,
+        feedbacks,
     };
+};
+
+const fetchFeedbacks = async () => {
+    const feedbacksJson = await fetch(API_URL + "/feedbacks");
+    const notPreparedFeedbacks = await feedbacksJson.json();
+    return notPreparedFeedbacks.map((item) => ({
+        ...item,
+        title: item.quote,
+        img: item.scan ? API_URL + item.scan.url : null,
+        avatar: item.avatar ? API_URL + item.avatar.url : null,
+        logo: item.logo ? API_URL + item.logo.url : null,
+    }));
 };
 
 export default Index;

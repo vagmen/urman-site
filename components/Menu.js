@@ -58,7 +58,7 @@ class Menu extends Component {
                         margin: 0;
                         padding: 0;
                         display: flex;
-                        justify-content: space-between;
+                        justify-content: center;
                         align-items: center;
                         bottom: 0;
                         z-index: 100;
@@ -123,13 +123,15 @@ class Menu extends Component {
                         .menu {
                             top: 0;
                             bottom: auto;
-                            left: 300px;
-                            width: calc(100% - 600px);
+                            left: 500px;
+                            width: calc(100% - 1000px);
                             background: none;
                             animation: appearance-of-menu 2.5s ease-out;
                         }
                         .menu-item {
+                            // flex: 1 1 0;
                             padding: 8px;
+                            // margin: 0 50px;
                         }
                         .menu-item a {
                             font-size: 14px;

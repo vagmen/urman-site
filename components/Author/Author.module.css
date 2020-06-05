@@ -1,7 +1,6 @@
 .container {
     composes: pagePadding from "./../../styles/global.css";
     display: flex;
-    /* margin-top: 16px; */
 }
 
 .images {
@@ -13,21 +12,25 @@
 }
 
 .avatar {
+    composes: colors from "./../../styles/global.css";
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 50%;
+    background: var(--colorPrimary100);
 }
 
 .logo {
     position: absolute;
     right: -10%;
     bottom: -10%;
-    width: 50%;
-    height: 50%;
+    width: 55%;
+    height: 55%;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
     z-index: 1;
+    background: #fff;
+    border: 2px solid #fff;
 }
 
 .text {

@@ -6,7 +6,7 @@
 
 .pagePadding {
     --padding: 20px;
-    --gap: 10px;
+    --gap: 12px;
     transition: all 0.4s;
 }
 
@@ -61,14 +61,14 @@
 
 @media (min-width: 500px) {
     .pagePadding {
-        --padding: 32px;
+        --padding: 64px;
         --gap: 16px;
     }
 }
 
 @media (min-width: 900px) {
     .pagePadding {
-        --padding: 64px;
+        --padding: 128px;
         --gap: 32px;
     }
 
@@ -83,14 +83,14 @@
 
 @media (min-width: 1400px) {
     .pagePadding {
-        --padding: 128px;
+        --padding: 200px;
         --gap: 64px;
     }
 }
 
 @media (min-width: 1900px) {
     .pagePadding {
-        --padding: 256px;
+        --padding: 300px;
     }
 
     .fontSize {

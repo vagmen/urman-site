@@ -76,8 +76,8 @@
 .benefit {
     display: flex;
     align-items: center;
-    padding-bottom: 32px;
-    font-size: var(--fontMedium);
+    padding-bottom: 16px;
+    font-size: var(--fontSmall);
 }
 
 .benefits:last-child {
