@@ -15,7 +15,7 @@ const postData = {
         "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
 };
 
-const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks }) => (
+const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks, feedbackVideos, feedbackTexts }) => (
     <Layout postData={postData} headerOpacity={true} isMainPage={true}>
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
@@ -38,17 +38,31 @@ const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks }) => (
                 )}
             />
             <Carousel
-                title="Отзывы"
+                title="Рекомендательные письма"
                 className={styles.feedback}
-                grid={{ s: 1, m: 1, l: 1, xl: 1 }}
+                grid={{ s: 1, m: 2, l: 3, xl: 4 }}
                 list={feedbacks}
+                renderItem={(props) => <FeedbackCard {...props} />}
+            />
+            <Carousel
+                title="Видео от клиентов"
+                className={styles.feedbackVideos}
+                grid={{ s: 1, m: 1, l: 1, xl: 1 }}
+                list={feedbackVideos}
+                renderItem={(props) => <FeedbackCard {...props} />}
+            />
+            <Carousel
+                title="Отзывы"
+                className={styles.feedbackTexts}
+                grid={{ s: 1, m: 2, l: 2, xl: 3 }}
+                list={feedbackTexts}
                 renderItem={(props) => <FeedbackCard {...props} />}
             />
             <Carousel
                 title="Статьи"
                 link="/journal"
                 className={styles.journal}
-                grid={{ s: "240px", m: 3, l: 3, xl: 4 }}
+                grid={{ s: "240px", m: 2, l: 2, xl: 3 }}
                 list={articles}
                 renderItem={({ title, img, as, href, extra }) => (
                     <Card title={title} img={img} as={as} href={href} extra={extra} />
@@ -72,6 +86,8 @@ Index.getInitialProps = async function () {
     let benefits = [];
     let articles = [];
     let feedbacks = [];
+    let feedbackVideos = [];
+    let feedbackTexts = [];
     try {
         const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
         const data = await res.json();
@@ -103,7 +119,11 @@ Index.getInitialProps = async function () {
             extra: item.publishedAt,
         }));
 
-        feedbacks = await fetchFeedbacks();
+        const allFeedbacks = await fetchFeedbacks();
+        feedbacks = allFeedbacks.filter((item) => item.type === "recommendation");
+        feedbackVideos = allFeedbacks.filter((item) => item.type === "video");
+        feedbackTexts = allFeedbacks.filter((item) => item.type === "text");
+        // feedbackTexts = feedback.map((item) => ({ ...item, title: item.header, type: "text" }));
     } catch (error) {
         console.log(error);
     }
@@ -113,11 +133,13 @@ Index.getInitialProps = async function () {
         benefits,
         articles,
         feedbacks,
+        feedbackVideos,
+        feedbackTexts,
     };
 };
 
 const fetchFeedbacks = async () => {
-    const feedbacksJson = await fetch(API_URL + "/feedbacks");
+    const feedbacksJson = await fetch(API_URL + "/feedbacks?showInMainPage=true");
     const notPreparedFeedbacks = await feedbacksJson.json();
     return notPreparedFeedbacks.map((item) => ({
         ...item,

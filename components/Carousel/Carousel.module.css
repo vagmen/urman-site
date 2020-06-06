@@ -64,15 +64,13 @@
 .cardWrapper {
     composes: pagePadding from "./../../styles/global.css";
     padding-right: var(--gap);
-    width: calc((100% + var(--gap)) / 1);
-    min-width: calc((100% + var(--gap)) / 1);
+    min-width: calc((100% + var(--gap)) / var(--count));
     width: calc((100% + var(--gap)) / var(--count));
     transition: transform 500ms cubic-bezier(0.03, 0.6, 0.36, 1) 0s;
 }
 
 .cardWrapper:last-of-type {
     padding-right: var(--padding);
-    margin-right: var(--padding);
 }
 
 .buttonHidden {

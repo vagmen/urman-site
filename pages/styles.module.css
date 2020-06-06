@@ -1,12 +1,14 @@
 .mainContainer {
     display: grid;
-    grid-auto-rows: calc(100vh - 150px) auto auto auto auto auto;
+    grid-auto-rows: calc(100vh - 150px) auto auto auto auto auto auto auto;
     grid-auto-columns: 100%;
     grid-template-areas:
         "bg"
         "we"
         "s"
         "f"
+        "fv"
+        "ft"
         "j"
         "ssb"
         "ff";
@@ -36,6 +38,14 @@
 
 .feedback {
     grid-area: f;
+}
+
+.feedbackVideos {
+    grid-area: fv;
+}
+
+.feedbackTexts {
+    grid-area: ft;
 }
 
 .feedbackForm {

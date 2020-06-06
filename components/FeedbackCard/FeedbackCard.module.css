@@ -1,18 +1,15 @@
 .card {
     composes: radius from "./../../styles/global.css";
-    composes: shadow from "./../../styles/global.css";
     scroll-snap-align: start;
     display: flex;
-    background: #fff;
     border-radius: var(--card-border-radius);
     flex-wrap: wrap;
 }
 
-.content {
+.shadow {
+    composes: shadow from "./../../styles/global.css";
     composes: pagePadding from "./../../styles/global.css";
     padding: 16px;
-    flex: 1 1 0;
-    /* flex: 0 0 70%; */
 }
 
 .playerWrapper {
@@ -50,10 +47,10 @@
 }
 
 .imgWrapper {
+    composes: shadow from "./../../styles/global.css";
     height: auto;
     width: auto;
     max-width: 100%;
-    padding: 8px;
 }
 
 .img {
@@ -69,15 +66,6 @@
 }
 
 @media (min-width: 900px) {
-    .imgWrapper {
-        display: block;
-        max-width: 35%;
-    }
-
-    .content {
-        padding: var(--gap);
-    }
-
     .author {
         margin-top: 32px;
     }

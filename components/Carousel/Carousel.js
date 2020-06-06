@@ -76,24 +76,30 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
         setOffset(newOffset);
         current.style.transform = `translate3d(${newOffset}%, 0px, 0px)`;
     };
-
-    const renderItemWithLink = () => {
-        const width =
-            typeof countOfVisible === "number" ? `calc((100% + var(--gap)) / ${countOfVisible})` : countOfVisible;
-        return list?.map((item) => (
-            <div className={styles.cardWrapper} key={item.id} ref={cardWrapper} style={{ minWidth: width, width }}>
-                {item.as && item.href ? (
-                    <Link as={item.as} href={item.href} passHref>
-                        <a href="">{renderItem(item)}</a>
-                    </Link>
-                ) : (
-                    renderItem(item)
-                )}
-            </div>
-        ));
+    const widthOfCard = (isLastCard) => {
+        const padding = isMobile && isLastCard ? "var(--padding)" : "var(--gap)";
+        return typeof countOfVisible === "number" ? `calc((100% + ${padding}) / ${countOfVisible})` : countOfVisible;
     };
 
-    return (
+    const renderItemWithLink = () => {
+        return list?.map((item, index) => {
+            const isLastCard = index === list.length - 1;
+            const width = widthOfCard(isLastCard);
+            return (
+                <div className={styles.cardWrapper} key={item.id} ref={cardWrapper} style={{ minWidth: width, width }}>
+                    {item.as && item.href ? (
+                        <Link as={item.as} href={item.href} passHref>
+                            <a href="">{renderItem(item)}</a>
+                        </Link>
+                    ) : (
+                        renderItem(item)
+                    )}
+                </div>
+            );
+        });
+    };
+
+    return list.length > 0 ? (
         <div className={classNames(styles.container, className)}>
             <SectionHeader
                 title={title}
@@ -133,6 +139,8 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
                 </>
             )}
         </div>
+    ) : (
+        <></>
     );
 };
 

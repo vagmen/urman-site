@@ -8,27 +8,25 @@ const FeedbackCard = ({ className, title, avatar, logo, author, company, img, ty
         <Author avatar={avatar} logo={logo} name={author} company={company} className={styles.author} />
     );
     return (
-        <div className={classNames(className, styles.card)}>
-            {type === "video" ? (
+        <div className={classNames(className, styles.card, { [styles.shadow]: type === "text" })}>
+            {type === "video" && (
                 <div className={styles.playerWrapper}>
                     <ReactPlayer url={videoUrl} className={styles.video} width="100%" height="100%" />
                 </div>
-            ) : (
-                <>
-                    <div className={styles.content}>
-                        {title && (
-                            <div className={styles.text}>
-                                <span className={styles.quote}>“</span>
-                                <p className={styles.title}>{title}</p>
-                            </div>
-                        )}
-                        {renderAuthor()}
-                    </div>
-                    <div className={styles.imgWrapper}>
-                        <img src={img} className={styles.img} />
-                    </div>
-                </>
             )}
+            {type === "recommendation" && (
+                <div className={styles.imgWrapper}>
+                    <img src={img} className={styles.img} />
+                </div>
+            )}
+
+            {type === "text" && (
+                <div className={styles.text}>
+                    <span className={styles.quote}>“</span>
+                    <p className={styles.title}>{title}</p>
+                </div>
+            )}
+            {renderAuthor()}
         </div>
     );
 };
