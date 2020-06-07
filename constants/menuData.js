@@ -1,16 +1,16 @@
-import { MdVpnKey, MdFace, MdContactPhone, MdLibraryBooks } from "react-icons/md";
+import { MdVpnKey, MdFace, MdContactPhone, MdLibraryBooks, MdHome } from "react-icons/md";
 
 export const mainMenu = [
-    // {
-    //     name: "Главная",
-    //     title: "URMAN - Лесные решения",
-    //     icon: MdHome,
-    //     src: "",
-    //     description:
-    //         "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка",
-    //     isMainMenu: true,
-    //     hiddenInDesktop: true,
-    // },
+    {
+        name: "Главная",
+        title: "URMAN - Лесные решения",
+        icon: MdHome,
+        src: "",
+        description:
+            "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка",
+        isMainMenu: true,
+        hiddenInDesktop: true,
+    },
     {
         name: "Услуги",
         title: "Услуги | URMAN - Лесные решения",

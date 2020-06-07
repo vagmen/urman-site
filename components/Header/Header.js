@@ -83,6 +83,8 @@ class Header extends Component {
     };
 
     setOpacity = () => {
+        const { isMainPage, headerOpacity } = this.props;
+
         const header = document.querySelector("#header");
         const headerBg = document.querySelector("#headerBg");
         const logo = document.querySelector("#logo");
@@ -90,7 +92,7 @@ class Header extends Component {
         const scrollY = Math.round(window.scrollY);
         let headerBackgroundOpacity = 1;
 
-        if (this.props.isMainPage) {
+        if (isMainPage) {
             let newHeight = windowHeight - scrollY - (scrollY / windowHeight) * 300;
             if (newHeight < 64) {
                 newHeight = 64;
@@ -104,7 +106,7 @@ class Header extends Component {
                 header.style.zIndex = "2";
             }
             logo.style.setProperty("--headerOpacity", headerBackgroundOpacity);
-        } else if (this.props.headerOpacity && scrollY < 100) {
+        } else if (headerOpacity && scrollY < 100) {
             headerBackgroundOpacity = scrollY / 100;
         }
 
@@ -204,6 +206,16 @@ class Header extends Component {
                         position: relative;
                         flex-wrap: wrap;
                         width: 100%;
+                        animation: anim 1s ease-out;
+                    }
+                    @keyframes anim {
+                        from {
+                            opacity: 0;
+                        }
+
+                        to {
+                            opacity: 1;
+                        }
                     }
                     .template-background:before {
                         content: "";

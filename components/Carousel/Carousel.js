@@ -104,7 +104,11 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
             <SectionHeader
                 title={title}
                 link={link}
-                linkTitle={list.length > countOfVisible ? "Все " + list.length : ""}
+                linkTitle={
+                    (typeof countOfVisible !== "number" && list.length > 2) || list.length > countOfVisible
+                        ? "Все " + list.length
+                        : ""
+                }
                 className={styles.header}
             />
             <div className={styles.scrollable}>

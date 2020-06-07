@@ -4,13 +4,10 @@ import dynamic from "next/dynamic";
 import { ConfigProvider } from "antd";
 import ruRU from "antd/lib/locale-provider/ru_RU";
 import { IconContext } from "react-icons";
-// import Header from "./Header";
-// import Menu from "./Menu";
-// import Connect from "./Connect";
+import MenuMobile from "components/MenuMobile/MenuMobile";
 import { mainMenu } from "../constants/menuData";
 
 const Header = dynamic(import("./Header/Header"));
-const Menu = dynamic(import("./Menu"));
 const FooterWithMap = dynamic(import("./FooterWithMap"));
 const Connect = dynamic(import("./Connect"));
 
@@ -44,7 +41,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
             <ConfigProvider locale={ruRU}>
                 <IconContext.Provider value={{ className: "react-icons" }}>
                     <Fragment>
-                        <Menu menuItem={menuItem} headerOpacity={headerOpacity} />
+                        <MenuMobile menuItem={menuItem} />
                         {children}
                         {menuItem !== "contacts" && <FooterWithMap />}
                         <Connect />

@@ -12,6 +12,17 @@
         "j"
         "ssb"
         "ff";
+    animation: anim 1s ease-out;
+}
+
+@keyframes anim {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .we {

@@ -8,7 +8,7 @@ const FeedbackCard = ({ className, title, avatar, logo, author, company, img, ty
         <Author avatar={avatar} logo={logo} name={author} company={company} className={styles.author} />
     );
     return (
-        <div className={classNames(className, styles.card, { [styles.shadow]: type === "text" })}>
+        <div className={classNames(className, styles.card, { [styles.shadowCard]: type === "text" })}>
             {type === "video" && (
                 <div className={styles.playerWrapper}>
                     <ReactPlayer url={videoUrl} className={styles.video} width="100%" height="100%" />

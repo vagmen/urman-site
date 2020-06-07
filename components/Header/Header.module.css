@@ -13,8 +13,18 @@
 
 .main {
     height: 100vh;
-    /* box-shadow: 0px 3px 15px rgba(100, 100, 100, 0.49); */
-    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.13);
+    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
+    animation: anim 1s ease-out;
+}
+
+@keyframes anim {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .bgImage {
@@ -72,7 +82,7 @@
     cursor: pointer;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 900px) {
     .logo {
         transform: translateX(calc((1 - var(--headerOpacity)) * -50%)) scale(calc((1 - var(--headerOpacity)) + 1));
     }

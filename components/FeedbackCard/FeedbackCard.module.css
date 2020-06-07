@@ -6,7 +6,7 @@
     flex-wrap: wrap;
 }
 
-.shadow {
+.shadowCard {
     composes: shadow from "./../../styles/global.css";
     composes: pagePadding from "./../../styles/global.css";
     padding: 16px;
@@ -18,6 +18,7 @@
     width: 100%;
     border-radius: var(--card-border-radius);
     overflow: hidden;
+    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
 }
 
 .video {
@@ -51,6 +52,7 @@
     height: auto;
     width: auto;
     max-width: 100%;
+    width: 100%;
 }
 
 .img {

@@ -13,7 +13,7 @@
 }
 
 .scrollable {
-    overflow-x: scroll;
+    overflow-x: auto;
     position: relative;
     composes: pagePadding from "./../../styles/global.css";
     display: inline-flex;
@@ -21,9 +21,34 @@
     scroll-padding-left: var(--padding);
     scroll-behavior: smooth;
     grid-area: s;
-    margin: -32px calc(-1 * var(--padding));
-    padding: 32px var(--padding);
+    margin: -32px calc(-1 * var(--padding)) -16px;
+    padding: 32px var(--padding) 16px;
     min-width: calc(100% + 2 * var(--padding));
+}
+
+.scrollable::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.scrollable::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+
+.scrollable::-webkit-scrollbar:horizontal {
+    height: 10px;
+    transform: translateY(16px);
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background-color: #488558;
+    border-radius: 10px;
+    border: 2px solid rgba(72, 133, 88, 0.08);
+}
+
+.scrollable::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(72, 133, 88, 0.08);
+    margin: 0 var(--padding);
 }
 
 .desktop {

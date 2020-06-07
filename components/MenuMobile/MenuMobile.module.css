@@ -1,0 +1,119 @@
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s;
+    animation: appearance-of-menu-mobile 2.5s ease-out;
+    composes: colors from "./../../styles/global.css";
+    composes: pagePadding from "./../../styles/global.css";
+    background: var(--colorPrimary);
+    box-shadow: 0px -20px 30px rgba(0, 0, 0, 0.3);
+    height: 56px;
+}
+
+.link {
+    flex: 1 1 0;
+}
+
+.item {
+    list-style-type: none;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.title {
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontTiny);
+    text-align: center;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.76);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 1s;
+    /* z-index: 100; */
+}
+
+.activeTitle {
+    color: rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+}
+.icon {
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.76);
+    transition: all 1s;
+    width: 24px;
+    height: 24px;
+}
+
+.activeIcon {
+    color: rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+}
+
+@media (min-width: 900px) {
+    .nav {
+        position: fixed;
+        top: 0;
+        bottom: auto;
+        composes: pagePadding from "./../../styles/global.css";
+        right: var(--padding);
+        width: auto;
+        z-index: 100;
+    }
+
+    .menu {
+        background: none;
+        animation: appearance-of-menu 2.5s ease-out;
+        box-shadow: none;
+        justify-content: flex-end;
+        height: 64px;
+        right: var(--padding);
+        width: auto;
+    }
+
+    .item {
+        margin-left: 32px;
+    }
+
+    .title {
+        text-transform: uppercase;
+        text-align: end;
+    }
+
+    .icon {
+        display: none;
+    }
+}
+
+@media (min-width: 1400px) {
+    .nav {
+        justify-content: center;
+        left: 50%;
+        right: inherit;
+        transform: translateX(-50%);
+    }
+
+    .link {
+        flex: 0 0 auto;
+    }
+
+    .item {
+        margin-right: 32px;
+    }
+    .title {
+        text-align: center;
+    }
+}

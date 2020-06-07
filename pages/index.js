@@ -16,7 +16,7 @@ const postData = {
 };
 
 const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks, feedbackVideos, feedbackTexts }) => (
-    <Layout postData={postData} headerOpacity={true} isMainPage={true}>
+    <Layout postData={postData} headerOpacity={true} isMainPage={true} menuItem={""}>
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
             <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} />
@@ -105,7 +105,7 @@ Index.getInitialProps = async function () {
         const benefitsJson = await fetch(API_URL + "/benefits");
         benefits = await benefitsJson.json();
 
-        const articlesJson = await fetch(API_URL + "/articles");
+        const articlesJson = await fetch(API_URL + "/articles?showInMainPage=true");
         const arts = await articlesJson.json();
         articles = arts.map((item) => ({
             id: item.urlId,

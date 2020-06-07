@@ -2,7 +2,7 @@
     composes: pagePadding from "./../../styles/global.css";
     margin-left: var(--padding);
     margin-right: var(--padding);
-    margin-top: var(--padding);
+    margin-top: calc(var(--padding) + 16px);
     display: flex;
     justify-content: space-between;
     align-items: baseline;
