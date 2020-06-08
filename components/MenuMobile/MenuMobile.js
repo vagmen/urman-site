@@ -11,7 +11,7 @@ const MenuMobile = ({ menuItem, className }) => {
         <nav className={classNames(styles.nav, className)}>
             <ul className={styles.menu}>
                 {mainMenu
-                    .filter((item) => width < 900 || (width >= 900 && item.src !== ""))
+                    .filter((item) => width < 1050 || (width >= 1050 && item.src !== ""))
                     .map((item) => {
                         const Icon = item.icon;
                         console.log("menuItem", menuItem, item.src);

@@ -206,7 +206,7 @@ class Header extends Component {
                         position: relative;
                         flex-wrap: wrap;
                         width: 100%;
-                        animation: anim 1s ease-out;
+                        animation: anim 0.3s ease-out;
                     }
                     @keyframes anim {
                         from {

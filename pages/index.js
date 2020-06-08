@@ -24,7 +24,7 @@ const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks, feedbackVi
                 title="Услуги"
                 link="/services"
                 className={styles.services}
-                grid={{ s: "240px", m: 3, l: 3, xl: 4 }}
+                grid={{ mobile: "240px", tablet: "240px", m: 3, l: 3, xl: 4 }}
                 list={servicesData.map((item) => ({
                     title: item.name,
                     img: item.img,
@@ -40,21 +40,21 @@ const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks, feedbackVi
             <Carousel
                 title="Рекомендательные письма"
                 className={styles.feedback}
-                grid={{ s: 1, m: 2, l: 3, xl: 4 }}
+                grid={{ mobile: 1, tablet: 3, m: 4, l: 3, xl: 4 }}
                 list={feedbacks}
                 renderItem={(props) => <FeedbackCard {...props} />}
             />
             <Carousel
                 title="Видео от клиентов"
                 className={styles.feedbackVideos}
-                grid={{ s: 1, m: 1, l: 1, xl: 1 }}
+                grid={{ mobile: 1, m: 2, l: 2, xl: 2 }}
                 list={feedbackVideos}
                 renderItem={(props) => <FeedbackCard {...props} />}
             />
             <Carousel
                 title="Отзывы"
                 className={styles.feedbackTexts}
-                grid={{ s: 1, m: 2, l: 2, xl: 3 }}
+                grid={{ mobile: 1, m: 2, l: 2, xl: 3 }}
                 list={feedbackTexts}
                 renderItem={(props) => <FeedbackCard {...props} />}
             />
@@ -62,7 +62,7 @@ const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks, feedbackVi
                 title="Статьи"
                 link="/journal"
                 className={styles.journal}
-                grid={{ s: "240px", m: 2, l: 2, xl: 3 }}
+                grid={{ mobile: "240px", tablet: "240px", m: 3, l: 3, xl: 3 }}
                 list={articles}
                 renderItem={({ title, img, as, href, extra }) => (
                     <Card title={title} img={img} as={as} href={href} extra={extra} />

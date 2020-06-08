@@ -62,13 +62,13 @@
 @media (min-width: 500px) {
     .pagePadding {
         --padding: 48px;
-        --gap: 16px;
+        --gap: 24px;
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1050px) {
     .pagePadding {
-        --padding: 64px;
+        --padding: 192px;
         --gap: 32px;
     }
 
@@ -88,7 +88,7 @@
     }
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 11050px) {
     .pagePadding {
         --padding: 300px;
     }

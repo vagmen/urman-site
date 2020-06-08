@@ -14,7 +14,7 @@
 .main {
     height: 100vh;
     box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
-    animation: anim 1s ease-out;
+    animation: anim 0.3s ease-out;
 }
 
 @keyframes anim {
@@ -82,7 +82,7 @@
     cursor: pointer;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1050px) {
     .logo {
         transform: translateX(calc((1 - var(--headerOpacity)) * -50%)) scale(calc((1 - var(--headerOpacity)) + 1));
     }

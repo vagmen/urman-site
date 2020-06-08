@@ -67,7 +67,7 @@
     align-self: start;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1050px) {
     .author {
         margin-top: 32px;
     }

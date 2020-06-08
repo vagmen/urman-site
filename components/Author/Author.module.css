@@ -46,15 +46,16 @@
 .company {
     composes: fontSize from "./../../styles/global.css";
     font-size: var(--fontTiny);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1400px) {
     .images {
         width: 80px;
         height: 80px;
         flex: 0 0 80px;
     }
-}
-
-@media (min-width: 1400px) {
 }

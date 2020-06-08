@@ -21,9 +21,11 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
 
     const { width } = useWindowSize();
     useEffect(() => {
-        const { s = 1, m = 2, l = 3, xl = 4 } = grid;
-        if (width < 900) {
-            setCountOfVisible(s);
+        const { mobile = 1, tablet = 2, m = 2, l = 3, xl = 4 } = grid;
+        if (width < 500) {
+            setCountOfVisible(mobile);
+        } else if (width < 1050) {
+            setCountOfVisible(tablet);
         } else if (width < 1400) {
             setCountOfVisible(m);
         } else if (width < 1900) {
@@ -35,7 +37,7 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
         setLastCard(firstCard + countOfVisible - 1);
         setLeftButtonHidden(offset === 0);
         setRightButtonHidden(list.length === lastCard);
-        setIsMobile(width < 900);
+        setIsMobile(width < 1050);
     });
 
     const handleScrollPrev = () => {
