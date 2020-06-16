@@ -1,0 +1,29 @@
+.container {
+    composes: pagePadding from "./../../styles/global.css";
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "h h h"
+        ". l .";
+    grid-template-columns: var(--padding) auto var(--padding);
+}
+
+.header {
+    grid-area: h;
+}
+
+.list {
+    grid-area: l;
+}
+
+.link {
+    composes: fontSize from "./../../styles/global.css";
+    composes: colors from "./../../styles/global.css";
+    font-size: var(--fontMedium);
+    color: var(--colorPrimary);
+}
+
+.link:hover {
+    color: var(--colorPrimary);
+    text-decoration: underline;
+}

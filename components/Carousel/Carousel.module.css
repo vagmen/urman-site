@@ -35,18 +35,18 @@
 }
 
 .scrollable::-webkit-scrollbar:horizontal {
-    height: 10px;
+    height: 8px;
     transform: translateY(16px);
 }
 
 .scrollable::-webkit-scrollbar-thumb {
     background-color: #488558;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 2px solid rgba(72, 133, 88, 0.08);
 }
 
 .scrollable::-webkit-scrollbar-track {
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: rgba(72, 133, 88, 0.08);
     margin: 0 var(--padding);
 }

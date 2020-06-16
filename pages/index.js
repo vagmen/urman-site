@@ -1,13 +1,17 @@
 import Layout from "../components/Layout.js";
 import FeedbackForm from "../components/FeedbackForm";
 import { servicesData } from "../constants/menuData";
+import { segments } from "../constants/settings";
 import styles from "./styles.module.css";
 import We from "../components/We/We.js";
 import Carousel from "components/Carousel/Carousel";
 import Card from "components/Card/Card";
 import { API_URL } from "../constants/settings.js";
-import { feedback } from "constants/feedback.js";
 import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
+import Categories from "components/Categories/Categories.js";
+import FaqSection from "components/FaqSection/FaqSection.js";
+import Segment from "components/Segment/Segment.js";
+import MultiStepForm from "components/MultiStepForm/MultiStepForm.js";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -15,7 +19,17 @@ const postData = {
         "Берем на себя юридические, проектные, бюрократические вопросы при оформлении и использовании лесного участка.",
 };
 
-const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks, feedbackVideos, feedbackTexts }) => (
+const Index = ({
+    statistics,
+    whoAreWe,
+    benefits,
+    articles,
+    feedbacks,
+    feedbackVideos,
+    feedbackTexts,
+    categories,
+    faqs,
+}) => (
     <Layout postData={postData} headerOpacity={true} isMainPage={true} menuItem={""}>
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
@@ -44,6 +58,14 @@ const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks, feedbackVi
                 list={feedbacks}
                 renderItem={(props) => <FeedbackCard {...props} />}
             />
+            {/* <Carousel
+                title=""
+                className={styles.segments}
+                grid={{ mobile: 1, tablet: 3, m: 3, l: 3, xl: 4 }}
+                list={segments}
+                renderItem={(props) => <Segment {...props} />}
+            /> */}
+            {/* <Categories categories={categories} className={styles.categories} /> */}
             <Carousel
                 title="Видео от клиентов"
                 className={styles.feedbackVideos}
@@ -68,6 +90,8 @@ const Index = ({ statistics, whoAreWe, benefits, articles, feedbacks, feedbackVi
                     <Card title={title} img={img} as={as} href={href} extra={extra} />
                 )}
             />
+            <FaqSection list={faqs} className={styles.faq} />
+            {/* <MultiStepForm className={styles.feedbackForm} /> */}
             <section className={styles.feedbackForm}>
                 <FeedbackForm
                     title="Напишите свой вопрос"
@@ -88,6 +112,8 @@ Index.getInitialProps = async function () {
     let feedbacks = [];
     let feedbackVideos = [];
     let feedbackTexts = [];
+    let categories = [];
+    let faqs = [];
     try {
         const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
         const data = await res.json();
@@ -113,7 +139,6 @@ Index.getInitialProps = async function () {
             title: item.title,
             date: item.publishedAt,
             description: item.description,
-            // url: "/journal/" + item.urlId,
             as: `/journal/${item.urlId}`,
             href: `/journal/post?id=${item.urlId}`,
             extra: item.publishedAt,
@@ -124,6 +149,12 @@ Index.getInitialProps = async function () {
         feedbackVideos = allFeedbacks.filter((item) => item.type === "video");
         feedbackTexts = allFeedbacks.filter((item) => item.type === "text");
         // feedbackTexts = feedback.map((item) => ({ ...item, title: item.header, type: "text" }));
+
+        const categoriesJson = await fetch(API_URL + "/categories");
+        categories = await categoriesJson.json();
+
+        const faqsJson = await fetch(API_URL + "/faqs?showInMainPage=true");
+        faqs = await faqsJson.json();
     } catch (error) {
         console.log(error);
     }
@@ -135,6 +166,8 @@ Index.getInitialProps = async function () {
         feedbacks,
         feedbackVideos,
         feedbackTexts,
+        categories,
+        faqs,
     };
 };
 

@@ -1,0 +1,25 @@
+.container {
+}
+
+.item {
+    composes: colors from "./../../styles/global.css";
+    border-top: 1px solid var(--colorPrimary100);
+    color: #333;
+}
+
+.item:last-of-type {
+    border-bottom: 1px solid var(--colorPrimary100);
+    margin-bottom: 16px;
+}
+
+.question {
+    padding: 16px 0;
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontMedium);
+    cursor: pointer;
+}
+
+.answer {
+    font-size: var(--fontSmall);
+    margin-bottom: 16px;
+}

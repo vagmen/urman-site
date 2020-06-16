@@ -1,0 +1,9 @@
+.container {
+    margin-top: 64px;
+}
+
+.content {
+    composes: pagePadding from "./../../styles/global.css";
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+}

@@ -8,6 +8,21 @@
     border-radius: 4px;
     margin-top: 16px;
     font-size: var(--fontMedium);
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.button:hover {
+    background: var(--colorPrimary300);
+}
+
+.primary {
+    background: var(--colorPrimary);
+    color: #fff;
+}
+
+.primary:hover {
+    background: var(--colorPrimary300);
 }
 
 @media (min-width: 1050px) {

@@ -1,16 +1,17 @@
 .mainContainer {
     display: grid;
-    grid-auto-rows: calc(100vh - 150px) auto auto auto auto auto auto auto;
-    grid-auto-columns: 100%;
+    grid-template-rows: calc(100vh - 150px) auto auto auto auto auto auto auto auto auto;
+    grid-template-columns: 100%;
     grid-template-areas:
         "bg"
         "we"
         "s"
         "f"
+        /* "segments" */
         "fv"
         "ft"
         "j"
-        "ssb"
+        "faq"
         "ff";
     animation: anim 0.3s ease-out;
 }
@@ -44,11 +45,19 @@
 
 .journal {
     grid-area: j;
-    padding-bottom: var(--padding);
+    /* padding-bottom: var(--padding); */
 }
 
 .feedback {
     grid-area: f;
+}
+
+.categories {
+    grid-area: categories;
+}
+
+.segments {
+    grid-area: segments;
 }
 
 .feedbackVideos {
@@ -62,4 +71,11 @@
 .feedbackForm {
     grid-area: ff;
     z-index: 1;
+    composes: pagePadding from "./../styles/global.css";
+    padding-bottom: var(--padding);
+}
+
+.faq {
+    grid-area: faq;
+    padding-bottom: var(--padding);
 }

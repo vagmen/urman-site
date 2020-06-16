@@ -1,5 +1,6 @@
 .colors {
     --colorPrimary: #488558;
+    --colorPrimary300: rgba(72, 133, 88, 0.5);
     --colorPrimary100: rgba(72, 133, 88, 0.08);
     --colorSecondary: #61ac27;
 }
@@ -28,11 +29,17 @@
 }
 
 .shadow {
-    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
+    --box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
 }
+
+/* .shadow {
+    composes: boxShadow;
+    box-shadow: var(--box-shadow);
+} */
 
 .clickableShadow {
     composes: shadow;
+    box-shadow: var(--box-shadow);
     composes: radius;
     transition: all 0.4s;
     position: relative;

@@ -88,7 +88,7 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
             const isLastCard = index === list.length - 1;
             const width = widthOfCard(isLastCard);
             return (
-                <div className={styles.cardWrapper} key={item.id} ref={cardWrapper} style={{ minWidth: width, width }}>
+                <div className={styles.cardWrapper} key={index} ref={cardWrapper} style={{ minWidth: width, width }}>
                     {item.as && item.href ? (
                         <Link as={item.as} href={item.href} passHref>
                             <a href="">{renderItem(item)}</a>
