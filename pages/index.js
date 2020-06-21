@@ -29,6 +29,7 @@ const Index = ({
     feedbackTexts,
     categories,
     faqs,
+    services,
 }) => (
     <Layout postData={postData} headerOpacity={true} isMainPage={true} menuItem={""}>
         <div className={styles.mainContainer}>
@@ -38,18 +39,15 @@ const Index = ({
                 title="Услуги"
                 link="/services"
                 className={styles.services}
-                grid={{ mobile: "240px", tablet: "240px", m: 3, l: 3, xl: 4 }}
-                list={servicesData.map((item) => ({
+                grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
+                list={services?.map((item) => ({
                     title: item.name,
-                    img: item.img,
-                    id: item.id,
-                    as: `/services/${item.id}`,
-                    href: `/services/${item.id}`,
-                    extra: item.extra,
+                    img: API_URL + item.poster.url,
+                    id: item.slug,
+                    as: `/services/${item.slug}`,
+                    href: `/services/${item.slug}`,
                 }))}
-                renderItem={({ title, img, as, href, extra }) => (
-                    <Card title={title} img={img} as={as} href={href} extra={extra} />
-                )}
+                renderItem={({ title, img, as, href }) => <Card title={title} img={img} as={as} href={href} />}
             />
             <Carousel
                 title="Рекомендательные письма"
@@ -114,6 +112,7 @@ Index.getInitialProps = async function () {
     let feedbackTexts = [];
     let categories = [];
     let faqs = [];
+    let services = [];
     try {
         const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
         const data = await res.json();
@@ -155,6 +154,9 @@ Index.getInitialProps = async function () {
 
         const faqsJson = await fetch(API_URL + "/faqs?showInMainPage=true");
         faqs = await faqsJson.json();
+
+        const servicesJson = await fetch(API_URL + "/services");
+        services = await servicesJson.json();
     } catch (error) {
         console.log(error);
     }
@@ -168,6 +170,7 @@ Index.getInitialProps = async function () {
         feedbackTexts,
         categories,
         faqs,
+        services,
     };
 };
 

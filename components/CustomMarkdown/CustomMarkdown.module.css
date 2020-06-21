@@ -1,0 +1,29 @@
+.container {
+    color: #333;
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontSmall);
+}
+
+.padding {
+    composes: pagePadding from "./../../styles/global.css";
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+}
+
+.container > *,
+.container > * > * {
+    font-size: var(--fontSmall);
+}
+
+.container > h1 {
+    font-size: var(--fontHuge);
+}
+
+.container > h2 {
+    font-size: var(--fontLarge);
+}
+
+.container > h3,
+.container > h3 > * {
+    font-size: var(--fontMedium);
+}

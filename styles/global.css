@@ -95,7 +95,7 @@
     }
 }
 
-@media (min-width: 11050px) {
+@media (min-width: 1900px) {
     .pagePadding {
         --padding: 300px;
     }

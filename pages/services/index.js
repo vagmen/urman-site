@@ -1,17 +1,26 @@
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import { servicesData } from "../../constants/menuData";
-import { mainColorMid, mainColorDark } from "../../constants/colors";
 import Services from "../../components/Services";
-import FeedbackForm from "../../components/FeedbackForm";
+import FeedbackForm from "components/FeedbackForm";
+import { API_URL } from "../../constants/settings.js";
+import PageHeader from "components/PageHeader/PageHeader.js";
+import styles from "./styles.module.css";
+import Card from "components/Card/Card";
 
-const Index = () => (
+const Index = ({ services }) => (
     <Layout menuItem="services">
-        <div className="page-background">
-            <div className="page-content">
-                <h1>Услуги</h1>
-                <p>Выполним Вам за лучшую цену</p>
-                <Services items={servicesData} />
+        <div className={styles.container}>
+            <PageHeader title="Услуги" />
+            <div className={styles.grid}>
+                {services?.map((item) => (
+                    <Card
+                        key={item.slug}
+                        title={item.name}
+                        img={API_URL + item.poster.url}
+                        as={"/services/" + item.slug}
+                        href={"/services/" + item.slug}
+                    />
+                ))}
             </div>
             <FeedbackForm
                 title="Оставьте заявку"
@@ -20,8 +29,20 @@ const Index = () => (
                 withComment={true}
             />
         </div>
-        <style jsx>{``}</style>
     </Layout>
 );
+
+Index.getInitialProps = async function () {
+    let services = [];
+    try {
+        const servicesJson = await fetch(API_URL + "/services");
+        services = await servicesJson.json();
+    } catch (error) {
+        console.log(error);
+    }
+    return {
+        services,
+    };
+};
 
 export default Index;

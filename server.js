@@ -16,8 +16,10 @@ app.prepare()
         });
 
         server.get("/services/:id", (req, res) => {
-            const actualPage = `/services/${req.params.id}`;
-            app.render(req, res, actualPage);
+            const actualPage = `/services/service`;
+            const queryParams = { id: req.params.id };
+            // const actualPage = `/services/${req.params.id}`;
+            app.render(req, res, actualPage, queryParams);
         });
 
         server.get("/regions/:id", (req, res) => {
