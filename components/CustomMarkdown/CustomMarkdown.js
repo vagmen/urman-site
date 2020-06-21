@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./CustomMarkdown.module.css";
 import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const headingRenderer = (props) => {
     if (props.level === 1) {
-        return <h1 className={styles.h1}>{props.children}</h1>;
+        return <h1>{props.children}</h1>;
     }
     if (props.level === 2) {
         return <h2 className={styles.h2}>{props.children}</h2>;

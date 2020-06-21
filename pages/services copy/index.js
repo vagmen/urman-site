@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Layout from "../../components/Layout";
+import Services from "../../components/Services";
 import FeedbackForm from "components/FeedbackForm";
 import { API_URL } from "../../constants/settings.js";
 import PageHeader from "components/PageHeader/PageHeader.js";

@@ -1,17 +1,16 @@
 import Layout from "../components/Layout.js";
 import FeedbackForm from "../components/FeedbackForm";
-import { servicesData } from "../constants/menuData";
-import { segments } from "../constants/settings";
+// import { segments } from "../constants/settings";
 import styles from "./styles.module.css";
 import We from "../components/We/We.js";
 import Carousel from "components/Carousel/Carousel";
 import Card from "components/Card/Card";
 import { API_URL } from "../constants/settings.js";
 import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
-import Categories from "components/Categories/Categories.js";
+// import Categories from "components/Categories/Categories.js";
 import FaqSection from "components/FaqSection/FaqSection.js";
-import Segment from "components/Segment/Segment.js";
-import MultiStepForm from "components/MultiStepForm/MultiStepForm.js";
+// import Segment from "components/Segment/Segment.js";
+// import MultiStepForm from "components/MultiStepForm/MultiStepForm.js";
 
 const postData = {
     title: "URMAN - Лесные решения",

@@ -1,6 +1,8 @@
 import Layout from "../../../components/Layout.js";
 import Error from "next/error";
 import { API_URL } from "../../../constants/settings.js";
+import ReactMarkdown from "react-markdown";
+import Link from "next/link";
 import styles from "./styles.module.css";
 import FeedbackForm from "components/FeedbackForm.js";
 import Carousel from "components/Carousel/Carousel.js";

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { notification } from "antd";
-import Link from "next/link";
 import ButtonViolet from "./ui/ButtonViolet";
 import Input from "./ui/Input";
 import { sendLead } from "../utils/api";
-import { changeFormItem } from "../utils/localStorage";
 
 class FeedbackForm extends Component {
     state = {
@@ -50,7 +48,7 @@ class FeedbackForm extends Component {
 
     render() {
         const { formHidden, name, phone, comment } = this.state;
-        const { isHidable, title, subTitle, backgroundImage, withComment, withFocus, hideTitleInMobile } = this.props;
+        const { isHidable, title, subTitle, backgroundImage, withComment, hideTitleInMobile } = this.props;
         return (
             <form className="post-header__form">
                 <div className="bg" />
