@@ -4,6 +4,27 @@ import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 
+const headingRenderer = (props) => {
+    if (props.level === 1) {
+        return <h1 className={styles.h1}>{props.children}</h1>;
+    }
+    if (props.level === 2) {
+        return <h2 className={styles.h2}>{props.children}</h2>;
+    }
+    if (props.level === 3) {
+        return <h3 className={styles.h3}>{props.children}</h3>;
+    }
+    if (props.level === 4) {
+        return <h4 className={styles.h4}>{props.children}</h4>;
+    }
+    if (props.level === 5) {
+        return <h5 className={styles.h5}>{props.children}</h5>;
+    }
+    if (props.level === 6) {
+        return <h6 className={styles.h6}>{props.children}</h6>;
+    }
+};
+
 const imageRenderer = (props) => <img className="post-img" {...props} />;
 
 const linkRenderer = (props) => {
@@ -27,6 +48,7 @@ const linkRenderer = (props) => {
 const renderers = {
     image: imageRenderer,
     link: linkRenderer,
+    heading: headingRenderer,
 };
 
 const CustomMarkdown = ({ source, className, withPadding }) => {

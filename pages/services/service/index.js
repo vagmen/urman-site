@@ -28,7 +28,7 @@ const Index = ({ currentService, otherServices, err }) =>
                     grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                     list={otherServices?.map((item) => ({
                         title: item.name,
-                        img: API_URL + item.poster.url,
+                        img: API_URL + item.posterSmall?.url,
                         id: item.slug,
                         as: `/services/${item.slug}`,
                         href: `/services/${item.slug}`,

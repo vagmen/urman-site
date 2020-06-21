@@ -42,7 +42,7 @@ const Index = ({
                 grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                 list={services?.map((item) => ({
                     title: item.name,
-                    img: API_URL + item.poster.url,
+                    img: API_URL + item.posterSmall?.url,
                     id: item.slug,
                     as: `/services/${item.slug}`,
                     href: `/services/${item.slug}`,
@@ -94,7 +94,7 @@ const Index = ({
                 <FeedbackForm
                     title="Напишите свой вопрос"
                     subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                    backgroundImage="/images/4.jpg"
+                    backgroundImage="/images/formBg.jpg"
                     withComment={true}
                 />
             </section>

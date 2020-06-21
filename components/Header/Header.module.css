@@ -28,7 +28,8 @@
 }
 
 .bgImage {
-    background: url("/images/services/lesnoj-plan.webp");
+    background: url("/images/vid-sverchu.jpg");
+    /* background: url("/images/services/lesnoj-plan.webp"); */
     animation: scale-img 30s infinite alternate;
     position: absolute;
     top: 0;
