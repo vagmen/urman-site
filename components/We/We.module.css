@@ -31,8 +31,19 @@
     /* margin-bottom: 16px; */
 }
 
-.video {
+.playerWrapper {
+    position: relative;
+    padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+    width: 100%;
+    /* border-radius: var(--card-border-radius); */
+    overflow: hidden;
     grid-area: video;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .stat {

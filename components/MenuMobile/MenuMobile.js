@@ -14,7 +14,6 @@ const MenuMobile = ({ menuItem, className }) => {
                     .filter((item) => width < 1050 || (width >= 1050 && item.src !== ""))
                     .map((item) => {
                         const Icon = item.icon;
-                        console.log("menuItem", menuItem, item.src);
 
                         return (
                             item.isMainMenu && (

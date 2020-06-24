@@ -1,0 +1,35 @@
+.container {
+    margin-top: 64px;
+}
+
+.content {
+    composes: pagePadding from "./../../../styles/global.css";
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+    color: #333;
+}
+
+.posterWrapper {
+    composes: pagePadding from "./../../../styles/global.css";
+}
+
+.poster {
+    height: auto;
+    width: 100%;
+}
+
+.otherServices:last-of-type {
+    margin-bottom: var(--padding);
+}
+
+@media (min-width: 1050px) {
+    .posterWrapper {
+        margin-left: var(--padding);
+        margin-right: var(--padding);
+    }
+
+    .poster {
+        height: 60vh;
+        object-fit: cover;
+    }
+}

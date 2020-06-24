@@ -3,6 +3,7 @@ import styles from "./CustomMarkdown.module.css";
 import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
+import VideoWrapper from "components/VideoWrapper/VideoWrapper";
 
 const headingRenderer = (props) => {
     if (props.level === 1) {
@@ -28,21 +29,47 @@ const headingRenderer = (props) => {
 const imageRenderer = (props) => <img className="post-img" {...props} />;
 
 const linkRenderer = (props) => {
-    const parts = props.href.split("urman.su");
-    const isInsiteLink = parts.length > 1 && props.href.indexOf("urman.su") !== -1;
-    const title =
-        (props.children && props.children[0] && props.children[0].props && props.children[0].props.value) || "";
-    return isInsiteLink ? (
-        <Link href={parts.pop()} passHref>
-            <a className="post-a" href="">
+    console.log("props", props);
+    // return (
+    //     <a className="post-a" href={props.href} target="_blank" rel="noopener noreferrer">
+    //         ''
+    //     </a>
+    // );
+
+    const title = props?.children[0]?.props?.value || "";
+
+    if (props.href.indexOf("youtube") !== -1) {
+        return <VideoWrapper url={props.href} />;
+    } else if (props.href[0] === "/") {
+        return (
+            <Link href={props.href} passHref>
+                <a className="post-a" href="">
+                    {title}
+                </a>
+            </Link>
+        );
+    } else {
+        return (
+            <a className="post-a" href={props.href} target="_blank" rel="noopener noreferrer">
                 {title}
             </a>
-        </Link>
-    ) : (
-        <a className="post-a" href={props.href} target="_blank" rel="noopener noreferrer">
-            {title}
-        </a>
-    );
+        );
+    }
+    // const parts = props.href.split("urman.su");
+    // const isInsiteLink = parts.length > 1 && props.href.indexOf("urman.su") !== -1;
+    // const title =
+    //     (props.children && props.children[0] && props.children[0].props && props.children[0].props.value) || "";
+    // return isInsiteLink ? (
+    //     <Link href={parts.pop()} passHref>
+    //         <a className="post-a" href="">
+    //             {title}
+    //         </a>
+    //     </Link>
+    // ) : (
+    //     <a className="post-a" href={props.href} target="_blank" rel="noopener noreferrer">
+    //         {title}
+    //     </a>
+    // );
 };
 
 const renderers = {

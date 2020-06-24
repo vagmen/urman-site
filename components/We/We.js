@@ -5,7 +5,7 @@ import ReactPlayer from "react-player";
 import ReactMarkdown from "react-markdown";
 import { MdCheckCircle } from "react-icons/md";
 
-const We = ({ statistics, whoAreWe, benefits, className }) => {
+const We = ({ statistics, whoAreWe, benefits, className, video }) => {
     return (
         <div className={classNames(className, styles.we)}>
             <div className={styles.who}>
@@ -25,8 +25,13 @@ const We = ({ statistics, whoAreWe, benefits, className }) => {
                     ))}
                 </div>
             </div>
-            <div className={styles.video}>
-                <ReactPlayer url="https://www.youtube.com/watch?v=2k_m5qGUgjg" width="auto" />
+            <div className={styles.playerWrapper}>
+                <ReactPlayer
+                    url={video || "https://www.youtube.com/watch?v=Vm9iiVhUU9U"}
+                    width="100%"
+                    height="100%"
+                    className={styles.video}
+                />
             </div>
             <div className={styles.benefits}>
                 {benefits.map((benefit) => (

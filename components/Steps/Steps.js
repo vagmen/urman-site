@@ -3,8 +3,6 @@ import styles from "./Steps.module.css";
 import classNames from "classnames";
 
 const Steps = ({ className, list, current }) => {
-    console.log("currentStep", current);
-
     return (
         <div className={classNames(styles.container, className)}>
             {list.map((step, index) => (

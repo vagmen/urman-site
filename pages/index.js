@@ -21,6 +21,7 @@ const postData = {
 const Index = ({
     statistics,
     whoAreWe,
+    video,
     benefits,
     articles,
     feedbacks,
@@ -33,7 +34,7 @@ const Index = ({
     <Layout postData={postData} headerOpacity={true} isMainPage={true} menuItem={""}>
         <div className={styles.mainContainer}>
             <section className={styles.bg}></section>
-            <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} />
+            <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} className={styles.we} video={video} />
             <Carousel
                 title="Услуги"
                 link="/services"
@@ -112,6 +113,7 @@ Index.getInitialProps = async function () {
     let categories = [];
     let faqs = [];
     let services = [];
+    let video = "";
     try {
         const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
         const data = await res.json();
@@ -125,15 +127,16 @@ Index.getInitialProps = async function () {
         const mainJson = await fetch(API_URL + "/main");
         const main = await mainJson.json();
         whoAreWe = main.whoAreWe;
+        video = main.video;
 
         const benefitsJson = await fetch(API_URL + "/benefits");
         benefits = await benefitsJson.json();
 
-        const articlesJson = await fetch(API_URL + "/articles?showInMainPage=true");
+        const articlesJson = await fetch(API_URL + "/articles?showInMainPage=true&_sort=publishedAt:DESC");
         const arts = await articlesJson.json();
         articles = arts.map((item) => ({
             id: item.urlId,
-            img: API_URL + item.image[0].url,
+            img: API_URL + item.posterSmall.url,
             title: item.title,
             date: item.publishedAt,
             description: item.description,
@@ -162,6 +165,7 @@ Index.getInitialProps = async function () {
     return {
         statistics,
         whoAreWe,
+        video,
         benefits,
         articles,
         feedbacks,
