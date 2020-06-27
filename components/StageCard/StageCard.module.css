@@ -1,0 +1,28 @@
+.card {
+    composes: radius from "./../../styles/global.css";
+    scroll-snap-align: start;
+    display: flex;
+    border-radius: var(--card-border-radius);
+    flex-wrap: wrap;
+    composes: shadow from "./../../styles/global.css";
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.content {
+    padding: 16px;
+}
+
+@media (min-width: 1050px) {
+    .card {
+        flex-wrap: nowrap;
+    }
+    .image {
+        width: 30%;
+    }
+}

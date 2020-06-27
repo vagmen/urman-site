@@ -1,0 +1,60 @@
+.card {
+    composes: radius from "./../../styles/global.css";
+    scroll-snap-align: start;
+    display: flex;
+    border-radius: var(--card-border-radius);
+    flex-wrap: wrap;
+}
+
+.shadowCard {
+    composes: shadow from "./../../styles/global.css";
+    composes: pagePadding from "./../../styles/global.css";
+    padding: 16px;
+}
+
+.playerWrapper {
+    position: relative;
+    padding-top: 56.25%; /* 720 / 1280 = 0.5625 */
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
+}
+
+.avatar {
+    width: 100%;
+    height: auto;
+    /* border-radius: 50%; */
+}
+
+.title {
+    composes: fontSize from "./../../styles/global.css";
+    color: #333;
+    font-size: var(--fontSmall);
+}
+
+.imgWrapper {
+    composes: shadow from "./../../styles/global.css";
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    width: 100%;
+}
+
+.img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    border-radius: var(--card-border-radius);
+}
+
+.author {
+    margin-top: 16px;
+    align-self: start;
+}
+
+@media (min-width: 1050px) {
+    .author {
+        margin-top: 32px;
+    }
+}
