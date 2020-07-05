@@ -1,16 +1,11 @@
 import Layout from "../components/Layout.js";
-import FeedbackForm from "../components/FeedbackForm";
-// import { segments } from "../constants/settings";
 import styles from "./styles.module.css";
 import We from "../components/We/We.js";
 import Carousel from "components/Carousel/Carousel";
 import Card from "components/Card/Card";
 import { API_URL } from "../constants/settings.js";
 import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
-// import Categories from "components/Categories/Categories.js";
 import FaqSection from "components/FaqSection/FaqSection.js";
-// import Segment from "components/Segment/Segment.js";
-// import MultiStepForm from "components/MultiStepForm/MultiStepForm.js";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -27,7 +22,6 @@ const Index = ({
     feedbacks,
     feedbackVideos,
     feedbackTexts,
-    categories,
     faqs,
     services,
 }) => (
@@ -89,15 +83,9 @@ const Index = ({
                 )}
             />
             <FaqSection list={faqs} className={styles.faq} />
+            {/* <SectionHeader title="Связаться" />
+            <Contacts className={styles.marginTop} /> */}
             {/* <MultiStepForm className={styles.feedbackForm} /> */}
-            <section className={styles.feedbackForm}>
-                <FeedbackForm
-                    title="Напишите свой вопрос"
-                    subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                    backgroundImage="/images/formBg.jpg"
-                    withComment={true}
-                />
-            </section>
         </div>
     </Layout>
 );

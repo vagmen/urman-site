@@ -29,7 +29,6 @@ const headingRenderer = (props) => {
 const imageRenderer = (props) => <img className="post-img" {...props} />;
 
 const linkRenderer = (props) => {
-    console.log("props", props);
     // return (
     //     <a className="post-a" href={props.href} target="_blank" rel="noopener noreferrer">
     //         ''

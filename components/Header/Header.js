@@ -37,6 +37,7 @@ class Header extends Component {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
                     buttonBg: colorViolet /* цвет фона кнопки чата */,
                 },
+                disabledOnMobile: true,
             };
         })(document, window, "Chatra");
 

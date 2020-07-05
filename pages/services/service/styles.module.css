@@ -39,7 +39,7 @@
 }
 
 .otherServices {
-    margin-bottom: var(--padding);
+    /* margin-bottom: var(--padding); */
 }
 
 .whyList {
@@ -58,28 +58,37 @@
     padding: 0;
 }
 
-@media (max-width: 1049px) {
+.contacts {
+    transform: translateY(-50%);
+    margin-bottom: -30px;
+}
+
+.marginTop {
+    /* margin-top: 30px; */
+    position: sticky;
+    bottom: 60px;
+}
+
+@media (max-width: 1399px) {
     .forDesktop {
         display: none;
     }
 }
 
 @media (min-width: 1050px) {
-    .forDesktop {
-        display: flex;
-    }
-
-    .forMobile {
-        display: none;
-    }
     .poster {
         height: 50vh;
         object-fit: cover;
     }
 
+    .contacts {
+        margin-bottom: -40px;
+    }
+
     .content {
         /* grid-template-columns: 1fr 1fr; */
         flex-wrap: nowrap;
+        /* margin-right: 0; */
     }
     .description {
         margin-right: var(--gap);
@@ -90,6 +99,8 @@
         padding: 0;
         overflow: hidden;
         flex: 1 1 0;
+        /* border-top-right-radius: 0;
+        border-bottom-right-radius: 0; */
     }
 
     .whyList {
@@ -112,5 +123,19 @@
 
     .videoCard {
         padding: 0;
+    }
+
+    .marginTop {
+        bottom: 140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .forDesktop {
+        display: flex;
+    }
+
+    .forMobile {
+        display: none;
     }
 }

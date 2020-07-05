@@ -7,6 +7,7 @@
     composes: shadow from "./../../styles/global.css";
     box-shadow: var(--box-shadow);
     overflow: hidden;
+    background: #fff;
 }
 
 .image {
@@ -18,11 +19,22 @@
     padding: 16px;
 }
 
+@media (max-width: 1049px) {
+    .image {
+        display: none;
+    }
+}
+
 @media (min-width: 1050px) {
     .card {
         flex-wrap: nowrap;
     }
+
     .image {
         width: 30%;
+    }
+
+    .content {
+        padding: var(--gap);
     }
 }

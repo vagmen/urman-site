@@ -1,11 +1,8 @@
 import Layout from "../../components/Layout";
-import FooterWithMap from "../../components/FooterWithMap";
 
 const Index = () => (
     <Layout menuItem="contacts">
-        <div className="wrapper">
-            <FooterWithMap isContacts={true} />
-        </div>
+        <div className="wrapper"></div>
         <style jsx>{`
             .wrapper {
                 padding-top: 60px;

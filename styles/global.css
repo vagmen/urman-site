@@ -2,7 +2,8 @@
     --colorPrimary: #488558;
     --colorPrimary300: rgba(72, 133, 88, 0.5);
     --colorPrimary100: rgba(72, 133, 88, 0.08);
-    --colorSecondary: #61ac27;
+    --colorSecondary: #e7c67b;
+    /* --colorSecondary: #61ac27; */
 }
 
 .pagePadding {

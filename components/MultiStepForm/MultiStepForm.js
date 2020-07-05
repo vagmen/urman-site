@@ -4,6 +4,7 @@ import classNames from "classnames";
 import SectionHeader from "components/SectionHeader/SectionHeader";
 import Button from "components/Button/Button";
 import Steps from "components/Steps/Steps";
+import { sendLeadNew } from "utils/api";
 
 const MultiStepForm = ({ className }) => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -22,13 +23,16 @@ const MultiStepForm = ({ className }) => {
     };
 
     const handlerSendQuestion = () => {
+        sendLeadNew({ name, phone, email, comment: question });
+
         setCurrentStep(0);
         setQuestion("");
         setPhone("");
         setEmail("");
         setName("");
-        const successMessage = { type: "success", text: "Ваше сообщение отправлено. Скоро мы свяжемся с Вами." };
-        setMessages([...messages, successMessage]);
+
+        // const successMessage = { type: "success", text: "Ваше сообщение отправлено. Скоро мы свяжемся с Вами." };
+        // setMessages([...messages, successMessage]);
 
         setTimeout(() => {
             const otherMessages = messages.filter((item) => item.type !== "success");
@@ -105,6 +109,7 @@ const MultiStepForm = ({ className }) => {
                             className={styles.button}
                             onClick={handlerSetCurrentStep1}
                             color="primary"
+                            disabled={question.length === 0}
                         />
                     )}
                     {currentStep === 1 && (
@@ -113,6 +118,7 @@ const MultiStepForm = ({ className }) => {
                             className={styles.button}
                             onClick={handlerSetCurrentStep2}
                             color="primary"
+                            disabled={phone.length === 0 || email.length === 0}
                         />
                     )}
                     {currentStep === 2 && (
@@ -121,6 +127,7 @@ const MultiStepForm = ({ className }) => {
                             className={styles.button}
                             onClick={handlerSendQuestion}
                             color="primary"
+                            disabled={name.length === 0}
                         />
                     )}
                     <Steps

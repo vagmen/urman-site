@@ -9,9 +9,6 @@
     padding-bottom: 16px;
 }
 
-.steps {
-}
-
 .question {
     border-radius: 4px;
     composes: fontSize from "./../../styles/global.css";
@@ -19,6 +16,7 @@
     font-size: var(--fontMedium);
     width: 100%;
     border: 1px solid var(--colorPrimary300);
+    padding: 8px;
 }
 
 .inputs {
@@ -51,11 +49,6 @@
 
 .button {
     width: 100%;
-}
-
-.link {
-    composes: colors from "./../../styles/global.css";
-    composes: fontSize from "./../../styles/global.css";
 }
 
 .desktopSteps {

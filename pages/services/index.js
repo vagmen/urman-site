@@ -1,5 +1,4 @@
 import Layout from "../../components/Layout";
-import FeedbackForm from "components/FeedbackForm";
 import { API_URL } from "../../constants/settings.js";
 import PageHeader from "components/PageHeader/PageHeader.js";
 import styles from "./styles.module.css";
@@ -20,12 +19,6 @@ const Index = ({ services }) => (
                     />
                 ))}
             </div>
-            <FeedbackForm
-                title="Оставьте заявку"
-                subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                backgroundImage="/images/4.jpg"
-                withComment={true}
-            />
         </div>
     </Layout>
 );

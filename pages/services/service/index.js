@@ -2,7 +2,6 @@ import Layout from "../../../components/Layout.js";
 import Error from "next/error";
 import { API_URL } from "../../../constants/settings.js";
 import styles from "./styles.module.css";
-import FeedbackForm from "components/FeedbackForm.js";
 import Carousel from "components/Carousel/Carousel.js";
 import Card from "components/Card/Card.js";
 import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown.js";
@@ -13,6 +12,7 @@ import VideoWrapper from "components/VideoWrapper/VideoWrapper.js";
 import classNames from "classnames";
 import SectionHeader from "components/SectionHeader/SectionHeader.js";
 import StageCard from "components/StageCard/StageCard.js";
+import Contacts from "components/Contacts/Contacts.js";
 
 const Index = ({
     currentService,
@@ -34,6 +34,9 @@ const Index = ({
         <Layout postData={{ title: currentService?.name, description: "" }}>
             <div className={styles.container}>
                 <img src={API_URL + currentService.poster.url} alt={currentService.name} className={styles.poster} />
+                {/* <div className={styles.contacts}>
+                    <Contacts />
+                </div> */}
                 <PageHeader title={currentService.name} />
                 <div className={styles.content}>
                     <CustomMarkdown source={currentService.content} className={styles.description} />
@@ -109,6 +112,8 @@ const Index = ({
                     }))}
                     renderItem={(props) => <Card {...props} />}
                 />
+                <SectionHeader title="Связаться" />
+                <Contacts className={styles.marginTop} />
                 <Carousel
                     title="Другие услуги"
                     link="/services"
@@ -122,12 +127,6 @@ const Index = ({
                         href: `/services/${item.slug}`,
                     }))}
                     renderItem={({ title, img, as, href }) => <Card title={title} img={img} as={as} href={href} />}
-                />
-                <FeedbackForm
-                    title="Напишите свой вопрос"
-                    subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                    backgroundImage="/images/4.jpg"
-                    withComment={true}
                 />
             </div>
         </Layout>

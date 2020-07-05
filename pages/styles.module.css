@@ -1,6 +1,6 @@
 .mainContainer {
     display: grid;
-    grid-template-rows: calc(100vh - 150px) auto auto auto auto auto auto auto auto auto;
+    grid-template-rows: calc(100vh - 150px) auto auto auto auto auto auto auto auto;
     grid-template-columns: 100%;
     grid-template-areas:
         "bg"
@@ -11,8 +11,7 @@
         "fv"
         "ft"
         "j"
-        "faq"
-        "ff";
+        "faq";
     animation: anim 0.3s ease-out;
 }
 
@@ -66,13 +65,6 @@
 
 .feedbackTexts {
     grid-area: ft;
-}
-
-.feedbackForm {
-    grid-area: ff;
-    z-index: 1;
-    composes: pagePadding from "./../styles/global.css";
-    padding-bottom: var(--padding);
 }
 
 .faq {

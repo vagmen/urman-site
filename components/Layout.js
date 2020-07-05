@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { ConfigProvider } from "antd";
@@ -6,10 +5,10 @@ import ruRU from "antd/lib/locale-provider/ru_RU";
 import { IconContext } from "react-icons";
 import MenuMobile from "components/MenuMobile/MenuMobile";
 import { mainMenu } from "../constants/menuData";
+import Footer from "./Footer/Footer";
+import MultiStepForm from "./MultiStepForm/MultiStepForm";
 
 const Header = dynamic(import("./Header/Header"));
-const FooterWithMap = dynamic(import("./FooterWithMap"));
-const Connect = dynamic(import("./Connect"));
 
 const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
@@ -18,7 +17,7 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
     const description = postData ? postData.description : menuItem ? menuItemData(menuItem)?.description : "";
     const image = <img src={metaImg || "/images/logo.png"} />;
     return (
-        <Fragment>
+        <>
             <Head>
                 <meta charSet="UTF-8" />
                 <meta name="theme-color" content="#488558" />
@@ -40,15 +39,15 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
             <Header headerOpacity={headerOpacity} isMainPage={isMainPage} />
             <ConfigProvider locale={ruRU}>
                 <IconContext.Provider value={{ className: "react-icons" }}>
-                    <Fragment>
+                    <>
                         <MenuMobile menuItem={menuItem} />
                         {children}
-                        {menuItem !== "contacts" && <FooterWithMap />}
-                        <Connect />
-                    </Fragment>
+                        <MultiStepForm />
+                        <Footer />
+                    </>
                 </IconContext.Provider>
             </ConfigProvider>
-        </Fragment>
+        </>
     );
 };
 

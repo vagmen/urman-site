@@ -75,7 +75,6 @@ import Layout from "../../../components/Layout.js";
 import Error from "next/error";
 import { API_URL } from "../../../constants/settings.js";
 import styles from "./styles.module.css";
-import FeedbackForm from "components/FeedbackForm.js";
 import Carousel from "components/Carousel/Carousel.js";
 import Card from "components/Card/Card.js";
 import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown.js";
@@ -124,12 +123,6 @@ const Index = ({ article, relatedServices, relatedArticles, err }) =>
                         href: `/services/${item.slug}`,
                     }))}
                     renderItem={({ title, img, as, href }) => <Card title={title} img={img} as={as} href={href} />}
-                />
-                <FeedbackForm
-                    title="Напишите свой вопрос"
-                    subTitle="Мы бесплатно проконсультируем Вас по любому вопросу, связанному с оформлением и использованием лесного участка"
-                    backgroundImage="/images/4.jpg"
-                    withComment={true}
                 />
             </div>
         </Layout>
