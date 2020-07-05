@@ -99,15 +99,15 @@ const Index = ({
                 />
                 <Carousel
                     title="Статьи по услуге"
-                    link="/articles"
+                    link="/journal"
                     className={styles.relatedArticles}
                     grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                     list={relatedArticles?.map((item) => ({
                         title: item.title,
                         img: API_URL + item.posterSmall?.url,
-                        id: item.slug,
-                        as: `/services/${item.slug}`,
-                        href: `/services/${item.slug}`,
+                        id: item.urlId,
+                        href: `/journal/post?id=${item.urlId}`,
+                        as: `/journal/${item.urlId}`,
                         extra: item.publishedAt,
                     }))}
                     renderItem={(props) => <Card {...props} />}
@@ -123,8 +123,8 @@ const Index = ({
                         title: item.name,
                         img: API_URL + item.posterSmall?.url,
                         id: item.slug,
+                        href: `/services/service?id=${item.slug}`,
                         as: `/services/${item.slug}`,
-                        href: `/services/${item.slug}`,
                     }))}
                     renderItem={({ title, img, as, href }) => <Card title={title} img={img} as={as} href={href} />}
                 />

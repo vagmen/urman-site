@@ -102,8 +102,8 @@ const Index = ({ article, relatedServices, relatedArticles, err }) =>
                         title: item.title,
                         img: API_URL + item.posterSmall?.url,
                         id: item.urlId,
+                        href: `/journal/post?id=${item.urlId}`,
                         as: `/journal/${item.urlId}`,
-                        href: `/journal/${item.urlId}`,
                         date: item.publishedAt,
                     }))}
                     renderItem={({ title, img, as, href, date }) => (
@@ -119,8 +119,8 @@ const Index = ({ article, relatedServices, relatedArticles, err }) =>
                         title: item.name,
                         img: API_URL + item.posterSmall?.url,
                         id: item.slug,
+                        href: `/services/service?id=${item.slug}`,
                         as: `/services/${item.slug}`,
-                        href: `/services/${item.slug}`,
                     }))}
                     renderItem={({ title, img, as, href }) => <Card title={title} img={img} as={as} href={href} />}
                 />

@@ -38,8 +38,8 @@ const Index = ({
                     title: item.name,
                     img: API_URL + item.posterSmall?.url,
                     id: item.slug,
+                    href: `/services/service?id=${item.slug}`,
                     as: `/services/${item.slug}`,
-                    href: `/services/${item.slug}`,
                 }))}
                 renderItem={({ title, img, as, href }) => <Card title={title} img={img} as={as} href={href} />}
             />
