@@ -14,8 +14,8 @@ const Index = ({ services }) => (
                         key={item.slug}
                         title={item.name}
                         img={API_URL + item.posterSmall?.url}
+                        href={"/services/service?id=" + item.slug}
                         as={"/services/" + item.slug}
-                        href={"/services/" + item.slug}
                     />
                 ))}
             </div>
