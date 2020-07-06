@@ -1,6 +1,6 @@
 import styles from "./Contacts.module.css";
 import classNames from "classnames";
-import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+import { FaTelegramPlane, FaWhatsapp, FaYoutube, FaVk, FaInstagram } from "react-icons/fa";
 
 const Contacts = ({ className }) => {
     return (
@@ -26,6 +26,33 @@ const Contacts = ({ className }) => {
                         </a>
                         <a title="Telegram" href="tg://resolve?domain=urmansu" className={styles.btn}>
                             <FaTelegramPlane className={styles.icon} color="#0088cc" />
+                        </a>
+                        <a
+                            href="https://www.youtube.com/channel/UCsXvoen-yfZy3fiAPJpBqig"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Открыть канал на YouTube"
+                            className={classNames(styles.btn, styles.showInDesktop)}
+                        >
+                            <FaYoutube className={styles.icon} color="#ff0000" />
+                        </a>
+                        <a
+                            href="https://vk.com/urman_su"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="ВКонтакте"
+                            className={classNames(styles.btn, styles.showInDesktop)}
+                        >
+                            <FaVk className={styles.icon} color="#4c75a3" />
+                        </a>
+                        <a
+                            href="https://www.instagram.com/urman.su"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Instagram"
+                            className={classNames(styles.btn, styles.showInDesktop)}
+                        >
+                            <FaInstagram className={styles.icon} color="#833AB4" />
                         </a>
                     </div>
                     <a

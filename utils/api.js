@@ -71,10 +71,10 @@ export const sendLeadNew = async ({ name = "", phone = "", email = "", comment =
         method: "get",
     });
 
-    if (res1) {
-        notification.success({
-            message: `Получили Вашу заявку`,
-            description: "В ближайшее время ответим Вам.",
-        });
-    }
+    // if (res1) {
+    //     notification.success({
+    //         message: `Получили Вашу заявку`,
+    //         description: "В ближайшее время ответим Вам.",
+    //     });
+    // }
 };

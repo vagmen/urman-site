@@ -3,16 +3,19 @@ import styles from "./SectionHeader.module.css";
 import classNames from "classnames";
 import Link from "next/link";
 
-const SectionHeader = ({ title, link, className, linkTitle }) => {
+const SectionHeader = ({ title, link, className, linkTitle, description }) => {
     return (
-        <div className={classNames(className, styles.container)}>
-            <h2 className={styles.title}>{title}</h2>
-            {link && (
-                <Link href={link}>
-                    <p className={styles.link}>{linkTitle}</p>
-                </Link>
-            )}
-        </div>
+        <>
+            <div className={classNames(className, styles.container)}>
+                <h2 className={styles.title}>{title}</h2>
+                {link && (
+                    <Link href={link}>
+                        <p className={styles.link}>{linkTitle}</p>
+                    </Link>
+                )}
+            </div>
+            <p className={styles.description}>{description}</p>
+        </>
     );
 };
 

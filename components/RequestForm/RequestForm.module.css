@@ -1,0 +1,114 @@
+.container {
+}
+
+.content {
+    composes: pagePadding from "./../../styles/global.css";
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+}
+
+.question {
+    border-radius: 4px;
+    composes: fontSize from "./../../styles/global.css";
+    composes: colors from "./../../styles/global.css";
+    font-size: var(--fontMedium);
+    width: 100%;
+    border: 1px solid var(--colorPrimary300);
+    padding: 8px;
+}
+
+.inputs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.commonInput {
+    border-radius: 4px;
+    composes: fontSize from "./../../styles/global.css";
+    composes: colors from "./../../styles/global.css";
+    font-size: var(--fontMedium);
+    border: 1px solid var(--colorPrimary300);
+    flex: 1 1 0;
+    padding: 8px;
+}
+
+.input {
+    composes: commonInput;
+}
+
+.name {
+    composes: commonInput;
+    width: 100%;
+}
+
+.input:first-of-type {
+    margin-bottom: 16px;
+}
+
+.button {
+    width: 100%;
+}
+
+.desktopSteps {
+    display: none;
+    height: 0;
+    margin-top: 0;
+    overflow: hidden;
+}
+
+.mobileSteps {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.successMessages {
+    composes: colors from "./../../styles/global.css";
+    border: 1px solid var(--colorPrimary300);
+    background: var(--colorPrimary100);
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontTiny);
+    padding: 16px;
+    margin-top: 16px;
+}
+
+@media (min-width: 1050px) {
+    .content {
+        padding: var(--gap);
+        composes: shadow from "./../../styles/global.css";
+        box-shadow: var(--box-shadow);
+        background: #fff;
+        border-radius: 8px;
+    }
+
+    .buttonWrapper {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .button {
+        width: auto;
+        order: 2;
+    }
+
+    .desktopSteps {
+        display: flex;
+        height: auto;
+        overflow: inherit;
+    }
+
+    .mobileSteps {
+        display: none;
+        height: 0;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+    .input:first-of-type {
+        margin-bottom: 0;
+        margin-right: 16px;
+    }
+}

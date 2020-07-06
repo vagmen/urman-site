@@ -82,4 +82,7 @@
     .btn {
         margin-bottom: 16px;
     }
+    .phone {
+        background: var(--colorPrimary);
+    }
 }

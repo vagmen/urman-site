@@ -27,6 +27,14 @@
     text-decoration: underline;
 }
 
+.description {
+    composes: pagePadding from "./../../styles/global.css";
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+    margin-top: -16px;
+    margin-bottom: 16px;
+}
+
 @media (min-width: 1050px) {
     .container {
         margin-top: calc(var(--padding) / 2);

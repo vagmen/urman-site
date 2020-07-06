@@ -35,7 +35,7 @@ class Header extends Component {
                         : "br", // положение кнопки чата на больших экранах
                 colors: {
                     buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: colorViolet /* цвет фона кнопки чата */,
+                    buttonBg: "#e7c67b" /* цвет фона кнопки чата */,
                 },
                 disabledOnMobile: true,
             };

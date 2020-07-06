@@ -13,6 +13,7 @@ import classNames from "classnames";
 import SectionHeader from "components/SectionHeader/SectionHeader.js";
 import StageCard from "components/StageCard/StageCard.js";
 import Contacts from "components/Contacts/Contacts.js";
+import RequestForm from "components/RequestForm/RequestForm.js";
 
 const Index = ({
     currentService,
@@ -76,6 +77,7 @@ const Index = ({
                         ))}
                     </div>
                 </div>
+                <RequestForm title="Оставьте заявку" />
                 <Carousel
                     title={stagesTitle}
                     className={styles.relatedEmployees}
@@ -90,6 +92,10 @@ const Index = ({
                     list={relatedEmployees}
                     renderItem={(props) => <EmployeeCard {...props} />}
                 />
+                {/* <div className={styles.contactsSection}> */}
+                <SectionHeader title="Связаться" description="Позвоните или напишите нам в любой социальной сети" />
+                <Contacts className={styles.marginTop} />
+                {/* </div> */}
                 <Carousel
                     title="Отзывы"
                     className={styles.feedbackTexts}
@@ -112,8 +118,6 @@ const Index = ({
                     }))}
                     renderItem={(props) => <Card {...props} />}
                 />
-                <SectionHeader title="Связаться" />
-                <Contacts className={styles.marginTop} />
                 <Carousel
                     title="Другие услуги"
                     link="/services"

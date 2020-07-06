@@ -60,7 +60,8 @@
 
 .contacts {
     transform: translateY(-50%);
-    margin-bottom: -30px;
+    /* margin-bottom: -30px; */
+    /* height: 50%; */
 }
 
 .marginTop {
@@ -77,8 +78,12 @@
 
 @media (min-width: 1050px) {
     .poster {
-        height: 50vh;
+        height: 40vh;
         object-fit: cover;
+    }
+
+    .contactsSection {
+        /* display: none; */
     }
 
     .contacts {
@@ -126,7 +131,8 @@
     }
 
     .marginTop {
-        bottom: 140px;
+        /* bottom: 140px; */
+        position: inherit;
     }
 }
 

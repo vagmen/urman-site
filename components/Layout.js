@@ -7,6 +7,7 @@ import MenuMobile from "components/MenuMobile/MenuMobile";
 import { mainMenu } from "../constants/menuData";
 import Footer from "./Footer/Footer";
 import MultiStepForm from "./MultiStepForm/MultiStepForm";
+import RequestForm from "./RequestForm/RequestForm";
 
 const Header = dynamic(import("./Header/Header"));
 
@@ -42,7 +43,8 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
                     <>
                         <MenuMobile menuItem={menuItem} />
                         {children}
-                        <MultiStepForm />
+                        {/* <MultiStepForm /> */}
+                        <RequestForm />
                         <Footer />
                     </>
                 </IconContext.Provider>
