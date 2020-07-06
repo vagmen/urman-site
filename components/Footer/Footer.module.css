@@ -1,5 +1,5 @@
 .container {
-    margin-bottom: 80px;
+    padding-bottom: 80px;
     composes: pagePadding from "./../../styles/global.css";
     margin-left: var(--padding);
     margin-right: var(--padding);

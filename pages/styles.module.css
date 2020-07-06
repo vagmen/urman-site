@@ -69,5 +69,5 @@
 
 .faq {
     grid-area: faq;
-    padding-bottom: var(--padding);
+    /* padding-bottom: var(--padding); */
 }
