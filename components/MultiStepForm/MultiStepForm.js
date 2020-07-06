@@ -22,8 +22,14 @@ const MultiStepForm = ({ className }) => {
         setCurrentStep(2);
     };
 
-    const handlerSendQuestion = () => {
+    const handlerSendQuestion = async () => {
         sendLeadNew({ name, phone, email, comment: question });
+
+        // await fetch("/api/user", {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({ name, email }),
+        // });
 
         setCurrentStep(0);
         setQuestion("");

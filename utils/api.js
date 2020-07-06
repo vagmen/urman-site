@@ -64,7 +64,7 @@ export const sendLead = async ({ formType = "default" }) => {
 
 export const sendLeadNew = async ({ name = "", phone = "", email = "", comment = "" }) => {
     ym(51360247, "reachGoal", "feedback-form");
-    const baseUrl1 = "http://vagmen.ru/urman/sendLeadToPfMail.php?";
+    const baseUrl1 = "https://vagmen.ru/urman/sendLeadToPfMail.php?";
     const { pathname } = window.location;
     const url1 = `${baseUrl1}name=${name}&phone=${phone}&email=${email}&comment=${comment}&pathname=${pathname}&`;
     const res1 = await fetch(url1, {
