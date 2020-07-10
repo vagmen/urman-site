@@ -1,4 +1,25 @@
 .container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: 1111;
+    background: #fff;
+}
+
+.visible {
+    display: block;
+}
+
+.close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
 }
 
 .content {
@@ -7,6 +28,15 @@
     margin-right: var(--padding);
     margin-bottom: 16px;
     padding-bottom: 16px;
+}
+
+.header {
+    composes: fontSize from "./../../styles/global.css";
+
+    font-size: var(--fontLarge);
+    color: #333;
+    margin: 80px auto 20px;
+    width: auto;
 }
 
 .question {
@@ -61,7 +91,6 @@
 .mobileSteps {
     display: flex;
     margin-bottom: 16px;
-    /* padding-top: 16px; */
 }
 
 .successMessages {
@@ -75,14 +104,14 @@
 }
 
 @media (min-width: 1050px) {
-    .container {
+    .header {
+        margin-bottom: 40px;
+        margin-top: 100px;
     }
     .content {
-        padding: var(--gap);
-        composes: shadow from "./../../styles/global.css";
-        box-shadow: var(--box-shadow);
-        background: #fff;
-        border-radius: 8px;
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
     }
 
     .buttonWrapper {
@@ -95,6 +124,7 @@
     .button {
         width: auto;
         order: 2;
+        width: 100%;
     }
 
     .desktopSteps {
@@ -112,6 +142,6 @@
 
     .input:first-of-type {
         margin-bottom: 0;
-        margin-right: 16px;
+        /* margin-right: 16px; */
     }
 }

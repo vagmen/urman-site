@@ -69,9 +69,12 @@
         top: 0;
         bottom: auto;
         composes: pagePadding from "./../../styles/global.css";
-        right: var(--padding);
         width: auto;
         z-index: 100;
+        justify-content: center;
+        left: 50%;
+        right: inherit;
+        transform: translateX(-50%);
     }
 
     .menu {
@@ -85,35 +88,27 @@
     }
 
     .item {
-        margin-left: 32px;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 
     .title {
         text-transform: uppercase;
-        text-align: end;
+        text-align: center;
     }
 
     .icon {
         display: none;
     }
-}
-
-@media (min-width: 1400px) {
-    .nav {
-        justify-content: center;
-        left: 50%;
-        right: inherit;
-        transform: translateX(-50%);
-    }
 
     .link {
         flex: 0 0 auto;
     }
+}
 
+@media (min-width: 1400px) {
     .item {
+        margin-left: 32px;
         margin-right: 32px;
-    }
-    .title {
-        text-align: center;
     }
 }

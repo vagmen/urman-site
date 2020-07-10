@@ -5,6 +5,7 @@ import SectionHeader from "components/SectionHeader/SectionHeader";
 import Button from "components/Button/Button";
 import Steps from "components/Steps/Steps";
 import { sendLeadNew } from "utils/api";
+import { useRouter } from "next/router";
 
 const MultiStepForm = ({ className }) => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -13,6 +14,7 @@ const MultiStepForm = ({ className }) => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [messages, setMessages] = useState([]);
+    const router = useRouter();
 
     const handlerSetCurrentStep1 = () => {
         setCurrentStep(1);
@@ -23,7 +25,9 @@ const MultiStepForm = ({ className }) => {
     };
 
     const handlerSendQuestion = async () => {
-        sendLeadNew({ name, phone, email, comment: question });
+        setCurrentStep(3);
+
+        // sendLeadNew({ name, phone, email, comment: question });
 
         // await fetch("/api/user", {
         //     method: "POST",
@@ -31,11 +35,11 @@ const MultiStepForm = ({ className }) => {
         //     body: JSON.stringify({ name, email }),
         // });
 
-        setCurrentStep(0);
-        setQuestion("");
-        setPhone("");
-        setEmail("");
-        setName("");
+        // setCurrentStep(0);
+        // setQuestion("");
+        // setPhone("");
+        // setEmail("");
+        // setName("");
 
         // const successMessage = { type: "success", text: "Ваше сообщение отправлено. Скоро мы свяжемся с Вами." };
         // setMessages([...messages, successMessage]);
@@ -84,14 +88,14 @@ const MultiStepForm = ({ className }) => {
                                 value={phone}
                                 onChange={(event) => setPhone(event.target.value)}
                             />
-                            <input
+                            {/* <input
                                 type="email"
                                 name="email"
                                 className={styles.input}
                                 placeholder="E-mail"
                                 value={email}
                                 onChange={(event) => setEmail(event.target.value)}
-                            />
+                            /> */}
                         </div>
                     </>
                 )}
@@ -106,6 +110,12 @@ const MultiStepForm = ({ className }) => {
                             value={name}
                             onChange={(event) => setName(event.target.value)}
                         />
+                    </>
+                )}
+                {currentStep === 3 && (
+                    <>
+                        <p>Получили Ваше обращение.</p>
+                        <p>В ближайшее время перезвоним Вам. Надеемся на продуктивное сотрудничество.</p>
                     </>
                 )}
                 <div className={styles.buttonWrapper}>
@@ -124,7 +134,7 @@ const MultiStepForm = ({ className }) => {
                             className={styles.button}
                             onClick={handlerSetCurrentStep2}
                             color="primary"
-                            disabled={phone.length === 0 || email.length === 0}
+                            disabled={phone.length === 0}
                         />
                     )}
                     {currentStep === 2 && (
@@ -136,11 +146,13 @@ const MultiStepForm = ({ className }) => {
                             disabled={name.length === 0}
                         />
                     )}
-                    <Steps
-                        list={[{ title: "Вопрос" }, { title: "Контакты" }, { title: "Имя" }]}
-                        current={currentStep}
-                        className={styles.desktopSteps}
-                    />
+                    {currentStep !== 3 && (
+                        <Steps
+                            list={[{ title: "Вопрос" }, { title: "Контакты" }, { title: "Имя" }]}
+                            current={currentStep}
+                            className={styles.desktopSteps}
+                        />
+                    )}
                 </div>
                 {successMessages?.length > 0 && (
                     <div className={styles.successMessages}>

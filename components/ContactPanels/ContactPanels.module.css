@@ -1,0 +1,129 @@
+.wrapper {
+    composes: pagePadding from "./../../styles/global.css";
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+    z-index: 1;
+}
+
+.content {
+    margin: -16px;
+    padding: 16px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.btns {
+    display: grid;
+    position: fixed;
+    bottom: 64px;
+    right: 0;
+    grid-template-columns: 1fr;
+    z-index: 1111;
+    align-items: flex-end;
+}
+
+.btn {
+    border-radius: 24px;
+    height: 48px;
+    width: 48px;
+    padding: 8px;
+    background: #fff;
+    composes: shadow from "./../../styles/global.css";
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontSmall);
+    color: #fff;
+    transition: all 0.4s;
+    cursor: pointer;
+    z-index: 1111;
+    justify-self: end;
+    composes: pagePadding from "./../../styles/global.css";
+    margin-right: var(--padding);
+    margin-top: 8px;
+}
+
+.btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+.phone {
+    padding: 8px;
+    composes: colors from "./../../styles/global.css";
+    /* background: #e7c67b; */
+    background: var(--colorSecondary);
+    color: #fff;
+    transition: transform 0.4s;
+    width: auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: fixed;
+    top: 8px;
+    right: 0;
+    bottom: unset;
+    left: unset;
+    /* z-index: 111; */
+    composes: shadow from "./../../styles/global.css";
+    box-shadow: var(--box-shadow);
+    composes: pagePadding from "./../../styles/global.css";
+    margin-right: var(--padding);
+    margin-top: 0;
+}
+
+.callback {
+    padding: 8px 16px;
+    composes: colors from "./../../styles/global.css";
+    /* background: #e7c67b; */
+    background: var(--colorPrimary);
+    color: #fff;
+    transition: transform 0.4s;
+    width: auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    composes: shadow from "./../../styles/global.css";
+    box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 1049px) {
+    .showInDesktop {
+        display: none;
+    }
+}
+
+@media (min-width: 1050px) {
+    .showInPhone {
+        display: none;
+    }
+    .wrapper {
+        bottom: 0;
+        position: relative;
+    }
+    .content {
+        justify-content: flex-start;
+    }
+    .btns {
+        margin-left: 16px;
+        bottom: 16px;
+    }
+
+    .btn {
+        margin-top: 16px;
+        margin-right: 16px;
+    }
+    .phone,
+    .callback {
+        padding: 8px 16px;
+    }
+    .phone {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}

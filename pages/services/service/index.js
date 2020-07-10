@@ -77,7 +77,7 @@ const Index = ({
                         ))}
                     </div>
                 </div>
-                <RequestForm title="Оставьте заявку" />
+                <RequestForm title="Заказ обратного звонка" />
                 <Carousel
                     title={stagesTitle}
                     className={styles.relatedEmployees}

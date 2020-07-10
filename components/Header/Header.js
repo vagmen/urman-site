@@ -17,29 +17,29 @@ let ticking = false;
 
 class Header extends Component {
     componentDidMount() {
-        (function (d, w, c) {
-            w.ChatraID = "DKFod4oh55xDx6Q29";
-            var s = d.createElement("script");
-            w[c] =
-                w[c] ||
-                function () {
-                    (w[c].q = w[c].q || []).push(arguments);
-                };
-            s.async = true;
-            s.src = "https://call.chatra.io/chatra.js";
-            if (d.head) d.head.appendChild(s);
-            w.ChatraSetup = {
-                buttonPosition:
-                    window.innerWidth < 1024 // порог ширины
-                        ? "bc" // положение кнопки чата на маленьких экранах
-                        : "br", // положение кнопки чата на больших экранах
-                colors: {
-                    buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
-                    buttonBg: "#e7c67b" /* цвет фона кнопки чата */,
-                },
-                disabledOnMobile: true,
-            };
-        })(document, window, "Chatra");
+        // (function (d, w, c) {
+        //     w.ChatraID = "DKFod4oh55xDx6Q29";
+        //     var s = d.createElement("script");
+        //     w[c] =
+        //         w[c] ||
+        //         function () {
+        //             (w[c].q = w[c].q || []).push(arguments);
+        //         };
+        //     s.async = true;
+        //     s.src = "https://call.chatra.io/chatra.js";
+        //     if (d.head) d.head.appendChild(s);
+        //     w.ChatraSetup = {
+        //         buttonPosition:
+        //             window.innerWidth < 1024 // порог ширины
+        //                 ? "bc" // положение кнопки чата на маленьких экранах
+        //                 : "br", // положение кнопки чата на больших экранах
+        //         colors: {
+        //             buttonText: "#f0f0f0" /* цвет текста кнопки чата */,
+        //             buttonBg: "#e7c67b" /* цвет фона кнопки чата */,
+        //         },
+        //         disabledOnMobile: true,
+        //     };
+        // })(document, window, "Chatra");
 
         //google Analitics
         initGA();

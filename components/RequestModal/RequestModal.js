@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import styles from "./RequestForm.module.css";
+import styles from "./RequestModal.module.css";
 import classNames from "classnames";
 import SectionHeader from "components/SectionHeader/SectionHeader";
 import Button from "components/Button/Button";
 import Steps from "components/Steps/Steps";
 import { sendLeadNew } from "utils/api";
+import { MdClose } from "react-icons/md";
+import { notification } from "antd";
 
-const RequestForm = ({ className, title }) => {
+const RequestModal = ({ className, title, visible, onClose }) => {
     const [currentStep, setCurrentStep] = useState(0);
     const [question, setQuestion] = useState("");
     const [phone, setPhone] = useState("");
@@ -17,6 +19,12 @@ const RequestForm = ({ className, title }) => {
     const handlerSetCurrentStep1 = () => {
         sendLeadNew({ name, phone, email, comment: question });
         setCurrentStep(3);
+        onClose();
+        notification.success({
+            message: `Получили Вашу заявку`,
+            description: "В ближайшее время ответим Вам.",
+            top: 80,
+        });
     };
 
     const handlerSetCurrentStep2 = () => {
@@ -52,15 +60,16 @@ const RequestForm = ({ className, title }) => {
     const errorMessages = messages.filter((item) => item.type === "error");
 
     return (
-        <div className={classNames(className, styles.container)}>
-            <SectionHeader title={title || "Обратный звонок"} />
+        <div className={classNames(styles.container, { [styles.visible]: visible })}>
+            {/* <SectionHeader title="Заказ обратного звонка" /> */}
             <div className={styles.content}>
+                <p className={styles.header}>Обратный звонок</p>
+                <MdClose color="#333" className={styles.close} onClick={onClose} />
                 {/* <Steps
                     list={[{ title: "Вопрос" }, { title: "Контакты" }, { title: "Имя" }]}
                     current={currentStep}
                     className={styles.mobileSteps}
                 /> */}
-
                 {currentStep === 0 && (
                     <>
                         <p>Мы перезвоним вам и бесплатно проконсультируем:</p>
@@ -173,4 +182,4 @@ const RequestForm = ({ className, title }) => {
     );
 };
 
-export default RequestForm;
+export default RequestModal;

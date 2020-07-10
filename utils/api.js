@@ -1,4 +1,5 @@
 import { notification } from "antd";
+import { useRouter } from "next/router";
 
 const FORM_TYPES = {
     default: {
@@ -70,7 +71,6 @@ export const sendLeadNew = async ({ name = "", phone = "", email = "", comment =
     const res1 = await fetch(url1, {
         method: "get",
     });
-
     // if (res1) {
     //     notification.success({
     //         message: `Получили Вашу заявку`,
