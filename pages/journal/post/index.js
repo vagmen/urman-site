@@ -104,10 +104,10 @@ const Index = ({ article, relatedServices, relatedArticles, err }) =>
                         id: item.urlId,
                         href: `/journal/post?id=${item.urlId}`,
                         as: `/journal/${item.urlId}`,
-                        date: item.publishedAt,
+                        description: item.description,
                     }))}
-                    renderItem={({ title, img, as, href, date }) => (
-                        <Card title={title} img={img} as={as} href={href} extra={date} />
+                    renderItem={({ title, img, as, href, description }) => (
+                        <Card title={title} img={img} as={as} href={href} extra={description} />
                     )}
                 />
                 <Carousel

@@ -114,7 +114,7 @@ const Index = ({
                         id: item.urlId,
                         href: `/journal/post?id=${item.urlId}`,
                         as: `/journal/${item.urlId}`,
-                        extra: item.publishedAt,
+                        extra: item.description,
                     }))}
                     renderItem={(props) => <Card {...props} />}
                 />

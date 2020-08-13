@@ -35,7 +35,8 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
                     content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1"
                 />
                 <meta name="google-site-verification" content="DTZ5X6H4xmsBhZUVAeNA0iqkBxXuf6pwWPzqXC3LhOY" />
-                <meta name="yandex-verification" content="6d5ccb923e12ca16" />
+                {/* <meta name="yandex-verification" content="6d5ccb923e12ca16" /> */}
+                <meta name="yandex-verification" content="090c1190f20c2e2a" />
                 <title>{title}</title>
                 <meta name="description" content={description} />
                 <meta property="og:title" content={title} />

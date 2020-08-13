@@ -40,16 +40,22 @@
 .extra {
     composes: fontSize from "./../../styles/global.css";
     font-size: var(--fontTiny);
-    padding-top: 16px;
+    padding-top: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 @media (min-width: 1050px) {
     .card:hover {
         transform: translateY(-4px);
     }
+
     .img {
         height: 170px;
     }
+
     .title {
         line-height: 32px;
     }

@@ -130,7 +130,7 @@ Index.getInitialProps = async function () {
             description: item.description,
             as: `/journal/${item.urlId}`,
             href: `/journal/post?id=${item.urlId}`,
-            extra: item.publishedAt,
+            extra: item.description,
         }));
 
         const allFeedbacks = await fetchFeedbacks();
