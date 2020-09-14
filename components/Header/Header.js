@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from "../../constants/colors";
+import { mainColorLight, mainColorDark } from "../../constants/colors";
 import {
     postWidth,
     pageWidthTablets,
@@ -146,7 +146,6 @@ class Header extends Component {
                         height: 100vh;
                     }
                     body {
-                        background: ${mainColorLightBgr};
                         font-family: Rubik, Helvetica, sans-serif;
                     }
                     button {

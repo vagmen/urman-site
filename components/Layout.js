@@ -1,5 +1,4 @@
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import { ConfigProvider } from "antd";
 import ruRU from "antd/lib/locale-provider/ru_RU";
 import { IconContext } from "react-icons";
@@ -10,8 +9,7 @@ import MultiStepForm from "./MultiStepForm/MultiStepForm";
 import ContactPanels from "./ContactPanels/ContactPanels";
 import RequestModal from "./RequestModal/RequestModal";
 import { useState } from "react";
-
-const Header = dynamic(import("./Header/Header"));
+import Header from "components/Header/Header";
 
 const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 

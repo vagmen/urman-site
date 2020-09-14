@@ -3,7 +3,6 @@ import styles from "./RequestForm.module.css";
 import classNames from "classnames";
 import SectionHeader from "components/SectionHeader/SectionHeader";
 import Button from "components/Button/Button";
-import Steps from "components/Steps/Steps";
 import { sendLeadNew } from "utils/api";
 import * as gtag from "lib/gtag";
 
@@ -60,12 +59,6 @@ const RequestForm = ({ className, title }) => {
         <div className={classNames(className, styles.container)}>
             <SectionHeader title={title || "Обратный звонок"} />
             <div className={styles.content}>
-                {/* <Steps
-                    list={[{ title: "Вопрос" }, { title: "Контакты" }, { title: "Имя" }]}
-                    current={currentStep}
-                    className={styles.mobileSteps}
-                /> */}
-
                 {currentStep === 0 && (
                     <>
                         <p>Мы перезвоним вам и бесплатно проконсультируем:</p>
@@ -153,11 +146,6 @@ const RequestForm = ({ className, title }) => {
                             disabled={question.length === 0}
                         />
                     )}
-                    {/* <Steps
-                        list={[{ title: "Вопрос" }, { title: "Контакты" }, { title: "Имя" }]}
-                        current={currentStep}
-                        className={styles.desktopSteps}
-                    /> */}
                 </div>
                 {successMessages?.length > 0 && (
                     <div className={styles.successMessages}>

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styles from "./RequestModal.module.css";
 import classNames from "classnames";
-import SectionHeader from "components/SectionHeader/SectionHeader";
 import Button from "components/Button/Button";
-import Steps from "components/Steps/Steps";
 import { sendLeadNew } from "utils/api";
 import { MdClose } from "react-icons/md";
 import { notification } from "antd";
@@ -66,15 +64,9 @@ const RequestModal = ({ className, title, visible, onClose }) => {
 
     return (
         <div className={classNames(styles.container, { [styles.visible]: visible })}>
-            {/* <SectionHeader title="Заказ обратного звонка" /> */}
             <div className={styles.content}>
                 <p className={styles.header}>Обратный звонок</p>
                 <MdClose color="#333" className={styles.close} onClick={onClose} />
-                {/* <Steps
-                    list={[{ title: "Вопрос" }, { title: "Контакты" }, { title: "Имя" }]}
-                    current={currentStep}
-                    className={styles.mobileSteps}
-                /> */}
                 {currentStep === 0 && (
                     <>
                         <p>Мы перезвоним вам и бесплатно проконсультируем:</p>
@@ -162,11 +154,6 @@ const RequestModal = ({ className, title, visible, onClose }) => {
                             disabled={question.length === 0}
                         />
                     )}
-                    {/* <Steps
-                        list={[{ title: "Вопрос" }, { title: "Контакты" }, { title: "Имя" }]}
-                        current={currentStep}
-                        className={styles.desktopSteps}
-                    /> */}
                 </div>
                 {successMessages?.length > 0 && (
                     <div className={styles.successMessages}>
