@@ -7,6 +7,7 @@ import Steps from "components/Steps/Steps";
 import { sendLeadNew } from "utils/api";
 import { MdClose } from "react-icons/md";
 import { notification } from "antd";
+import * as gtag from "lib/gtag";
 
 const RequestModal = ({ className, title, visible, onClose }) => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -17,6 +18,10 @@ const RequestModal = ({ className, title, visible, onClose }) => {
     const [messages, setMessages] = useState([]);
 
     const handlerSetCurrentStep1 = () => {
+        gtag.event({
+            category: "forms",
+            action: "callBackFromModal",
+        });
         sendLeadNew({ name, phone, email, comment: question });
         setCurrentStep(3);
         onClose();

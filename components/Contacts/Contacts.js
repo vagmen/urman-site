@@ -1,6 +1,7 @@
 import styles from "./Contacts.module.css";
 import classNames from "classnames";
 import { FaTelegramPlane, FaWhatsapp, FaYoutube, FaVk, FaInstagram } from "react-icons/fa";
+import * as gtag from "lib/gtag";
 
 const Contacts = ({ className }) => {
     return (
@@ -11,6 +12,13 @@ const Contacts = ({ className }) => {
                         href="tel:+79631363486"
                         className={classNames(styles.btn, styles.phone, styles.showInDesktop)}
                         title="Позвонить"
+                        onClick={() => {
+                            ym(51360247, "reachGoal", "tel1");
+                            gtag.event({
+                                category: "phone",
+                                action: "body",
+                            });
+                        }}
                     >
                         +7(963)136-34-86
                     </a>

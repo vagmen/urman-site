@@ -5,7 +5,7 @@ import SectionHeader from "components/SectionHeader/SectionHeader";
 import Button from "components/Button/Button";
 import Steps from "components/Steps/Steps";
 import { sendLeadNew } from "utils/api";
-import { useRouter } from "next/router";
+import * as gtag from "lib/gtag";
 
 const MultiStepForm = ({ className }) => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -14,7 +14,6 @@ const MultiStepForm = ({ className }) => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [messages, setMessages] = useState([]);
-    const router = useRouter();
 
     const handlerSetCurrentStep1 = () => {
         setCurrentStep(1);
@@ -29,11 +28,10 @@ const MultiStepForm = ({ className }) => {
 
         sendLeadNew({ name, phone, email, comment: question });
 
-        // await fetch("/api/user", {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({ name, email }),
-        // });
+        gtag.event({
+            category: "forms",
+            action: "withQuestion",
+        });
 
         // setCurrentStep(0);
         // setQuestion("");

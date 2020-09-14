@@ -5,6 +5,7 @@ import SectionHeader from "components/SectionHeader/SectionHeader";
 import Button from "components/Button/Button";
 import Steps from "components/Steps/Steps";
 import { sendLeadNew } from "utils/api";
+import * as gtag from "lib/gtag";
 
 const RequestForm = ({ className, title }) => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -17,6 +18,10 @@ const RequestForm = ({ className, title }) => {
     const handlerSetCurrentStep1 = () => {
         sendLeadNew({ name, phone, email, comment: question });
         setCurrentStep(3);
+        gtag.event({
+            category: "forms",
+            action: "callBack",
+        });
     };
 
     const handlerSetCurrentStep2 = () => {

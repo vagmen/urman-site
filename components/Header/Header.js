@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { initGA, trackPageView } from "../../modules/react-ga.js";
-import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid, colorViolet } from "../../constants/colors";
+import { mainColorLightBgr, mainColorLight, mainColorDark, mainColorMid } from "../../constants/colors";
 import {
     postWidth,
     pageWidthTablets,
@@ -41,9 +40,6 @@ class Header extends Component {
         //     };
         // })(document, window, "Chatra");
 
-        //google Analitics
-        initGA();
-        trackPageView();
         this.setOpacity();
         window.addEventListener("scroll", this.handleScroll);
 

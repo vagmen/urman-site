@@ -2,6 +2,7 @@ import styles from "./Footer.module.css";
 import classNames from "classnames";
 import { MdLocationOn, MdEmail, MdLocalPhone } from "react-icons/md";
 import { FaYoutube, FaWhatsapp, FaTelegramPlane, FaVk, FaInstagram } from "react-icons/fa";
+import * as gtag from "lib/gtag";
 
 const Footer = ({ className }) => {
     return (
@@ -21,7 +22,13 @@ const Footer = ({ className }) => {
                     href="tel:+79631363486"
                     className={styles.item}
                     title="Позвонить"
-                    onClick={() => ym(51360247, "reachGoal", "tel1")}
+                    onClick={() => {
+                        ym(51360247, "reachGoal", "tel1");
+                        gtag.event({
+                            category: "phone",
+                            action: "footer",
+                        });
+                    }}
                 >
                     <MdLocalPhone className={styles.icon} color="#488558" />
                     <span className={styles.label}>+7 (963) 136-34-86</span>

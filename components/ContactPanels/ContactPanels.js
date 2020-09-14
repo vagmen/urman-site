@@ -2,6 +2,7 @@ import styles from "./ContactPanels.module.css";
 import classNames from "classnames";
 import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { MdLocalPhone } from "react-icons/md";
+import * as gtag from "lib/gtag";
 
 const ContactPanels = ({ className, onOpenModal }) => {
     return (
@@ -10,7 +11,13 @@ const ContactPanels = ({ className, onOpenModal }) => {
                 href="tel:+79631363486"
                 className={classNames(styles.btn, styles.phone, styles.showInDesktop)}
                 title="Позвонить"
-                onClick={() => ym(51360247, "reachGoal", "tel1")}
+                onClick={() => {
+                    ym(51360247, "reachGoal", "tel1");
+                    gtag.event({
+                        category: "phone",
+                        action: "header",
+                    });
+                }}
             >
                 +7(963)136-34-86
             </a>
@@ -18,7 +25,13 @@ const ContactPanels = ({ className, onOpenModal }) => {
                 href="tel:+79631363486"
                 className={classNames(styles.btn, styles.phone, styles.showInPhone)}
                 title="Позвонить"
-                onClick={() => ym(51360247, "reachGoal", "tel1")}
+                onClick={() => {
+                    ym(51360247, "reachGoal", "tel1");
+                    gtag.event({
+                        category: "phone",
+                        action: "header",
+                    });
+                }}
             >
                 <MdLocalPhone className={styles.icon} color="#fff" />
             </a>
