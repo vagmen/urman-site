@@ -22,6 +22,20 @@
     margin-bottom: var(--padding);
 }
 
+.columns {
+    composes: pagePadding from "./../../../styles/global.css";
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: var(--gap);
+}
+
+.sidebarList {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: calc(var(--gap) / 2);
+    margin-bottom: var(--gap);
+}
+
 @media (min-width: 1050px) {
     .posterWrapper {
         margin-left: var(--padding);
@@ -31,5 +45,10 @@
     .poster {
         height: 60vh;
         object-fit: cover;
+    }
+
+    .columns {
+        display: grid;
+        grid-template-columns: 1fr 300px;
     }
 }

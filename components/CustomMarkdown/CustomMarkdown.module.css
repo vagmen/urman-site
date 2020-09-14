@@ -23,6 +23,10 @@
     font-size: var(--fontLarge);
 }
 
+.container > p {
+    margin-top: 32px;
+}
+
 .h2 {
     composes: fontSize from "./../../styles/global.css";
     font-size: var(--fontLarge);

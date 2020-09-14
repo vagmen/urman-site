@@ -79,54 +79,103 @@ import Carousel from "components/Carousel/Carousel.js";
 import Card from "components/Card/Card.js";
 import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown.js";
 import PageHeader from "components/PageHeader/PageHeader.js";
+import { useWindowSize } from "utils/hooks.js";
 
-const Index = ({ article, relatedServices, relatedArticles, err }) =>
-    err ? (
+const Index = ({ article, relatedServices, relatedArticles, err }) => {
+    const { width } = useWindowSize();
+    return err ? (
         <Error statusCode={err} />
     ) : (
-        <Layout postData={{ title: article?.title, description: "" }}>
+        <Layout postData={{ title: article?.title, description: article.description }}>
             <div className={styles.container}>
                 <div className={styles.posterWrapper}>
                     <img src={API_URL + article?.poster?.url} alt={article.title} className={styles.poster} />
                 </div>
                 <PageHeader title={article.title} />
                 <div className={styles.content}>
-                    <CustomMarkdown source={article.content} />
+                    <div className={styles.columns}>
+                        <CustomMarkdown source={article.content} />
+                        {width >= 1050 && (
+                            <div className={styles.sidebar}>
+                                {relatedArticles && relatedArticles[0] && (
+                                    <>
+                                        <h3 className={styles.sidebarHeader}>Другие статьи</h3>
+                                        <div className={styles.sidebarList}>
+                                            {relatedArticles.map((item) => (
+                                                <Card
+                                                    key={item.urlId}
+                                                    title={item.title}
+                                                    img={API_URL + item.posterSmall?.url}
+                                                    href={"/journal/post?id=" + item.urlId}
+                                                    as={"/journal/" + item.urlId}
+                                                    extra={item.description}
+                                                />
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                                {relatedServices && relatedServices[0] && (
+                                    <>
+                                        <h3 className={styles.sidebarHeader}>Связанные услуги</h3>
+                                        <div className={styles.sidebarList}>
+                                            {relatedServices?.map((item) => (
+                                                <Card
+                                                    key={item.slug}
+                                                    title={item.name}
+                                                    img={API_URL + item.posterSmall?.url}
+                                                    href={`/services/service?id=${item.slug}`}
+                                                    as={`/services/${item.slug}`}
+                                                    extra={item.description}
+                                                />
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+                        )}
+                    </div>
                 </div>
-                <Carousel
-                    title="Другие статьи"
-                    link="/journal"
-                    className={styles.otherServices}
-                    grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
-                    list={relatedArticles?.map((item) => ({
-                        title: item.title,
-                        img: API_URL + item.posterSmall?.url,
-                        id: item.urlId,
-                        href: `/journal/post?id=${item.urlId}`,
-                        as: `/journal/${item.urlId}`,
-                        description: item.description,
-                    }))}
-                    renderItem={({ title, img, as, href, description }) => (
-                        <Card title={title} img={img} as={as} href={href} extra={description} />
-                    )}
-                />
-                <Carousel
-                    title="Связанные услуги"
-                    link="/services"
-                    className={styles.otherServices}
-                    grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
-                    list={relatedServices?.map((item) => ({
-                        title: item.name,
-                        img: API_URL + item.posterSmall?.url,
-                        id: item.slug,
-                        href: `/services/service?id=${item.slug}`,
-                        as: `/services/${item.slug}`,
-                    }))}
-                    renderItem={({ title, img, as, href }) => <Card title={title} img={img} as={as} href={href} />}
-                />
+                {width < 1050 && (
+                    <>
+                        <Carousel
+                            title="Другие статьи"
+                            link="/journal"
+                            className={styles.otherServices}
+                            grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
+                            list={relatedArticles?.map((item) => ({
+                                title: item.title,
+                                img: API_URL + item.posterSmall?.url,
+                                id: item.urlId,
+                                href: `/journal/post?id=${item.urlId}`,
+                                as: `/journal/${item.urlId}`,
+                                description: item.description,
+                            }))}
+                            renderItem={({ title, img, as, href, description }) => (
+                                <Card title={title} img={img} as={as} href={href} extra={description} />
+                            )}
+                        />
+                        <Carousel
+                            title="Связанные услуги"
+                            link="/services"
+                            className={styles.otherServices}
+                            grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
+                            list={relatedServices?.map((item) => ({
+                                title: item.name,
+                                img: API_URL + item.posterSmall?.url,
+                                id: item.slug,
+                                href: `/services/service?id=${item.slug}`,
+                                as: `/services/${item.slug}`,
+                            }))}
+                            renderItem={({ title, img, as, href }) => (
+                                <Card title={title} img={img} as={as} href={href} />
+                            )}
+                        />
+                    </>
+                )}
             </div>
         </Layout>
     );
+};
 
 Index.getInitialProps = async function ({ query }) {
     const id = query.id;
@@ -137,7 +186,7 @@ Index.getInitialProps = async function ({ query }) {
     if (article && article[0]) {
         return {
             article: article[0],
-            relatedServices: article[0].services,
+            relatedServices: article[0].relatedServices,
             relatedArticles: article[0].relatedArticles,
         };
     } else {
