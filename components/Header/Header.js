@@ -239,35 +239,10 @@ class Header extends Component {
                     .full-width {
                         width: 100%;
                     }
-                    .grid,
-                    .grid-with-menu {
+                    .grid {
                         display: grid;
                         grid-template-columns: 1fr;
                         grid-gap: 30px;
-                    }
-                    .grid__item {
-                        transition: all 0.3s;
-                        background: #fff;
-                    }
-                    .grid__item time {
-                        color: #3a431b;
-                        font-weight: 200;
-                    }
-                    .clickable-block {
-                        cursor: pointer;
-                    }
-                    .clickable-block:hover {
-                        box-shadow: 0px 0px 35px 4px rgba(0, 0, 0, 0.3);
-                    }
-                    .player-wrapper {
-                        position: relative;
-                        padding-top: 56.25%;
-                        margin: 16px 0;
-                    }
-                    .react-player {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
                     }
                     .post {
                         color: #262421;
@@ -308,65 +283,13 @@ class Header extends Component {
                     ul.without-mark {
                         list-style-type: none;
                     }
-                    .post-card {
-                        padding: 24px;
-                        border-radius: 24px;
-                        background: ${mainColorLight};
-                        cursor: pointer;
-                        color: #fff;
-                        transition: all 0.4s;
-                        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-                            0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-                    }
-                    .post-card:hover {
-                        background: ${mainColorMid};
-                        box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-                            0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-                        transform: translateY(-5px);
-                    }
-                    .post-card a {
-                        font-size: 28px;
-                        color: inherit;
-                        text-decoration: none;
-                    }
-                    .post-card a:hover {
-                        color: inherit;
-                    }
                     .post-img {
                         width: 100%;
                         margin-bottom: 0.8rem;
                     }
-                    .for-desktop {
-                        display: none;
-                    }
-                    .for-mobile {
-                        display: block;
-                    }
-                    .hide-in-keyboard {
-                        display: block;
-                    }
-                    .page-padding {
-                        padding-left: 4px;
-                        padding-right: 4px;
-                    }
-                    @media (max-height: 550px) {
-                        .hide-in-keyboard {
-                            display: none;
-                        }
-                    }
-                    // подвинуть кнопку чатры, чтобы не заслонять мобильное меню
-                    .chatra--side-bottom {
-                        bottom: 80px !important;
-                        max-height: calc(100% - 100px) !important;
-                    }
                     @media (min-width: 640px) {
-                        .grid,
-                        .grid-with-menu {
+                        .grid {
                             grid-template-columns: 1fr 1fr;
-                        }
-                        .clickable-block:hover {
-                            transform: translate(0, -10px);
-                            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
                         }
                         .post {
                             margin-top: 20px;
@@ -385,9 +308,6 @@ class Header extends Component {
                         .grid {
                             grid-template-columns: 1fr 1fr 1fr;
                         }
-                        .grid-with-menu {
-                            grid-template-columns: 1fr 1fr;
-                        }
                         .page-content {
                             padding-top: 100px;
                             margin: 0 20px;
@@ -405,26 +325,10 @@ class Header extends Component {
                             margin-top: 2rem;
                             margin-bottom: 4rem;
                         }
-                        .player-wrapper {
-                            margin: 32px 0;
-                        }
-                        // подвинуть кнопку чатры, чтобы не заслонять мобильное меню
-                        .chatra--side-bottom {
-                            bottom: 20px !important;
-                        }
                     }
                     @media (min-width: 1200px) {
                         .grid {
                             grid-template-columns: 1fr 1fr 1fr 1fr;
-                        }
-                        .grid-with-menu {
-                            grid-template-columns: 1fr 1fr 1fr;
-                        }
-                        .for-desktop {
-                            display: inline-block;
-                        }
-                        .for-mobile {
-                            display: none;
                         }
                         .post h1 {
                             font-size: 4rem;
@@ -445,41 +349,33 @@ class Header extends Component {
                         .grid {
                             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
                         }
-                        .grid-with-menu {
-                            grid-template-columns: 1fr 1fr 1fr 1fr;
-                        }
                     }
                     @media (min-width: ${pageWidthTablets}) {
-                        .post,
-                        .page-padding {
+                        .post {
                             padding-left: 8px;
                             padding-right: 8px;
                         }
                     }
                     @media (min-width: ${pageWidthDesktopsSmall}) {
-                        .post,
-                        .page-padding {
+                        .post {
                             padding-left: 12px;
                             padding-right: 12px;
                         }
                     }
                     @media (min-width: ${pageWidthDesktopsMedium}) {
-                        .post,
-                        .page-padding {
+                        .post {
                             padding-left: 16px;
                             padding-right: 16px;
                         }
                     }
                     @media (min-width: ${pageWidthDesktopsLarge}) {
-                        .post,
-                        .page-padding {
+                        .post {
                             padding-left: 20px;
                             padding-right: 20px;
                         }
                     }
                     @media (min-width: ${pageWidthDesktopsExtraLarge}) {
-                        .post,
-                        .page-padding {
+                        .post {
                             padding-left: 24px;
                             padding-right: 24px;
                         }

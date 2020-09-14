@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import Statistics from "../../components/Statistics";
 
 const Index = () => (
     <Layout menuItem="about">
@@ -52,7 +51,7 @@ const Index = () => (
                     <img className="post-img" src="../../images/about/about10.jpg" alt="Московский офис" />
                     <img className="post-img" src="../../images/about/about8.jpg" alt="Сотрудники в процессе работы" />
                     <p>Да пребудет с Вами URMAN.</p>
-                    <Statistics />
+                    {/* <Statistics /> */}
                 </div>
             </div>
         </div>

@@ -7,7 +7,6 @@ import MenuMobile from "components/MenuMobile/MenuMobile";
 import { mainMenu } from "../constants/menuData";
 import Footer from "./Footer/Footer";
 import MultiStepForm from "./MultiStepForm/MultiStepForm";
-import RequestForm from "./RequestForm/RequestForm";
 import ContactPanels from "./ContactPanels/ContactPanels";
 import RequestModal from "./RequestModal/RequestModal";
 import { useState } from "react";
