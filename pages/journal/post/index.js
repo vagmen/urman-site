@@ -89,7 +89,12 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
         <Layout postData={{ title: article?.title, description: article.description }}>
             <div className={styles.container}>
                 <div className={styles.posterWrapper}>
-                    <img src={API_URL + article?.poster?.url} alt={article.title} className={styles.poster} />
+                    <img
+                        src={API_URL + article?.poster?.url}
+                        alt={article.title}
+                        className={styles.poster}
+                        loading="lazy"
+                    />
                 </div>
                 <PageHeader title={article.title} />
                 <div className={styles.content}>

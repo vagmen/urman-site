@@ -6,7 +6,7 @@ import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown";
 const StageCard = ({ className, image, content }) => {
     return (
         <div className={classNames(styles.card, className)}>
-            <img className={styles.image} src={image} />
+            <img className={styles.image} src={image} loading="lazy" />
             <CustomMarkdown source={content} className={styles.content} />
         </div>
     );

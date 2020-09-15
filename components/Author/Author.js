@@ -6,8 +6,8 @@ const Author = ({ name, company, avatar, logo, className }) => {
         <div className={classNames(styles.container, className)}>
             {(avatar || logo) && (
                 <div className={styles.images}>
-                    <img src={avatar || logo} className={styles.avatar} />
-                    {avatar && logo && <img src={logo} className={styles.logo} />}
+                    <img src={avatar || logo} className={styles.avatar} loading="lazy" />
+                    {avatar && logo && <img src={logo} className={styles.logo} loading="lazy" />}
                 </div>
             )}
             <div className={styles.text}>

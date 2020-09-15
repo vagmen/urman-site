@@ -34,7 +34,12 @@ const Index = ({
     ) : (
         <Layout postData={{ title: currentService?.name, description: "" }}>
             <div className={styles.container}>
-                <img src={API_URL + currentService.poster.url} alt={currentService.name} className={styles.poster} />
+                <img
+                    src={API_URL + currentService.poster.url}
+                    alt={currentService.name}
+                    className={styles.poster}
+                    loading="lazy"
+                />
                 {/* <div className={styles.contacts}>
                     <Contacts />
                 </div> */}
@@ -59,7 +64,7 @@ const Index = ({
                                     title={quote.text}
                                     type="text"
                                 />
-                                <img className={styles.avatar} src={quote.avatarV} />
+                                <img className={styles.avatar} src={quote.avatarV} loading="lazy" />
                             </div>
                         </div>
                     )}

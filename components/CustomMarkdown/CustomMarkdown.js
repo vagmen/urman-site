@@ -26,7 +26,7 @@ const headingRenderer = (props) => {
     }
 };
 
-const imageRenderer = (props) => <img className="post-img" {...props} />;
+const imageRenderer = (props) => <img className="post-img" {...props} loading="lazy" />;
 
 const linkRenderer = (props) => {
     // return (

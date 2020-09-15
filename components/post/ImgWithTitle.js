@@ -5,7 +5,7 @@ const ImgWithTitle = ({ title, src, className = "", children, ...props }) => {
 
     return (
         <div className="post-img-wrapper">
-            <img src={src} alt={alt} title={alt} />
+            <img src={src} alt={alt} title={alt} loading="lazy" />
             {title && <em>{title}</em>}
             <style jsx>{`
                 .post-img-wrapper {
