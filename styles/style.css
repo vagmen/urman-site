@@ -1,3 +1,12 @@
+/* rubik-regular - latin_cyrillic */
+/* @font-face {
+    font-family: "Rubik";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url("../public/fonts/rubik-v10-latin_cyrillic-regular.woff2") format("woff2"),
+        url("../public/fonts/rubik-v10-latin_cyrillic-regular.woff") format("woff");
+} */
+
 html {
     width: 100%;
     overflow-x: hidden;
@@ -5,6 +14,8 @@ html {
 
 body {
     font-size: 14px;
+    font-family: "Rubik", sans-serif;
+    font-display: swap;
 }
 
 p {

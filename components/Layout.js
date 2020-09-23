@@ -33,13 +33,20 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
                 />
                 <meta name="google-site-verification" content="DTZ5X6H4xmsBhZUVAeNA0iqkBxXuf6pwWPzqXC3LhOY" />
                 {/* <meta name="yandex-verification" content="6d5ccb923e12ca16" /> */}
-                <meta name="yandex-verification" content="090c1190f20c2e2a" />
+                {/* <meta name="yandex-verification" content="090c1190f20c2e2a" /> */}
+                <meta name="yandex-verification" content="e814767f0c229f30" />
                 <title>{title}</title>
                 <meta name="description" content={description} />
                 <meta property="og:title" content={title} />
                 <meta property="og:image" content={image} />
                 <meta name="robots" content="index,follow" />
-                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" />
+                <link
+                    rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.6.4/antd.compact.min.css"
+                    integrity="sha512-guk54J6R429LOl1EGP/NDRTBeLq/QnPcT3ffTBKB7VGQsgcANggBxHIWnct/vUGB7hZ/yZvl15TriL8wb7vFOw=="
+                    crossOrigin="anonymous"
+                />
+                {/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" /> */}
             </Head>
             <Header headerOpacity={headerOpacity} isMainPage={isMainPage} />
             <ContactPanels onOpenModal={() => setVisible(true)} />

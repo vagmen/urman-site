@@ -81,7 +81,6 @@ class AdminLayout extends Component {
                     </IconContext.Provider>
                 </ConfigProvider>
                 <style jsx global>{`
-                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
                     body {
                         font-size: 16px;
                         font-family: Rubik, Helvetica, sans-serif;

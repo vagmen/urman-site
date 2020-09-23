@@ -128,7 +128,8 @@ class Header extends Component {
                 {isMainPage && <div className={styles.bgImage} />}
                 <div className={styles.bg} id="headerBg" />
                 <style jsx global>{`
-                    @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
+                    // @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
+                    @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
                     h1,
                     h2,
                     h3,
@@ -146,7 +147,7 @@ class Header extends Component {
                         height: 100vh;
                     }
                     body {
-                        font-family: Rubik, Helvetica, sans-serif;
+                        // font-family: Rubik, Helvetica, sans-serif;
                     }
                     button {
                         border: none;
