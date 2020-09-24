@@ -28,6 +28,7 @@ const MultiStepForm = ({ className }) => {
 
         sendLeadNew({ name, phone, email, comment: question });
 
+        ym(51360247,'reachGoal','formWithQuestion')
         gtag.event({
             category: "forms",
             action: "withQuestion",

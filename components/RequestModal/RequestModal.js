@@ -16,6 +16,7 @@ const RequestModal = ({ className, title, visible, onClose }) => {
     const [messages, setMessages] = useState([]);
 
     const handlerSetCurrentStep1 = () => {
+        ym(51360247, "reachGoal", "formCallBackFromModal");
         gtag.event({
             category: "forms",
             action: "callBackFromModal",

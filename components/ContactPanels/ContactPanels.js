@@ -12,7 +12,7 @@ const ContactPanels = ({ className, onOpenModal }) => {
                 className={classNames(styles.btn, styles.phone, styles.showInDesktop)}
                 title="Позвонить"
                 onClick={() => {
-                    ym(51360247, "reachGoal", "tel1");
+                    ym(51360247, "reachGoal", "phoneHeader");
                     gtag.event({
                         category: "phone",
                         action: "header",
@@ -26,7 +26,7 @@ const ContactPanels = ({ className, onOpenModal }) => {
                 className={classNames(styles.btn, styles.phone, styles.showInPhone)}
                 title="Позвонить"
                 onClick={() => {
-                    ym(51360247, "reachGoal", "tel1");
+                    ym(51360247, "reachGoal", "phoneHeader");
                     gtag.event({
                         category: "phone",
                         action: "header",

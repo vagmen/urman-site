@@ -13,7 +13,7 @@ const Contacts = ({ className }) => {
                         className={classNames(styles.btn, styles.phone, styles.showInDesktop)}
                         title="Позвонить"
                         onClick={() => {
-                            ym(51360247, "reachGoal", "tel1");
+                            ym(51360247, "reachGoal", "phoneBody");
                             gtag.event({
                                 category: "phone",
                                 action: "body",

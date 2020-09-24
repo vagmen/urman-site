@@ -31,7 +31,6 @@ const FORM_TYPES = {
 
 // export const sendLead = async ({ name = "", phone = "", formName = "" }) => {
 export const sendLead = async ({ formType = "default" }) => {
-    ym(51360247, "reachGoal", "feedback-form");
     const baseUrl1 = "http://vagmen.ru/urman/sendLeadToPfMail.php?";
     // const baseUrl2 = "http://vagmen.ru/urman/sendLeadToAmo.php?";
     const name = localStorage.getItem("name");
@@ -64,7 +63,6 @@ export const sendLead = async ({ formType = "default" }) => {
 };
 
 export const sendLeadNew = async ({ name = "", phone = "", email = "", comment = "" }) => {
-    ym(51360247, "reachGoal", "feedback-form");
     const baseUrl1 = "https://vagmen.ru/urman/sendLeadToPfMail.php?";
     const { pathname } = window.location;
     const url1 = `${baseUrl1}name=${name}&phone=${phone}&email=${email}&comment=${comment}&pathname=${pathname}&`;

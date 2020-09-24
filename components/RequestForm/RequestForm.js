@@ -17,6 +17,7 @@ const RequestForm = ({ className, title }) => {
     const handlerSetCurrentStep1 = () => {
         sendLeadNew({ name, phone, email, comment: question });
         setCurrentStep(3);
+        ym(51360247, "reachGoal", "formCallBack");
         gtag.event({
             category: "forms",
             action: "callBack",

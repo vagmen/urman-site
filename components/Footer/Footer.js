@@ -23,7 +23,7 @@ const Footer = ({ className }) => {
                     className={styles.item}
                     title="Позвонить"
                     onClick={() => {
-                        ym(51360247, "reachGoal", "tel1");
+                        ym(51360247, "reachGoal", "phoneFooter");
                         gtag.event({
                             category: "phone",
                             action: "footer",
