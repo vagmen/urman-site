@@ -64,6 +64,7 @@ class Header extends Component {
             webvisor: true,
         });
     }
+
     componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
     }

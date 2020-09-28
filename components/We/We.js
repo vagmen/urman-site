@@ -3,7 +3,9 @@ import styles from "./We.module.css";
 import classNames from "classnames";
 import ReactPlayer from "react-player";
 import ReactMarkdown from "react-markdown";
-import { MdCheckCircle } from "react-icons/md";
+import { TiTree } from "react-icons/ti";
+// import { LiteYouTubeEmbed } from "react-lite-youtube-embed";
+import YouTubePlayer from "components/YouTubePlayer/YouTubePlayer";
 
 const We = ({ statistics, whoAreWe, benefits, className, video }) => {
     return (
@@ -26,17 +28,19 @@ const We = ({ statistics, whoAreWe, benefits, className, video }) => {
                 </div>
             </div>
             <div className={styles.playerWrapper}>
-                <ReactPlayer
+                <YouTubePlayer url={video || "https://www.youtube.com/watch?v=Vm9iiVhUU9U"} />
+                {/* <ReactPlayer
                     url={video || "https://www.youtube.com/watch?v=Vm9iiVhUU9U"}
                     width="100%"
                     height="100%"
                     className={styles.video}
-                />
+                /> */}
+                {/* <LiteYouTubeEmbed id="Vm9iiVhUU9U" title="What’s new in Material Design for the web" /> */}
             </div>
             <div className={styles.benefits}>
                 {benefits.map((benefit) => (
                     <div className={styles.benefit} key={"benefit" + benefit.id}>
-                        <MdCheckCircle className={styles.benefitIcon} size={40} />
+                        <TiTree className={styles.benefitIcon} size={40} />
                         <p className={styles.benefitText}>{benefit.description}</p>
                     </div>
                 ))}

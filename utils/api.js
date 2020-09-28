@@ -1,5 +1,4 @@
 import { notification } from "antd";
-import { useRouter } from "next/router";
 
 const FORM_TYPES = {
     default: {
@@ -43,7 +42,7 @@ export const sendLead = async ({ formType = "default" }) => {
     //     FORM_TYPES[formType].name
     // }&pathname=${pathname}&`;
     if (phone) {
-        const res1 = await fetch(url1, {
+        await fetch(url1, {
             method: "get",
         });
         // const res2 = await fetch(url2, {
@@ -66,7 +65,7 @@ export const sendLeadNew = async ({ name = "", phone = "", email = "", comment =
     const baseUrl1 = "https://vagmen.ru/urman/sendLeadToPfMail.php?";
     const { pathname } = window.location;
     const url1 = `${baseUrl1}name=${name}&phone=${phone}&email=${email}&comment=${comment}&pathname=${pathname}&`;
-    const res1 = await fetch(url1, {
+    await fetch(url1, {
         method: "get",
     });
     // if (res1) {

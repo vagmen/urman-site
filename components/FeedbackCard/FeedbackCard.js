@@ -16,7 +16,13 @@ const FeedbackCard = ({ className, title, avatar, logo, author, company, img, ty
             )}
             {type === "recommendation" && (
                 <div className={styles.imgWrapper}>
-                    <img src={img} className={styles.img} loading="lazy" />
+                    <img
+                        src={img}
+                        className={styles.img}
+                        loading="lazy"
+                        alt={`Рекомендательное письмо от ${author}`}
+                        title={`Рекомендательное письмо от ${author}`}
+                    />
                 </div>
             )}
 

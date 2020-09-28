@@ -1,6 +1,5 @@
 import styles from "./StageCard.module.css";
 import classNames from "classnames";
-import Author from "components/Author/Author";
 import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown";
 
 const StageCard = ({ className, image, content }) => {

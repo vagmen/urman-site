@@ -31,10 +31,10 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
                     <div className={styles.columns}>
                         <CustomMarkdown source={article.content} />
                         {width >= 1050 && (
-                            <div className={styles.sidebar}>
+                            <div>
                                 {relatedArticles && relatedArticles[0] && (
                                     <>
-                                        <h3 className={styles.sidebarHeader}>Другие статьи</h3>
+                                        <h3>Другие статьи</h3>
                                         <div className={styles.sidebarList}>
                                             {relatedArticles.map((item) => (
                                                 <Card
@@ -51,7 +51,7 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
                                 )}
                                 {relatedServices && relatedServices[0] && (
                                     <>
-                                        <h3 className={styles.sidebarHeader}>Связанные услуги</h3>
+                                        <h3>Связанные услуги</h3>
                                         <div className={styles.sidebarList}>
                                             {relatedServices?.map((item) => (
                                                 <Card

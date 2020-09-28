@@ -58,12 +58,6 @@
     padding: 0;
 }
 
-.contacts {
-    transform: translateY(-50%);
-    /* margin-bottom: -30px; */
-    /* height: 50%; */
-}
-
 .marginTop {
     /* margin-top: 30px; */
     /* position: sticky;
@@ -80,14 +74,6 @@
     .poster {
         height: 40vh;
         object-fit: cover;
-    }
-
-    .contactsSection {
-        /* display: none; */
-    }
-
-    .contacts {
-        margin-bottom: -40px;
     }
 
     .content {

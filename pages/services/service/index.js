@@ -40,9 +40,6 @@ const Index = ({
                     className={styles.poster}
                     loading="lazy"
                 />
-                {/* <div className={styles.contacts}>
-                    <Contacts />
-                </div> */}
                 <PageHeader title={currentService.name} />
                 <div className={styles.content}>
                     <CustomMarkdown source={currentService.content} className={styles.description} />
@@ -69,7 +66,7 @@ const Index = ({
                         </div>
                     )}
                 </div>
-                <div className={styles.why}>
+                <div>
                     <SectionHeader title={whyTitle} />
                     <div className={styles.whyList}>
                         {whyList?.map((item) => (
@@ -85,14 +82,12 @@ const Index = ({
                 <RequestForm title="Заказ обратного звонка" />
                 <Carousel
                     title={stagesTitle}
-                    className={styles.relatedEmployees}
                     grid={{ mobile: 1, tablet: 1, m: 1, l: 1, xl: 1 }}
                     list={stages}
                     renderItem={(props) => <StageCard {...props} />}
                 />
                 <Carousel
                     title={employeeTitle}
-                    className={styles.relatedEmployees}
                     grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                     list={relatedEmployees}
                     renderItem={(props) => <EmployeeCard {...props} />}
@@ -103,7 +98,6 @@ const Index = ({
                 {/* </div> */}
                 <Carousel
                     title="Отзывы"
-                    className={styles.feedbackTexts}
                     grid={{ mobile: 1, m: 2, l: 2, xl: 3 }}
                     list={relatedFeedbacks}
                     renderItem={(props) => <FeedbackCard {...props} />}
@@ -111,7 +105,6 @@ const Index = ({
                 <Carousel
                     title="Статьи по услуге"
                     link="/journal"
-                    className={styles.relatedArticles}
                     grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                     list={relatedArticles?.map((item) => ({
                         title: item.title,
