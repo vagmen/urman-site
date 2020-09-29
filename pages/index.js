@@ -6,6 +6,7 @@ import Card from "components/Card/Card";
 import { API_URL } from "../constants/settings.js";
 import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
 import FaqSection from "components/FaqSection/FaqSection.js";
+import VideoCard from "components/VideoCard/VideoCard.js";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -17,6 +18,7 @@ const Index = ({
     statistics,
     whoAreWe,
     video,
+    videoList,
     benefits,
     articles,
     feedbacks,
@@ -82,6 +84,14 @@ const Index = ({
                     <Card title={title} img={img} as={as} href={href} extra={extra} />
                 )}
             />
+            <Carousel
+                title="Видео с нашего канала"
+                link="https://www.youtube.com/channel/UCsXvoen-yfZy3fiAPJpBqig/featured"
+                className={styles.video}
+                grid={{ mobile: 1, tablet: 2, m: 2, l: 2, xl: 3 }}
+                list={videoList}
+                renderItem={(props) => <VideoCard {...props} />}
+            />
             <FaqSection list={faqs} className={styles.faq} />
             {/* <SectionHeader title="Связаться" />
             <Contacts className={styles.marginTop} /> */}
@@ -102,6 +112,7 @@ Index.getInitialProps = async function () {
     let faqs = [];
     let services = [];
     let video = "";
+    let videoList = [];
     try {
         const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
         const data = await res.json();
@@ -116,6 +127,7 @@ Index.getInitialProps = async function () {
         const main = await mainJson.json();
         whoAreWe = main.whoAreWe;
         video = main.video;
+        videoList = main.videoList;
 
         const benefitsJson = await fetch(API_URL + "/benefits");
         benefits = await benefitsJson.json();
@@ -154,6 +166,7 @@ Index.getInitialProps = async function () {
         statistics,
         whoAreWe,
         video,
+        videoList,
         benefits,
         articles,
         feedbacks,

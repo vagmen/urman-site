@@ -1,13 +1,13 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import styles from "./YouTubePlayer.module.css";
 import classNames from "classnames";
 import ReactPlayer from "react-player";
-import ReactMarkdown from "react-markdown";
-import { TiTree } from "react-icons/ti";
-// import { LiteYouTubeEmbed } from "react-lite-youtube-embed";
 
 function parseMediaURL(url) {
-    const ids = url.split(".com/watch?v=");
+    let ids = url.split(".com/watch?v=");
+    if (ids.length === 1) {
+        ids = url.split("youtu.be/");
+    }
     return ids.length > 0 ? ids[1] : null;
 }
 

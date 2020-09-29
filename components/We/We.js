@@ -29,13 +29,6 @@ const We = ({ statistics, whoAreWe, benefits, className, video }) => {
             </div>
             <div className={styles.playerWrapper}>
                 <YouTubePlayer url={video || "https://www.youtube.com/watch?v=Vm9iiVhUU9U"} />
-                {/* <ReactPlayer
-                    url={video || "https://www.youtube.com/watch?v=Vm9iiVhUU9U"}
-                    width="100%"
-                    height="100%"
-                    className={styles.video}
-                /> */}
-                {/* <LiteYouTubeEmbed id="Vm9iiVhUU9U" title="What’s new in Material Design for the web" /> */}
             </div>
             <div className={styles.benefits}>
                 {benefits.map((benefit) => (

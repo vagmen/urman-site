@@ -11,6 +11,7 @@
         "fv"
         "ft"
         "j"
+        "video"
         "faq";
     animation: anim 0.3s ease-out;
 }
@@ -70,4 +71,8 @@
 .faq {
     grid-area: faq;
     /* padding-bottom: var(--padding); */
+}
+
+.video {
+    grid-area: video;
 }
