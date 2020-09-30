@@ -25,6 +25,12 @@ class MyDocument extends Document {
           `,
                         }}
                     />
+                    {/* <link
+                        rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+                    /> */}
+                    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+                    {/* <link href="https://unpkg.com/sanitize.css/typography.css" rel="stylesheet" /> */}
                 </Head>
                 <body>
                     <Main />

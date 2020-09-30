@@ -40,12 +40,12 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
                 <meta property="og:title" content={title} />
                 <meta property="og:image" content={image} />
                 <meta name="robots" content="index,follow" />
-                <link
+                {/* <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.6.4/antd.compact.min.css"
                     integrity="sha512-guk54J6R429LOl1EGP/NDRTBeLq/QnPcT3ffTBKB7VGQsgcANggBxHIWnct/vUGB7hZ/yZvl15TriL8wb7vFOw=="
                     crossOrigin="anonymous"
-                />
+                /> */}
                 {/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" /> */}
             </Head>
             <Header headerOpacity={headerOpacity} isMainPage={isMainPage} />

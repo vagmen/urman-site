@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import We from "../components/We/We.js";
 import Carousel from "components/Carousel/Carousel";
 import Card from "components/Card/Card";
+import CardNew from "components/CardNew/CardNew";
 import { API_URL } from "../constants/settings.js";
 import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
 import FaqSection from "components/FaqSection/FaqSection.js";
@@ -44,6 +45,7 @@ const Index = ({
                     as: `/services/${item.slug}`,
                 }))}
                 renderItem={({ title, img, as, href }) => <Card title={title} img={img} as={as} href={href} />}
+                // renderItem={({ title, img, as, href }) => <CardNew title={title} img={img} as={as} href={href} />}
             />
             <Carousel
                 title="Рекомендательные письма"

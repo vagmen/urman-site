@@ -12,7 +12,8 @@
 .title {
     composes: fontSize from "./../../styles/global.css";
     font-size: var(--fontLarge);
-    color: #333;
+    color: #252525;
+    font-weight: 500;
 }
 
 .link {

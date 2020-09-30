@@ -43,6 +43,9 @@
     font-size: calc(var(--fontSmall) * 1.6);
     margin-top: calc(var(--fontSmall) * 1.6);
     line-height: calc(var(--fontSmall) * 1.9);
+    font-weight: 500;
+    composes: colors from "./../../styles/global.css";
+    color: var(--colorPrimary);
 }
 .h5 {
     composes: fontSize from "./../../styles/global.css";

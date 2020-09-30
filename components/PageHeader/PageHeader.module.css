@@ -12,7 +12,8 @@
 .title {
     composes: fontSize from "./../../styles/global.css";
     font-size: var(--fontHuge);
-    color: #333;
+    color: #252525;
+    font-weight: 500;
     line-height: calc(var(--fontHuge) * 1.2);
 }
 

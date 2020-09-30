@@ -91,7 +91,7 @@
 
 @media (min-width: 1400px) {
     .pagePadding {
-        --padding: 200px;
+        --padding: 240px;
         --gap: 48px;
     }
 }
