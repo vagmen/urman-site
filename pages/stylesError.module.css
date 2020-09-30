@@ -1,0 +1,29 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    composes: pagePadding from "./../styles/global.css";
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    padding-top: 10%;
+    position: relative;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.description {
+    composes: colors from "./../styles/global.css";
+    color: #515151;
+    composes: fontSize from "./../styles/global.css";
+    font-size: var(--fontMedium);
+    padding-top: 50px;
+    composes: pagePadding from "./../styles/global.css";
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+}
+
+.code {
+    composes: colors from "./../styles/global.css";
+    color: var(--colorSecondary);
+}

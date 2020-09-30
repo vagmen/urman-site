@@ -1,5 +1,4 @@
 import Layout from "../../../components/Layout.js";
-import Error from "next/error";
 import { API_URL } from "../../../constants/settings.js";
 import styles from "./styles.module.css";
 import Carousel from "components/Carousel/Carousel.js";
@@ -14,6 +13,7 @@ import SectionHeader from "components/SectionHeader/SectionHeader.js";
 import StageCard from "components/StageCard/StageCard.js";
 import Contacts from "components/Contacts/Contacts.js";
 import RequestForm from "components/RequestForm/RequestForm.js";
+import Error from "pages/_error";
 
 const Index = ({
     currentService,
