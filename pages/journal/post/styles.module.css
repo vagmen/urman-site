@@ -3,14 +3,14 @@
 }
 
 .content {
-    composes: pagePadding from "./../../styles/global.css";
+    composes: pagePadding from "./../../../styles/global.css";
     margin-left: var(--padding);
     margin-right: var(--padding);
     color: #333;
 }
 
 .posterWrapper {
-    composes: pagePadding from "./../../styles/global.css";
+    composes: pagePadding from "./../../../styles/global.css";
 }
 
 .poster {
@@ -23,7 +23,7 @@
 }
 
 .columns {
-    composes: pagePadding from "./../../styles/global.css";
+    composes: pagePadding from "./../../../styles/global.css";
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: var(--gap);

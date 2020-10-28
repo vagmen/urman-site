@@ -11,7 +11,7 @@ function parseMediaURL(url) {
     return ids.length > 0 ? ids[1] : null;
 }
 
-const YouTubePlayer = ({ className, url, title }) => {
+const YouTubePlayer = ({ className, url }) => {
     const [clicked, setClicked] = useState(false);
     const id = parseMediaURL(url);
 
@@ -21,12 +21,7 @@ const YouTubePlayer = ({ className, url, title }) => {
                 <ReactPlayer url={url} width="100%" height="100%" className={styles.video} playing />
             ) : (
                 <div onClick={() => setClicked(true)} className={styles.video}>
-                    <img
-                        src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
-                        className={styles.poster}
-                        alt={title}
-                        loading="lazy"
-                    />
+                    <img src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`} className={styles.poster} />
                     <svg width="68" height="48" viewBox="0 0 68 48" className={styles.button}>
                         <path
                             className={styles.buttonShape}

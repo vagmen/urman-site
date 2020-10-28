@@ -1,7 +1,7 @@
-import Layout from "components/Layout.js";
+import Layout from "../../../components/Layout.js";
 import Error from "next/error";
-import { API_URL } from "constants/settings.js";
-import styles from "./articleStyles.module.css";
+import { API_URL } from "../../../constants/settings.js";
+import styles from "./styles.module.css";
 import Carousel from "components/Carousel/Carousel.js";
 import Card from "components/Card/Card.js";
 import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown.js";
@@ -9,21 +9,13 @@ import PageHeader from "components/PageHeader/PageHeader.js";
 import { useWindowSize } from "utils/hooks.js";
 import Author from "components/Author/Author.js";
 import classNames from "classnames";
-import { useRouter } from "next/router";
 
-function Post({ article, err }) {
-    const router = useRouter();
-    if (router.isFallback) {
-        return <div>Loading...</div>;
-    }
-
-    if (err) {
-        return <Error statusCode={err} />;
-    }
-
+const Index = ({ article, relatedServices, relatedArticles, err }) => {
+    const { author } = article;
     const { width } = useWindowSize();
-    const { relatedServices, relatedArticles, author } = article;
-    return (
+    return err ? (
+        <Error statusCode={err} />
+    ) : (
         <Layout postData={{ title: article?.title, description: article.description }}>
             <div className={styles.container}>
                 <div className={styles.posterWrapper}>
@@ -123,30 +115,23 @@ function Post({ article, err }) {
             </div>
         </Layout>
     );
-}
+};
 
-export async function getStaticPaths() {
-    const res = await fetch(`${API_URL}/articles`);
-    const articles = await res.json();
-    const paths = articles.map((post) => ({
-        params: { id: post.urlId },
-    }));
-    return {
-        paths,
-        fallback: false,
-    };
-}
+Index.getInitialProps = async function ({ query }) {
+    const id = query.id;
 
-export async function getStaticProps({ params }) {
-    const data = {};
-    const res = await fetch(`${API_URL}/articles?urlId=${params.id}`);
+    const res = await fetch(`${API_URL}/articles?urlId=${id}`);
+
     const article = await res.json();
     if (article && article[0]) {
-        data.article = article[0];
+        return {
+            article: article[0],
+            relatedServices: article[0].relatedServices,
+            relatedArticles: article[0].relatedArticles,
+        };
     } else {
-        data.err = 404;
+        return { err: 404 };
     }
-    return { props: data };
-}
+};
 
-export default Post;
+export default Index;
