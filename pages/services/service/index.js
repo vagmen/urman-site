@@ -32,7 +32,7 @@ const Index = ({
     err ? (
         <Error statusCode={err} />
     ) : (
-        <Layout postData={{ title: currentService?.name, description: "" }} menuItem="services">
+        <Layout postData={{ title: currentService?.name, description: "" }}>
             <div className={styles.container}>
                 <img
                     src={API_URL + currentService.poster.url}
