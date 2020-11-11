@@ -7,7 +7,7 @@ import CircleButton from "components/CircleButton/CircleButton.js";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import SectionHeader from "components/SectionHeader/SectionHeader";
 
-const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) => {
+const Carousel = ({ list = [], link, title, className, renderItem, grid = {}, key }) => {
     const scrollableContainer = useRef(null);
     const cardWrapper = useRef(null);
 
@@ -102,7 +102,7 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }) 
     };
 
     return list.length > 0 ? (
-        <div className={classNames(styles.container, className)}>
+        <div className={classNames(styles.container, className)} key={key}>
             <SectionHeader
                 title={title}
                 link={link}

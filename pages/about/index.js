@@ -1,61 +1,58 @@
-import Link from "next/link";
-import Layout from "../../components/Layout";
+import Layout from "components/Layout";
+import { API_URL } from "constants/settings.js";
+import PageHeader from "components/PageHeader/PageHeader";
+import styles from "./styles.module.css";
+import EmployeeCard from "components/EmployeeCard/EmployeeCard.js";
+import Section from "components/Section/Section.js";
+import Carousel from "components/Carousel/Carousel.js";
+import ContextWrapper from "components/ContextWrapper.js";
 
-const Index = () => (
+const Index = ({ header, subHeader, departments, blocks }) => (
     <Layout menuItem="about">
-        <div className="template-background">
-            <div className="page-content">
-                <div className="post about">
-                    <h1>URMAN — это команда экспертов в лесной сфере для Вас и Вашего бизнеса.</h1>
-                    <img className="post-img" src="../../images/about/about6.jpg" alt="Команда" />
-                    <p>
-                        Сегодня лесное хозяйство тесно переплетено с другими отраслями, и чтобы выполнять работы
-                        качественно, недостаточно разбираться только в лесной тематике, поэтому в нашей команде наряду
-                        со специалистами лесного хозяйства (такими как таксатор, лесопатолог, инженер лесного хозяйства)
-                        также работают кадастровые инженеры, землеустроители, картографы и юристы.
-                    </p>
-                    <img className="post-img" src="../../images/about/about4.jpg" alt="Сотрудники" />
-                    <p>
-                        Если Вы планируете какую-либо деятельность на землях лесного фонда, будь то заготовка древесины
-                        или организация базы отдыха, Вам необходимо провести анализ лесного участка, правильно оформить
-                        документы, чтобы в процессе использования не было проблем и претензий со стороны проверяющих
-                        органов. Наша цель — максимально упростить процесс оформления и использования лесного участка
-                        для наших клиентов.
-                    </p>
-                    <img className="post-img" src="../../images/about/about7.jpg" alt="Сотрудники в процессе работы" />
-                    <p>
-                        Мы не «распыляемся» на другие ниши. С каждым днём наращиваем экспертность в своём направлении.
-                        Это позволяет сплочённой команде из 15 человек решать поставленные задачи по всей России —
-                        начиная от разработки{" "}
-                        <Link href="/services/proekt-osvoeniya-lesov" passHref>
-                            <a className="post-a" href="">
-                                проектов освоения лесов
-                            </a>
-                        </Link>{" "}
-                        и заканчивая разработкой лесных планов субъектов РФ.
-                    </p>
-                    <p>
-                        Сейчас у нас функционирует{" "}
-                        <Link href="/contacts" passHref>
-                            <a className="post-a" href="">
-                                2 офиса (в Москве и в Уфе)
-                            </a>
-                        </Link>
-                        . Проектный отдел находится в Уфе.
-                    </p>
-                    <img className="post-img" src="../../images/about/about1.jpg" alt="Сотрудники в процессе работы" />
-                    <img className="post-img" src="../../images/about/about2.jpg" alt="Сотрудники в процессе работы" />
-                    <img className="post-img" src="../../images/about/about3.jpg" alt="Сотрудники в процессе работы" />
-                    <img className="post-img" src="../../images/about/about5.jpg" alt="Сотрудники в процессе работы" />
-                    <img className="post-img" src="../../images/about/about9.jpg" alt="Сотрудники в процессе работы" />
-                    <img className="post-img" src="../../images/about/about10.jpg" alt="Московский офис" />
-                    <img className="post-img" src="../../images/about/about8.jpg" alt="Сотрудники в процессе работы" />
-                    <p>Да пребудет с Вами URMAN.</p>
-                    {/* <Statistics /> */}
-                </div>
-            </div>
-        </div>
+        <PageHeader title={header} className={styles.header} />
+        <h2 className={styles.subHeader}>{subHeader}</h2>
+        {blocks.map((block) => (
+            <Section {...block} />
+        ))}
+        {departments.map((item) => (
+            <Carousel
+                key={item.name}
+                title={item.name}
+                grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
+                list={item.employees}
+                renderItem={(props) => <EmployeeCard {...props} />}
+            />
+        ))}
     </Layout>
 );
+
+Index.getInitialProps = async function () {
+    let header = "";
+    let subHeader = "";
+    let blocks = [];
+    let departments = [];
+    try {
+        const res = await fetch(API_URL + "/about");
+        const data = await res.json();
+        header = data.header;
+        subHeader = data.subHeader;
+        blocks = data.blocks.map((block) => ({ ...block, image: API_URL + block.image.url }));
+        departments = data.departments.map((department) => {
+            const employees = department.employees.map((employee) => ({
+                ...employee,
+                avatar: API_URL + employee.avatar.url,
+            }));
+            return { ...department, employees };
+        });
+    } catch (error) {
+        console.log(error);
+    }
+    return {
+        header,
+        subHeader,
+        blocks,
+        departments,
+    };
+};
 
 export default Index;

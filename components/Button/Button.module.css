@@ -4,12 +4,14 @@
     background: var(--colorPrimary100);
     text-transform: uppercase;
     color: var(--colorPrimary);
-    padding: 12px;
+    padding: 16px 24px;
     border-radius: 4px;
     margin-top: 16px;
-    font-size: var(--fontMedium);
+    font-size: var(--fontSmall);
     cursor: pointer;
     transition: all 0.4s;
+    display: flex;
+    justify-content: center;
 }
 
 .button:hover {
@@ -29,5 +31,12 @@
     opacity: 0.7;
 }
 
+.fullWidth {
+    width: 100%;
+}
+
 @media (min-width: 1050px) {
+    .fullWidth {
+        width: auto;
+    }
 }

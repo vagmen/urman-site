@@ -1,0 +1,46 @@
+.container {
+    composes: pagePadding from "./../../styles/global.css";
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+    display: flex;
+    gap: var(--gap);
+    margin-top: calc(var(--padding) * 2);
+    flex-direction: column-reverse;
+}
+
+.revers {
+    /* flex-direction: row-reverse; */
+}
+
+.title {
+    margin-top: 0;
+}
+
+.content {
+    flex: 1 1 0;
+}
+
+.imageWrapper {
+    flex: 1 1 0;
+    height: 100%;
+    margin-bottom: 16px;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+@media (min-width: 1050px) {
+    .container {
+        flex-direction: row;
+        margin-top: calc(var(--padding) / 2);
+    }
+    .revers {
+        flex-direction: row-reverse;
+    }
+    .imageWrapper {
+        margin-top: 0;
+    }
+}

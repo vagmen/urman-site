@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./RequestModal.module.css";
 import classNames from "classnames";
 import Button from "components/Button/Button";
@@ -6,14 +6,16 @@ import { sendLeadNew } from "utils/api";
 import { MdClose } from "react-icons/md";
 import { notification } from "antd";
 import * as gtag from "lib/gtag";
+import HeaderContext from "contexts/HeaderContext";
 
-const RequestModal = ({ className, title, visible, onClose }) => {
+const RequestModal = ({ className, title }) => {
     const [currentStep, setCurrentStep] = useState(0);
     const [question, setQuestion] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [messages, setMessages] = useState([]);
+    const { visible, setVisible } = useContext(HeaderContext);
 
     const handlerSetCurrentStep1 = () => {
         ym(51360247, "reachGoal", "formCallBackFromModal");
@@ -23,7 +25,7 @@ const RequestModal = ({ className, title, visible, onClose }) => {
         });
         sendLeadNew({ name, phone, email, comment: question });
         setCurrentStep(3);
-        onClose();
+        setVisible(false);
         notification.success({
             message: `Получили Вашу заявку`,
             description: "В ближайшее время ответим Вам.",
@@ -66,8 +68,8 @@ const RequestModal = ({ className, title, visible, onClose }) => {
     return (
         <div className={classNames(styles.container, { [styles.visible]: visible })}>
             <div className={styles.content}>
-                <p className={styles.header}>Обратный звонок</p>
-                <MdClose color="#333" className={styles.close} onClick={onClose} />
+                <p className={styles.header}>Оставить заявку</p>
+                <MdClose color="#333" className={styles.close} onClick={() => setVisible(false)} />
                 {currentStep === 0 && (
                     <>
                         <p>Мы перезвоним вам и бесплатно проконсультируем:</p>

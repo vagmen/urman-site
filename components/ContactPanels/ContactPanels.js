@@ -3,8 +3,11 @@ import classNames from "classnames";
 import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { MdLocalPhone } from "react-icons/md";
 import * as gtag from "lib/gtag";
+import { useContext } from "react";
+import HeaderContext from "contexts/HeaderContext";
 
 const ContactPanels = ({ className, onOpenModal }) => {
+    const { setVisible } = useContext(HeaderContext);
     return (
         <>
             <a
@@ -51,7 +54,7 @@ const ContactPanels = ({ className, onOpenModal }) => {
                 <button
                     className={classNames(styles.btn, styles.callback)}
                     title="Заказать звонок"
-                    onClick={onOpenModal}
+                    onClick={() => setVisible(true)}
                 >
                     Заказать звонок
                 </button>

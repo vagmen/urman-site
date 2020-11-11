@@ -8,8 +8,8 @@ import Footer from "./Footer/Footer";
 import MultiStepForm from "./MultiStepForm/MultiStepForm";
 import ContactPanels from "./ContactPanels/ContactPanels";
 import RequestModal from "./RequestModal/RequestModal";
-import { useState } from "react";
 import Header from "components/Header/Header";
+import ContextWrapper from "./ContextWrapper";
 
 const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem);
 
@@ -17,8 +17,6 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
     const title = postData ? postData.title : menuItem ? menuItemData(menuItem)?.title : "URMAN - Лесные решения";
     const description = postData ? postData.description : menuItem ? menuItemData(menuItem)?.description : "";
     const image = <img src={metaImg || "/images/logo.png"} />;
-
-    const [visible, setVisible] = useState(false);
 
     return (
         <>
@@ -48,19 +46,21 @@ const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPa
                 /> */}
                 {/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/antd/3.10.0/antd.min.css" /> */}
             </Head>
-            <Header headerOpacity={headerOpacity} isMainPage={isMainPage} />
-            <ContactPanels onOpenModal={() => setVisible(true)} />
-            <RequestModal visible={visible} onClose={() => setVisible(false)} />
-            <ConfigProvider locale={ruRU}>
-                <IconContext.Provider value={{ className: "react-icons" }}>
-                    <>
-                        <MenuMobile menuItem={menuItem} />
-                        {children}
-                        <MultiStepForm />
-                        <Footer />
-                    </>
-                </IconContext.Provider>
-            </ConfigProvider>
+            <ContextWrapper>
+                <Header headerOpacity={headerOpacity} isMainPage={isMainPage} />
+                <ContactPanels />
+                <RequestModal />
+                <ConfigProvider locale={ruRU}>
+                    <IconContext.Provider value={{ className: "react-icons" }}>
+                        <>
+                            <MenuMobile menuItem={menuItem} />
+                            {children}
+                            <MultiStepForm />
+                            <Footer />
+                        </>
+                    </IconContext.Provider>
+                </ConfigProvider>
+            </ContextWrapper>
         </>
     );
 };
