@@ -3,23 +3,35 @@ import classNames from "classnames";
 import { MdLocationOn, MdEmail, MdLocalPhone } from "react-icons/md";
 import { FaYoutube, FaWhatsapp, FaTelegramPlane, FaVk, FaInstagram } from "react-icons/fa";
 import * as gtag from "lib/gtag";
+import { useContext } from "react";
+import HeaderContext from "contexts/HeaderContext";
 
 const Footer = ({ className }) => {
+    const { contacts } = useContext(HeaderContext);
+    console.log("contacts", contacts);
+    const address = "450047, Уфа, ул. Ленина 70";
+    const mapLink =
+        "https://yandex.ru/maps/172/ufa/?ll=55.952259%2C54.736873&mode=search&oid=159035625593&ol=biz&pt=72.878889E%2C54.484167N%2Cpmwtm1&z=17";
+    const phone = "+7 (963) 136-34-86";
+    const mail = "proekt@urman.su";
+    // const { address, mapLink, phone, mail } = contacts;
     return (
         <div className={classNames(styles.container, className)}>
             <div className={styles.btns}>
                 <a
-                    href="https://yandex.ru/maps/172/ufa/?ll=55.953013%2C54.736974&mode=routes&pt=72.878889E%2C54.484167N%2Cpmwtm1&rtext=~54.736873%2C55.952259&rtt=auto&z=18"
+                    // href="https://yandex.ru/maps/172/ufa/?ll=55.953013%2C54.736974&mode=routes&pt=72.878889E%2C54.484167N%2Cpmwtm1&rtext=~54.736873%2C55.952259&rtt=auto&z=18"
+                    // href="https://yandex.ru/maps/172/ufa/?ll=55.952259%2C54.736873&mode=search&oid=159035625593&ol=biz&pt=72.878889E%2C54.484167N%2Cpmwtm1&z=17"
+                    href={mapLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Найти нас на карте"
                     className={styles.item}
                 >
                     <MdLocationOn className={styles.icon} color="#ff0000" />
-                    <span className={styles.label}>450047, Уфа, ул. Ленина 63</span>
+                    <span className={styles.label}>{address}</span>
                 </a>
                 <a
-                    href="tel:+79631363486"
+                    href={"tel:" + phone}
                     className={styles.item}
                     title="Позвонить"
                     onClick={() => {
@@ -31,11 +43,11 @@ const Footer = ({ className }) => {
                     }}
                 >
                     <MdLocalPhone className={styles.icon} color="#488558" />
-                    <span className={styles.label}>+7 (963) 136-34-86</span>
+                    <span className={styles.label}>{phone}</span>
                 </a>
-                <a href="mailto:proekt@urman.su" className={styles.item} title="Написать на почту proekt@urman.su">
+                <a href={"mailto:" + mail} className={styles.item} title={"Написать на почту" + mail}>
                     <MdEmail className={styles.icon} color="#ffcc00" />
-                    <span className={styles.label}>proekt@urman.su</span>
+                    <span className={styles.label}>{mail}</span>
                 </a>
             </div>
             <div className={styles.icons}>

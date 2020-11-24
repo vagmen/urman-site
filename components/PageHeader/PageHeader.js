@@ -1,17 +1,12 @@
 import React from "react";
 import styles from "./PageHeader.module.css";
 import classNames from "classnames";
-import Link from "next/link";
 
-const PageHeader = ({ title, link, className, linkTitle }) => {
+const PageHeader = ({ title, subTitle, className }) => {
     return (
-        <div className={classNames(className, styles.container)}>
+        <div className={classNames(styles.container, className)}>
             <h1 className={styles.title}>{title}</h1>
-            {link && (
-                <Link href={link}>
-                    <p className={styles.link}>{linkTitle}</p>
-                </Link>
-            )}
+            {subTitle && <h2 className={styles.subTitle}>{subTitle}</h2>}
         </div>
     );
 };

@@ -1,5 +1,5 @@
 .header {
-    margin-top: 64px;
+    /* margin-top: 64px; */
 }
 
 .subHeader {
@@ -9,6 +9,8 @@
     /* margin-bottom: var(--padding); */
     composes: colors from "./../../styles/global.css";
     color: var(--colorPrimary);
+    composes: fontSize from "./../../styles/global.css";
+    font-size: var(--fontMedium);
 }
 
 @media (min-width: 500px) {
