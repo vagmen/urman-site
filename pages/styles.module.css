@@ -33,10 +33,10 @@
 
 .bg {
     grid-area: bg;
-    composes: colors from "./../styles/global.css";
+    /* composes: colors from "./../styles/global.css";
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
 }
 
 .services {

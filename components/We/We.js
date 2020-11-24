@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import { TiTree } from "react-icons/ti";
 // import { LiteYouTubeEmbed } from "react-lite-youtube-embed";
 import YouTubePlayer from "components/YouTubePlayer/YouTubePlayer";
+import Image from "next/image";
 
 const We = ({ statistics, whoAreWe, benefits, className, video }) => {
     return (
@@ -26,10 +27,21 @@ const We = ({ statistics, whoAreWe, benefits, className, video }) => {
                         </Fragment>
                     ))}
                 </div>
+                <div className={styles.bgWrapper}>
+                    <Image
+                        src="/images/bgStat.jpg"
+                        width={400}
+                        height={300}
+                        className={styles.bgWrapper}
+                        layout="responsive"
+                    />
+                </div>
             </div>
-            <div className={styles.playerWrapper}>
-                <YouTubePlayer url={video || "https://www.youtube.com/watch?v=Vm9iiVhUU9U"} />
-            </div>
+            <YouTubePlayer
+                url={video || "https://www.youtube.com/watch?v=Vm9iiVhUU9U"}
+                alt="Постер ролика о нас"
+                className={styles.playerWrapper}
+            />
             <div className={styles.benefits}>
                 {benefits.map((benefit) => (
                     <div className={styles.benefit} key={"benefit" + benefit.id}>

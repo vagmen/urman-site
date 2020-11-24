@@ -5,7 +5,7 @@ import YouTubePlayer from "components/YouTubePlayer/YouTubePlayer";
 const VideoCard = ({ className, url, title }) => {
     return (
         <div className={classNames(className, styles.card)}>
-            <YouTubePlayer url={url} className={styles.video} />
+            <YouTubePlayer url={url} className={styles.video} alt={title} />
             <h4 className={styles.title}>{title}</h4>
         </div>
     );

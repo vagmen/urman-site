@@ -11,7 +11,7 @@
     background: #fff;
     z-index: 1;
     border-radius: var(--card-border-radius);
-    animation: appearance 2s ease-out;
+    /* animation: appearance 2s ease-out; */
 }
 
 .who {
@@ -32,27 +32,28 @@
 }
 
 .playerWrapper {
-    /* 720 / 1280 = 0.5625 */
-    /* width: 100%; */
-    /* border-radius: var(--card-border-radius); */
-    /* overflow: hidden; */
     grid-area: video;
 }
 
-/* .video {
+.stat {
+    grid-area: stat;
+    composes: pagePadding from "./../../styles/global.css";
+    padding: var(--padding);
+    color: #fff;
+    position: relative;
+}
+
+.bgWrapper {
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-} */
+    z-index: -1;
+}
 
-.stat {
-    composes: pagePadding from "./../../styles/global.css";
-    grid-area: stat;
-    background: url("/images/bgStat.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: var(--padding);
-    color: #fff;
+.bg {
+    object-fit: cover;
 }
 
 .statGrid {

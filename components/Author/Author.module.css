@@ -15,9 +15,9 @@
     composes: colors from "./../../styles/global.css";
     height: 100%;
     width: 100%;
-    object-fit: contain;
     border-radius: 50%;
     background: var(--colorPrimary100);
+    overflow: hidden;
 }
 
 .logo {
@@ -31,6 +31,11 @@
     z-index: 1;
     background: #fff;
     border: 2px solid #fff;
+    overflow: hidden;
+}
+
+.img {
+    object-fit: contain;
 }
 
 .text {

@@ -11,6 +11,7 @@ import {
 } from "../../constants/settings";
 import styles from "./Header.module.css";
 import classNames from "classnames";
+import Image from "next/image";
 
 let ticking = false;
 
@@ -127,6 +128,18 @@ class Header extends Component {
                     </div>
                 </Link>
                 {isMainPage && <div className={styles.bgImage} />}
+                {/* {isMainPage && (
+                    <div className={styles.bgImageWrapper}>
+                        <Image
+                            className={styles.bgImage}
+                            width={2000}
+                            height={1400}
+                            layout="responsive"
+                            src="/images/vid-sverchu.jpg"
+                            alt="Фон главной страницы"
+                        />
+                    </div>
+                )} */}
                 <div className={styles.bg} id="headerBg" />
                 <style jsx global>{`
                     // @import url("https://fonts.googleapis.com/css?family=Rubik:300,400");
