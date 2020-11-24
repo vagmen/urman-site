@@ -40,7 +40,7 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
                                                 <Card
                                                     key={item.urlId}
                                                     title={item.title}
-                                                    img={API_URL + item.posterSmall?.url}
+                                                    img={API_URL + item.poster?.url}
                                                     href={"/journal/post?id=" + item.urlId}
                                                     as={"/journal/" + item.urlId}
                                                     extra={item.description}
@@ -57,7 +57,7 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
                                                 <Card
                                                     key={item.slug}
                                                     title={item.name}
-                                                    img={API_URL + item.posterSmall?.url}
+                                                    img={API_URL + item.poster?.url}
                                                     href={`/services/service?id=${item.slug}`}
                                                     as={`/services/${item.slug}`}
                                                     extra={item.description}
@@ -79,7 +79,7 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
                             grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                             list={relatedArticles?.map((item) => ({
                                 title: item.title,
-                                img: API_URL + item.posterSmall?.url,
+                                img: API_URL + item.poster?.url,
                                 id: item.urlId,
                                 href: `/journal/post?id=${item.urlId}`,
                                 as: `/journal/${item.urlId}`,
@@ -96,7 +96,7 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
                             grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                             list={relatedServices?.map((item) => ({
                                 title: item.name,
-                                img: API_URL + item.posterSmall?.url,
+                                img: API_URL + item.poster?.url,
                                 id: item.slug,
                                 href: `/services/service?id=${item.slug}`,
                                 as: `/services/${item.slug}`,

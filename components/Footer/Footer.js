@@ -3,12 +3,9 @@ import classNames from "classnames";
 import { MdLocationOn, MdEmail, MdLocalPhone } from "react-icons/md";
 import { FaYoutube, FaWhatsapp, FaTelegramPlane, FaVk, FaInstagram } from "react-icons/fa";
 import * as gtag from "lib/gtag";
-import { useContext } from "react";
-import HeaderContext from "contexts/HeaderContext";
 
 const Footer = ({ className }) => {
-    const { contacts } = useContext(HeaderContext);
-    console.log("contacts", contacts);
+    // const { contacts } = useContext(HeaderContext);
     const address = "450047, Уфа, ул. Ленина 70";
     const mapLink =
         "https://yandex.ru/maps/172/ufa/?ll=55.952259%2C54.736873&mode=search&oid=159035625593&ol=biz&pt=72.878889E%2C54.484167N%2Cpmwtm1&z=17";

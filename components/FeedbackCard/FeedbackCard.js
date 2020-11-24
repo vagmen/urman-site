@@ -2,6 +2,7 @@ import styles from "./FeedbackCard.module.css";
 import classNames from "classnames";
 import Author from "components/Author/Author";
 import ReactPlayer from "react-player";
+import Image from "next/image";
 
 const FeedbackCard = ({ className, title, avatar, logo, author, company, img, type, videoUrl }) => {
     const renderAuthor = () => (
@@ -16,12 +17,20 @@ const FeedbackCard = ({ className, title, avatar, logo, author, company, img, ty
             )}
             {type === "recommendation" && (
                 <div className={styles.imgWrapper}>
-                    <img
+                    {/* <img
                         src={img}
                         className={styles.img}
                         loading="lazy"
                         alt={`Рекомендательное письмо от ${author}`}
                         title={`Рекомендательное письмо от ${author}`}
+                    /> */}
+                    <Image
+                        src={img}
+                        alt={`Рекомендательное письмо от ${author}`}
+                        width={350}
+                        height={500}
+                        className={styles.img}
+                        layout="responsive"
                     />
                 </div>
             )}

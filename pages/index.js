@@ -39,7 +39,7 @@ const Index = ({
                 grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                 list={services?.map((item) => ({
                     title: item.name,
-                    img: API_URL + item.posterSmall?.url,
+                    img: API_URL + item.poster?.url,
                     id: item.slug,
                     href: `/services/service?id=${item.slug}`,
                     as: `/services/${item.slug}`,
@@ -138,7 +138,7 @@ Index.getInitialProps = async function () {
         const arts = await articlesJson.json();
         articles = arts.map((item) => ({
             id: item.urlId,
-            img: API_URL + item.posterSmall.url,
+            img: API_URL + item.poster.url,
             title: item.title,
             date: item.publishedAt,
             description: item.description,

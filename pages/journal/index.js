@@ -13,7 +13,7 @@ const Index = ({ articles }) => (
                     <Card
                         key={item.urlId}
                         title={item.title}
-                        img={API_URL + item.posterSmall?.url}
+                        img={API_URL + item.poster?.url}
                         href={"/journal/post?id=" + item.urlId}
                         as={"/journal/" + item.urlId}
                         extra={item.description}

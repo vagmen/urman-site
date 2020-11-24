@@ -18,7 +18,7 @@ const Index = ({ services, errorCode, errorText }) => {
                         <Card
                             key={item.slug}
                             title={item.name}
-                            img={API_URL + item.posterSmall?.url}
+                            img={API_URL + item.poster?.url}
                             href={"/services/service?id=" + item.slug}
                             as={"/services/" + item.slug}
                         />
