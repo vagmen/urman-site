@@ -124,6 +124,7 @@ class Header extends Component {
                             alt="Логотип"
                             className={classNames(styles.logo, { [styles.cursorPointer]: !isMainPage })}
                             id="logo"
+                            loading="lazy"
                         />
                     </div>
                 </Link>

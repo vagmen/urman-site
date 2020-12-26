@@ -16,7 +16,7 @@ const menuItemData = (menuItem) => mainMenu.find((item) => item.src === menuItem
 const Layout = ({ postData, menuItem, headerOpacity, children, metaImg, isMainPage }) => {
     const title = postData ? postData.title : menuItem ? menuItemData(menuItem)?.title : "URMAN - Лесные решения";
     const description = postData ? postData.description : menuItem ? menuItemData(menuItem)?.description : "";
-    const image = <img src={metaImg || "/images/logo.png"} />;
+    const image = <img src={metaImg || "/images/logo.png"} loading="lazy" />;
 
     return (
         <>

@@ -25,6 +25,7 @@ const YouTubePlayer = ({ className, url, alt }) => {
                         src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
                         className={styles.poster}
                         alt={alt || "Постер"}
+                        loading="lazy"
                     />
                     <svg width="68" height="48" viewBox="0 0 68 48" className={styles.button}>
                         <path
