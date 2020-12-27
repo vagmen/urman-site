@@ -1,10 +1,8 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import styles from "./We.module.css";
 import classNames from "classnames";
-import ReactPlayer from "react-player";
 import ReactMarkdown from "react-markdown";
 import { TiTree } from "react-icons/ti";
-// import { LiteYouTubeEmbed } from "react-lite-youtube-embed";
 import YouTubePlayer from "components/YouTubePlayer/YouTubePlayer";
 import Image from "next/image";
 
@@ -28,13 +26,7 @@ const We = ({ statistics, whoAreWe, benefits, className, video }) => {
                     ))}
                 </div>
                 <div className={styles.bgWrapper}>
-                    <Image
-                        src="/images/bgStat.jpg"
-                        width={400}
-                        height={300}
-                        className={styles.bgWrapper}
-                        layout="responsive"
-                    />
+                    <Image src="/images/bgStat.jpg" className={styles.bg} layout="fill" />
                 </div>
             </div>
             <YouTubePlayer

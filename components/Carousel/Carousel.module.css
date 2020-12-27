@@ -1,5 +1,7 @@
+@value borderRadiusSmall, pagePadding, fontSize, colors from "./../../styles/global.css";
+
 .container {
-    composes: pagePadding from "./../../styles/global.css";
+    composes: pagePadding;
     width: 100%;
     display: grid;
     grid-template-areas:
@@ -15,7 +17,7 @@
 .scrollable {
     overflow-x: auto;
     position: relative;
-    composes: pagePadding from "./../../styles/global.css";
+    composes: pagePadding;
     display: inline-flex;
     scroll-snap-type: x mandatory;
     scroll-padding-left: var(--padding);
@@ -41,18 +43,18 @@
 
 .scrollable::-webkit-scrollbar-thumb {
     background-color: #488558;
-    border-radius: 8px;
+    border-radius: borderRadiusSmall;
     border: 2px solid rgba(72, 133, 88, 0.08);
 }
 
 .scrollable::-webkit-scrollbar-track {
-    border-radius: 8px;
+    border-radius: borderRadiusSmall;
     background-color: rgba(72, 133, 88, 0.08);
     margin: 0 var(--padding);
 }
 
 .desktop {
-    composes: pagePadding from "./../../styles/global.css";
+    composes: pagePadding;
     display: flex;
     transition: transform 500ms cubic-bezier(0.03, 0.6, 0.36, 1) 0s;
     width: calc(100% + var(--gap));
@@ -62,7 +64,7 @@
 }
 
 .buttonContainer {
-    composes: pagePadding from "./../../styles/global.css";
+    composes: pagePadding;
     height: 100%;
     display: none;
     align-items: center;
@@ -87,7 +89,7 @@
 }
 
 .cardWrapper {
-    composes: pagePadding from "./../../styles/global.css";
+    composes: pagePadding;
     padding-right: var(--gap);
     min-width: calc((100% + var(--gap)) / var(--count));
     width: calc((100% + var(--gap)) / var(--count));
@@ -119,7 +121,4 @@
     .buttonHidden {
         display: none;
     }
-}
-
-@media (min-width: 1400px) {
 }

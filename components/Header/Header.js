@@ -11,7 +11,6 @@ import {
 } from "../../constants/settings";
 import styles from "./Header.module.css";
 import classNames from "classnames";
-import Image from "next/image";
 
 let ticking = false;
 

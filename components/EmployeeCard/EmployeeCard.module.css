@@ -1,15 +1,15 @@
+@value borderRadiusSmall from "./../../styles/global.css";
+
 .card {
-    composes: radius from "./../../styles/global.css";
     scroll-snap-align: start;
     display: flex;
-    border-radius: var(--card-border-radius);
+    border-radius: borderRadiusSmall;
     flex-wrap: wrap;
 }
 
 .avatar {
     width: 100%;
-    /* height: auto; */
-    border-radius: 8px;
+    border-radius: borderRadiusSmall;
 }
 
 .author {

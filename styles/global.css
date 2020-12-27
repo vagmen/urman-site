@@ -1,3 +1,5 @@
+/* --multiplier: 1; */
+
 .colors {
     --colorPrimary: #488558;
     --colorPrimary300: rgba(72, 133, 88, 0.5);
@@ -11,6 +13,19 @@
     --gap: 8px;
     transition: all 0.4s;
 }
+@value multipleTiny: 1;
+@value fontBase: 12px;
+
+@value fontTiny: calc(fontBase * multiplierTiny);
+@value fontSmall: 14px;
+@value fontMedium: 18px;
+@value fontLarge: 26px;
+@value fontHuge: 32px;
+@value fontExtraHuge: 48px;
+
+@value borderRadiusSmall: 8px;
+@value borderRadiusMedium: 16px;
+@value borderRadiusLarge: 24px;
 
 .fontSize {
     --fontTiny: 12px; /*дополнительный текст*/
@@ -25,10 +40,6 @@
     --colorPrimary: #488558;
 } */
 
-.radius {
-    --card-border-radius: 8px;
-}
-
 .shadow {
     --box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
 }
@@ -41,7 +52,7 @@
 .clickableShadow {
     composes: shadow;
     box-shadow: var(--box-shadow);
-    composes: radius;
+    border-radius: borderRadiusSmall;
     transition: all 0.4s;
     position: relative;
     cursor: pointer;
@@ -57,7 +68,7 @@
     z-index: -1;
     width: 100%;
     height: 100%;
-    border-radius: var(--card-border-radius);
+    border-radius: borderRadiusSmall;
     box-shadow: 0 12px 36px 0 rgba(20, 18, 18, 0.13);
     transition: opacity 0.3s;
     opacity: 0;
@@ -66,6 +77,12 @@
 .clickableShadow:hover:before {
     opacity: 1;
 }
+
+@value smallTablet: min-width: 500px;
+@value largeTablet: min-width: 1050px;
+@value smallDesktop: min-width: 1400px;
+@value mediumDesktop: min-width: 1900px;
+@value largeDesktop: min-width: 2400px;
 
 @media (min-width: 500px) {
     .pagePadding {
@@ -87,6 +104,7 @@
         --fontLarge: 40px;
         --fontHuge: 60px;
     }
+    /* --multiplierTiny: 2; */
 }
 
 @media (min-width: 1400px) {
@@ -108,7 +126,5 @@
         --fontLarge: 48px;
         --fontHuge: 70px;
     }
-}
-
-@media (min-width: 2400px) {
+    /* --multiplierTiny: 3; */
 }

@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import We from "../components/We/We.js";
 import Carousel from "components/Carousel/Carousel";
 import Card from "components/Card/Card";
-import CardNew from "components/CardNew/CardNew";
+// import CardNew from "components/CardNew/CardNew";
 import { API_URL } from "../constants/settings.js";
 import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
 import FaqSection from "components/FaqSection/FaqSection.js";
