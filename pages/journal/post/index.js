@@ -16,7 +16,7 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
     return err ? (
         <Error statusCode={err} />
     ) : (
-        <Layout postData={{ title: article?.title, description: article.description }}>
+        <Layout postData={{ title: article?.title, description: article.description }} menuItem="journal">
             <div className={styles.container}>
                 <div className={styles.posterWrapper}>
                     <img
