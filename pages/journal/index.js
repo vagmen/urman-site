@@ -3,6 +3,7 @@ import { API_URL } from "../../constants/settings.js";
 import PageHeader from "components/PageHeader/PageHeader.js";
 import styles from "./styles.module.css";
 import Card from "components/Card/Card";
+import { fetchAPI } from "lib/api";
 
 const Index = ({ articles }) => (
     <Layout menuItem="journal">
@@ -25,13 +26,7 @@ const Index = ({ articles }) => (
 );
 
 Index.getInitialProps = async function () {
-    let articles = [];
-    try {
-        const articlesJson = await fetch(API_URL + "/articles?_sort=publishedAt:DESC");
-        articles = await articlesJson.json();
-    } catch (error) {
-        console.log(error);
-    }
+    const articles = await fetchAPI("/articles?_sort=publishedAt:DESC");
     return {
         articles,
     };

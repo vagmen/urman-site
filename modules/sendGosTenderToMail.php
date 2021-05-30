@@ -26,7 +26,8 @@ $TENDERLAND_FIELDS = [
   // 'AUTOPOISK' => '399965', // c 1 тендером
   'REPORT' => '26380',
   'LOGIN' => 'green01',
-  'PASSWORD' => '2983486@'
+  'PASSWORD' => 'qAKnuQun83'
+  // 'PASSWORD' => '2983486@'
 ];
 
 

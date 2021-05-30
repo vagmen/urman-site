@@ -1,5 +1,5 @@
-export const connectHandler = () => {
-    const connectCollapsed = !(localStorage.getItem("connect-collapsed") === "false");
-    localStorage.setItem("connect-collapsed", !connectCollapsed);
-    connectCollapsed && Chatra("hide");
-};
+// export const connectHandler = () => {
+//     const connectCollapsed = !(localStorage.getItem("connect-collapsed") === "false");
+//     localStorage.setItem("connect-collapsed", !connectCollapsed);
+//     connectCollapsed && Chatra("hide");
+// };

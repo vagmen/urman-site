@@ -10,7 +10,7 @@ const We = ({ statistics, whoAreWe, benefits, className, video }) => {
     return (
         <div className={classNames(className, styles.we)}>
             <div className={styles.who}>
-                <ReactMarkdown source={whoAreWe} />
+                <ReactMarkdown>{whoAreWe}</ReactMarkdown>
             </div>
             <div className={styles.stat}>
                 <div className={styles.statGrid}>

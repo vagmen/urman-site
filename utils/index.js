@@ -1,3 +1,6 @@
+import Custom404 from "pages/404";
+import Error from "pages/_error";
+
 export const isElementVisible = (target) => {
     var targetPosition = {
             top: window.pageYOffset + target.getBoundingClientRect().top,
@@ -28,5 +31,13 @@ export const isElementVisible = (target) => {
         // Если элемент не видно, то запускаем этот код
         // console.clear();
         return false;
+    }
+};
+
+export const errorHandler = (statusCode) => {
+    if (statusCode === 404) {
+        return <Custom404 />;
+    } else if (statusCode !== 200) {
+        return <Error statusCode={statusCode} />;
     }
 };

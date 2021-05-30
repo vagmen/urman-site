@@ -8,6 +8,7 @@ import { API_URL } from "../constants/settings.js";
 import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
 import FaqSection from "components/FaqSection/FaqSection.js";
 import VideoCard from "components/VideoCard/VideoCard.js";
+import { fetchAPI } from "lib/api.js";
 
 const postData = {
     title: "URMAN - Лесные решения",
@@ -103,67 +104,44 @@ const Index = ({
 );
 
 Index.getInitialProps = async function () {
-    let statistics = [];
-    let whoAreWe = "";
-    let benefits = [];
-    let articles = [];
-    let feedbacks = [];
-    let feedbackVideos = [];
-    let feedbackTexts = [];
-    let categories = [];
-    let faqs = [];
-    let services = [];
-    let video = "";
-    let videoList = [];
-    try {
-        const res = await fetch(API_URL + "/statistics?isShowInMainPage=true");
-        const data = await res.json();
+    const [statisticsRaw, main, benefits, articlesRaw, categories, faqs, services, feedbacksRaw] = await Promise.all([
+        fetchAPI("/statistics?isShowInMainPage=true"),
+        fetchAPI("/main"),
+        fetchAPI("/benefits"),
+        fetchAPI("/articles?showInMainPage=true&_sort=publishedAt:DESC"),
+        fetchAPI("/categories"),
+        fetchAPI("/faqs?showInMainPage=true"),
+        fetchAPI("/services"),
+        fetchAPI("/feedbacks?showInMainPage=true"),
+    ]);
 
-        statistics = data.map((item) => ({
-            id: item.id,
-            count: item.count,
-            description: item.description,
-        }));
+    const statistics = statisticsRaw.map((item) => ({
+        id: item.id,
+        count: item.count,
+        description: item.description,
+    }));
+    const { whoAreWe, video, videoList } = main;
+    const articles = articlesRaw.map((item) => ({
+        id: item.urlId,
+        img: API_URL + item.poster.url,
+        title: item.title,
+        date: item.publishedAt,
+        description: item.description,
+        as: `/journal/${item.urlId}`,
+        href: `/journal/post?id=${item.urlId}`,
+        extra: item.description,
+    }));
+    const allFeedbacks = feedbacksRaw.map((item) => ({
+        ...item,
+        title: item.quote,
+        img: item.scan ? API_URL + item.scan.url : null,
+        avatar: item.avatar ? API_URL + item.avatar.url : null,
+        logo: item.logo ? API_URL + item.logo.url : null,
+    }));
+    const feedbacks = allFeedbacks.filter((item) => item.type === "recommendation");
+    const feedbackVideos = allFeedbacks.filter((item) => item.type === "video");
+    const feedbackTexts = allFeedbacks.filter((item) => item.type === "text");
 
-        const mainJson = await fetch(API_URL + "/main");
-        const main = await mainJson.json();
-        whoAreWe = main.whoAreWe;
-        video = main.video;
-        videoList = main.videoList;
-
-        const benefitsJson = await fetch(API_URL + "/benefits");
-        benefits = await benefitsJson.json();
-
-        const articlesJson = await fetch(API_URL + "/articles?showInMainPage=true&_sort=publishedAt:DESC");
-        const arts = await articlesJson.json();
-        articles = arts.map((item) => ({
-            id: item.urlId,
-            img: API_URL + item.poster.url,
-            title: item.title,
-            date: item.publishedAt,
-            description: item.description,
-            as: `/journal/${item.urlId}`,
-            href: `/journal/post?id=${item.urlId}`,
-            extra: item.description,
-        }));
-
-        const allFeedbacks = await fetchFeedbacks();
-        feedbacks = allFeedbacks.filter((item) => item.type === "recommendation");
-        feedbackVideos = allFeedbacks.filter((item) => item.type === "video");
-        feedbackTexts = allFeedbacks.filter((item) => item.type === "text");
-        // feedbackTexts = feedback.map((item) => ({ ...item, title: item.header, type: "text" }));
-
-        const categoriesJson = await fetch(API_URL + "/categories");
-        categories = await categoriesJson.json();
-
-        const faqsJson = await fetch(API_URL + "/faqs?showInMainPage=true");
-        faqs = await faqsJson.json();
-
-        const servicesJson = await fetch(API_URL + "/services");
-        services = await servicesJson.json();
-    } catch (error) {
-        console.log(error);
-    }
     return {
         statistics,
         whoAreWe,
@@ -178,18 +156,6 @@ Index.getInitialProps = async function () {
         faqs,
         services,
     };
-};
-
-const fetchFeedbacks = async () => {
-    const feedbacksJson = await fetch(API_URL + "/feedbacks?showInMainPage=true");
-    const notPreparedFeedbacks = await feedbacksJson.json();
-    return notPreparedFeedbacks.map((item) => ({
-        ...item,
-        title: item.quote,
-        img: item.scan ? API_URL + item.scan.url : null,
-        avatar: item.avatar ? API_URL + item.avatar.url : null,
-        logo: item.logo ? API_URL + item.logo.url : null,
-    }));
 };
 
 export default Index;

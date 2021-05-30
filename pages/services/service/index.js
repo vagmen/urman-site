@@ -13,7 +13,9 @@ import SectionHeader from "components/SectionHeader/SectionHeader.js";
 import StageCard from "components/StageCard/StageCard.js";
 import Contacts from "components/Contacts/Contacts.js";
 import RequestForm from "components/RequestForm/RequestForm.js";
-import Error from "pages/_error";
+import { fetchAPI } from "lib/api.js";
+import Custom404 from "pages/404.js";
+import { errorHandler } from "utils/index.js";
 
 const Index = ({
     currentService,
@@ -27,11 +29,12 @@ const Index = ({
     quote,
     stagesTitle,
     stages,
-    err,
-}) =>
-    err ? (
-        <Error statusCode={err} />
-    ) : (
+    statusCode,
+}) => {
+    if (statusCode) {
+        return errorHandler(statusCode);
+    }
+    return (
         <Layout postData={{ title: currentService?.name, description: "" }} menuItem="services">
             <div className={styles.container}>
                 <img
@@ -133,6 +136,7 @@ const Index = ({
             </div>
         </Layout>
     );
+};
 
 Index.getInitialProps = async function ({ query }) {
     const id = query.id;
@@ -147,12 +151,11 @@ Index.getInitialProps = async function ({ query }) {
     let quote = "";
     let stagesTitle = "";
     let stages = [];
-    let error = null;
+    let statusCode = null;
 
-    const res = await fetch(API_URL + "/services");
-    const services = await res.json();
-    currentService = services.find((item) => item.slug === id);
-    otherServices = services.filter((item) => item.slug !== id);
+    const services = await fetchAPI("/services");
+    currentService = services?.find((item) => item.slug === id);
+    otherServices = services?.filter((item) => item.slug !== id);
 
     if (currentService) {
         relatedArticles = currentService.relatedArticles;
@@ -187,7 +190,7 @@ Index.getInitialProps = async function ({ query }) {
         stages = currentService.stages.map((item) => ({ ...item, image: API_URL + item.image.url }));
         stagesTitle = currentService.stagesTitle;
     } else {
-        error = 404;
+        statusCode = 404;
     }
     return {
         currentService,
@@ -201,7 +204,7 @@ Index.getInitialProps = async function ({ query }) {
         quote,
         stagesTitle,
         stages,
-        err: error,
+        statusCode,
     };
 };
 

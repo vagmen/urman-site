@@ -1,5 +1,5 @@
 import Layout from "../../../components/Layout.js";
-import Error from "next/error";
+import Custom404 from "pages/404";
 import { API_URL } from "../../../constants/settings.js";
 import styles from "./styles.module.css";
 import Carousel from "components/Carousel/Carousel.js";
@@ -9,13 +9,15 @@ import PageHeader from "components/PageHeader/PageHeader.js";
 import { useWindowSize } from "utils/hooks.js";
 import Author from "components/Author/Author.js";
 import classNames from "classnames";
+import { fetchAPI } from "lib/api.js";
 
 const Index = ({ article, relatedServices, relatedArticles, err }) => {
+    if (err) {
+        return <Custom404 statusCode={err} />;
+    }
     const { author } = article;
     const { width } = useWindowSize();
-    return err ? (
-        <Error statusCode={err} />
-    ) : (
+    return (
         <Layout postData={{ title: article?.title, description: article.description }} menuItem="journal">
             <div className={styles.container}>
                 <div className={styles.posterWrapper}>
@@ -118,11 +120,8 @@ const Index = ({ article, relatedServices, relatedArticles, err }) => {
 };
 
 Index.getInitialProps = async function ({ query }) {
-    const id = query.id;
+    const article = await fetchAPI("/articles?urlId=" + query.id);
 
-    const res = await fetch(`${API_URL}/articles?urlId=${id}`);
-
-    const article = await res.json();
     if (article && article[0]) {
         return {
             article: article[0],

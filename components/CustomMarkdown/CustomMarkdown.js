@@ -80,7 +80,7 @@ const renderers = {
 const CustomMarkdown = ({ source, className, withPadding }) => {
     return (
         <div className={classNames(styles.container, className, { [styles.padding]: withPadding })}>
-            <ReactMarkdown source={source} renderers={renderers} />
+            <ReactMarkdown renderers={renderers}>{source}</ReactMarkdown>
         </div>
     );
 };

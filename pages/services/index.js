@@ -3,11 +3,12 @@ import { API_URL } from "../../constants/settings.js";
 import PageHeader from "components/PageHeader/PageHeader.js";
 import styles from "./styles.module.css";
 import Card from "components/Card/Card";
-import Error from "pages/_error";
+import { fetchAPI } from "lib/api";
+import { errorHandler } from "utils";
 
-const Index = ({ services, errorCode, errorText }) => {
-    if (errorCode) {
-        return <Error statusCode={errorCode} title={errorText} />;
+const Index = ({ services, statusCode }) => {
+    if (statusCode) {
+        return errorHandler;
     }
     return (
         <Layout menuItem="services">
@@ -30,14 +31,9 @@ const Index = ({ services, errorCode, errorText }) => {
 };
 
 Index.getInitialProps = async function () {
-    const servicesJson = await fetch(API_URL + "/services");
-    const services = await servicesJson.json();
-    const errorCode = servicesJson.status > 200 ? servicesJson.status : false;
-    const errorText = servicesJson.statusText || false;
+    const result = await fetchAPI("/services");
     return {
-        services: services || [],
-        errorCode,
-        errorText,
+        services: result || [],
     };
 };
 
