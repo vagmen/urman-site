@@ -10,12 +10,10 @@
 }
 
 .title {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontLarge);
+    composes: fontH3 from "./../../styles/global.css";
     composes: colors from "./../../styles/global.css";
     color: var(--colorPrimary);
     font-weight: 500;
-    line-height: calc(var(--fontHuge) * 1.2);
     text-transform: uppercase;
     text-align: center;
 }

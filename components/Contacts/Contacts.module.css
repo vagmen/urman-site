@@ -28,8 +28,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontSmall);
+    composes: fontH6 from "./../../styles/global.css";
     color: #fff;
     transition: all 0.4s;
 }

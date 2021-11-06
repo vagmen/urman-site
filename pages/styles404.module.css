@@ -25,8 +25,7 @@
 .notFound404 {
     composes: colors from "./../styles/global.css";
     color: var(--colorSecondary);
-    composes: fontSize from "./../styles/global.css";
-    font-size: calc(var(--fontExtraHuge) * 3);
+    composes: fontH1 from "./../styles/global.css";
 }
 
 .notFoundInner {
@@ -36,8 +35,7 @@
 .description {
     composes: colors from "./../styles/global.css";
     color: #ccc;
-    composes: fontSize from "./../styles/global.css";
-    font-size: var(--fontMedium);
+    composes: fontH5 from "./../styles/global.css";
     padding-top: 50px;
 }
 
@@ -47,8 +45,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    composes: fontSize from "./../styles/global.css";
-    font-size: var(--fontSmall);
     cursor: pointer;
     z-index: 1111;
     justify-self: end;

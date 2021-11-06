@@ -1,8 +1,6 @@
 import { sendEmail } from "../../utils/sendEmail";
 
-export default async (req, res) => {
-    console.log("req", req);
-
+const send = async (req, res) => {
     if (req.method === "POST") {
         const { name, email } = req.body;
         await sendEmail({ name, email });
@@ -15,3 +13,4 @@ export default async (req, res) => {
         },
     });
 };
+export default send;

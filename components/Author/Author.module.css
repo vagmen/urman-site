@@ -43,14 +43,12 @@
 }
 
 .name {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontMedium);
-    color: #333;
     margin: 0;
+    composes: fontH5 from "./../../styles/global.css";
 }
+
 .company {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontTiny);
+    composes: fontTiny from "./../../styles/global.css";
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

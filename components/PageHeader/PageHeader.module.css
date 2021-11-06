@@ -10,27 +10,24 @@
 }
 
 .title {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontHuge);
-    color: #252525;
-    font-weight: 500;
-    line-height: calc(var(--fontHuge) * 1.2);
+    composes: fontH1 from "./../../styles/global.css";
+    margin-bottom: 16px;
+    word-wrap: break-word;
 }
 
 .subTitle {
-    /* composes: pagePadding from "./../../styles/global.css"; */
-    /* margin-left: var(--padding); */
-    /* margin-right: var(--padding); */
-    /* margin-bottom: var(--padding); */
     composes: colors from "./../../styles/global.css";
     color: var(--colorPrimary);
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontMedium);
+    composes: fontH6 from "./../../styles/global.css";
 }
 
 @media (min-width: 1050px) {
     .container {
         margin-top: calc(var(--padding) / 2);
+        margin-bottom: 32px;
+    }
+    .title {
+        margin-top: 32px;
         margin-bottom: 32px;
     }
 }

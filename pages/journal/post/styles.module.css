@@ -6,16 +6,23 @@
     composes: pagePadding from "./../../../styles/global.css";
     margin-left: var(--padding);
     margin-right: var(--padding);
-    color: #333;
+    /* color: #333; */
 }
 
 .posterWrapper {
     composes: pagePadding from "./../../../styles/global.css";
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .poster {
-    height: auto;
-    width: 100%;
+    /* height: auto; */
+    /* width: 100%; */
+    composes: pagePadding from "./../../../styles/global.css";
+    /* margin-left: var(--padding);
+    margin-right: var(--padding); */
 }
 
 .otherServices:last-of-type {
@@ -40,11 +47,14 @@
     .posterWrapper {
         margin-left: var(--padding);
         margin-right: var(--padding);
+        width: calc(100% - var(--padding) - var(--padding));
+        aspect-ratio: 3 / 1;
     }
 
     .poster {
-        height: 60vh;
-        object-fit: cover;
+        /* height: 60vh; */
+        /* object-fit: cover; */
+        border-radius: 16px;
     }
 
     .columns {

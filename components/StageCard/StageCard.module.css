@@ -11,6 +11,12 @@
     background: #fff;
 }
 
+.imageWrapper {
+    aspect-ratio: 1;
+    position: relative;
+    height: 100%;
+}
+
 .image {
     width: 100%;
     object-fit: cover;

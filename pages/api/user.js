@@ -1,5 +1,7 @@
-export default (req, res) => {
+const user = (req, res) => {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify({ name: "John Doe" }));
 };
+
+export default user;

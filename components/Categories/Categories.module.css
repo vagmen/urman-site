@@ -26,8 +26,6 @@
 }
 
 .name {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontSmall);
     color: #333;
 }
 

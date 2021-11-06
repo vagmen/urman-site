@@ -4,6 +4,7 @@
     scroll-snap-align: start;
     display: flex;
     flex-wrap: wrap;
+    gap: 16px;
 }
 
 .video {
@@ -13,14 +14,12 @@
 }
 
 .title {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontMedium);
-    color: #333;
+    composes: fontH5 from "./../../styles/global.css";
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    line-height: 24px;
+    font-weight: bold;
 }
 
 @media (min-width: 1050px) {

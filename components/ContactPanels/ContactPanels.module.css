@@ -1,17 +1,3 @@
-.wrapper {
-    composes: pagePadding from "./../../styles/global.css";
-    margin-left: var(--padding);
-    margin-right: var(--padding);
-    z-index: 1;
-}
-
-.content {
-    margin: -16px;
-    padding: 16px;
-    justify-content: space-between;
-    display: flex;
-}
-
 .btns {
     display: grid;
     position: fixed;
@@ -33,8 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontSmall);
+    composes: fontH6 from "./../../styles/global.css";
     color: #fff;
     transition: all 0.4s;
     cursor: pointer;
@@ -101,13 +86,6 @@
 @media (min-width: 1050px) {
     .showInPhone {
         display: none;
-    }
-    .wrapper {
-        bottom: 0;
-        position: relative;
-    }
-    .content {
-        justify-content: flex-start;
     }
     .btns {
         margin-left: 16px;

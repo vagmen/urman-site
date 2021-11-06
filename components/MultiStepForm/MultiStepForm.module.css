@@ -11,9 +11,8 @@
 
 .question {
     border-radius: 4px;
-    composes: fontSize from "./../../styles/global.css";
+    composes: fontH6 from "./../../styles/global.css";
     composes: colors from "./../../styles/global.css";
-    font-size: var(--fontMedium);
     width: 100%;
     border: 1px solid var(--colorPrimary300);
     padding: 8px;
@@ -26,9 +25,8 @@
 
 .commonInput {
     border-radius: 4px;
-    composes: fontSize from "./../../styles/global.css";
+    composes: fontH6 from "./../../styles/global.css";
     composes: colors from "./../../styles/global.css";
-    font-size: var(--fontMedium);
     border: 1px solid var(--colorPrimary300);
     flex: 1 1 0;
     padding: 8px;
@@ -68,8 +66,7 @@
     composes: colors from "./../../styles/global.css";
     border: 1px solid var(--colorPrimary300);
     background: var(--colorPrimary100);
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontTiny);
+    composes: fontTiny from "./../../styles/global.css";
     padding: 16px;
     margin-top: 16px;
 }

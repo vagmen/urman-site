@@ -9,18 +9,9 @@
     margin-bottom: 16px;
 }
 
-.title {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontLarge);
-    color: #252525;
-    font-weight: 500;
-}
-
 .link {
     composes: colors from "./../../styles/global.css";
-    composes: fontSize from "./../../styles/global.css";
     color: var(--colorPrimary);
-    font-size: var(--fontSmall);
     cursor: pointer;
 }
 

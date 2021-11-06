@@ -1,0 +1,17 @@
+.container {
+    composes: pagePadding from "./../../styles/global.css";
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+}
+
+@media (min-width: 500px) {
+}
+
+@media (min-width: 1050px) {
+    .header {
+        margin-top: 128px;
+    }
+}
+
+@media (min-width: 1900px) {
+}

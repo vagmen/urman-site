@@ -13,6 +13,7 @@
     z-index: 1;
     border-radius: borderRadiusSmall;
     /* animation: appearance 2s ease-out; */
+    margin-top: var(--padding);
 }
 
 .who {
@@ -20,16 +21,6 @@
     composes: pagePadding;
     composes: fontSize;
     padding: var(--padding);
-}
-
-.who > h2 {
-    font-size: var(--fontLarge);
-    margin-bottom: 16px;
-}
-
-.who > p {
-    font-size: var(--fontSmall);
-    /* margin-bottom: 16px; */
 }
 
 .playerWrapper {
@@ -60,8 +51,7 @@
 
 .statGrid {
     composes: pagePadding;
-    composes: fontSize;
-    font-size: var(--fontMedium);
+    composes: fontH5 from "./../../styles/global.css";
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: calc(var(--padding) / 2);
@@ -69,7 +59,7 @@
 }
 
 .statNumber {
-    font-size: 48px;
+    composes: fontH1 from "./../../styles/global.css";
     display: flex;
     align-items: center;
 }
@@ -81,7 +71,6 @@
 
 .benefits {
     composes: pagePadding;
-    composes: fontSize;
     grid-area: benefits;
     padding: var(--padding);
 }
@@ -90,7 +79,6 @@
     display: flex;
     align-items: center;
     padding-bottom: 16px;
-    font-size: var(--fontSmall);
 }
 
 .benefits:last-child {

@@ -40,20 +40,20 @@
 }
 
 .title {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontTiny);
+    composes: fontTiny from "./../../styles/global.css";
     text-align: center;
     text-transform: capitalize;
-    color: #aaa;
+    /* color: #aaa; */
+    color: rgba(0, 0, 0, 0.54);
     white-space: nowrap;
     text-decoration: none;
     transition: all 1s;
-    /* z-index: 100; */
 }
 
 .activeTitle {
     color: var(--colorPrimary);
 }
+
 .icon {
     margin: 0 auto;
     color: #aaa;
@@ -98,11 +98,14 @@
     .title {
         text-transform: uppercase;
         text-align: center;
-        color: rgba(255, 255, 255, 0.76);
+        /* color: rgba(255, 255, 255, 0.76); */
+        /* color: #333; */
+        /* color: rgba(0, 0, 0, 0.87); */
+        color: rgba(0, 0, 0, 0.54);
     }
 
     .activeTitle {
-        color: rgba(255, 255, 255, 1);
+        color: var(--colorPrimary);
     }
 
     .icon {

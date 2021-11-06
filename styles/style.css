@@ -5,10 +5,9 @@
     font-weight: 400;
     src: local(""), url("../public/fonts/rubik-v10-latin_cyrillic-regular.woff2") format("woff2"),
         url("../public/fonts/rubik-v10-latin_cyrillic-regular.woff") format("woff");
-} */
+    } */
 
 :root {
-    font-size: 14px;
 }
 
 * {
@@ -16,14 +15,63 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 1em;
-    font-weight: 400;
-    /* line-height: 1.5em; */
-    text-transform: none;
-    text-align: left;
-    white-space: normal;
-    word-spacing: normal;
-    text-indent: 0;
+}
+
+html {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    font-size: 16px;
+    font-family: Rubik, sans-serif;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+body {
+    height: 100vh;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 2.7rem;
+    margin-top: 48px;
+    margin-bottom: 24px;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.7rem;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+h5 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+h6 {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+button {
+    font-size: 1rem;
 }
 
 p,
@@ -32,41 +80,29 @@ li {
     /* max-width: 33em; */
 }
 
-html {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    /* font-size: 14px; */
-    font-family: "Rubik", sans-serif;
-    font-display: swap;
-}
-
 p {
     margin-bottom: 8px;
 }
 
-h2 {
-    line-height: 35px;
+a {
+    color: inherit;
+    text-decoration: none;
+    /* color: #488558; */
+}
+a:hover {
+    text-decoration: none;
+    color: inherit;
+    /* color: rgba(72, 133, 88, 0.5); */
 }
 
 @media (min-width: 500px) {
-    :root {
-        font-size: 16px;
-    }
-
-    h2 {
-        line-height: 40px;
+    html {
+        font-size: 17px;
     }
 }
 
 @media (min-width: 1050px) {
-    :root {
+    html {
         font-size: 18px;
-    }
-
-    h2 {
-        line-height: 50px;
     }
 }

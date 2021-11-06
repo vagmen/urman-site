@@ -8,6 +8,7 @@
     padding-top: var(--padding);
     display: flex;
     flex-wrap: wrap;
+    /* border: 1px solid var(--colorPrimary); */
 }
 
 .btns {
@@ -17,20 +18,19 @@
 
 .item {
     flex: 0 0 100%;
-    /* display: flex; */
-    /* align-items: baseline; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
 .label {
     margin-left: 8px;
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontMedium);
+    composes: fontH5 from "./../../styles/global.css";
 }
 
 .icons {
     display: flex;
     justify-content: space-between;
-    /* margin-top: 16px; */
     width: 100%;
 }
 
@@ -42,11 +42,6 @@
     composes: shadow from "./../../styles/global.css";
     box-shadow: var(--box-shadow);
     background: #fff;
-    margin-bottom: 16px;
-}
-
-.content {
-    padding: 16px;
 }
 
 @media (min-width: 1050px) {
@@ -55,9 +50,5 @@
         padding-top: calc(var(--padding) / 2);
         flex-wrap: nowrap;
         padding-bottom: 80px;
-    }
-
-    .content {
-        padding: var(--gap);
     }
 }

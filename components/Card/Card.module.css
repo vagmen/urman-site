@@ -29,19 +29,16 @@
 }
 
 .title {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontMedium);
+    composes: fontH5 from "./../../styles/global.css";
     text-overflow: ellipsis;
     overflow: hidden;
-    line-height: 24px;
-    color: #404040;
     margin: 0;
     word-wrap: break-word;
 }
 
 .extra {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontTiny);
+    composes: fontTiny from "./../../styles/global.css";
+    color: rgba(0, 0, 0, 0.54);
     padding-top: 8px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -59,7 +56,7 @@
     }
 
     .title {
-        line-height: 32px;
+        /* line-height: 32px; */
     }
 }
 

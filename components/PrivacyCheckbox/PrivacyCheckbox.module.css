@@ -1,0 +1,15 @@
+.checkboxWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 0;
+}
+
+.checkbox {
+    color: var(--color-primary-500);
+}
+
+.text {
+    font-size: var(--font-size-tiny);
+    vertical-align: middle;
+}

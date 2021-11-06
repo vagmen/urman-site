@@ -2,17 +2,6 @@
     /* margin-top: 64px; */
 }
 
-.subHeader {
-    composes: pagePadding from "./../../styles/global.css";
-    margin-left: var(--padding);
-    margin-right: var(--padding);
-    /* margin-bottom: var(--padding); */
-    composes: colors from "./../../styles/global.css";
-    color: var(--colorPrimary);
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontMedium);
-}
-
 @media (min-width: 500px) {
 }
 

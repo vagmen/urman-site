@@ -42,19 +42,10 @@
     align-self: flex-start;
 }
 
-.title {
-    composes: fontSize from "./../../styles/global.css";
-    color: #333;
-    font-size: var(--fontSmall);
-}
-
 .imgWrapper {
     composes: shadow from "./../../styles/global.css";
-    /* height: auto;
-    width: auto; */
     max-width: 100%;
     width: 100%;
-    /* height: 200%; */
 }
 
 .img {

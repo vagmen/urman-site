@@ -4,7 +4,6 @@
 .item {
     composes: colors from "./../../styles/global.css";
     border-top: 1px solid var(--colorPrimary100);
-    color: #333;
 }
 
 .item:last-of-type {
@@ -14,12 +13,10 @@
 
 .question {
     padding: 16px 0;
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontMedium);
+    composes: fontH5 from "./../../styles/global.css";
     cursor: pointer;
 }
 
 .answer {
-    font-size: var(--fontSmall);
     margin-bottom: 16px;
 }

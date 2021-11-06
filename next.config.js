@@ -3,6 +3,6 @@ module.exports = {
     assetPrefix: isProd ? "https://urman.su" : "",
     reactStrictMode: true,
     images: {
-        domains: ["admin.urman.su"],
+        domains: ["admin.urman.su", "img.youtube.com"],
     },
 };

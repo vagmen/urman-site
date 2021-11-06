@@ -18,29 +18,38 @@
 
 .content {
     flex: 1 1 0;
+    display: grid;
+    gap: 16px;
+    /* gap: var(--gap); */
 }
 
 .imageWrapper {
     flex: 1 1 0;
     height: 100%;
     margin-bottom: 16px;
+    overflow: hidden;
 }
 
 .image {
     height: 100%;
     width: 100%;
     object-fit: contain;
+    object-position: center;
+    border-radius: 16px;
 }
 
 @media (min-width: 1050px) {
     .container {
         flex-direction: row;
-        margin-top: calc(var(--padding) / 2);
+        margin-top: var(--padding);
     }
     .revers {
         flex-direction: row-reverse;
     }
     .imageWrapper {
         margin-top: 0;
+    }
+    .image {
+        object-position: right;
     }
 }

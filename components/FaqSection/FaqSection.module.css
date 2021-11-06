@@ -17,9 +17,7 @@
 }
 
 .link {
-    composes: fontSize from "./../../styles/global.css";
     composes: colors from "./../../styles/global.css";
-    font-size: var(--fontMedium);
     color: var(--colorPrimary);
 }
 

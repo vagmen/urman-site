@@ -1,5 +1,3 @@
-import { notification } from "antd";
-
 const FORM_TYPES = {
     default: {
         items: ["name", "phone"],

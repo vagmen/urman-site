@@ -1,6 +1,7 @@
 /* --multiplier: 1; */
 
 .colors {
+    --colorPrimary700: #14742e;
     --colorPrimary: #488558;
     --colorPrimary300: rgba(72, 133, 88, 0.5);
     --colorPrimary100: rgba(72, 133, 88, 0.08);
@@ -13,27 +14,57 @@
     --gap: 8px;
     transition: all 0.4s;
 }
-@value multipleTiny: 1;
-@value fontBase: 12px;
-
-@value fontTiny: calc(fontBase * multiplierTiny);
-@value fontSmall: 14px;
-@value fontMedium: 18px;
-@value fontLarge: 26px;
-@value fontHuge: 32px;
-@value fontExtraHuge: 48px;
 
 @value borderRadiusSmall: 8px;
 @value borderRadiusMedium: 16px;
 @value borderRadiusLarge: 24px;
 
 .fontSize {
-    --fontTiny: 12px; /*дополнительный текст*/
-    --fontSmall: 14px; /*обычный текст*/
-    --fontMedium: 18px; /*подзаголовок*/
-    --fontLarge: 26px; /*заголовок секции*/
-    --fontHuge: 32px; /*заголовок страницы*/
-    --fontExtraHuge: 48px;
+    --fontSizeTiny: 0.75rem; /*дополнительный текст*/
+    --fontSizeH6: 1.125rem;
+    --fontSizeH5: 1.25rem;
+    --fontSizeH4: 1.4rem;
+    --fontSizeH3: 2rem; /*подзаголовок*/
+    --fontSizeH2: 2.4rem; /*заголовок секции*/
+    --fontSizeH1: 3.5rem; /*заголовок страницы*/
+}
+
+.fontTiny {
+    composes: fontSize;
+    font-size: var(--fontSizeTiny);
+    line-height: calc(var(--fontSizeTiny) * 1.3);
+}
+
+.fontH6 {
+    composes: fontSize;
+    font-size: var(--fontSizeH6);
+    line-height: calc(var(--fontSizeH6) * 1.2);
+}
+.fontH5 {
+    composes: fontSize;
+    font-size: var(--fontSizeH5);
+    line-height: calc(var(--fontSizeH5) * 1.2);
+}
+.fontH4 {
+    composes: fontSize;
+    font-size: var(--fontSizeH4);
+    line-height: calc(var(--fontSizeH4) * 1.2);
+}
+.fontH3 {
+    composes: fontSize;
+    font-size: var(--fontSizeH3);
+    line-height: calc(var(--fontSizeH3) * 1.2);
+}
+.fontH2 {
+    composes: fontSize;
+    font-size: var(--fontSizeH2);
+    line-height: calc(var(--fontSizeH2) * 1.2);
+}
+.fontH1 {
+    composes: fontSize;
+    font-size: var(--fontSizeH1);
+    line-height: calc(var(--fontSizeH1) * 1.2);
+    font-weight: 500;
 }
 
 /* :root {
@@ -43,11 +74,6 @@
 .shadow {
     --box-shadow: 0 5px 24px rgba(0, 0, 0, 0.08);
 }
-
-/* .shadow {
-    composes: boxShadow;
-    box-shadow: var(--box-shadow);
-} */
 
 .clickableShadow {
     composes: shadow;
@@ -93,23 +119,16 @@
 
 @media (min-width: 1050px) {
     .pagePadding {
-        --padding: 192px;
+        /* --padding: 192px; */
+        --padding: 96px;
         --gap: 32px;
     }
-
-    .fontSize {
-        --fontTiny: 14px;
-        --fontSmall: 18px;
-        --fontMedium: 22px;
-        --fontLarge: 40px;
-        --fontHuge: 60px;
-    }
-    /* --multiplierTiny: 2; */
 }
 
 @media (min-width: 1400px) {
     .pagePadding {
-        --padding: 240px;
+        --padding: 192px;
+        /* --padding: 240px; */
         --gap: 48px;
     }
 }
@@ -118,13 +137,4 @@
     .pagePadding {
         --padding: 300px;
     }
-
-    .fontSize {
-        --fontTiny: 16px;
-        --fontSmall: 20px;
-        --fontMedium: 24px;
-        --fontLarge: 48px;
-        --fontHuge: 70px;
-    }
-    /* --multiplierTiny: 3; */
 }

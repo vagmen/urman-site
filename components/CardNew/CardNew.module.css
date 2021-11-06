@@ -41,8 +41,6 @@
 }
 
 .title {
-    composes: fontSize from "./../../styles/global.css";
-    font-size: var(--fontMedium);
     text-overflow: ellipsis;
     overflow: hidden;
     line-height: 24px;

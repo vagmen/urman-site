@@ -1,17 +1,16 @@
 .button {
     composes: colors from "./../../styles/global.css";
-    composes: fontSize from "./../../styles/global.css";
     background: var(--colorPrimary100);
     text-transform: uppercase;
     color: var(--colorPrimary);
     padding: 16px 24px;
     border-radius: 4px;
     margin-top: 16px;
-    font-size: var(--fontSmall);
     cursor: pointer;
     transition: all 0.4s;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
+    max-width: fit-content;
 }
 
 .button:hover {
@@ -24,7 +23,7 @@
 }
 
 .primary:hover {
-    background: var(--colorPrimary300);
+    background: var(--colorPrimary700);
 }
 
 .disabled {
