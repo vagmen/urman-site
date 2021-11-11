@@ -1,19 +1,19 @@
-import Layout from "../../../components/Layout.js";
-import { API_URL } from "../../../constants/settings.js";
+import Layout from "components/Layout";
+import { API_URL } from "../../../constants/settings";
 import styles from "./styles.module.css";
-import Carousel from "components/Carousel/Carousel.js";
-import Card from "components/Card/Card.js";
-import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown.js";
-import PageHeader from "components/PageHeader/PageHeader.tsx";
-import FeedbackCard from "components/FeedbackCard/FeedbackCard.js";
-import EmployeeCard from "components/EmployeeCard/EmployeeCard.js";
-import VideoWrapper from "components/VideoWrapper/VideoWrapper.js";
+import Carousel from "components/Carousel/Carousel";
+import Card from "components/Card/Card";
+import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown";
+import PageHeader from "components/PageHeader/PageHeader";
+import FeedbackCard from "components/FeedbackCard/FeedbackCard";
+import EmployeeCard from "components/EmployeeCard/EmployeeCard";
+import VideoWrapper from "components/VideoWrapper/VideoWrapper";
 import classNames from "classnames";
-import SectionHeader from "components/SectionHeader/SectionHeader.js";
-import StageCard from "components/StageCard/StageCard.js";
-import Contacts from "components/Contacts/Contacts.js";
-import RequestForm from "components/RequestForm/RequestForm.js";
-import { fetchAPI } from "lib/api.js";
+import SectionHeader from "components/SectionHeader/SectionHeader";
+import StageCard from "components/StageCard/StageCard";
+import Contacts from "components/Contacts/Contacts";
+import RequestForm from "components/RequestForm/RequestForm";
+import { fetchAPI } from "lib/api";
 import { errorHandler } from "utils/index.js";
 
 const Index = ({

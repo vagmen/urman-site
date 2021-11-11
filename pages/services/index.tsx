@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
-import { API_URL } from "../../constants/settings.js";
-import PageHeader from "components/PageHeader/PageHeader.tsx";
+import { API_URL } from "../../constants/settings";
+import PageHeader from "components/PageHeader/PageHeader";
 import styles from "./styles.module.css";
 import Card from "components/Card/Card";
 import { fetchAPI } from "lib/api";

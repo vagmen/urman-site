@@ -3,40 +3,27 @@ import Custom404 from "pages/404";
 import { API_URL } from "constants/settings";
 import styles from "./styles.module.css";
 import Carousel from "components/Carousel/Carousel";
-import Card from "components/Card/Card.js";
+import Card from "components/Card/Card";
 import CustomMarkdown from "components/CustomMarkdown/CustomMarkdown";
 import PageHeader from "components/PageHeader/PageHeader";
 import { useWindowSize } from "utils/hooks.js";
 import Author from "components/Author/Author";
 import classNames from "classnames";
-import { fetchAPI } from "lib/api.js";
+import { fetchAPI } from "lib/api";
 import Image from "next/image";
 import { IResponseArticle } from "interfaces/response";
 import { NextPage } from "next";
 
 interface Props {
     article: IResponseArticle;
-    err?: number;
 }
 
-const Index: NextPage<Props> = ({ article, err }) => {
+const Index: NextPage<Props> = ({ article }) => {
     const { width } = useWindowSize();
-    if (err) {
+    if (!article) {
         return <Custom404 />;
     }
-    const {
-        author,
-        relatedArticles,
-        relatedServices,
-        title,
-        content,
-        description,
-        id,
-        poster,
-        publishedAt,
-        showInMainPage,
-        urlId,
-    } = article;
+    const { author, relatedArticles, relatedServices, title, content, description, poster } = article;
     return (
         <Layout postData={{ title: title, description: description }} menuItem="journal">
             <div className={styles.container}>
@@ -148,7 +135,7 @@ const Index: NextPage<Props> = ({ article, err }) => {
 Index.getInitialProps = async function ({ query }) {
     const article: IResponseArticle[] = await fetchAPI("/articles?urlId=" + query.id);
 
-    return { article: article && article[0], err: 404 };
+    return { article: article[0] };
 };
 
 export default Index;
