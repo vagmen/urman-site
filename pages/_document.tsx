@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { YMInitializer } from "react-yandex-metrika";
 import { GA_TRACKING_ID } from "../lib/gtag";
 
 class MyDocument extends Document {
@@ -34,6 +35,16 @@ class MyDocument extends Document {
                     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
                 </Head>
                 <body>
+                    {/* <YMInitializer
+                        accounts={[51360247]}
+                        // accounts={[parseInt(process.env.YM_COUNTER_ID as string)]}
+                        options={{ webvisor: true, defer: true }}
+                        version="2"
+                    /> */}
+                    {/* <YMInitializer
+                        accounts={[51360247]}
+                        options={{ clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true }}
+                    /> */}
                     <Main />
                     <NextScript />
                 </body>

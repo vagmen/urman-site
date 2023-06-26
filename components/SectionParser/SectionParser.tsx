@@ -22,7 +22,9 @@ const SectionParser = ({ data, key }) => {
                     title={data.name}
                     grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                     list={data.employees.map((employee) => ({ ...employee, avatar: API_URL + employee.avatar.url }))}
-                    renderItem={(props) => <EmployeeCard {...props} />}
+                    renderItem={(props) => (
+                        <EmployeeCard name={props.name} position={props.position} avatar={props.avatar} />
+                    )}
                 />
             );
         }

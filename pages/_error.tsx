@@ -1,5 +1,5 @@
 import Layout from "components/Layout";
-import PageHeader from "components/PageHeader/PageHeader.tsx";
+import PageHeader from "components/PageHeader/PageHeader";
 import styles from "./stylesError.module.css";
 
 function Error({ statusCode }) {

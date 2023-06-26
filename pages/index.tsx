@@ -59,7 +59,7 @@ const Index = ({
                 title="Рекомендательные письма"
                 grid={{ mobile: 1, tablet: 3, m: 4, l: 3, xl: 4 }}
                 list={feedbacks}
-                renderItem={(props) => <FeedbackCard {...props} />}
+                renderItem={(props) => <FeedbackCard {...props} type="recommendation" />}
             />
             {/* <Carousel
                 title=""
@@ -73,13 +73,13 @@ const Index = ({
                 title="Видео от клиентов"
                 grid={{ mobile: 1, m: 2, l: 2, xl: 2 }}
                 list={feedbackVideos}
-                renderItem={(props) => <FeedbackCard {...props} />}
+                renderItem={(props) => <FeedbackCard {...props} type="video" />}
             />
             <Carousel
                 title="Отзывы"
                 grid={{ mobile: 1, m: 2, l: 2, xl: 3 }}
                 list={feedbackTexts}
-                renderItem={(props) => <FeedbackCard {...props} />}
+                renderItem={(props) => <FeedbackCard {...props} type="text" />}
             />
             <Carousel
                 title="Статьи"
@@ -95,7 +95,7 @@ const Index = ({
                 link="https://www.youtube.com/channel/UCsXvoen-yfZy3fiAPJpBqig/featured"
                 grid={{ mobile: 1, tablet: 2, m: 2, l: 2, xl: 3 }}
                 list={videoList}
-                renderItem={(props) => <VideoCard {...props} />}
+                renderItem={(props) => <VideoCard title={props.title} url={props.url} />}
             />
             <FaqSection list={faqs} />
             {/* <SectionHeader title="Связаться" />

@@ -3,6 +3,8 @@ import classNames from "classnames";
 import { MdLocationOn, MdEmail, MdLocalPhone } from "react-icons/md";
 import { FaYoutube, FaWhatsapp, FaTelegramPlane, FaVk, FaInstagram } from "react-icons/fa";
 import * as gtag from "lib/gtag";
+import ym from "react-yandex-metrika";
+import { ymTrigger } from "utils/ym";
 
 interface IFooter {
     className?: string;
@@ -37,10 +39,13 @@ const Footer = ({ className }: IFooter) => {
                     title="Позвонить"
                     onClick={() => {
                         // eslint-disable-next-line no-undef
-                        ym(51360247, "reachGoal", "phoneFooter");
+                        // ym("reachGoal", "phoneFooter");
+                        ymTrigger("phoneFooter");
                         gtag.event({
                             category: "phone",
                             action: "footer",
+                            label: "",
+                            value: "",
                         });
                     }}
                 >
@@ -64,20 +69,20 @@ const Footer = ({ className }: IFooter) => {
                 <a title="Whatsapp" href="https://wa.me/79631363486" target="_blank" rel="noopener noreferrer">
                     <FaWhatsapp className={styles.icon} color="#43d854" />
                 </a>
-                <a title="Telegram" href="tg://resolve?domain=urmansu">
+                <a title="Telegram" href="tg://resolve?domain=URMANgroup_bot">
                     <FaTelegramPlane className={styles.icon} color="#0088cc" />
                 </a>
                 <a href="https://vk.com/urman_su" target="_blank" rel="noopener noreferrer" title="ВКонтакте">
                     <FaVk className={styles.icon} color="#4c75a3" />
                 </a>
-                <a
+                {/* <a
                     href="https://www.instagram.com/urman.su"
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Instagram"
                 >
                     <FaInstagram className={styles.icon} color="#833AB4" />
-                </a>
+                </a> */}
             </div>
         </div>
     );

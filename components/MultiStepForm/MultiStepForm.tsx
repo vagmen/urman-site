@@ -7,6 +7,8 @@ import Steps from "components/Steps/Steps";
 import { sendLeadNew } from "utils/api";
 import * as gtag from "lib/gtag";
 import PrivacyCheckbox from "components/PrivacyCheckbox/PrivacyCheckbox";
+import ym from "react-yandex-metrika";
+import { ymTrigger } from "utils/ym";
 
 interface MultiStepForm {
     className?: string;
@@ -33,10 +35,13 @@ const MultiStepForm = ({ className }: MultiStepForm) => {
 
         sendLeadNew({ name, phone, email, comment: question });
         // eslint-disable-next-line no-undef
-        ym(51360247, "reachGoal", "formWithQuestion");
+        // ym("reachGoal", "formWithQuestion");
+        ymTrigger("formWithQuestion");
         gtag.event({
             category: "forms",
             action: "withQuestion",
+            label: "",
+            value: "",
         });
 
         // setCurrentStep(0);
@@ -70,7 +75,6 @@ const MultiStepForm = ({ className }: MultiStepForm) => {
                     <>
                         <p>Задайте здесь Ваш вопрос и мы на него обязательно ответим:</p>
                         <textarea
-                            type="text"
                             name="question"
                             className={styles.question}
                             value={question}

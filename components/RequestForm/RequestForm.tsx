@@ -5,8 +5,15 @@ import SectionHeader from "components/SectionHeader/SectionHeader";
 import Button from "components/Button/Button";
 import { sendLeadNew } from "utils/api";
 import * as gtag from "lib/gtag";
+import ym from "react-yandex-metrika";
+import { ymTrigger } from "utils/ym";
 
-const RequestForm = ({ className, title }) => {
+interface IRequestForm {
+    title: string;
+    className?: string;
+}
+
+const RequestForm = ({ className, title }: IRequestForm) => {
     const [currentStep, setCurrentStep] = useState(0);
     const [question, setQuestion] = useState("");
     const [phone, setPhone] = useState("");
@@ -18,10 +25,13 @@ const RequestForm = ({ className, title }) => {
         sendLeadNew({ name, phone, email, comment: question });
         setCurrentStep(3);
         // eslint-disable-next-line no-undef
-        ym(51360247, "reachGoal", "formCallBack");
+        // ym("reachGoal", "formCallBack");
+        ymTrigger("formCallBack");
         gtag.event({
             category: "forms",
             action: "callBack",
+            label: "",
+            value: "",
         });
     };
 
@@ -106,7 +116,6 @@ const RequestForm = ({ className, title }) => {
                             сможем помочь Вам.
                         </p>
                         <textarea
-                            type="text"
                             name="question"
                             className={styles.question}
                             value={question}

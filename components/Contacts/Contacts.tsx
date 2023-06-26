@@ -2,6 +2,8 @@ import styles from "./Contacts.module.css";
 import classNames from "classnames";
 import { FaTelegramPlane, FaWhatsapp, FaYoutube, FaVk, FaInstagram } from "react-icons/fa";
 import * as gtag from "lib/gtag";
+import ym from "react-yandex-metrika";
+import { ymTrigger } from "utils/ym";
 
 const Contacts = ({ className }) => {
     return (
@@ -14,10 +16,13 @@ const Contacts = ({ className }) => {
                         title="Позвонить"
                         onClick={() => {
                             // eslint-disable-next-line no-undef
-                            ym(51360247, "reachGoal", "phoneBody");
+                            // ym("reachGoal", "phoneBody");
+                            ymTrigger("phoneBody");
                             gtag.event({
                                 category: "phone",
                                 action: "body",
+                                label: "",
+                                value: "",
                             });
                         }}
                     >
@@ -33,7 +38,7 @@ const Contacts = ({ className }) => {
                         >
                             <FaWhatsapp className={styles.icon} color="#43d854" />
                         </a>
-                        <a title="Telegram" href="tg://resolve?domain=urmansu" className={styles.btn}>
+                        <a title="Telegram" href="tg://resolve?domain=URMANgroup_bot" className={styles.btn}>
                             <FaTelegramPlane className={styles.icon} color="#0088cc" />
                         </a>
                         <a
@@ -54,7 +59,7 @@ const Contacts = ({ className }) => {
                         >
                             <FaVk className={styles.icon} color="#4c75a3" />
                         </a>
-                        <a
+                        {/* <a
                             href="https://www.instagram.com/urman.su"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -62,7 +67,7 @@ const Contacts = ({ className }) => {
                             className={classNames(styles.btn, styles.showInDesktop)}
                         >
                             <FaInstagram className={styles.icon} color="#833AB4" />
-                        </a>
+                        </a> */}
                     </div>
                     <a
                         href="tel:+79631363486"
@@ -70,7 +75,8 @@ const Contacts = ({ className }) => {
                         title="Позвонить"
                         onClick={() => {
                             // eslint-disable-next-line no-undef
-                            ym(51360247, "reachGoal", "tel1");
+                            // ym("reachGoal", "tel1");
+                            ymTrigger("tel1");
                         }}
                     >
                         Позвонить

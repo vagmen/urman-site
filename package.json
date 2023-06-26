@@ -14,19 +14,20 @@
         "startTest": "NODE_ENV=production node server.js PORT=5042",
         "postinstall": "npm run build",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "sitemap": "node modules/buildSitemap.js",
-        "lint": "next lint"
+        "lint": "next lint",
+        "type-check": "tsc"
     },
     "dependencies": {
         "classnames": "^2.3.1",
         "express": "^4.17.1",
         "moment": "^2.29.1",
-        "next": "^12.0.1",
+        "next": "^12.0.4-canary.11",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-icons": "4.2.0",
         "react-markdown": "^7.1.0",
         "react-player": "^2.9.0",
+        "react-yandex-metrika": "^2.6.0",
         "sharp": "^0.29.2",
         "typescript": "^4.4.4"
     },

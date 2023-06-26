@@ -5,6 +5,8 @@ import { MdLocalPhone } from "react-icons/md";
 import * as gtag from "lib/gtag";
 import { useContext } from "react";
 import HeaderContext from "contexts/HeaderContext";
+import ym from "react-yandex-metrika";
+import { ymTrigger } from "utils/ym";
 
 const ContactPanels = () => {
     const { setVisible } = useContext(HeaderContext);
@@ -16,10 +18,13 @@ const ContactPanels = () => {
                 title="Позвонить"
                 onClick={() => {
                     // eslint-disable-next-line no-undef
-                    ym(51360247, "reachGoal", "phoneHeader");
+                    // ym("reachGoal", "phoneHeader");
+                    ymTrigger("phoneHeader");
                     gtag.event({
                         category: "phone",
                         action: "header",
+                        label: "",
+                        value: "",
                     });
                 }}
             >
@@ -31,10 +36,13 @@ const ContactPanels = () => {
                 title="Позвонить"
                 onClick={() => {
                     // eslint-disable-next-line no-undef
-                    ym(51360247, "reachGoal", "phoneHeader");
+                    // ym("reachGoal", "phoneHeader");
+                    ymTrigger("phoneHeader");
                     gtag.event({
                         category: "phone",
                         action: "header",
+                        label: "",
+                        value: "",
                     });
                 }}
             >
@@ -50,7 +58,7 @@ const ContactPanels = () => {
                 >
                     <FaWhatsapp className={styles.icon} color="#43d854" />
                 </a>
-                <a title="Telegram" href="tg://resolve?domain=urmansu" className={styles.btn}>
+                <a title="Telegram" href="tg://resolve?domain=URMANgroup_bot" className={styles.btn}>
                     <FaTelegramPlane className={styles.icon} color="#0088cc" />
                 </a>
                 <button

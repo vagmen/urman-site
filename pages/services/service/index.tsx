@@ -16,6 +16,14 @@ import RequestForm from "components/RequestForm/RequestForm";
 import { fetchAPI } from "lib/api";
 import { errorHandler } from "utils/index.js";
 
+interface IQuote {
+    text: string;
+    position: string;
+    name: string;
+    avatar?: string;
+    avatarV?: string;
+}
+
 const Index = ({
     currentService,
     otherServices,
@@ -86,13 +94,15 @@ const Index = ({
                     title={stagesTitle}
                     grid={{ mobile: 1, tablet: 1, m: 1, l: 1, xl: 1 }}
                     list={stages}
-                    renderItem={(props) => <StageCard {...props} />}
+                    renderItem={(props) => <StageCard content={props.content} img={props.img} />}
                 />
                 <Carousel
                     title={employeeTitle}
                     grid={{ mobile: "245px", tablet: "245px", m: 3, l: 3, xl: 4 }}
                     list={relatedEmployees}
-                    renderItem={(props) => <EmployeeCard {...props} />}
+                    renderItem={(props) => (
+                        <EmployeeCard name={props.name} position={props.position} avatar={props.avatar} />
+                    )}
                 />
                 {/* <div className={styles.contactsSection}> */}
                 <SectionHeader title="Связаться" description="Позвоните или напишите нам в любой социальной сети" />
@@ -102,7 +112,7 @@ const Index = ({
                     title="Отзывы"
                     grid={{ mobile: 1, m: 2, l: 2, xl: 3 }}
                     list={relatedFeedbacks}
-                    renderItem={(props) => <FeedbackCard {...props} />}
+                    renderItem={(props) => <FeedbackCard {...props} type="text" />}
                 />
                 <Carousel
                     title="Статьи по услуге"
@@ -147,7 +157,7 @@ Index.getInitialProps = async function ({ query }) {
     let relatedEmployees = [];
     let whyTitle = "";
     let whyList = [];
-    let quote = "";
+    let quote: IQuote | null = null;
     let stagesTitle = "";
     let stages = [];
     let statusCode = null;

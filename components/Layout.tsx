@@ -18,7 +18,7 @@ interface IPostData {
 }
 
 interface ILayoutProps {
-    menuItem: string;
+    menuItem?: string;
     children: ReactNode;
     postData?: IPostData;
     metaImg?: string;

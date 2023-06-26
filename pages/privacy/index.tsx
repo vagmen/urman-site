@@ -1,5 +1,5 @@
 import Layout from "components/Layout";
-import { API_URL } from "constants/settings.js";
+import { API_URL } from "constants/settings";
 import SectionParser from "components/SectionParser/SectionParser";
 
 const Index = ({ sections }) => (

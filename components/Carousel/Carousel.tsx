@@ -22,6 +22,11 @@ interface IListItem {
     title: string;
     img: string;
     id: string;
+    url?: string;
+    name?: string;
+    position?: string;
+    avatar?: string;
+    content?: string;
 }
 
 interface ICarouselProps {
@@ -29,12 +34,11 @@ interface ICarouselProps {
     list: IListItem[];
     renderItem: (listItem: IListItem) => ReactNode;
     grid: ICarouselGrid;
-    // key: string;
     link?: string;
     className?: string;
 }
 
-const Carousel = ({ list = [], link, title, className, renderItem, grid = {}, key }: ICarouselProps) => {
+const Carousel = ({ list = [], link, title, className, renderItem, grid = {} }: ICarouselProps) => {
     const scrollableContainer = useRef(null);
     const cardWrapper = useRef(null);
 
@@ -61,13 +65,16 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {}, ke
             setCountOfVisible(xl);
         }
 
-        setLastCard(firstCard + countOfVisible - 1);
+        typeof countOfVisible === "number" && setLastCard(firstCard + countOfVisible - 1);
         setLeftButtonHidden(offset === 0);
         setRightButtonHidden(list.length === lastCard);
         setIsMobile(width < 1050);
-    });
+    }, []);
 
     const handleScrollPrev = () => {
+        if (typeof countOfVisible !== "number") {
+            return;
+        }
         const diff = firstCard - 1;
         let pers = 100;
         if (diff < countOfVisible) {
@@ -86,6 +93,9 @@ const Carousel = ({ list = [], link, title, className, renderItem, grid = {}, ke
     };
 
     const handleScrollNext = () => {
+        if (typeof countOfVisible !== "number") {
+            return;
+        }
         const length = list.length;
         const diff = length - lastCard;
         let pers = 100;

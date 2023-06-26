@@ -41,3 +41,4 @@ export const errorHandler = (statusCode) => {
         return <Error statusCode={statusCode} />;
     }
 };
+

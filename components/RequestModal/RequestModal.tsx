@@ -7,6 +7,7 @@ import { MdClose } from "react-icons/md";
 import * as gtag from "lib/gtag";
 import HeaderContext from "contexts/HeaderContext";
 import PrivacyCheckbox from "components/PrivacyCheckbox/PrivacyCheckbox";
+import { ymTrigger } from "utils/ym";
 
 const RequestModal = () => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -18,11 +19,13 @@ const RequestModal = () => {
     const { visible, setVisible } = useContext(HeaderContext);
 
     const handlerSetCurrentStep1 = () => {
-        // eslint-disable-next-line no-undef
-        ym(51360247, "reachGoal", "formCallBackFromModal");
+        ymTrigger("formCallBackFromModal");
+        // withId(51360247)("reachGoal", "formCallBackFromModal");
         gtag.event({
             category: "forms",
             action: "callBackFromModal",
+            label: "",
+            value: "",
         });
         sendLeadNew({ name, phone, email, comment: question });
         setCurrentStep(3);
