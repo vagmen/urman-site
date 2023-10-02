@@ -1,11 +1,11 @@
 import styles from "./Button.module.css";
 import classNames from "classnames";
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps, MouseEventHandler, ReactNode } from "react";
 
 interface IButton {
     children: ReactNode;
     className?: string;
-    onClick: () => void;
+    onClick: (event: any) => void;
     color?: "default" | "primary";
     disabled?: boolean;
     fullWidth?: boolean;

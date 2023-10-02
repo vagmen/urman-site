@@ -22,18 +22,20 @@ const CustomMarkdown = ({ source, className, withPadding }: ICustomMarkdown) => 
                         <CustomLink href={props.href}>{props.children[0] || ""}</CustomLink>
                     );
                 },
-                img: ({ node, ...props }) => (
-                    <Image
-                        src={props.src}
-                        alt={props.alt}
-                        width={350}
-                        height={500}
-                        className={styles.img}
-                        layout="responsive"
-                        placeholder="blur"
-                        blurDataURL={props.src}
-                    />
-                ),
+                img: ({ node, ...props }) => {
+                    return (
+                        <Image
+                            src={props.src}
+                            alt={props.alt}
+                            width={350}
+                            height={500}
+                            className={styles.img}
+                            layout="responsive"
+                            placeholder="blur"
+                            blurDataURL={props.src}
+                        />
+                    );
+                },
             }}
         >
             {source}

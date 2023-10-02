@@ -38,7 +38,8 @@ const Index = ({
                 content="Помогаем арендаторам лесных участков с оформлением документов. Делаем вашу жизнь проще"
                 image={"/images/logo_384x384.png"}
                 // image={"../public/images/logo_384x384.png"}
-                buttonTitle="Получить консультацию бесплатно"
+                buttonTitle="Получить бесплатную консультацию"
+                // buttonTitle="Получить консультацию бесплатно"
             />
             <We statistics={statistics} whoAreWe={whoAreWe} benefits={benefits} video={video} />
             <Carousel

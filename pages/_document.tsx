@@ -12,6 +12,7 @@ class MyDocument extends Document {
         return (
             <Html lang="ru">
                 <Head>
+                    <script async src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
                     {/* Global Site Tag (gtag.js) - Google Analytics */}
                     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
                     <script

@@ -32,10 +32,11 @@
 
 .fullWidth {
     width: 100%;
+    max-width: 400px;
 }
 
 @media (min-width: 1050px) {
     .fullWidth {
-        width: auto;
+        /* width: auto; */
     }
 }

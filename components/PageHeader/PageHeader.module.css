@@ -7,6 +7,12 @@
     justify-content: space-between; */
     /* align-items: baseline; */
     margin-bottom: 16px;
+    display: grid;
+}
+
+.alignCenter {
+    justify-content: center;
+    text-align: center;
 }
 
 .title {
@@ -23,7 +29,8 @@
 
 @media (min-width: 1050px) {
     .container {
-        margin-top: calc(var(--padding) / 2);
+        margin-top: var(--padding);
+        /* margin-top: calc(var(--padding) / 2); */
         margin-bottom: 32px;
     }
     .title {

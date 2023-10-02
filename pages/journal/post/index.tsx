@@ -23,6 +23,7 @@ const Index: NextPage<Props> = ({ article }) => {
     if (!article) {
         return <Custom404 />;
     }
+
     const { author, relatedArticles, relatedServices, title, content, description, poster } = article;
     return (
         <Layout postData={{ title: title, description: description }} menuItem="journal">

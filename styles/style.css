@@ -78,6 +78,7 @@ p,
 li {
     max-width: 37em;
     /* max-width: 33em; */
+    line-height: 1.4;
 }
 
 p {

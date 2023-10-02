@@ -22,6 +22,7 @@ const FeedbackCard = ({ className, title, avatar, logo, author, company, img, ty
     const renderAuthor = () => (
         <Author avatar={avatar} logo={logo} name={author} company={company} className={styles.author} />
     );
+
     return (
         <div className={classNames(styles.card, { [styles.shadowCard]: type === "text", className })}>
             {type === "video" && (
@@ -29,7 +30,7 @@ const FeedbackCard = ({ className, title, avatar, logo, author, company, img, ty
                     <ReactPlayer url={videoUrl} className={styles.video} width="100%" height="100%" />
                 </div>
             )}
-            {type === "recommendation" && (
+            {type === "recommendation" && img && (
                 <div className={styles.imgWrapper}>
                     {/* <img
                         src={img}

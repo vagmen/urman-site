@@ -9,21 +9,25 @@ interface IStageCard {
     className?: string;
 }
 
-const StageCard = ({ className, img, content }: IStageCard) => (
-    <div className={classNames(styles.card, className)}>
-        <div className={styles.imageWrapper}>
-            <Image
-                className={styles.image}
-                src={img}
-                loading="lazy"
-                layout="fill"
-                placeholder="blur"
-                blurDataURL={img}
-                alt={img}
-            />
+const StageCard = ({ className, img, content }: IStageCard) => {
+    return (
+        <div className={classNames(styles.card, className)}>
+            <div className={styles.imageWrapper}>
+                {img && (
+                    <Image
+                        className={styles.image}
+                        src={img}
+                        loading="lazy"
+                        layout="fill"
+                        placeholder="blur"
+                        blurDataURL={img}
+                        alt={img}
+                    />
+                )}
+            </div>
+            <CustomMarkdown source={content} className={styles.content} />
         </div>
-        <CustomMarkdown source={content} className={styles.content} />
-    </div>
-);
+    );
+};
 
 export default StageCard;

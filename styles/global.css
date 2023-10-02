@@ -26,7 +26,8 @@
     --fontSizeH4: 1.4rem;
     --fontSizeH3: 2rem; /*подзаголовок*/
     --fontSizeH2: 2.4rem; /*заголовок секции*/
-    --fontSizeH1: 3.5rem; /*заголовок страницы*/
+    --fontSizeH1: 3rem; /*заголовок страницы*/
+    /* --fontSizeH1: 3.5rem; заголовок страницы */
 }
 
 .fontTiny {
@@ -38,7 +39,7 @@
 .fontH6 {
     composes: fontSize;
     font-size: var(--fontSizeH6);
-    line-height: calc(var(--fontSizeH6) * 1.2);
+    line-height: calc(var(--fontSizeH6) * 1.5);
 }
 .fontH5 {
     composes: fontSize;
@@ -54,17 +55,20 @@
     composes: fontSize;
     font-size: var(--fontSizeH3);
     line-height: calc(var(--fontSizeH3) * 1.2);
+    /* text-wrap: balance; */
 }
 .fontH2 {
     composes: fontSize;
     font-size: var(--fontSizeH2);
     line-height: calc(var(--fontSizeH2) * 1.2);
+    /* text-wrap: balance; */
 }
 .fontH1 {
     composes: fontSize;
     font-size: var(--fontSizeH1);
     line-height: calc(var(--fontSizeH1) * 1.2);
     font-weight: 500;
+    /* text-wrap: balance; */
 }
 
 /* :root {
@@ -122,6 +126,9 @@
         /* --padding: 192px; */
         --padding: 96px;
         --gap: 32px;
+    }
+    .fontSize {
+        --fontSizeH1: 3.5rem; /*заголовок страницы*/
     }
 }
 

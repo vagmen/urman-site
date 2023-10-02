@@ -3,15 +3,16 @@ import styles from "./PageHeader.module.css";
 import classNames from "classnames";
 
 interface IPageHeader {
-    title: string;
+    title?: string;
     subTitle?: string;
     className?: string;
+    align?: "start" | "center";
 }
 
-const PageHeader = ({ title, subTitle, className }: IPageHeader) => {
+const PageHeader = ({ title, subTitle, className, align = "start" }: IPageHeader) => {
     return (
-        <div className={classNames(styles.container, className)}>
-            <h1 className={styles.title}>{title}</h1>
+        <div className={classNames(styles.container, { [styles.alignCenter]: align === "center" }, className)}>
+            {title && <h1 className={styles.title}>{title}</h1>}
             {subTitle && <p className={styles.subTitle}>{subTitle}</p>}
         </div>
     );

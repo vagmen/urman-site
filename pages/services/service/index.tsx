@@ -41,6 +41,7 @@ const Index = ({
     if (statusCode) {
         return errorHandler(statusCode);
     }
+
     return (
         <Layout postData={{ title: currentService?.name, description: "" }} menuItem="services">
             <div className={styles.container}>

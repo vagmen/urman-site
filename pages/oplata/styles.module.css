@@ -1,0 +1,31 @@
+.form {
+    display: grid;
+    gap: 16px;
+    margin: var(--gap) auto;
+    /* margin: var(--padding) auto; */
+    /* padding: 16px; */
+    width: 100%;
+    max-width: 400px;
+    composes: pagePadding from "./../../styles/global.css";
+    padding: var(--padding);
+    box-shadow: none;
+}
+
+.description {
+    margin-top: var(--gap);
+}
+
+@media (min-width: 500px) {
+}
+
+@media (min-width: 1050px) {
+    .form {
+        composes: pagePadding from "./../../styles/global.css";
+        padding: var(--gap);
+        composes: shadow from "./../../styles/global.css";
+        box-shadow: var(--box-shadow);
+    }
+}
+
+@media (min-width: 1900px) {
+}
