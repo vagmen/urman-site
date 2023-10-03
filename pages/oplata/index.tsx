@@ -51,7 +51,12 @@ const Index = () => {
                     align="center"
                 />
                 <form name="payform-tinkoff" className={styles.form} ref={formRef} onSubmit={(e) => e.preventDefault()}>
-                    <input className="payform-tinkoff-row" type="hidden" name="terminalkey" value="1695965989431DEMO" />
+                    <input
+                        className="payform-tinkoff-row"
+                        type="hidden"
+                        name="terminalkey"
+                        value={process.env.TERMINAL_KEY}
+                    />
                     <input className="payform-tinkoff-row" type="hidden" name="frame" value="false" />
                     <input className="payform-tinkoff-row" type="hidden" name="language" value="ru" />
                     {amountEditable ? (

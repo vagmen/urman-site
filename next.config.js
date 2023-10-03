@@ -5,4 +5,8 @@ module.exports = {
     images: {
         domains: ["admin.urman.su", "img.youtube.com"],
     },
+    env: {
+        TERMINAL_KEY: process.env.TERMINAL_KEY,
+        YANDEX_METRIKA_ID: process.env.YANDEX_METRIKA_ID,
+    },
 };
