@@ -61,13 +61,13 @@ const ContactPanels = () => {
                 <a title="Telegram" href="tg://resolve?domain=URMANgroup_bot" className={styles.btn}>
                     <FaTelegramPlane className={styles.icon} color="#0088cc" />
                 </a>
-                <button
+                {/* <button
                     className={classNames(styles.btn, styles.callback)}
                     title="Заказать звонок"
                     onClick={() => setVisible(true)}
                 >
                     Заказать звонок
-                </button>
+                </button> */}
             </div>
         </>
     );
