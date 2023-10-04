@@ -7,6 +7,7 @@ module.exports = {
     },
     env: {
         TERMINAL_KEY: process.env.TERMINAL_KEY,
+        TERMINAL_KEY_DEMO: process.env.TERMINAL_KEY_DEMO,
         YANDEX_METRIKA_ID: process.env.YANDEX_METRIKA_ID,
     },
 };

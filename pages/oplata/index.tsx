@@ -6,10 +6,10 @@ import { Field } from "components/Field/Field";
 import Button from "components/Button/Button";
 import { useRouter } from "next/router";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
+import { emailCompany } from "constants/settings";
 
 // const isValidRussianPhoneNumber = (phoneNumber) => {
 //     const russianPhoneRegex = /^(\+7|\+?\d{1,4})\s?(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{2}[-\s]?\d{2}$/;
-
 //     return russianPhoneRegex.test(phoneNumber);
 // };
 
@@ -19,24 +19,34 @@ const Index = () => {
     const [phone, setPhone] = useState("");
     const [amount, setAmount] = useState("");
     const [amountEditable, setAmountEditable] = useState(true);
+    const [terminalKey, setTerminalKey] = useState(process.env.TERMINAL_KEY);
     const rou = useRouter();
     const urlAmount = rou.query.amount as string;
+    const urlDemoterminal = rou.query.demoterminal as string;
+
     const [validated, setValidated] = useState(false);
-    // const [valid, setValid] = useState(false);
     const [errors, setErrors] = useState<{ amount: string[]; name: string[]; phone: string[] }>({
         amount: [],
         name: [],
         phone: [],
     });
 
+    const valid = errors.amount?.length === 0 && errors.name?.length === 0 && errors.phone?.length === 0;
+
+    // Если есть значение amount в URL, установите его в состояние компонента
     useEffect(() => {
         if (urlAmount) {
-            // Если есть значение amount в URL, установите его в состояние компонента
             handleAmountChange(urlAmount);
-            // setAmount(urlAmount);
             setAmountEditable(false);
         }
     }, [urlAmount]);
+
+    // если в урле есть параметр demoterminal, то заменить ключ
+    useEffect(() => {
+        if (urlDemoterminal && urlDemoterminal === "true") {
+            setTerminalKey(process.env.TERMINAL_KEY_DEMO);
+        }
+    }, [urlDemoterminal]);
 
     useEffect(() => {
         const initErrors = () => {
@@ -55,22 +65,16 @@ const Index = () => {
         if (!form) {
             return;
         }
+        setValidated(true);
 
-        if (validated) {
-            // Вызываем функцию pay из глобальной области видимости
-            // @ts-ignore
-            if (typeof window.pay === "function") {
-                // @ts-ignore
-                window.pay(form);
-            }
-        } else {
-            setValidated(true);
-        }
+        // Вызываем функцию pay из глобальной области видимости
+        // @ts-ignore
+        valid && typeof window.pay === "function" && window.pay(form);
     };
 
     const handleAmountChange = (input) => {
-        // Валидация ввода для поля "Сумма заказа" (только числа)
         setAmount(input);
+        // Валидация ввода для поля "Сумма заказа"
         const newErr = [];
         if (input === "") {
             newErr.push("Обязательное поле");
@@ -82,8 +86,8 @@ const Index = () => {
     };
 
     const handleNameChange = (input) => {
-        // Валидация ввода для поля "ФИО плательщика" (только буквы)
         setName(input);
+        // Валидация ввода для поля "ФИО плательщика"
         const newErr = [];
         if (input === "") {
             newErr.push("Обязательное поле");
@@ -95,8 +99,8 @@ const Index = () => {
     };
 
     const handlePhoneChange = (input) => {
-        // Валидация ввода для поля "Контактный телефон" (только телефон)
         setPhone(input);
+        // Валидация ввода для поля "Контактный телефон"
         const newErr = [];
         if (input === "") {
             newErr.push("Обязательное поле");
@@ -114,29 +118,36 @@ const Index = () => {
         setErrors((state) => ({ ...state, phone: newErr }));
     };
 
-    const valid = errors.amount?.length === 0 && errors.name?.length === 0 && errors.phone?.length === 0;
-
     const getErrorText = (fieldName: string) => (validated && errors[fieldName]?.length ? errors[fieldName][0] : null);
+
+    const receipt = JSON.stringify({
+        Email: "",
+        // Email: email,
+        Phone: phone,
+        EmailCompany: emailCompany,
+        Taxation: "usn_income",
+        Items: [
+            {
+                Name: name,
+                Price: amount + "00",
+                Quantity: 1.0,
+                Amount: amount + "00",
+                PaymentMethod: "full_prepayment",
+                PaymentObject: "service",
+                Tax: "none",
+            },
+        ],
+    });
 
     return (
         <Layout menuItem="oplata">
             <div>
-                <PageHeader
-                    className={styles.title}
-                    title="Подготовка лесной декларации и отчетов"
-                    //     subTitle="Мы предоставляем услугу по подготовке лесной декларации и отчетов. Наши специалисты гарантируют
-                    // качественное выполнение работы и соблюдение всех необходимых норм и требований."
-                    align="center"
-                />
+                <PageHeader className={styles.title} title="Подготовка лесной декларации и отчетов" align="center" />
                 <form name="payform-tinkoff" className={styles.form} ref={formRef} onSubmit={(e) => e.preventDefault()}>
-                    <input
-                        className="payform-tinkoff-row"
-                        type="hidden"
-                        name="terminalkey"
-                        value={process.env.TERMINAL_KEY}
-                    />
+                    <input className="payform-tinkoff-row" type="hidden" name="terminalkey" value={terminalKey} />
                     <input className="payform-tinkoff-row" type="hidden" name="frame" value="false" />
                     <input className="payform-tinkoff-row" type="hidden" name="language" value="ru" />
+                    <input className="payform-tinkoff-row" type="hidden" name="receipt" value={receipt} />
                     {amountEditable ? (
                         <Field
                             placeholder="Сумма заказа"
@@ -181,7 +192,6 @@ const Index = () => {
                 </form>
                 <PageHeader
                     className={styles.description}
-                    // title="Подготовка лесной декларации и отчетов"
                     subTitle="Мы предоставляем услугу по подготовке лесной декларации и отчетов. Наши специалисты гарантируют
                     качественное выполнение работы и соблюдение всех необходимых норм и требований."
                     align="center"

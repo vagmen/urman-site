@@ -62,3 +62,5 @@ export const segments = [
         link: "werw",
     },
 ];
+
+export const emailCompany = "proekt@urman.ru";
