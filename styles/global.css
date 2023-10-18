@@ -119,6 +119,16 @@
         --padding: 48px;
         --gap: 24px;
     }
+
+    .fontH3 {
+        text-wrap: balance;
+    }
+    .fontH2 {
+        text-wrap: balance;
+    }
+    .fontH1 {
+        text-wrap: balance;
+    }
 }
 
 @media (min-width: 1050px) {
@@ -128,7 +138,8 @@
         --gap: 32px;
     }
     .fontSize {
-        --fontSizeH1: 3.5rem; /*заголовок страницы*/
+        /*заголовок страницы*/
+        /* --fontSizeH1: 3.5rem;  */
     }
 }
 

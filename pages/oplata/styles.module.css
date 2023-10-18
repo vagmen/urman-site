@@ -15,7 +15,16 @@
     margin-top: var(--gap);
 }
 
+.green {
+    composes: colors from "./../../styles/global.css";
+
+    color: var(--colorPrimary);
+}
+
 @media (min-width: 500px) {
+    .description {
+        margin-top: var(--gap);
+    }
 }
 
 @media (min-width: 1050px) {
@@ -25,7 +34,13 @@
         composes: shadow from "./../../styles/global.css";
         box-shadow: var(--box-shadow);
     }
+    .description {
+        margin-top: var(--gap);
+    }
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 1600px) {
+    .description {
+        margin-top: var(--gap);
+    }
 }

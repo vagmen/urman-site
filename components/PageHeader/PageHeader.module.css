@@ -29,12 +29,14 @@
 
 @media (min-width: 1050px) {
     .container {
-        margin-top: var(--padding);
-        /* margin-top: calc(var(--padding) / 2); */
-        margin-bottom: 32px;
+        /* margin-top: calc(var(--padding)); */
+        margin-top: calc(var(--padding) - 32px);
     }
-    .title {
-        margin-top: 32px;
-        margin-bottom: 32px;
+}
+
+@media (min-width: 1600px) {
+    .container {
+        /* margin-top: calc(var(--padding) / 2); */
+        margin-top: calc(var(--padding) - 64px);
     }
 }

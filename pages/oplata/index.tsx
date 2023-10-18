@@ -142,7 +142,15 @@ const Index = () => {
     return (
         <Layout menuItem="oplata">
             <div>
-                <PageHeader className={styles.title} title="Подготовка лесной декларации и отчетов" align="center" />
+                <PageHeader
+                    className={styles.title}
+                    title={
+                        <>
+                            Подготовка лесной декларации и отчетов <span className={styles.green}>за 2024 год</span>
+                        </>
+                    }
+                    align="center"
+                />
                 <form name="payform-tinkoff" className={styles.form} ref={formRef} onSubmit={(e) => e.preventDefault()}>
                     <input className="payform-tinkoff-row" type="hidden" name="terminalkey" value={terminalKey} />
                     <input className="payform-tinkoff-row" type="hidden" name="frame" value="false" />

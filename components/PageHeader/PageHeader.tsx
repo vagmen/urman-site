@@ -3,7 +3,8 @@ import styles from "./PageHeader.module.css";
 import classNames from "classnames";
 
 interface IPageHeader {
-    title?: string;
+    title?: React.ReactNode;
+    // title?: string;
     subTitle?: string;
     className?: string;
     align?: "start" | "center";
