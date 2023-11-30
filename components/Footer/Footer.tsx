@@ -12,7 +12,8 @@ interface IFooter {
 
 const Footer = ({ className }: IFooter) => {
     // const { contacts } = useContext(HeaderContext);
-    const address = "450047, Уфа, ул. Ленина 70";
+    // const address = "450047, Уфа, ул. Ленина 70";
+    const address = "450008, Уфа, ул. Ленина 70";
     const mapLink =
         "https://yandex.ru/maps/172/ufa/?ll=55.952259%2C54.736873&mode=search&oid=159035625593&ol=biz&pt=72.878889E%2C54.484167N%2Cpmwtm1&z=17";
     const phone = "+7 (963) 136-34-86";

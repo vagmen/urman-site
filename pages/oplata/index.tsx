@@ -146,7 +146,8 @@ const Index = () => {
                     className={styles.title}
                     title={
                         <>
-                            Подготовка лесной декларации и отчетов <span className={styles.green}>за 2024 год</span>
+                            Оплата услуг
+                            {/* Подготовка лесной декларации и отчетов <span className={styles.green}>за 2024 год</span> */}
                         </>
                     }
                     align="center"
@@ -198,12 +199,12 @@ const Index = () => {
                         Оплатить{amountEditable ? "" : ` ${amount} ₽`}
                     </Button>
                 </form>
-                <PageHeader
+                {/* <PageHeader
                     className={styles.description}
                     subTitle="Мы предоставляем услугу по подготовке лесной декларации и отчетов. Наши специалисты гарантируют
                     качественное выполнение работы и соблюдение всех необходимых норм и требований."
                     align="center"
-                />
+                /> */}
             </div>
         </Layout>
     );
